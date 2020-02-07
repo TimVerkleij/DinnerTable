@@ -1,4 +1,7 @@
 <resources>
     <string name="app_name">DinnerTable</string>
     <string name="click_me">Click Me!</string>
+    <string name="button">Button</string>
+    <string name="dinner">Dinner</string>
+    <string name="table">Table</string>
 </resources>
