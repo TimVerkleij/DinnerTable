@@ -15,6 +15,5 @@ class MainActivity : AppCompatActivity() {
         clickMe.setOnClickListener {
             Toast.makeText(applicationContext, "Good Job!", Toast.LENGTH_SHORT).show()
         }
-
     }
 }
