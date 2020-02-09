@@ -1,5 +1,6 @@
 package com.example.dinnertable
 
+import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
 import android.widget.ImageButton
@@ -28,6 +29,11 @@ class MainActivity : AppCompatActivity() {
         }
         account.setOnClickListener {
             Toast.makeText(applicationContext, "Ga naar account", Toast.LENGTH_SHORT).show()
+        account.setOnClickListener {
+//            Toast.makeText(applicationContext, "Ga naar account", Toast.LENGTH_SHORT).show()
+            val intent = Intent(this, AccountActivity::class.java)
+            startActivity(intent)
+            overridePendingTransition(0, 0)
         }
         stats.setOnClickListener {
             Toast.makeText(applicationContext, "Ga naar statistieken", Toast.LENGTH_SHORT).show()

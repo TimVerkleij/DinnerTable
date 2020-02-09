@@ -4,4 +4,7 @@
     <string name="button">Button</string>
     <string name="dinner">Dinner</string>
     <string name="table">Table</string>
+    <string name="table"/>
+    <string name="dinner">dinner</string>
+    <string name="button"/>
 </resources>
