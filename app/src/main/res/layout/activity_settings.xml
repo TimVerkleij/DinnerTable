@@ -1,38 +1,38 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
                                                    xmlns:app="http://schemas.android.com/apk/res-auto"
-                                                   xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
-                                                   android:layout_height="match_parent">
+                                                   android:layout_width="match_parent"
+                                                   android:layout_height="match_parent"
+                                                   xmlns:tools="http://schemas.android.com/tools">
 
-    <View android:id="@+id/rectangle_at_the_top2"
+    <View android:id="@+id/rectangle_at_the_top4"
           android:layout_width="0dp"
           android:layout_height="52dp"
           android:layout_alignParentTop="true"
           android:background="#4fad42"
           android:visibility="visible" app:layout_constraintEnd_toEndOf="parent"
           app:layout_constraintStart_toStartOf="parent"
-          app:layout_constraintHorizontal_bias="0.495" app:layout_constraintTop_toTopOf="parent"/>
+          app:layout_constraintHorizontal_bias="1.0" app:layout_constraintTop_toTopOf="parent"/>
     <TextView
             android:text="Dinner"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/dinner2" app:fontFamily="sans-serif-black"
+            android:id="@+id/dinner4" app:fontFamily="sans-serif-black"
             android:textSize="30sp"
-            app:layout_constraintBottom_toBottomOf="@+id/rectangle_at_the_top2"
             android:textColor="#FFFFFF"
             app:layout_constraintStart_toStartOf="parent" android:layout_marginLeft="50dp"
-            android:layout_marginStart="50dp" app:layout_constraintTop_toTopOf="@+id/rectangle_at_the_top2"
-            android:layout_marginTop="5dp" android:layout_marginBottom="5dp"/>
+            android:layout_marginStart="50dp"
+            app:layout_constraintTop_toTopOf="@+id/rectangle_at_the_top4"
+            app:layout_constraintBottom_toBottomOf="@+id/rectangle_at_the_top4"/>
     <TextView
             android:text="Table"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content" android:id="@+id/table2"
+            android:layout_height="wrap_content" android:id="@+id/table4"
             tools:text="Table" android:textColor="#3d3e3c"
             app:fontFamily="sans-serif-black" android:textSize="30sp"
-            app:layout_constraintBottom_toBottomOf="@+id/rectangle_at_the_top2"
-            app:layout_constraintTop_toTopOf="@+id/rectangle_at_the_top2"
-            app:layout_constraintStart_toEndOf="@+id/dinner2" android:layout_marginTop="5dp"
-            android:layout_marginBottom="5dp"/>
+            app:layout_constraintStart_toEndOf="@+id/dinner4"
+            app:layout_constraintTop_toTopOf="@+id/rectangle_at_the_top4"
+            app:layout_constraintBottom_toBottomOf="@+id/rectangle_at_the_top4"/>
     <com.google.android.material.bottomnavigation.BottomNavigationView
             android:layout_width="0dp"
             android:layout_height="67dp"
@@ -51,7 +51,7 @@
                     android:padding="2dp"/>
             <ImageButton
                     android:layout_width="65dp"
-                    android:layout_height="65dp" app:srcCompat="@drawable/selected_account_icon"
+                    android:layout_height="65dp" app:srcCompat="@drawable/account_icon"
                     android:id="@+id/account" android:layout_weight="1" android:scaleType="fitCenter"
                     android:background="#00FFFFFF" android:padding="2dp"/>
             <ImageButton
@@ -61,7 +61,7 @@
                     android:scaleType="fitCenter" android:padding="2dp"/>
             <ImageButton
                     android:layout_width="65dp"
-                    android:layout_height="65dp" app:srcCompat="@drawable/settings_icon"
+                    android:layout_height="65dp" app:srcCompat="@drawable/selected_settings_icon"
                     android:id="@+id/settings" android:layout_weight="1" android:background="#00FFFFFF"
                     android:scaleType="fitCenter" android:padding="2dp"/>
         </LinearLayout>

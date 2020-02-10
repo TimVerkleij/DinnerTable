@@ -13,15 +13,10 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        val clickMe = findViewById<Button>(R.id.clickMe)
         val account = findViewById<ImageButton>(R.id.account)
         val stats = findViewById<ImageButton>(R.id.stats)
         val settings = findViewById<ImageButton>(R.id.settings)
 
-
-        clickMe.setOnClickListener {
-            Toast.makeText(applicationContext, "Good Job!", Toast.LENGTH_SHORT).show()
-        }
 
         account.setOnClickListener {
             val intent = Intent(this, AccountActivity::class.java)
@@ -35,7 +30,9 @@ class MainActivity : AppCompatActivity() {
             overridePendingTransition(0, 0)
         }
         settings.setOnClickListener {
-            Toast.makeText(applicationContext, "Ga naar instellingen", Toast.LENGTH_SHORT).show()
+            val intent = Intent(this, SettingsActivity::class.java)
+            startActivity(intent)
+            overridePendingTransition(0, 0)
         }
     }
 }

@@ -1,23 +1,21 @@
 package com.example.dinnertable
 
 import android.content.Intent
-import android.media.Image
 import android.os.Bundle
-import android.widget.Button
 import android.widget.ImageButton
 import androidx.appcompat.app.AppCompatActivity
 
-class StatsActivity : AppCompatActivity() {
+class SettingsActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_stats)
+        setContentView(R.layout.activity_settings)
 
         val home = findViewById<ImageButton>(R.id.home)
         val account = findViewById<ImageButton>(R.id.account)
-        val settings = findViewById<ImageButton>(R.id.settings)
+        val stats = findViewById<ImageButton>(R.id.stats)
 
-        home.setOnClickListener{
+        home.setOnClickListener {
             val intent = Intent(this, MainActivity::class.java)
             startActivity(intent)
             overridePendingTransition(0, 0)
@@ -29,8 +27,8 @@ class StatsActivity : AppCompatActivity() {
             overridePendingTransition(0, 0)
         }
 
-        settings.setOnClickListener {
-            val intent = Intent(this, SettingsActivity::class.java)
+        stats.setOnClickListener {
+            val intent = Intent(this, StatsActivity::class.java)
             startActivity(intent)
             overridePendingTransition(0, 0)
         }

@@ -13,11 +13,23 @@ class AccountActivity : AppCompatActivity() {
 
         val home = findViewById<ImageButton>(R.id.home)
 //        val account = findViewById<ImageButton>(R.id.account)
-//        val stats = findViewById<ImageButton>(R.id.stats)
-//        val settings = findViewById<ImageButton>(R.id.settings)
+        val stats = findViewById<ImageButton>(R.id.stats)
+        val settings = findViewById<ImageButton>(R.id.settings)
 
         home.setOnClickListener {
             val intent = Intent(this, MainActivity::class.java)
+            startActivity(intent)
+            overridePendingTransition(0, 0)
+        }
+
+        stats.setOnClickListener {
+            val intent = Intent(this, StatsActivity::class.java)
+            startActivity(intent)
+            overridePendingTransition(0, 0)
+        }
+
+        settings.setOnClickListener {
+            val intent = Intent(this, SettingsActivity::class.java)
             startActivity(intent)
             overridePendingTransition(0, 0)
         }
