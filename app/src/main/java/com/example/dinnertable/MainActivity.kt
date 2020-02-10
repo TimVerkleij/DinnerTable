@@ -30,7 +30,9 @@ class MainActivity : AppCompatActivity() {
         }
 
         stats.setOnClickListener {
-            Toast.makeText(applicationContext, "Ga naar statistieken", Toast.LENGTH_SHORT).show()
+            val intent = Intent(this, StatsActivity::class.java)
+            startActivity(intent)
+            overridePendingTransition(0, 0)
         }
         settings.setOnClickListener {
             Toast.makeText(applicationContext, "Ga naar instellingen", Toast.LENGTH_SHORT).show()

@@ -1,0 +1,22 @@
+{
+  "name": "dinnertable",
+  "version": "1.0.0",
+  "description": "dinnertable app",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/KoenieFrankenstein/DinnerTable.git"
+  },
+  "keywords": [
+    "dinnertable"
+  ],
+  "author": "Tim Verkleij",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/KoenieFrankenstein/DinnerTable/issues"
+  },
+  "homepage": "https://github.com/KoenieFrankenstein/DinnerTable#readme"
+}
