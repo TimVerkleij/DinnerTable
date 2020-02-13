@@ -124,11 +124,15 @@
     function switchGerechten() {
         document.getElementById("gerechten").style.display = "block"
         document.getElementById("suggesties").style.display = "none"
+        document.getElementById("suggestieBtn").className = "button"
+        document.getElementById("gerechtenBtn").className = "buttonActive"
     }
 
     function switchSuggesties() {
         document.getElementById("gerechten").style.display = "none"
         document.getElementById("suggesties").style.display = "block"
+        document.getElementById("suggestieBtn").className = "buttonActive"
+        document.getElementById("gerechtenBtn").className = "button"
     }
 </script>
 

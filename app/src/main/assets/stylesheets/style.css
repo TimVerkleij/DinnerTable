@@ -2,6 +2,23 @@ body {
     background-color: #F7F7F7;
 }
 
+td {
+    border-bottom: 1px solid black;
+    width: 100%;
+}
+
+th {
+    border-bottom: 3px solid black;
+}
+
+table{
+    width: 100%;
+}
+
+button{
+    outline: none;
+}
+
 .buttonDiv {
     margin-bottom: 20px;
     width: 112%;
@@ -68,5 +85,12 @@ body {
 
 .tableDiv{
     margin-top: 20px;
-    width: 100%;
+    width: 85%;
+    margin-left: 7%;
+    margin-right: 7%;
+    font-size: 24px;
+}
+
+.suggesties {
+    padding-top: 20px;
 }
