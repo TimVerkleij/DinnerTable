@@ -9,7 +9,7 @@
           android:layout_width="match_parent"
           android:layout_height="52dp"
           android:layout_alignParentTop="true"
-          android:background="#4fad42"
+          android:background="#8CCA73"
           android:visibility="visible" app:layout_constraintEnd_toEndOf="parent"
           app:layout_constraintStart_toStartOf="parent"
           app:layout_constraintHorizontal_bias="0.495" app:layout_constraintTop_toTopOf="parent"/>
