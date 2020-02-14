@@ -19,6 +19,7 @@
                 <!-- <button class="searchBtn" id="searchBtn">Zoek</button> -->
                 <!--!! <button class="searchIcon"></button> -->
                 <!--!! <img class="searchIcon" src="/images/search_icon.png" alt=""> -->
+                <button id="toevoegenBtn" class="toevoegenBtn" onclick="addFood()">+</button>
             </div>
         </div>
         <div class="tableDiv">
@@ -28,8 +29,21 @@
     <div class="suggesties" id="suggesties" style="display: none;">
         <h1>hier komen de suggesties</h1>
     </div>
+    <div id="gerechtToevoegenDiv" class="addFood" style="display: none;">
+        <button class="sluiten" id="sluiten" onclick="closeFood()">x</button>
+        <h3>Voeg hier een gerecht toe</h3>
+        <input type="text" name="newFood" id="newFood" class="foodField">
+        <button class="addFoodBtn" onclick="enterFood()">Toevoegen</button>
+    </div>
 </body>
 <script>
+    var lijst = [{
+        "gerecht": "Pizza"
+    }, {
+        "gerecht": "Lasagne"
+    }, {
+        "gerecht": "Schnitzel"
+    }]
 
     var response = [];
     var searchField = document.getElementById("searchField")
@@ -42,20 +56,10 @@
     // gerechten.forEach(showFood)
 
 
-
     function showFood() {
         var tbl = document.getElementsByTagName('thead')[0];
         if (tbl) tbl.parentNode.removeChild(tbl);
         // console.log(value.gerecht)
-
-        var lijst = [{
-            "gerecht": "Pizza"
-        }, {
-            "gerecht": "Lasagne"
-        }, {
-            "gerecht": "Schnitzel"
-        }]
-
 
 
         var search = searchField.value.toLowerCase();
@@ -133,6 +137,28 @@
         document.getElementById("suggesties").style.display = "block"
         document.getElementById("suggestieBtn").className = "buttonActive"
         document.getElementById("gerechtenBtn").className = "button"
+    }
+
+
+    function addFood() {
+        document.getElementById("gerechtToevoegenDiv").style.display = "block"
+    }
+
+    function enterFood() {
+        var food = document.getElementById("newFood").value
+        if (food !== '') {
+            lijst.unshift({
+                "gerecht": food
+            })
+            document.getElementById("newFood").value = ''
+            document.getElementById("gerechtToevoegenDiv").style.display = "none"
+            showFood()
+        }
+    }
+
+    function closeFood() {
+        document.getElementById("gerechtToevoegenDiv").style.display = "none"
+        document.getElementById("newFood").value = ''
     }
 </script>
 

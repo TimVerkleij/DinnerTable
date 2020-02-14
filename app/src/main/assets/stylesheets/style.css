@@ -11,11 +11,11 @@ th {
     border-bottom: 3px solid black;
 }
 
-table{
+table {
     width: 100%;
 }
 
-button{
+button {
     outline: none;
 }
 
@@ -29,7 +29,8 @@ button{
     top: 0;
 }
 
-.button, .buttonActive {
+.button,
+.buttonActive {
     width: 48%;
     height: 30px;
     background-color: #8CCA73;
@@ -41,24 +42,24 @@ button{
     box-shadow: 0 3px rgb(103, 156, 83);
 }
 
-.button{
+.button {
     box-shadow: 0 3px #8CCA73;
 }
 
-.search{
+.search {
     width: 100%;
 }
 
 .searchBar {
-     width: 100%;
-     height: 30px;
-     margin-left: auto;
-     margin-right: auto;
-     border-radius: 5px;
-     border: none;
+    width: 88%;
+    height: 30px;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 5px;
+    border: none;
 }
 
-.searchBtn{
+.searchBtn {
     height: 30px;
     width: 18%;
     border: none;
@@ -83,7 +84,7 @@ button{
     padding: 10px;
 }
 
-.tableDiv{
+.tableDiv {
     margin-top: 20px;
     width: 85%;
     margin-left: 7%;
@@ -93,4 +94,62 @@ button{
 
 .suggesties {
     padding-top: 20px;
+}
+
+.toevoegenBtn {
+    float: right;
+    border-radius: 50px;
+    border: 2px solid rgb(105, 158, 84);
+    background-color: #8CCA73;
+    font-weight: bold;
+    font-size: 20px;
+    width: 30px;
+    height: 30px;
+    box-shadow: 0 2px rgb(69, 104, 55);
+}
+
+.toevoegenBtn:active {
+    transform: translateY(4px);
+    box-shadow: 0 0;
+}
+
+.addFood {
+    background-color: white;
+    border: 2px solid rgb(209, 208, 208);
+    width: 85%;
+    position: fixed;
+    margin-left: 5%;
+    top: 100px;
+}
+
+.foodField {
+    width: 67%;
+    height: 20px;
+    margin-left: 3%;
+    margin-bottom: 5px;
+    border: 2px solid rgb(206, 204, 204);
+    background-color: whitesmoke;
+}
+
+.addFoodBtn {
+    height: 25px;
+    border: 2px solid rgb(105, 158, 84);
+    background-color: #8CCA73;
+    border-radius: 5px;
+    box-shadow: 0 2px rgb(69, 104, 55);
+    float: right;
+}
+
+.addFoodBtn:active{
+    transform: translateY(4px);
+    box-shadow: 0 0;
+    float: right;
+}
+
+.sluiten{
+    float: right;
+    border: none;
+    margin: 3px;
+    font-weight: bold;
+    font-size: 20px;
 }
