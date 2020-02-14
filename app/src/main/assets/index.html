@@ -33,7 +33,7 @@
         <button class="sluiten" id="sluiten" onclick="closeFood()">x</button>
         <h3>Voeg hier een gerecht toe</h3>
         <input type="text" name="newFood" id="newFood" class="foodField">
-        <button class="addFoodBtn" onclick="enterFood()">Toevoegen</button>
+        <button class="addFoodBtn" onclick="enterFood()" id="addFoodBtn">Toevoegen</button>
     </div>
 </body>
 <script>
@@ -47,6 +47,7 @@
 
     var response = [];
     var searchField = document.getElementById("searchField")
+    var newFood = document.getElementById("newFood")
     showFood();
 
     searchField.addEventListener('input', showFood);
@@ -124,6 +125,15 @@
         }
     });
 
+    newFood.addEventListener("keyup", function(event) {
+        if (event.keyCode === 13) {
+            event.preventDefault();
+            document.getElementById("addFoodBtn").click();
+        }
+    })
+
+
+
 
     function switchGerechten() {
         document.getElementById("gerechten").style.display = "block"
@@ -147,8 +157,9 @@
     function enterFood() {
         var food = document.getElementById("newFood").value
         if (food !== '') {
+            const upperFood = food.charAt(0).toUpperCase() + food.substring(1);
             lijst.unshift({
-                "gerecht": food
+                "gerecht": upperFood
             })
             document.getElementById("newFood").value = ''
             document.getElementById("gerechtToevoegenDiv").style.display = "none"
