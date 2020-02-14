@@ -6,13 +6,13 @@
     <title>Title</title>
 </head>
 
-<body>
+<body onload="adjustScreen()">
 
     <div class="buttonDiv">
         <button class="button" onclick="switchSuggesties()" id="suggestieBtn">Suggesties</button>
         <button class="buttonActive" onclick="switchGerechten()" id="gerechtenBtn">Alle gerechten</button>
     </div>
-    <div class="gerechten" id="gerechten">
+    <div class="slide-in" id="gerechten">
         <div class="line">
             <div class="search">
                 <input type="text" id="searchField" class="searchBar" placeholder="Zoek een gerecht">
@@ -26,7 +26,7 @@
             <table></table>
         </div>
     </div>
-    <div class="suggesties" id="suggesties" style="display: none;">
+    <div class="slide-out" id="suggesties" style="display: none;">
         <h1>hier komen de suggesties</h1>
     </div>
     <div id="gerechtToevoegenDiv" class="addFood" style="display: none;">
@@ -137,16 +137,42 @@
 
     function switchGerechten() {
         document.getElementById("gerechten").style.display = "block"
-        document.getElementById("suggesties").style.display = "none"
+        document.getElementById("gerechten").className = "slide-in"
+        document.getElementById("suggesties").className = "slide-out"
+
+
         document.getElementById("suggestieBtn").className = "button"
         document.getElementById("gerechtenBtn").className = "buttonActive"
+
+        setTimeout(function() {
+
+            document.getElementById("suggesties").style.display = "none"
+        }, 500);
     }
 
     function switchSuggesties() {
-        document.getElementById("gerechten").style.display = "none"
         document.getElementById("suggesties").style.display = "block"
+        document.getElementById("gerechten").className = "fade-out"
+        document.getElementById("suggesties").className = "slide-in"
+
+        // wait(3000)
+
+
         document.getElementById("suggestieBtn").className = "buttonActive"
         document.getElementById("gerechtenBtn").className = "button"
+
+        setTimeout(function() {
+            document.getElementById("gerechten").style.display = "none"
+        }, 500);
+    }
+
+
+    function wait(ms) {
+        var start = new Date().getTime();
+        var end = start;
+        while (end < start + ms) {
+            end = new Date().getTime();
+        }
     }
 
 
@@ -171,6 +197,21 @@
         document.getElementById("gerechtToevoegenDiv").style.display = "none"
         document.getElementById("newFood").value = ''
     }
+
+    setTimeout(function() {
+        
+
+    function adjustScreen() {
+        var schermbreedte = window.innerWidth
+        var schermbreedte2 = screen.width
+        schermbreedte = schermbreedte + "px"
+        schermbreedte2 = schermbreedte2 - 10 + "px"
+        console.log(schermbreedte)
+        document.body.style.width = schermbreedte2
+    }
+    adjustScreen();
+    
+}, 300);
 </script>
 
 </html>
