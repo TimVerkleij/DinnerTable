@@ -104,6 +104,7 @@ button {
 #gerechten {
     transform: translateX(90%);
     -webkit-transform: translateX(90%);
+    overflow: hidden;
 }
 
 
