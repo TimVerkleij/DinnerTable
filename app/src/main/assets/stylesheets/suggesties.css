@@ -1,26 +1,23 @@
 .fifthOne, .fifthTwo, .fifthThree, .fifthFour, .fifthFive{
-    width: 44%;
-    height: 150px;
+    width: 100%;
+    height: max-content;
     overflow: hidden;
 
     font-family: Arial;
     font-size: 6px;
     font-weight: normal;
 
-    margin-top: 1%;
+    margin-top: 20px;
     text-align: center;
 
-    /* border: 1px solid black; */
 }
 .fifthOne, .fifthThree{
-    float: left;
-    margin-left: 2%;
-    margin-right: 1%;
+    margin-left: auto;
+    margin-right: auto;
 }
 .fifthTwo, .fifthFour{
-    float: right;
-    margin-right: 2%;
-    margin-left: 1%;
+    margin-right: auto;
+    margin-left: auto;
 }
 .fifthFive{
     margin-left: auto;
