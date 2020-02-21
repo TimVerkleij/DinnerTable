@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>hi</title>
+</head>
+
+<body>
+    <!-- <div class="fifth">
+        <p>Draairad</p>
+    </div> -->
+
+    <div class="fifthOne">
+        <div>
+            <p class="voorstelText" id="favoGerecht"></p>
+        </div>
+        <div>
+            <div class="imgContainer">
+                <img src="https://www.thuisbezorgd.nl/blog/wp-content/uploads/2019/04/bibimbap-eten-vanavond.png"
+                    alt="Je favoriet gebaseerd op hoevaak je het hebt gegeten!">
+            </div>
+        </div>
+    </div>
+
+    <div class="fifthTwo">
+        <div>
+            <p class="voorstelText" id="dagGerecht"></p>
+        </div>
+        <div>
+            <div class="imgContainer">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/23/Shawarma_meat.jpeg/1200px-Shawarma_meat.jpeg"
+                    alt="Je gerecht gebaseerd op je week patroon!" class="image">
+            </div>
+        </div>
+    </div>
+
+    <div class="fifthThree">
+        <div>
+            <p class="voorstelText" id="healthGerecht"></p>
+        </div>
+        <div>
+            <div class="imgContainer">
+                <img src="https://img.hellofresh.com/f_auto,fl_lossy,q_auto,w_1200/hellofresh_s3/image/vegetarische-caesar-salade-db2fc158.jpg"
+                    alt="Je gerecht gebaseerd op je gezondheids patroon!" class="image">
+            </div>
+        </div>
+    </div>
+
+    <div class="fifthFour">
+        <div>
+            <p class="voorstelText" id="langstGerecht"></p>
+        </div>
+        <div>
+            <div class="imgContainer">
+                <img src="https://i0.wp.com/marielleindekeuken.nl/wp-content/uploads/2018/03/Lasagne.jpg?resize=1200%2C1200&ssl=1"
+                    alt="Dit heb je al het langst niet meer gegeten!" class="image">
+            </div>
+        </div>
+    </div>
+
+    <div class="fifthFive">
+        <div>
+            <p class="voorstelText" id="keukenGerecht"></p>
+        </div>
+        <div>
+            <div class="imgContainer">
+                <img src="https://www.24kitchen.nl/files/styles/social_media_share/public/2019-02/24Kitchen_Hugo_WEWV_RecipePhotography_HIGHRes_Risotto_met_gerookt_forel_L.jpg?itok=SS3S2jlj"
+                    alt="Je gerecht gebaseerd op je gekozen keuken!" class="image">
+            </div>
+        </div>
+    </div>
+
+    <link rel="stylesheet" href="suggesties.css">
+    <script>
+        var favoGerecht = document.getElementById("favoGerecht")
+var dagGerecht = document.getElementById("dagGerecht")
+var healthGerecht = document.getElementById("healthGerecht")
+var langstGerecht = document.getElementById("langstGerecht")
+var keukenGerecht = document.getElementById("keukenGerecht")
+
+var keuken = "Italiaans"
+var gezondheid = "7"
+var aanmoediging = ""
+
+if(gezondheid < 7){
+ aanmoediging = "haal dit omhoog met een "
+}else if( gezondheid >= 7){
+ aanmoediging = "houd dit vol met een "
+}
+
+var gerechten = [{
+    "favoriet" : "Pannekoeken"
+}, {
+    "dagGerecht" : "Shoarma"
+}, {
+    "gezondheid" : "Ceasar salad"
+}, {
+    "langstNiet" : "Lasagne"
+}, {
+    "keuken" : "Risotto"
+}]
+
+console.log(gerechten)
+
+favoGerecht.innerHTML = "Uw favoriete gerecht is " + gerechten[0].favoriet + "!"
+dagGerecht.innerHTML = "Uw meest gegeten op vrijdag, " + gerechten[1].dagGerecht + "!"
+healthGerecht.innerHTML = "Uw gemiddelde gezondheid is een " + gezondheid + ", "+ aanmoediging + gerechten[2].gezondheid + "!"
+langstGerecht.innerHTML = "Uw heeft al heel lang geen " + gerechten[3].langstNiet + " meer gegeten, misschien weer proberen?"
+keukenGerecht.innerHTML = "U eet veel " + keuken + ", misschien vind u " + gerechten[4].keuken + " ook lekker?"
+    </script>
+</body>
+
+</html>
