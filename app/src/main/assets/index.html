@@ -3,6 +3,7 @@
 
 <head>
     <link rel="stylesheet" type="text/css" href="stylesheets/style.css">
+    <link rel="stylesheet" href="stylesheets/suggesties.css">
     <title>Title</title>
 </head>
 
@@ -18,7 +19,7 @@
                 <input type="text" id="searchField" class="searchBar" placeholder="Zoek een gerecht">
                 <!-- <button class="searchBtn" id="searchBtn">Zoek</button> -->
                 <!--!! <button class="searchIcon"></button> -->
-                <img class="searchIcon" src="images/search_icon.png" alt="">
+                <!--!! <img class="searchIcon" src="images/search_icon.png" alt=""> -->
             </div>
         </div>
         <div class="tableDiv">
@@ -26,115 +27,67 @@
         </div>
     </div>
     <div class="suggesties" id="suggesties" style="display: none;">
-        <h1>hier komen de suggesties</h1>
+        <!-- <div class="fifth">
+        <p>Draairad</p>
+    </div> -->
+
+        <div class="fifthOne">
+            <div>
+                <p class="voorstelText" id="favoGerecht"></p>
+            </div>
+            <div>
+                <div class="imgContainer">
+                    <img src="images/bami.png" alt="Je favoriet gebaseerd op hoevaak je het hebt gegeten!">
+                </div>
+            </div>
+        </div>
+
+        <div class="fifthTwo">
+            <div>
+                <p class="voorstelText" id="dagGerecht"></p>
+            </div>
+            <div>
+                <div class="imgContainer">
+                    <img src="images/shoarma.jpeg" alt="Je gerecht gebaseerd op je week patroon!" class="image">
+                </div>
+            </div>
+        </div>
+
+        <div class="fifthThree">
+            <div>
+                <p class="voorstelText" id="healthGerecht"></p>
+            </div>
+            <div>
+                <div class="imgContainer">
+                    <img src="images/ceasarSalad.jpg" alt="Je gerecht gebaseerd op je gezondheids patroon!" class="image">
+                </div>
+            </div>
+        </div>
+
+        <div class="fifthFour">
+            <div>
+                <p class="voorstelText" id="langstGerecht"></p>
+            </div>
+            <div>
+                <div class="imgContainer">
+                    <img src="images/lasagne.jpg" alt="Dit heb je al het langst niet meer gegeten!" class="image">
+                </div>
+            </div>
+        </div>
+
+        <div class="fifthFive">
+            <div>
+                <p class="voorstelText" id="keukenGerecht"></p>
+            </div>
+            <div>
+                <div class="imgContainer">
+                    <img src="images/risotto.jpg" alt="Je gerecht gebaseerd op je gekozen keuken!" class="image">
+                </div>
+            </div>
+        </div>
     </div>
 </body>
-<script>
-
-    var response = [];
-    var searchField = document.getElementById("searchField")
-    showFood();
-
-    searchField.addEventListener('input', showFood);
-
-    // var searchField = document.getElementById("searchField");
-    // console.log(gerechten[0].gerecht)
-    // gerechten.forEach(showFood)
-
-
-
-    function showFood() {
-        var tbl = document.getElementsByTagName('thead')[0];
-        if (tbl) tbl.parentNode.removeChild(tbl);
-        // console.log(value.gerecht)
-
-        var lijst = [{
-            "gerecht": "Pizza"
-        }, {
-            "gerecht": "Lasagne"
-        }, {
-            "gerecht": "Schnitsel"
-        }]
-
-
-
-        var search = searchField.value.toLowerCase();
-        response = [];
-        lijst.forEach(filteren)
-
-        function filteren(value) {
-            var text = value.gerecht.toLowerCase();
-            var found = text.indexOf(search);
-            console.log(found)
-            console.log(value.gerecht)
-            console.log(search)
-            if (found == 0) {
-                console.log(value)
-                response.push(value)
-                console.log(response)
-            }
-            // if (search == ''){
-            //     response = lijst
-            // }
-
-        }
-
-
-        let mountains = response
-
-
-        function generateTableHead(table, data) {
-            let thead = table.createTHead();
-            let row = thead.insertRow();
-            for (let key of data) {
-                let th = document.createElement("th");
-                let text = document.createTextNode(key);
-                th.appendChild(text);
-                row.appendChild(th);
-            }
-        }
-
-        function generateTable(table, data) {
-            for (let element of data) {
-                let row = table.insertRow();
-                for (key in element) {
-                    let cell = row.insertCell();
-                    let text = document.createTextNode(element[key]);
-                    cell.appendChild(text);
-                }
-            }
-        }
-        let table = document.querySelector("table");
-        let data = Object.keys(mountains[0]);
-        generateTableHead(table, data);
-        generateTable(table, mountains);
-        
-        document.getElementsByTagName("th")[0].innerHTML = "Gerechten"
-    }
-
-
-
-    searchField.addEventListener("keyup", function(event) {
-        if (event.keyCode === 13) {
-            event.preventDefault();
-            document.getElementById("searchBtn").click();
-        }
-    });
-
-
-    function switchGerechten() {
-        document.getElementById("gerechten").style.display = "block"
-        document.getElementById("suggesties").style.display = "none"
-        document.getElementById("suggestieBtn").className = "button"
-        document.getElementById("gerechtenBtn").className = "buttonActive"
-    }
-
-    function switchSuggesties() {
-        document.getElementById("gerechten").style.display = "none"
-        document.getElementById("suggesties").style.display = "block"
-        document.getElementById("suggestieBtn").className = "buttonActive"
-        document.getElementById("gerechtenBtn").className = "button"
-    }
-</script>
+<script src="scripts/script.js" defer></script>
+<script src="scripts/main.js"></script>
 
 </html>
