@@ -42,7 +42,7 @@
             app:layout_constraintEnd_toEndOf="parent" app:layout_constraintBottom_toTopOf="@+id/bottomNavigationView"/>
     <com.google.android.material.bottomnavigation.BottomNavigationView
             android:layout_width="0dp"
-            android:layout_height="52dp"
+            android:layout_height="67dp"
             app:layout_constraintStart_toStartOf="parent" app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintBottom_toBottomOf="parent" app:itemTextColor="#3d3e3c" android:background="#F7F7F7"
             android:id="@+id/bottomNavigationView" android:padding="2dp">
@@ -51,24 +51,24 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
             <ImageButton
-                    android:layout_width="50dp"
-                    android:layout_height="50dp" app:srcCompat="@drawable/home_icon"
+                    android:layout_width="65dp"
+                    android:layout_height="65dp" app:srcCompat="@drawable/home_icon"
                     android:id="@+id/home" android:layout_weight="1" android:scaleType="fitCenter"
                     style="@style/AppTheme" android:background="#00FFFFFF" android:contentDescription="TODO"
                     android:padding="2dp"/>
             <ImageButton
-                    android:layout_width="50dp"
-                    android:layout_height="50dp" app:srcCompat="@drawable/account_icon"
+                    android:layout_width="65dp"
+                    android:layout_height="65dp" app:srcCompat="@drawable/account_icon"
                     android:id="@+id/account" android:layout_weight="1" android:scaleType="fitCenter"
                     android:background="#00FFFFFF" android:padding="2dp"/>
             <ImageButton
-                    android:layout_width="50dp"
-                    android:layout_height="50dp" app:srcCompat="@drawable/stats_icon"
+                    android:layout_width="65dp"
+                    android:layout_height="65dp" app:srcCompat="@drawable/stats_icon"
                     android:id="@+id/stats" android:layout_weight="1" android:background="#00FFFFFF"
                     android:scaleType="fitCenter" android:padding="2dp"/>
             <ImageButton
-                    android:layout_width="50dp"
-                    android:layout_height="50dp" app:srcCompat="@drawable/selected_settings_icon"
+                    android:layout_width="65dp"
+                    android:layout_height="65dp" app:srcCompat="@drawable/selected_settings_icon"
                     android:id="@+id/settings" android:layout_weight="1" android:background="#00FFFFFF"
                     android:scaleType="fitCenter" android:padding="2dp"/>
         </LinearLayout>

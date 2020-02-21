@@ -6,48 +6,33 @@
     <title>Title</title>
 </head>
 
-<body onload="adjustScreen()">
+<body>
 
     <div class="buttonDiv">
         <button class="button" onclick="switchSuggesties()" id="suggestieBtn">Suggesties</button>
         <button class="buttonActive" onclick="switchGerechten()" id="gerechtenBtn">Alle gerechten</button>
     </div>
-    <div class="slide-in" id="gerechten">
+    <div class="gerechten" id="gerechten">
         <div class="line">
             <div class="search">
                 <input type="text" id="searchField" class="searchBar" placeholder="Zoek een gerecht">
                 <!-- <button class="searchBtn" id="searchBtn">Zoek</button> -->
                 <!--!! <button class="searchIcon"></button> -->
                 <!--!! <img class="searchIcon" src="/images/search_icon.png" alt=""> -->
-                <button id="toevoegenBtn" class="toevoegenBtn" onclick="addFood()">+</button>
             </div>
         </div>
         <div class="tableDiv">
             <table></table>
         </div>
     </div>
-    <div class="slide-out" id="suggesties" style="display: none;">
+    <div class="suggesties" id="suggesties" style="display: none;">
         <h1>hier komen de suggesties</h1>
-    </div>
-    <div id="gerechtToevoegenDiv" class="addFood" style="display: none;">
-        <button class="sluiten" id="sluiten" onclick="closeFood()">x</button>
-        <h3>Voeg hier een gerecht toe</h3>
-        <input type="text" name="newFood" id="newFood" class="foodField">
-        <button class="addFoodBtn" onclick="enterFood()" id="addFoodBtn">Toevoegen</button>
     </div>
 </body>
 <script>
-    var lijst = [{
-        "gerecht": "Pizza"
-    }, {
-        "gerecht": "Lasagne"
-    }, {
-        "gerecht": "Schnitzel"
-    }]
 
     var response = [];
     var searchField = document.getElementById("searchField")
-    var newFood = document.getElementById("newFood")
     showFood();
 
     searchField.addEventListener('input', showFood);
@@ -57,10 +42,20 @@
     // gerechten.forEach(showFood)
 
 
+
     function showFood() {
         var tbl = document.getElementsByTagName('thead')[0];
         if (tbl) tbl.parentNode.removeChild(tbl);
         // console.log(value.gerecht)
+
+        var lijst = [{
+            "gerecht": "Pizza"
+        }, {
+            "gerecht": "Lasagne"
+        }, {
+            "gerecht": "Schnitsel"
+        }]
+
 
 
         var search = searchField.value.toLowerCase();
@@ -113,6 +108,7 @@
         let data = Object.keys(mountains[0]);
         generateTableHead(table, data);
         generateTable(table, mountains);
+        
         document.getElementsByTagName("th")[0].innerHTML = "Gerechten"
     }
 
@@ -125,96 +121,20 @@
         }
     });
 
-    newFood.addEventListener("keyup", function(event) {
-        if (event.keyCode === 13) {
-            event.preventDefault();
-            document.getElementById("addFoodBtn").click();
-        }
-    })
-
-
-
 
     function switchGerechten() {
         document.getElementById("gerechten").style.display = "block"
-        document.getElementById("gerechten").className = "slide-in"
-        document.getElementById("suggesties").className = "slide-out"
-
-
+        document.getElementById("suggesties").style.display = "none"
         document.getElementById("suggestieBtn").className = "button"
         document.getElementById("gerechtenBtn").className = "buttonActive"
-
-        setTimeout(function() {
-
-            document.getElementById("suggesties").style.display = "none"
-        }, 500);
     }
 
     function switchSuggesties() {
+        document.getElementById("gerechten").style.display = "none"
         document.getElementById("suggesties").style.display = "block"
-        document.getElementById("gerechten").className = "fade-out"
-        document.getElementById("suggesties").className = "slide-in"
-
-        // wait(3000)
-
-
         document.getElementById("suggestieBtn").className = "buttonActive"
         document.getElementById("gerechtenBtn").className = "button"
-
-        setTimeout(function() {
-            document.getElementById("gerechten").style.display = "none"
-        }, 500);
     }
-
-
-    function wait(ms) {
-        var start = new Date().getTime();
-        var end = start;
-        while (end < start + ms) {
-            end = new Date().getTime();
-        }
-    }
-
-
-    function addFood() {
-        document.getElementById("gerechtToevoegenDiv").style.display = "block"
-    }
-
-    function enterFood() {
-        var food = document.getElementById("newFood").value
-        if (food !== '') {
-            const upperFood = food.charAt(0).toUpperCase() + food.substring(1);
-            lijst.unshift({
-                "gerecht": upperFood
-            })
-            document.getElementById("newFood").value = ''
-            document.getElementById("gerechtToevoegenDiv").style.display = "none"
-            showFood()
-        }
-    }
-
-    function closeFood() {
-        document.getElementById("gerechtToevoegenDiv").style.display = "none"
-        document.getElementById("newFood").value = ''
-    }
-
-    setTimeout(function() {
-        
-
-    function adjustScreen() {
-        var schermbreedte = window.innerWidth
-        var schermbreedte2 = screen.width
-        schermbreedte = schermbreedte + "px"
-        schermbreedte2 = schermbreedte2 - 10 + "px"
-        console.log(schermbreedte)
-        document.body.style.width = schermbreedte2
-        document.body.style.maxWidth = schermbreedte2
-    }
-    adjustScreen();
-    
-}, 300);
-
-
 </script>
 
 </html>

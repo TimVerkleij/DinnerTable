@@ -31,7 +31,7 @@ class MainActivity : AppCompatActivity() {
 //        webview.settings.domStorageEnabled = true
         webview.loadUrl("file:///android_asset/index.html")
 
-//        webview.loadUrl("https://145.89.154.203:5500")
+//        webview.loadUrl("https://www.google.com")
 
 
         account.setOnClickListener {
