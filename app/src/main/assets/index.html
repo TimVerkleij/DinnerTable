@@ -10,10 +10,10 @@
 <body>
 
     <div class="buttonDiv">
-        <button class="button" onclick="switchSuggesties()" id="suggestieBtn">Suggesties</button>
-        <button class="buttonActive" onclick="switchGerechten()" id="gerechtenBtn">Alle gerechten</button>
+        <button class="buttonActive" onclick="switchSuggesties()" id="suggestieBtn">Suggesties</button>
+        <button class="button" onclick="switchGerechten()" id="gerechtenBtn">Alle gerechten</button>
     </div>
-    <div class="gerechten" id="gerechten">
+    <div class="gerechten" id="gerechten" style="display: none;">
         <div class="line">
             <div class="search">
                 <input type="text" id="searchField" class="searchBar" placeholder="Zoek een gerecht">
@@ -26,7 +26,7 @@
             <table></table>
         </div>
     </div>
-    <div class="suggesties" id="suggesties" style="display: none;">
+    <div class="suggesties" id="suggesties">
         <!-- <div class="fifth">
         <p>Draairad</p>
     </div> -->
