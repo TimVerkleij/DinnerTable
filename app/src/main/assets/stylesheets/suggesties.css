@@ -1,6 +1,6 @@
 .fifthOne, .fifthTwo, .fifthThree, .fifthFour, .fifthFive{
     width: 44%;
-    height: auto;
+    height: 150px;
     overflow: hidden;
 
     font-family: Arial;
@@ -10,10 +10,10 @@
     margin-top: 1%;
     text-align: center;
 
-    border: 1px solid black;
+    /* border: 1px solid black; */
 }
 .fifthOne, .fifthThree{
-    float: left;
+    float: left;s
     margin-left: 2%;
     margin-right: 1%;
 }
@@ -27,7 +27,7 @@
     margin-right: auto;   
 }
 .imgContainer{
-    width: 60%;
+    width: 80%;
     height: auto;
     margin-left: auto;
     margin-right: auto;
@@ -36,9 +36,11 @@ img{
     border: 2px solid #8CCA73;
     border-radius: 3px;
     width: 90%;
+    display: flex;
+    
 }
 .voorstelText{
     font-family: Arial;
-    font-size: 10px;
+    font-size: 14px;
     text-decoration-color: #3C3C3D;
 }
