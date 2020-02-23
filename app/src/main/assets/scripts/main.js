@@ -1,22 +1,8 @@
-//!! firebase stuff
-// Set the configuration for your app
-var config = {
-    apiKey: "AIzaSyBJaWwzG5HTWIXOxywshVpRRHo1i4Gey8s",
-    authDomain: "dinnertable-56c1c.firebaseapp.com",
-    databaseURL: "https://dinnertable-56c1c.firebaseio.com",
-    storageBucket: "dinnertable-56c1c.appspot.com"
-};
-firebase.initializeApp(config);
-
-// Get a reference to the database service
-var database = firebase.database();
-//!! end of firebase stuff
-
-
-
-
 var response = [];
 var searchField = document.getElementById("searchField")
+
+//TODO: Ik moet deze javascript file nog opschonen omdat firebase echt super kut doet.
+
 
 // var lijst = [{
 //     "gerecht": "Pizza"
