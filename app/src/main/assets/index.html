@@ -17,6 +17,7 @@
         <div class="line">
             <div class="search">
                 <input type="text" id="searchField" class="searchBar" placeholder="Zoek een gerecht">
+                <button class="addFoodBtn" id="addFoodBtn" onclick="addFood()">+</button>
                 <!-- <button class="searchBtn" id="searchBtn">Zoek</button> -->
                 <!--!! <button class="searchIcon"></button> -->
                 <!--!! <img class="searchIcon" src="images/search_icon.png" alt=""> -->
@@ -24,6 +25,10 @@
         </div>
         <div class="tableDiv">
             <table></table>
+        </div>
+        <div class="addFoodDiv" id="addFoodDiv">
+            <button class="closeAddFood" id="closeAddFood" onclick="closeAddFood()">x</button>
+            <h3>Voeg een gerecht toe aan uw lijst</h3>
         </div>
     </div>
     <div class="suggesties" id="suggesties">
@@ -122,6 +127,7 @@
 
 </body>
 <script src="scripts/script.js" defer></script>
-<script src="scripts/main.js"></script>
+<script src="scripts/main.js" defer></script>
+<script src="scripts/addFood.js" defer></script>
 
 </html>

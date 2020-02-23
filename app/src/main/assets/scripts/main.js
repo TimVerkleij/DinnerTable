@@ -1,16 +1,16 @@
 //!! firebase stuff
 // Set the configuration for your app
-  // TODO: Replace with your project's config object
-  var config = {
+// TODO: Replace with your project's config object
+var config = {
     apiKey: "AIzaSyBJaWwzG5HTWIXOxywshVpRRHo1i4Gey8s",
     authDomain: "dinnertable-56c1c.firebaseapp.com",
     databaseURL: "https://dinnertable-56c1c.firebaseio.com",
     storageBucket: "dinnertable-56c1c.appspot.com"
-  };
-  firebase.initializeApp(config);
+};
+firebase.initializeApp(config);
 
-  // Get a reference to the database service
-  var database = firebase.database();
+// Get a reference to the database service
+var database = firebase.database();
 //!! end of firebase stuff
 
 
@@ -29,28 +29,31 @@ var searchField = document.getElementById("searchField")
 
 var lijst = []
 
-
 // showFood();
 
 
-searchField.addEventListener('input', showFood);
+
 
 // var searchField = document.getElementById("searchField");
 // console.log(gerechten[0].gerecht)
 // gerechten.forEach(showFood)
 
 function getFood() {
+    var searchField = document.getElementById("searchField")
+    searchField.addEventListener('input', showFood);
+    window.lijst = []
+        // window.waarden = "Pizza, Salade, Bami"
     list = waarden.split(", ")
     list.forEach(createList)
 
 
 
     // waarden.forEach(createList)
-    
+
 
     function createList(value) {
-        console.log(value)
-        lijst.push({"gerecht": value})
+        window.lijst.push({ "gerecht": value })
+            // lijst.push(value)
 
     }
     showFood();
@@ -59,17 +62,16 @@ function getFood() {
 
 
 
-
 function showFood() {
+    window.searchField = document.getElementById("searchField")
     var tbl = document.getElementsByTagName('thead')[0];
     if (tbl) tbl.parentNode.removeChild(tbl);
-    // console.log(value.gerecht)
 
 
 
-    var search = searchField.value.toLowerCase();
+    var search = window.searchField.value.toLowerCase();
     response = [];
-    lijst.forEach(filteren)
+    window.lijst.forEach(filteren)
 
     function filteren(value) {
         var text = value.gerecht.toLowerCase();
@@ -77,13 +79,12 @@ function showFood() {
         if (found == 0) {
             response.push(value)
         }
-        // if (search == ''){
+        // if (search == '') {
         //     response = lijst
         // }
 
     }
 
-    console.log(response + "fsfsdf look at me here")
     let mountains = response
 
 
