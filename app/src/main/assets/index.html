@@ -28,14 +28,12 @@
         </div>
         <div class="addFoodDiv" id="addFoodDiv">
             <button class="closeAddFood" id="closeAddFood" onclick="closeAddFood()">x</button>
-            <h3>Voeg een gerecht toe aan uw lijst</h3>
+            <h4 class="addFoodText">Voeg een gerecht toe aan uw lijst</h4>
+            <input type="text" name="addFoodBar" id="addFoodBar" class="addFoodBar" placeholder="Voeg een gerecht toe">
+            <button class="confirmAdd" id="confirmAdd">Toevoegen</button>
         </div>
     </div>
     <div class="suggesties" id="suggesties">
-        <!-- <div class="fifth">
-        <p>Draairad</p>
-    </div> -->
-
         <table>
             <tr>
                 <td class="gerechten">
@@ -99,30 +97,30 @@
         </table>
     </div>
 
-<!--!! firebase stuff  -->
-<script src="https://www.gstatic.com/firebasejs/7.9.1/firebase-app.js"></script>
+    <!--!! firebase stuff  -->
+    <script src="https://www.gstatic.com/firebasejs/7.9.1/firebase-app.js"></script>
 
-<!-- TODO: Add SDKs for Firebase products that you want to use
+    <!-- TODO: Add SDKs for Firebase products that you want to use
      https://firebase.google.com/docs/web/setup#available-libraries -->
-<script src="https://www.gstatic.com/firebasejs/7.9.1/firebase-analytics.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.9.1/firebase-analytics.js"></script>
 
-<script>
-  // Your web app's Firebase configuration
-  var firebaseConfig = {
-    apiKey: "AIzaSyBJaWwzG5HTWIXOxywshVpRRHo1i4Gey8s",
-    authDomain: "dinnertable-56c1c.firebaseapp.com",
-    databaseURL: "https://dinnertable-56c1c.firebaseio.com",
-    projectId: "dinnertable-56c1c",
-    storageBucket: "dinnertable-56c1c.appspot.com",
-    messagingSenderId: "297554476203",
-    appId: "1:297554476203:web:928e5939d0765ad2658bee",
-    measurementId: "G-MSFBS5XHBR"
-  };
-  // Initialize Firebase
-  firebase.initializeApp(firebaseConfig);
-  firebase.analytics();
-</script>
-<!--!! end of firebase stuff  -->
+    <script>
+        // Your web app's Firebase configuration
+        var firebaseConfig = {
+            apiKey: "AIzaSyBJaWwzG5HTWIXOxywshVpRRHo1i4Gey8s",
+            authDomain: "dinnertable-56c1c.firebaseapp.com",
+            databaseURL: "https://dinnertable-56c1c.firebaseio.com",
+            projectId: "dinnertable-56c1c",
+            storageBucket: "dinnertable-56c1c.appspot.com",
+            messagingSenderId: "297554476203",
+            appId: "1:297554476203:web:928e5939d0765ad2658bee",
+            measurementId: "G-MSFBS5XHBR"
+        };
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
+        firebase.analytics();
+    </script>
+    <!--!! end of firebase stuff  -->
 
 
 </body>
