@@ -29,7 +29,7 @@ class MainActivity : AppCompatActivity() {
 
         webview.settings.javaScriptEnabled = true
 //        webview.settings.domStorageEnabled = true
-        webview.loadUrl("file:///android_asset/suggesties.html")
+        webview.loadUrl("file:///android_asset/index.html")
 
 //        webview.loadUrl("https://www.google.com")
 

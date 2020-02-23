@@ -3,138 +3,97 @@
 
 <head>
     <link rel="stylesheet" type="text/css" href="stylesheets/style.css">
+    <link rel="stylesheet" href="stylesheets/suggesties.css">
     <title>Title</title>
 </head>
 
 <body>
 
     <div class="buttonDiv">
-        <button class="button" onclick="switchSuggesties()" id="suggestieBtn">Suggesties</button>
-        <button class="buttonActive" onclick="switchGerechten()" id="gerechtenBtn">Alle gerechten</button>
+        <button class="buttonActive" onclick="switchSuggesties()" id="suggestieBtn">Suggesties</button>
+        <button class="button" onclick="switchGerechten()" id="gerechtenBtn">Alle gerechten</button>
     </div>
-    <div class="gerechten" id="gerechten">
+    <div class="gerechten" id="gerechten" style="display: none;">
         <div class="line">
             <div class="search">
                 <input type="text" id="searchField" class="searchBar" placeholder="Zoek een gerecht">
                 <!-- <button class="searchBtn" id="searchBtn">Zoek</button> -->
                 <!--!! <button class="searchIcon"></button> -->
-                <img class="searchIcon" src="images/search_icon.png" alt="">
+                <!--!! <img class="searchIcon" src="images/search_icon.png" alt=""> -->
             </div>
         </div>
         <div class="tableDiv">
             <table></table>
         </div>
     </div>
-    <div class="suggesties" id="suggesties" style="display: none;">
-        <h1>hier komen de suggesties</h1>
-    </div>
+    <div class="suggesties" id="suggesties">
+        <!-- <div class="fifth">
+        <p>Draairad</p>
+    </div> -->
+
+    <table>
+        <tr>
+            <td class="gerechten">
+                <div class="fifthOne">
+                    <div>
+                        <p class="voorstelText" id="favoGerecht"></p>
+                    </div>
+                    <div class="imgContainer">
+                        <img src="images/bami.png" alt="Je gerecht gebaseerd op je week patroon!" class="image">
+                    </div>
+                </div>
+            </td>
+            <td class="gerechten">
+                <div class="fifthTwo">
+                    <div>
+                        <p class="voorstelText" id="dagGerecht"></p>
+                    </div>
+                    <div class="imgContainer">
+                        <img src="images/shoarma.jpeg" alt="Je gerecht gebaseerd op je week patroon!" class="image">
+                    </div>
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td class="gerechten">
+                <div class="fifthThree">
+                    <div>
+                        <p class="voorstelText" id="healthGerecht"></p>
+                    </div>
+                    <div class="imgContainer">
+                        <img src="images/ceasarSalad.jpg" alt="Je gerecht gebaseerd op je gezondheids patroon!" class="image">
+                    </div>
+                </div>
+            </td>
+            <td class="gerechten">
+                <div class="fifthFour">
+                    <div>
+                        <p class="voorstelText" id="langstGerecht"></p>
+                    </div>
+
+                    <div class="imgContainer">
+                        <img src="images/lasagne.jpg" alt="Dit heb je al het langst niet meer gegeten!" class="image">
+                    </div>
+
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td class="gerechten" colspan="2">
+                <div class="fifthFive">
+                    <div>
+                        <p class="voorstelText" id="keukenGerecht"></p>
+                    </div>
+                    <div class="imgContainer">
+                        <img src="images/risotto.jpg" alt="Je gerecht gebaseerd op je gekozen keuken!" class="image">
+                    </div>
+
+                </div>
+            </td>
+        </tr>
+    </table>
 </body>
-<script>
-
-    var response = [];
-    var searchField = document.getElementById("searchField")
-    showFood();
-
-    searchField.addEventListener('input', showFood);
-
-    // var searchField = document.getElementById("searchField");
-    // console.log(gerechten[0].gerecht)
-    // gerechten.forEach(showFood)
-
-
-
-    function showFood() {
-        var tbl = document.getElementsByTagName('thead')[0];
-        if (tbl) tbl.parentNode.removeChild(tbl);
-        // console.log(value.gerecht)
-
-        var lijst = [{
-            "gerecht": "Pizza"
-        }, {
-            "gerecht": "Lasagne"
-        }, {
-            "gerecht": "Schnitsel"
-        }]
-
-
-
-        var search = searchField.value.toLowerCase();
-        response = [];
-        lijst.forEach(filteren)
-
-        function filteren(value) {
-            var text = value.gerecht.toLowerCase();
-            var found = text.indexOf(search);
-            console.log(found)
-            console.log(value.gerecht)
-            console.log(search)
-            if (found == 0) {
-                console.log(value)
-                response.push(value)
-                console.log(response)
-            }
-            // if (search == ''){
-            //     response = lijst
-            // }
-
-        }
-
-
-        let mountains = response
-
-
-        function generateTableHead(table, data) {
-            let thead = table.createTHead();
-            let row = thead.insertRow();
-            for (let key of data) {
-                let th = document.createElement("th");
-                let text = document.createTextNode(key);
-                th.appendChild(text);
-                row.appendChild(th);
-            }
-        }
-
-        function generateTable(table, data) {
-            for (let element of data) {
-                let row = table.insertRow();
-                for (key in element) {
-                    let cell = row.insertCell();
-                    let text = document.createTextNode(element[key]);
-                    cell.appendChild(text);
-                }
-            }
-        }
-        let table = document.querySelector("table");
-        let data = Object.keys(mountains[0]);
-        generateTableHead(table, data);
-        generateTable(table, mountains);
-        
-        document.getElementsByTagName("th")[0].innerHTML = "Gerechten"
-    }
-
-
-
-    searchField.addEventListener("keyup", function(event) {
-        if (event.keyCode === 13) {
-            event.preventDefault();
-            document.getElementById("searchBtn").click();
-        }
-    });
-
-
-    function switchGerechten() {
-        document.getElementById("gerechten").style.display = "block"
-        document.getElementById("suggesties").style.display = "none"
-        document.getElementById("suggestieBtn").className = "button"
-        document.getElementById("gerechtenBtn").className = "buttonActive"
-    }
-
-    function switchSuggesties() {
-        document.getElementById("gerechten").style.display = "none"
-        document.getElementById("suggesties").style.display = "block"
-        document.getElementById("suggestieBtn").className = "buttonActive"
-        document.getElementById("gerechtenBtn").className = "button"
-    }
-</script>
+<script src="scripts/script.js" defer></script>
+<script src="scripts/main.js"></script>
 
 </html>

@@ -2,7 +2,7 @@ body {
     background-color: #F7F7F7;
 }
 
-td {
+td:not(.gerechten) {
     border-bottom: 1px solid black;
     width: 100%;
 }
@@ -11,7 +11,7 @@ th {
     border-bottom: 3px solid black;
 }
 
-table{
+table:not(.suggestiesTable){
     width: 100%;
 }
 
@@ -91,4 +91,8 @@ button{
 
 .suggesties {
     padding-top: 20px;
+}
+
+.suggestiesTable {
+    width: 100%;
 }
