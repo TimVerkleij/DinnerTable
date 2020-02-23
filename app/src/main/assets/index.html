@@ -94,6 +94,32 @@
         </table>
     </div>
 
+<!--!! firebase stuff  -->
+<script src="https://www.gstatic.com/firebasejs/7.9.1/firebase-app.js"></script>
+
+<!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+<script src="https://www.gstatic.com/firebasejs/7.9.1/firebase-analytics.js"></script>
+
+<script>
+  // Your web app's Firebase configuration
+  var firebaseConfig = {
+    apiKey: "AIzaSyBJaWwzG5HTWIXOxywshVpRRHo1i4Gey8s",
+    authDomain: "dinnertable-56c1c.firebaseapp.com",
+    databaseURL: "https://dinnertable-56c1c.firebaseio.com",
+    projectId: "dinnertable-56c1c",
+    storageBucket: "dinnertable-56c1c.appspot.com",
+    messagingSenderId: "297554476203",
+    appId: "1:297554476203:web:928e5939d0765ad2658bee",
+    measurementId: "G-MSFBS5XHBR"
+  };
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+  firebase.analytics();
+</script>
+<!--!! end of firebase stuff  -->
+
+
 </body>
 <script src="scripts/script.js" defer></script>
 <script src="scripts/main.js"></script>
