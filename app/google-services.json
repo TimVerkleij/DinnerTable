@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "297554476203",
+    "firebase_url": "https://dinnertable-56c1c.firebaseio.com",
+    "project_id": "dinnertable-56c1c",
+    "storage_bucket": "dinnertable-56c1c.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:297554476203:android:ae69aa7a7bccf2f6658bee",
+        "android_client_info": {
+          "package_name": "com.example.dinnertable"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "297554476203-278gpqp9kh0iejf94n9hebeq5turlbdt.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBPEcTreOkZkCJEpPfb4NMBtCZDmwBygbk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "297554476203-278gpqp9kh0iejf94n9hebeq5turlbdt.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
