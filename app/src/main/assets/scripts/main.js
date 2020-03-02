@@ -1,5 +1,5 @@
 var response = [];
-var searchField = document.getElementById("searchField")
+var searchField = document.getElementById("searchField");
 
 //TODO: Ik moet deze javascript file nog opschonen omdat firebase echt super kut doet.
 
@@ -12,7 +12,7 @@ var searchField = document.getElementById("searchField")
 //     "gerecht": "Schnitsel"
 // }]
 
-var lijst = []
+var lijst = [];
 
 // showFood();
 
@@ -22,14 +22,14 @@ var lijst = []
 // var searchField = document.getElementById("searchField");
 // console.log(gerechten[0].gerecht)
 // gerechten.forEach(showFood)
-
+getFood();
 function getFood() {
-    var searchField = document.getElementById("searchField")
+    var searchField = document.getElementById("searchField");
     searchField.addEventListener('input', showFood);
-    window.lijst = []
+    window.lijst = [];
         // window.waarden = "Pizza, Salade, Bami"
-    list = waarden.split(", ")
-    list.forEach(createList)
+    list = waarden.split(", ");
+    list.forEach(createList);
 
 
 
@@ -48,7 +48,7 @@ function getFood() {
 
 
 function showFood() {
-    window.searchField = document.getElementById("searchField")
+    window.searchField = document.getElementById("searchField");
     var tbl = document.getElementsByTagName('thead')[0];
     if (tbl) tbl.parentNode.removeChild(tbl);
 
@@ -56,7 +56,7 @@ function showFood() {
 
     var search = window.searchField.value.toLowerCase();
     response = [];
-    window.lijst.forEach(filteren)
+    window.lijst.forEach(filteren);
 
     function filteren(value) {
         var text = value.gerecht.toLowerCase();
@@ -70,7 +70,7 @@ function showFood() {
 
     }
 
-    let mountains = response
+    let mountains = response;
 
 
     function generateTableHead(table, data) {
@@ -113,15 +113,15 @@ searchField.addEventListener("keyup", function(event) {
 
 
 function switchGerechten() {
-    document.getElementById("gerechten").style.display = "block"
-    document.getElementById("suggesties").style.display = "none"
-    document.getElementById("suggestieBtn").className = "button"
+    document.getElementById("gerechten").style.display = "block";
+    document.getElementById("suggesties").style.display = "none";
+    document.getElementById("suggestieBtn").className = "button";
     document.getElementById("gerechtenBtn").className = "buttonActive"
 }
 
 function switchSuggesties() {
-    document.getElementById("gerechten").style.display = "none"
-    document.getElementById("suggesties").style.display = "block"
-    document.getElementById("suggestieBtn").className = "buttonActive"
-    document.getElementById("gerechtenBtn").className = "button"
+    document.getElementById("gerechten").style.display = "none";
+    document.getElementById("suggesties").style.display = "block";
+    document.getElementById("suggestieBtn").className = "buttonActive";
+    document.getElementById("gerechtenBtn").className = "button";
 }
