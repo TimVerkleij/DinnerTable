@@ -1,0 +1,48 @@
+text{
+    font-family: Arial;
+    font-size: 20px;
+    pointer-events: none;
+    color: yellow;
+}
+#chart{
+    position: absolute;
+    width: 600px;
+    height: auto;
+    top: 0;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
+#labelDiv{
+    text-align: center;
+    margin-top: 500px;
+}
+#label{
+    color: black;
+    font-size: 20px;
+    font-family: Arial;
+    margin-left: auto;
+    margin-right: auto;
+}
+#plusButton, #minButton, #changeSlots{
+    width: 140px;
+    height: auto;
+    border-radius: 5px;
+    color: black;
+    background-color: #8CCA73;
+    border-color: black;
+
+    font-size: 20px;
+    font-family: Arial;
+    margin-left: auto;
+    margin-right: auto;
+}
+.editDiv{
+    width: 80%;
+    height: 100px;
+    text-align: center;
+    font-family: Arial;
+    font-size: 20px;
+    margin-left: auto;
+    margin-right: auto;
+}

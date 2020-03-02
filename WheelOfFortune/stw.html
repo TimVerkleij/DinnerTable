@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>SPW</title>
+</head>
+
+<body>
+    <div id="chart"></div>
+    <div id="labelDiv">
+        <label id="label">OUTCOME</label> <br>
+    </div><br>
+
+    <div class="editDiv">
+        <label>(Max 10, Min 3) Number of slots:</label>
+        <label id="amount"></label><br><br>
+        <button id="plusButton" onclick="editPlus()">Add slot</button>
+        <button id="minButton" onclick="editMinus()">Remove slot</button><br><br>
+        <div id="container"></div><br>
+        <button id="changeSlots" onclick="changeSlots()">Change slots</button>
+    </div>
+
+    <script src="https://d3js.org/d3.v3.min.js" charset="utf-8"></script>
+    <link rel="stylesheet" href="stw.css">
+    <script src="stw.js"></script>
+</body>
+
+</html>
