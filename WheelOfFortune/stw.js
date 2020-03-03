@@ -1,16 +1,9 @@
 var button = document.getElementById("button");
 var numberInput = document.getElementById("amount");
 var slots = 3
-
-var padding = { top: 20, right: 40, bottom: 20, left: 40 },
-    w = 500 - padding.left - padding.right,
-    h = 500 - padding.top - padding.bottom,
-    r = Math.min(w, h) / 2,
-    rotation = 0,
-    oldrotation = 0,
-    picked = 100000
-
-var data = [
+var inputs = []
+var data = []
+window.data = [
     { "label": "111" },
     { "label": "222" },
     { "label": "333" },
@@ -22,26 +15,36 @@ var data = [
     { "label": "999" },
     { "label": "000" }
 ];
-var svg = d3.select('#chart')
-    .append("svg")
-    .data([data])
-    .attr("width", w + padding.left + padding.right)
-    .attr("height", h + padding.top + padding.bottom);
-var container = svg.append("g")
-    .attr("class", "chartholder")
-    .attr("transform", "translate(" + (w / 2 + padding.left) + "," + (h / 2 + padding.top) + ")")
-var vis = container
-    .append("g")
+main()
+function main() {
 
-var pie = d3.layout.pie().sort(null).value(function (d) { return 1; });
-var arc = d3.svg.arc().outerRadius(r + 10);
-var arcs = vis.selectAll("g.slice")
-    .data(pie)
-    .enter()
-    .append("g")
-    .attr("class", "slice")
-start()
-function start() {
+    var padding = { top: 20, right: 40, bottom: 20, left: 40 },
+        w = 500 - padding.left - padding.right,
+        h = 500 - padding.top - padding.bottom,
+        r = Math.min(w, h) / 2,
+        rotation = 0,
+        oldrotation = 0,
+        picked = 100000
+
+    var svg = d3.select('#chart')
+        .append("svg")
+        .data([data])
+        .attr("width", w + padding.left + padding.right)
+        .attr("height", h + padding.top + padding.bottom);
+    var container = svg.append("g")
+        .attr("class", "chartholder")
+        .attr("transform", "translate(" + (w / 2 + padding.left) + "," + (h / 2 + padding.top) + ")")
+    var vis = container
+        .append("g")
+
+    var pie = d3.layout.pie().sort(null).value(function (d) { return 1; });
+    var arc = d3.svg.arc().outerRadius(r + 10);
+    var arcs = vis.selectAll("g.slice")
+        .data(pie)
+        .enter()
+        .append("g")
+        .attr("class", "slice")
+
     arcs.append("path")
         .attr("fill", function (d, i) { return '#8CCA73' })                 //the background color
         .attr("d", function (d) { return arc(d); })
@@ -56,58 +59,54 @@ function start() {
         .text(function (d, i) {
             return data[i].label;
         });
+
     container.on("click", spin);
+    function spin(d) {
+        var ps = 360 / data.length,
+            pieslice = Math.round(1440 / data.length),
+            rng = Math.floor((Math.random() * 1440) + 360);
+
+        rotation = (Math.round(rng / ps) * ps);
+        picked = Math.round(data.length - (rotation % 360) / ps);
+        picked = picked >= data.length ? (picked % data.length) : picked;
+
+        var random = Math.round(Math.random() * 35)                             //door deze ziet het er beter uit, anders komt hij altijd perfect in het midden
+        rotation += (75 + random) - Math.round(ps / 2);                         //75 + random is normaal 90, dan staat ie dus iets te perfect in t midden
+        vis.transition()
+            .duration(3000)                                                     //rotation time
+            .attrTween("transform", rotTween)
+            .each("end", function () {
+                oldrotation = rotation;
+
+                console.log("Chosen = " + data[picked].label)
+                var label = document.getElementById("label")
+                label.innerHTML = data[picked].label
+
+                container.on("click", spin);
+            });
+    }
+    //make arrow
+    svg.append("g")
+        .attr("transform", "translate(" + (w + padding.left + padding.right) + "," + ((h / 2) + padding.top) + ")")
+        .append("path")
+        .attr("d", "M-" + (r * .15) + ",0L0," + (r * .05) + "L0,-" + (r * .05) + "Z")
+        .style({ "fill": "#3C3C3D" });
+
+    function rotTween(to) {
+        var i = d3.interpolate(oldrotation % 360, rotation);
+        return function (t) {
+            return "rotate(" + i(t) + ")";
+        };
+    }
 }
-function spin(d) {
-    var ps = 360 / data.length,
-        pieslice = Math.round(1440 / data.length),
-        rng = Math.floor((Math.random() * 1440) + 360);
-
-    rotation = (Math.round(rng / ps) * ps);
-    picked = Math.round(data.length - (rotation % 360) / ps);
-    picked = picked >= data.length ? (picked % data.length) : picked;
-
-    var random = Math.round(Math.random() * 35)                             //door deze ziet het er beter uit, anders komt hij altijd perfect in het midden
-    console.log("Random = " + random)
-    rotation += (75 + random) - Math.round(ps / 2);                         //75 + random is normaal 90, dan staat ie dus iets te perfect in t midden
-    vis.transition()
-        .duration(3000)                                                     //rotation time
-        .attrTween("transform", rotTween)
-        .each("end", function () {
-            oldrotation = rotation;
-
-            console.log("Chosen = " + data[picked].label)
-            var label = document.getElementById("label")
-            label.innerHTML = data[picked].label
-
-            container.on("click", spin);
-        });
-}
-//make arrow
-svg.append("g")
-    .attr("transform", "translate(" + (w + padding.left + padding.right) + "," + ((h / 2) + padding.top) + ")")
-    .append("path")
-    .attr("d", "M-" + (r * .15) + ",0L0," + (r * .05) + "L0,-" + (r * .05) + "Z")
-    .style({ "fill": "#3C3C3D" });
-
-function rotTween(to) {
-    var i = d3.interpolate(oldrotation % 360, rotation);
-    return function (t) {
-        return "rotate(" + i(t) + ")";
-    };
-}
-
-
 
 numberInput.innerHTML = slots
 edit()
-// var slotValue
-// var slotCount
 function editPlus() {
     if (slots >= 10 || slots < 3) {
         alert("Max 10, Min 3")
     } else {
-        slots = slots + 1
+        slots++
         edit()
     }
 }
@@ -115,7 +114,7 @@ function editMinus() {
     if (slots > 10 || slots <= 3) {
         alert("Max 10, Min 3")
     } else {
-        slots = slots - 1
+        slots--
         edit()
     }
 }
@@ -124,39 +123,46 @@ function edit() {
     while (container.hasChildNodes()) {
         container.removeChild(container.lastChild)
     }
-    for (i = 0; i < slots; i++) {
-        container.appendChild(document.createTextNode("Slot " + (i + 1)))
-
-        var input = document.createElement("input")
+    inputs = []
+    for (i = 1; i <= slots; i++) {
+        container.appendChild(document.createTextNode("Slot " + (i)))
+        window.input = document.createElement("input")
         input.type = "text"
         input.name = "slot" + i
         input.id = "slot" + i
-        // input.value = ""
         container.appendChild(input)
         container.appendChild(document.createElement("br"))
 
-        // slotValue = input
-        // slotCount = i
+        inputs.push(input)
     }
-    numberInput.innerHTML = slots
+    numberInput.innerHTML = slots //slotcount text
 }
 function changeSlots() {
-    // if(slotCount >= 0){
-    // var slotText = document.getElementById("slot" + i)
-    console.log(data)
+
     data = []
-    data.push([                             //testing
-        { "label": "fuckoff" },
-        { "label": "555" },
-        { "label": "666" },
-        { "label": "777" },
-        { "label": "888" },
-        { "label": "gvd" }
-    ])
-    // slotCount = slotCount - 1
-    // changeSlots()
-    // }else{
-    // }
-    console.log(data)
-    start()
+    console.log(slots)
+    var gevuld = true
+    inputs.forEach(addInputs)
+
+    function addInputs(value) {
+            if (value.value == ""){
+                gevuld = false
+            }
+    }
+    if(gevuld == true){
+        inputs.forEach(flikkers)
+    }else{
+        alert("Vul alle slots!")
+    }
+    function flikkers(value) {
+        console.log(value.value)
+        console.log(inputs)
+        data.push({ "label": value.value })
+
+        var chart = document.getElementsByTagName("svg")[0]
+    chart.remove()
+    main()
+    }
+
+    
 }
