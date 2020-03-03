@@ -2,11 +2,10 @@ text{
     font-family: Arial;
     font-size: 20px;
     pointer-events: none;
-    color: yellow;
 }
 #chart{
     position: absolute;
-    width: 600px;
+    width: 100%;
     height: auto;
     top: 0;
     margin-left: auto;
@@ -18,7 +17,7 @@ text{
     margin-top: 500px;
 }
 #label{
-    color: black;
+    color: #3C3C3D;
     font-size: 20px;
     font-family: Arial;
     margin-left: auto;
@@ -28,9 +27,9 @@ text{
     width: 140px;
     height: auto;
     border-radius: 5px;
-    color: black;
+    color: #3C3C3D;
     background-color: #8CCA73;
-    border-color: black;
+    border-color: #3C3C3D;
 
     font-size: 20px;
     font-family: Arial;

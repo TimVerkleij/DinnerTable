@@ -2,18 +2,11 @@ var button = document.getElementById("button");
 var numberInput = document.getElementById("amount");
 var slots = 3
 var inputs = []
-var data = []
+var data
 window.data = [
-    { "label": "111" },
-    { "label": "222" },
-    { "label": "333" },
-    { "label": "444" },
-    { "label": "555" },
-    { "label": "666" },
-    { "label": "777" },
-    { "label": "888" },
-    { "label": "999" },
-    { "label": "000" }
+    {"label": "Vul iets in!"},
+    {"label": "Vul iets in!"},
+    {"label": "Vul iets in!"}
 ];
 main()
 function main() {
@@ -43,7 +36,7 @@ function main() {
         .enter()
         .append("g")
         .attr("class", "slice")
-        .attr("stroke", "black")                        //border color
+        .attr("stroke", "#3C3C3D")                        //border color
 
 console.log(arcs)
     arcs.append("path")
