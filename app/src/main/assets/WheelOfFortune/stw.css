@@ -37,10 +37,11 @@ text{
     margin-right: auto;
 }
 #show{
-    background-image: url(editIcon.png);
     height: 50px;
     width: 50px;
-    float: right;
+    position: fixed;
+    right: 10px;
+    top: 10px;
 }
 .editDiv{
     width: 80%;
