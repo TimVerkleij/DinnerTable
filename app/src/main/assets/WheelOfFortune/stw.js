@@ -15,8 +15,8 @@ var wheelDiv = document.getElementById("wheelDiv")
 main()
 function main() {
     var padding = { top: 20, right: 30, bottom: 5, left: 30 },
-        w = 290 - padding.left - padding.right,
-        h = 290 - padding.top - padding.bottom,
+        w = 280 - padding.left - padding.right,
+        h = 280 - padding.top - padding.bottom,
         r = Math.min(w, h) / 2,
         rotation = 0,
         oldrotation = 0,
@@ -51,7 +51,7 @@ console.log(arcs)
         d.innerRadius = 0;
         d.outerRadius = r;
         d.angle = (d.startAngle + d.endAngle) / 2;
-        return "rotate(" + (d.angle * 180 / Math.PI - 90) + ")translate(" + (d.outerRadius - 10) + ")";
+        return "rotate(" + (d.angle * 180 / Math.PI - 90) + ")translate(" + (d.outerRadius) + ")";
     })
         .attr("text-anchor", "end")
         .text(function (d, i) {
