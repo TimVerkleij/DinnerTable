@@ -3,6 +3,7 @@ text{
     font-size: 14px;
     font-weight: lighter;
     pointer-events: none;
+    color: #3C3C3D;
 }
 #chart{
     width: 80%;
@@ -24,17 +25,28 @@ text{
     margin-right: auto;
 }
 #plusButton, #minButton, #changeSlots, #annulerenBtn{
-    width: 140px;
+    width: auto;
     height: auto;
-    border-radius: 5px;
     color: #3C3C3D;
-    background-color: #8CCA73;
-    border-color: #3C3C3D;
+    text-decoration: underline;
+    text-decoration-color: #8CCA73;
+    border: none;
+    background: none;
 
     font-size: 20px;
     font-family: Arial;
     margin-left: auto;
     margin-right: auto;
+}
+input{
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    border-color: #8CCA73;
+    margin-left: 1%;
+
+    font-size: 20px;
+    font-family: Arial;
 }
 #show{
     height: 50px;
