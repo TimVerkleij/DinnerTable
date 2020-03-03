@@ -4,8 +4,8 @@ text{
     pointer-events: none;
 }
 #chart{
-    position: absolute;
-    width: 100%;
+    /*position: absolute;*/
+    width: 80%;
     height: auto;
     top: 0;
     margin-left: auto;
@@ -14,7 +14,7 @@ text{
 }
 #labelDiv{
     text-align: center;
-    margin-top: 500px;
+    margin-top: 10px;
 }
 #label{
     color: #3C3C3D;
@@ -23,7 +23,7 @@ text{
     margin-left: auto;
     margin-right: auto;
 }
-#plusButton, #minButton, #changeSlots{
+#plusButton, #minButton, #changeSlots, #annulerenBtn{
     width: 140px;
     height: auto;
     border-radius: 5px;
@@ -35,6 +35,12 @@ text{
     font-family: Arial;
     margin-left: auto;
     margin-right: auto;
+}
+#show{
+    background-image: url(editIcon.png);
+    height: 50px;
+    width: 50px;
+    float: right;
 }
 .editDiv{
     width: 80%;

@@ -8,11 +8,15 @@ window.data = [
     {"label": "Vul iets in!"},
     {"label": "Vul iets in!"}
 ];
+
+var editDiv = document.getElementById("editDiv")
+var wheelDiv = document.getElementById("wheelDiv")
+
 main()
 function main() {
-    var padding = { top: 20, right: 40, bottom: 20, left: 40 },
-        w = 500 - padding.left - padding.right,
-        h = 500 - padding.top - padding.bottom,
+    var padding = { top: 20, right: 30, bottom: 5, left: 30 },
+        w = 290 - padding.left - padding.right,
+        h = 290 - padding.top - padding.bottom,
         r = Math.min(w, h) / 2,
         rotation = 0,
         oldrotation = 0,
@@ -155,8 +159,22 @@ function changeSlots() {
 
         var chart = document.getElementsByTagName("svg")[0]
     chart.remove()
+    editDiv.style.display = "none"
+    wheelDiv.style.display = "block"
     main()
     }
-
     
 }
+
+editDiv.style.display = "none"
+
+function show() {
+    editDiv.style.display = "block"
+    wheelDiv.style.display = "none"
+}
+
+function annuleren() {
+    editDiv.style.display = "none"
+    wheelDiv.style.display = "block"
+}
+ 

@@ -40,7 +40,7 @@ class MainActivity : AppCompatActivity() {
 
         webView.settings.javaScriptEnabled = true
 //        webView.settings.domStorageEnabled = true
-        webView.loadUrl("file:///android_asset/index.html")
+        webView.loadUrl("file:///android_asset/WheelOfFortune/stw.html")
 
 //        webView.loadUrl("https://www.google.com")
 

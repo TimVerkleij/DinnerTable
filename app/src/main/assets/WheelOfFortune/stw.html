@@ -7,17 +7,23 @@
 </head>
 
 <body>
-    <div id="chart"></div>
-    <div id="labelDiv">
-        <label id="label">OUTCOME</label> <br>
-    </div><br>
+    <div class="wheelDiv" id="wheelDiv">
+        
+        <div id="chart">
+            <img src="editIcon.png" id="show" onclick="show()" alt="">
+        </div>
+        <div id="labelDiv">
+            <label id="label">OUTCOME</label> <br>
+        </div>
+    </div>
 
-    <div class="editDiv">
+    <div class="editDiv" id="editDiv">
         <label>(Max 10, Min 3) Number of slots:</label>
         <label id="amount"></label><br><br>
         <button id="minButton" onclick="editMinus()">Remove slot</button>
         <button id="plusButton" onclick="editPlus()">Add slot</button><br><br>
         <div id="container"></div><br>
+        <button id="annulerenBtn" onclick="annuleren()">Annuleren</button>
         <button id="changeSlots" onclick="changeSlots()">Change slots</button>
     </div>
 
