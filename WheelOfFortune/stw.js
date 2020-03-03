@@ -17,7 +17,6 @@ window.data = [
 ];
 main()
 function main() {
-
     var padding = { top: 20, right: 40, bottom: 20, left: 40 },
         w = 500 - padding.left - padding.right,
         h = 500 - padding.top - padding.bottom,
@@ -44,7 +43,9 @@ function main() {
         .enter()
         .append("g")
         .attr("class", "slice")
+        .attr("stroke", "black")                        //border color
 
+console.log(arcs)
     arcs.append("path")
         .attr("fill", function (d, i) { return '#8CCA73' })                 //the background color
         .attr("d", function (d) { return arc(d); })
