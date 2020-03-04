@@ -32,6 +32,18 @@
             <input type="text" name="addFoodBar" id="addFoodBar" class="addFoodBar" placeholder="Voeg een gerecht toe">
             <button class="confirmAdd" id="confirmAdd" onclick="addFoodConfirm()">Toevoegen</button>
         </div>
+        <div class="editFoodDiv" id="editFoodDiv" style="display: none;">
+            <div>
+                <label for="gerecht" class="label">Gerecht:</label>
+                <input type="text" name="gerecht" id="gerecht" class="editInput"><br>
+                <label for="datum" class="label">Datum:</label>
+                <input type="text" name="datum" id="datum" class="editInput"><br>
+            </div>
+            <div>
+                <button class="saveEdit" onclick="cancel()">Annuleren</button>
+                <button class="saveEdit" onclick="saveChanges()">Opslaan</button>
+            </div>
+        </div>
     </div>
     <div class="suggesties" id="suggesties">
         <table>

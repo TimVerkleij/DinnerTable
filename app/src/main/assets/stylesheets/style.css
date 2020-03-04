@@ -161,3 +161,28 @@ button {
     transform: translateY(3px);
     box-shadow: 0 0;
 }
+
+.editFoodDiv{
+    width: 80%;
+    height: 100px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 10px;
+    background-color: lime;
+    border: solid 2px black;
+}
+
+.label{
+    float: left;
+}
+.editInput{
+    float: right;
+}
+
+.saveEdit{
+    margin-top: 10px;
+    float: right;
+    background-color: #8CCA73;
+    border: solid 2px black;
+    border-radius: 5px;
+}

@@ -1,6 +1,7 @@
 var response = [];
 var searchField = document.getElementById("searchField");
 
+
 //TODO: Ik moet deze javascript file nog opschonen omdat firebase echt super kut doet.
 
 
@@ -49,7 +50,7 @@ function getFood() {
         datum = datum.substring(1) //remove first letter
         datum = datum.slice(0, -1) //remove last letter
         datum = datum.split("=")[1]
-        window.lijst.push({"gerecht": gerecht, "datum": datum})
+        window.lijst.push({ "gerecht": gerecht, "Datum": datum })
 
     }
     showFood();
@@ -92,7 +93,7 @@ function showFood() {
             let text = document.createTextNode(key);
             th.appendChild(text);
             row.appendChild(th);
-            
+
         }
     }
 
@@ -113,12 +114,18 @@ function showFood() {
     generateTable(table, mountains);
 
     document.getElementsByTagName("th")[0].innerHTML = "Gerechten"
-
+        //when you click on a table row the following code runs
     document.querySelectorAll('.bla').forEach(item => {
         item.addEventListener('click', event => {
-          console.log(item)
+            //you can use the var 'item' to refer to the clicked object
+            var editFoodDiv = document.getElementById("editFoodDiv");
+            var editGerecht = document.getElementById("gerecht")
+            var editDatum = document.getElementById("datum")
+            editGerecht.value = item.children[0].innerHTML
+            editDatum.value = item.children[1].innerHTML
+            editFoodDiv.style.display = "block";
         })
-      })
+    })
 }
 
 

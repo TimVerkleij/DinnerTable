@@ -48,7 +48,7 @@ function addFoodConfirm() {
             var lijst = newFoodItem + ", " + gerechten
             firebase.database().ref('gerechten').set(lijst)
         });
-        
+
     }
 }
 
@@ -58,3 +58,18 @@ addFoodBar.addEventListener("keyup", function(event) {
         document.getElementById("confirmAdd").click();
     }
 });
+
+function cancel() {
+    var editFoodDiv = document.getElementById("editFoodDiv")
+    editFoodDiv.style.display = "none"
+}
+
+function saveChanges() {
+    return firebase.database().ref('Gerechten').once('value').then(function(snapshot) {
+        var editGerecht = document.getElementById("gerecht").value
+        var editDatum = document.getElementById("datum").value
+        var gerechten = snapshot.val()
+        console.log(gerechten.Pizza.datum)
+        firebase.database().ref('Gerechten').child(editGerecht).child('datum').set(editDatum)
+    });
+}
