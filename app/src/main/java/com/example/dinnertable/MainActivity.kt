@@ -56,8 +56,9 @@ class MainActivity : AppCompatActivity() {
                 // get the type
 //               val value = dataSnapshot.getValue(String::class.java)
 
-                waarden = dataSnapshot.child("gerechten").value.toString()
+                waarden = dataSnapshot.child("Gerechten").value.toString()
 
+/*                      TODO: Deze code kan weg
                 //blokhaken weghalen uit de string
                 for (value in waarden) {
                     if (value.toString() == "]") {
@@ -71,7 +72,7 @@ class MainActivity : AppCompatActivity() {
                         waarden = waarden.removeRange(startIndex = 0, endIndex = 1)
                     }
                 }
-
+    */
                 println(waarden)
                 webView.loadUrl("javascript:var waarden = \"${waarden}\"")
                 webView.loadUrl("javascript:getFood()")

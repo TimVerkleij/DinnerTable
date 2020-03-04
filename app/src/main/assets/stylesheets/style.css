@@ -4,7 +4,7 @@ body {
 
 td:not(.gerechten) {
     border-bottom: 1px solid black;
-    width: 100%;
+    width: 50%;
 }
 
 th {
@@ -13,6 +13,7 @@ th {
 
 table:not(.suggestiesTable) {
     width: 100%;
+    border-collapse: collapse;
 }
 
 button {

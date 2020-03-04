@@ -17,17 +17,22 @@ var lijst = [];
 // showFood();
 
 
-
-
 // var searchField = document.getElementById("searchField");
 // console.log(gerechten[0].gerecht)
 // gerechten.forEach(showFood)
 getFood();
+
 function getFood() {
     var searchField = document.getElementById("searchField");
     searchField.addEventListener('input', showFood);
     window.lijst = [];
-        // window.waarden = "Pizza, Salade, Bami"
+    // window.waarden = "Pizza, Salade, Bami"
+    console.log(waarden)
+    waarden = waarden.substring(1) //remove first letter
+    waarden = waarden.slice(0, -1) //remove last letter
+
+
+
     list = waarden.split(", ");
     list.forEach(createList);
 
@@ -37,8 +42,14 @@ function getFood() {
 
 
     function createList(value) {
-        window.lijst.push({ "gerecht": value })
-            // lijst.push(value)
+        // window.lijst.push({ "gerecht": value })
+        // lijst.push(value)
+        var gerecht = (value.split(/=(.+)/)[0])
+        var datum = (value.split(/=(.+)/)[1])
+        datum = datum.substring(1) //remove first letter
+        datum = datum.slice(0, -1) //remove last letter
+        datum = datum.split("=")[1]
+        window.lijst.push({"gerecht": gerecht, "datum": datum})
 
     }
     showFood();
@@ -81,6 +92,7 @@ function showFood() {
             let text = document.createTextNode(key);
             th.appendChild(text);
             row.appendChild(th);
+            
         }
     }
 
@@ -91,6 +103,7 @@ function showFood() {
                 let cell = row.insertCell();
                 let text = document.createTextNode(element[key]);
                 cell.appendChild(text);
+                row.className = "bla"
             }
         }
     }
@@ -100,6 +113,12 @@ function showFood() {
     generateTable(table, mountains);
 
     document.getElementsByTagName("th")[0].innerHTML = "Gerechten"
+
+    document.querySelectorAll('.bla').forEach(item => {
+        item.addEventListener('click', event => {
+          console.log(item)
+        })
+      })
 }
 
 
