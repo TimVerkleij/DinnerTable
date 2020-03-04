@@ -21,24 +21,9 @@ table:not(.suggestiesTable) {
     font-size: 12px;
 }
 
-button {
-    outline: none;
-}
-
-.buttonDiv {
-    margin-bottom: 20px;
-    width: 112%;
-    padding-left: 0;
-    margin-left: 0;
-    left: 0;
-    position: fixed;
-    top: 0;
-}
-
 .search {
     width: 100%;
 }
-
 .searchBar{
     width: 85%;
     height: 30px;

@@ -8,14 +8,18 @@
     <link rel="stylesheet" href="stylesheets/header.css">
     <title>Title</title>
 </head>
+<!-- TODO: Afstanden tussen STW en plaatsjes
+     TODO: gerechten plus button moet omlaag (zelfde hoogte als searchBar)              
 
+
+-->
 <body>
     <div>
-        <div class="buttonDiv">
+        <div class="buttonDiv"> <!-- Header -->
             <button class="switchButtonActive" onclick="switchSuggesties()" id="suggestieBtn">Suggesties</button>
             <button class="switchButton" onclick="switchGerechten()" id="gerechtenBtn">Alle gerechten</button>
         </div>
-        <div class="gerechten" id="gerechten" style="display: none;">
+        <div class="gerechten" id="gerechten" style="display: none;"> <!-- gerechten pagina-->
             <div class="line">
                 <div class="search">
                     <input type="text" id="searchField" class="searchBar" placeholder="Zoek een gerecht">
