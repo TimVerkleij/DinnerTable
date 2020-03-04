@@ -126,6 +126,7 @@ function edit() {
         container.appendChild(document.createTextNode("Slot " + (i)))
         window.input = document.createElement("input")
         input.type = "text"
+        input.maxLength = "12"
         input.name = "slot" + i
         input.id = "slot" + i
         container.appendChild(input)
