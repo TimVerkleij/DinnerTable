@@ -45,7 +45,7 @@ function addFoodConfirm() {
 
         return firebase.database().ref('gerechten').once('value').then(function(snapshot) {
             var gerechten = snapshot.val()
-            var lijst = gerechten + ", " + newFoodItem
+            var lijst = newFoodItem + ", " + gerechten
             firebase.database().ref('gerechten').set(lijst)
         });
         
