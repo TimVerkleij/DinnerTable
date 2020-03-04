@@ -80,4 +80,5 @@ function addFood() {
     let today = moment(new Date()).format('DD-MM-YYYY');
     
     firebase.database().ref('Gerechten').child(searchField.value).child('datum').set(today)
+    searchField.value = ''
 }
