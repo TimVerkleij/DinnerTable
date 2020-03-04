@@ -43,7 +43,7 @@ function main() {
         .attr("class", "slice")
         .attr("stroke", "#3C3C3D")                        //border color
 
-console.log(arcs)
+//console.log(arcs)
     arcs.append("path")
         .attr("fill", function (d, i) { return '#8CCA73' })                 //the background color
         .attr("d", function (d) { return arc(d); })

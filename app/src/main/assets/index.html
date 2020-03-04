@@ -2,29 +2,34 @@
 <html>
 
 <head>
-    <link rel="stylesheet" type="text/css" href="stylesheets/style.css">
+    <link rel="stylesheet" type="text/css" href="stylesheets/alleGerechten.css">
     <link rel="stylesheet" href="stylesheets/suggesties.css">
+    <link rel="stylesheet" href="stylesheets/table.css">
+    <link rel="stylesheet" href="stylesheets/header.css">
     <title>Title</title>
 </head>
 
 <body>
     <div>
         <div class="buttonDiv">
-            <button class="buttonActive" onclick="switchSuggesties()" id="suggestieBtn">Suggesties</button>
-            <button class="button" onclick="switchGerechten()" id="gerechtenBtn">Alle gerechten</button>
+            <button class="switchButtonActive" onclick="switchSuggesties()" id="suggestieBtn">Suggesties</button>
+            <button class="switchButton" onclick="switchGerechten()" id="gerechtenBtn">Alle gerechten</button>
         </div>
         <div class="gerechten" id="gerechten" style="display: none;">
             <div class="line">
                 <div class="search">
                     <input type="text" id="searchField" class="searchBar" placeholder="Zoek een gerecht">
-                    <button class="addFoodBtn" id="addFoodBtn" onclick="addFood()">+</button>
+                    <img src="images/plusBtn.png" alt="plus knop" class="addFoodBtn" id="addFoodBtn" onclick="addFood()">
                     <!-- <button class="searchBtn" id="searchBtn">Zoek</button> -->
                     <!--!! <button class="searchIcon"></button> -->
                     <!--!! <img class="searchIcon" src="images/search_icon.png" alt=""> -->
                 </div>
             </div>
             <div class="tableDiv">
-                <table></table>
+                <table class="gerechtenLijst"></table>
+                <div id="gerechtenContent">
+
+                </div>
             </div>
             <div class="addFoodDiv" id="addFoodDiv">
                 <button class="closeAddFood" id="closeAddFood" onclick="closeAddFood()">x</button>
@@ -48,11 +53,11 @@
         <div class="suggesties" id="suggesties">
             <div>  <!--rad van fortuin-->
                 <div class="wheelDiv" id="wheelDiv">
-                    <img src="images/editIcon.png" id="show" onclick="show()" alt="">
+                    <img src="images/editIcon.png" id="show" onclick="show()">
                     <div id="chart"></div>
                     
                     <div id="labelDiv">
-                        <label id="label">OUTCOME</label> <br>
+                        <label id="label">Wat eten we vanavond?</label> <br>
                     </div>
                 </div>
             

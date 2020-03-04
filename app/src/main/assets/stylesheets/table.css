@@ -1,0 +1,13 @@
+.gerechtenText{
+    margin-top: 10px;
+}
+.datumText{
+    margin-top: 60px;
+    font-size: 12px;
+    padding-bottom: 5px;
+}
+.row{
+    height: 50px;
+    padding: 10px;
+    border-bottom: 1px solid black;
+}

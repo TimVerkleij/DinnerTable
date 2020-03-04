@@ -1,0 +1,30 @@
+button {
+    outline: none;
+}
+
+.switchButton, .switchButtonActive {
+    width: 48%;
+    height: 30px;
+    background-color: #8CCA73;
+    border: none;
+    margin: -2px;
+}
+
+.switchButtonActive {
+    box-shadow: 0 3px rgb(103, 156, 83);
+}
+
+.switchButton {
+    box-shadow: 0 3px #8CCA73;
+}
+
+.buttonDiv {
+    margin-bottom: 20px;
+    width: 112%;
+    padding-left: 0;
+    margin-left: 0;
+    left: 0;
+    position: fixed;
+    top: 0;
+    z-index: 3;
+}
