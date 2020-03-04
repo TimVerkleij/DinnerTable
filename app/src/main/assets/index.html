@@ -8,105 +8,129 @@
 </head>
 
 <body>
-
-    <div class="buttonDiv">
-        <button class="buttonActive" onclick="switchSuggesties()" id="suggestieBtn">Suggesties</button>
-        <button class="button" onclick="switchGerechten()" id="gerechtenBtn">Alle gerechten</button>
-    </div>
-    <div class="gerechten" id="gerechten" style="display: none;">
-        <div class="line">
-            <div class="search">
-                <input type="text" id="searchField" class="searchBar" placeholder="Zoek een gerecht">
-                <button class="addFoodBtn" id="addFoodBtn" onclick="addFood()">+</button>
-                <!-- <button class="searchBtn" id="searchBtn">Zoek</button> -->
-                <!--!! <button class="searchIcon"></button> -->
-                <!--!! <img class="searchIcon" src="images/search_icon.png" alt=""> -->
+    <div>
+        <div class="buttonDiv">
+            <button class="buttonActive" onclick="switchSuggesties()" id="suggestieBtn">Suggesties</button>
+            <button class="button" onclick="switchGerechten()" id="gerechtenBtn">Alle gerechten</button>
+        </div>
+        <div class="gerechten" id="gerechten" style="display: none;">
+            <div class="line">
+                <div class="search">
+                    <input type="text" id="searchField" class="searchBar" placeholder="Zoek een gerecht">
+                    <button class="addFoodBtn" id="addFoodBtn" onclick="addFood()">+</button>
+                    <!-- <button class="searchBtn" id="searchBtn">Zoek</button> -->
+                    <!--!! <button class="searchIcon"></button> -->
+                    <!--!! <img class="searchIcon" src="images/search_icon.png" alt=""> -->
+                </div>
+            </div>
+            <div class="tableDiv">
+                <table></table>
+            </div>
+            <div class="addFoodDiv" id="addFoodDiv">
+                <button class="closeAddFood" id="closeAddFood" onclick="closeAddFood()">x</button>
+                <h4 class="addFoodText">Voeg een gerecht toe aan uw lijst</h4>
+                <input type="text" name="addFoodBar" id="addFoodBar" class="addFoodBar" placeholder="Voeg een gerecht toe">
+                <button class="confirmAdd" id="confirmAdd" onclick="addFoodConfirm()">Toevoegen</button>
+            </div>
+            <div class="editFoodDiv" id="editFoodDiv" style="display: none;">
+                <div>
+                    <label for="gerecht" class="label">Gerecht:</label>
+                    <input type="text" name="gerecht" id="gerecht" class="editInput" readonly><br>
+                    <label for="datum" class="label">Datum:</label>
+                    <input type="text" name="datum" id="datum" class="editInput"><br>
+                </div>
+                <div>
+                    <button class="saveEdit" onclick="cancel()">Annuleren</button>
+                    <button class="saveEdit" onclick="saveChanges()">Opslaan</button>
+                </div>
             </div>
         </div>
-        <div class="tableDiv">
-            <table></table>
-        </div>
-        <div class="addFoodDiv" id="addFoodDiv">
-            <button class="closeAddFood" id="closeAddFood" onclick="closeAddFood()">x</button>
-            <h4 class="addFoodText">Voeg een gerecht toe aan uw lijst</h4>
-            <input type="text" name="addFoodBar" id="addFoodBar" class="addFoodBar" placeholder="Voeg een gerecht toe">
-            <button class="confirmAdd" id="confirmAdd" onclick="addFoodConfirm()">Toevoegen</button>
-        </div>
-        <div class="editFoodDiv" id="editFoodDiv" style="display: none;">
-            <div>
-                <label for="gerecht" class="label">Gerecht:</label>
-                <input type="text" name="gerecht" id="gerecht" class="editInput" readonly><br>
-                <label for="datum" class="label">Datum:</label>
-                <input type="text" name="datum" id="datum" class="editInput"><br>
+        <div class="suggesties" id="suggesties">
+            <div>  <!--rad van fortuin-->
+                <div class="wheelDiv" id="wheelDiv">
+                    <img src="images/editIcon.png" id="show" onclick="show()" alt="">
+                    <div id="chart"></div>
+                    
+                    <div id="labelDiv">
+                        <label id="label">OUTCOME</label> <br>
+                    </div>
+                </div>
+            
+                <div class="editDiv" id="editDiv">
+                    <label>(Max 10, Min 3) Number of slots:</label>
+                    <label id="amount"></label><br><br>
+                    <button id="minButton" onclick="editMinus()">Remove slot</button>
+                    <button id="plusButton" onclick="editPlus()">Add slot</button><br><br>
+                    <div id="container"></div><br>
+                    <button id="annulerenBtn" onclick="annuleren()">Annuleren</button>
+                    <button id="changeSlots" onclick="changeSlots()">Change slots</button>
+                </div>
             </div>
-            <div>
-                <button class="saveEdit" onclick="cancel()">Annuleren</button>
-                <button class="saveEdit" onclick="saveChanges()">Opslaan</button>
+            <div class="suggestiesImages">   <!--plaatjes enzo-->
+                <table>
+                    <tr>
+                        <td class="gerechten">
+                            <div class="fifthOne">
+                                <div>
+                                    <p class="voorstelText" id="favoGerecht"></p>
+                                </div>
+                                <div class="imgContainer">
+                                    <img src="images/bami.png" alt="Je gerecht gebaseerd op je week patroon!" class="image">
+                                </div>
+                            </div>
+                        </td>
+                        <td class="gerechten">
+                            <div class="fifthTwo">
+                                <div>
+                                    <p class="voorstelText" id="dagGerecht"></p>
+                                </div>
+                                <div class="imgContainer">
+                                    <img src="images/shoarma.jpeg" alt="Je gerecht gebaseerd op je week patroon!" class="image">
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="gerechten">
+                            <div class="fifthThree">
+                                <div>
+                                    <p class="voorstelText" id="healthGerecht"></p>
+                                </div>
+                                <div class="imgContainer">
+                                    <img src="images/ceasarSalad.jpg" alt="Je gerecht gebaseerd op je gezondheids patroon!" class="image">
+                                </div>
+                            </div>
+                        </td>
+                        <td class="gerechten">
+                            <div class="fifthFour">
+                                <div>
+                                    <p class="voorstelText" id="langstGerecht"></p>
+                                </div>
+
+                                <div class="imgContainer">
+                                    <img src="images/lasagne.jpg" alt="Dit heb je al het langst niet meer gegeten!" class="image">
+                                </div>
+
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="gerechten" colspan="2">
+                            <div class="fifthFive">
+                                <div>
+                                    <p class="voorstelText" id="keukenGerecht"></p>
+                                </div>
+                                <div class="imgContainer">
+                                    <img src="images/risotto.jpg" alt="Je gerecht gebaseerd op je gekozen keuken!" class="image">
+                                </div>
+
+                            </div>
+                        </td>
+                    </tr>
+
+                </table>
             </div>
         </div>
-    </div>
-    <div class="suggesties" id="suggesties">
-        <table>
-            <tr>
-                <td class="gerechten">
-                    <div class="fifthOne">
-                        <div>
-                            <p class="voorstelText" id="favoGerecht"></p>
-                        </div>
-                        <div class="imgContainer">
-                            <img src="images/bami.png" alt="Je gerecht gebaseerd op je week patroon!" class="image">
-                        </div>
-                    </div>
-                </td>
-                <td class="gerechten">
-                    <div class="fifthTwo">
-                        <div>
-                            <p class="voorstelText" id="dagGerecht"></p>
-                        </div>
-                        <div class="imgContainer">
-                            <img src="images/shoarma.jpeg" alt="Je gerecht gebaseerd op je week patroon!" class="image">
-                        </div>
-                    </div>
-                </td>
-            </tr>
-            <tr>
-                <td class="gerechten">
-                    <div class="fifthThree">
-                        <div>
-                            <p class="voorstelText" id="healthGerecht"></p>
-                        </div>
-                        <div class="imgContainer">
-                            <img src="images/ceasarSalad.jpg" alt="Je gerecht gebaseerd op je gezondheids patroon!" class="image">
-                        </div>
-                    </div>
-                </td>
-                <td class="gerechten">
-                    <div class="fifthFour">
-                        <div>
-                            <p class="voorstelText" id="langstGerecht"></p>
-                        </div>
-
-                        <div class="imgContainer">
-                            <img src="images/lasagne.jpg" alt="Dit heb je al het langst niet meer gegeten!" class="image">
-                        </div>
-
-                    </div>
-                </td>
-            </tr>
-            <tr>
-                <td class="gerechten" colspan="2">
-                    <div class="fifthFive">
-                        <div>
-                            <p class="voorstelText" id="keukenGerecht"></p>
-                        </div>
-                        <div class="imgContainer">
-                            <img src="images/risotto.jpg" alt="Je gerecht gebaseerd op je gekozen keuken!" class="image">
-                        </div>
-
-                    </div>
-                </td>
-            </tr>
-        </table>
     </div>
 
     <!--!! firebase stuff  -->
@@ -119,6 +143,7 @@
     <script src="https://www.gstatic.com/firebasejs/7.9.1/firebase-auth.js"></script>
     <script src="https://www.gstatic.com/firebasejs/7.9.1/firebase-firestore.js"></script> -->
     <script src="https://www.gstatic.com/firebasejs/7.9.1/firebase.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
 
     <!-- <script>
         // Your web app's Firebase configuration
@@ -140,8 +165,12 @@
 
 
 </body>
+
 <script src="scripts/script.js" defer></script>
 <script src="scripts/main.js" defer></script>
 <script src="scripts/addFood.js" defer></script>
+<script src="https://d3js.org/d3.v3.min.js" charset="utf-8"></script>
+<script src="scripts/stw.js"></script>
+<link rel="stylesheet" href="stylesheets/stw.css">
 
 </html>

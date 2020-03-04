@@ -76,14 +76,10 @@ function showFood() {
         if (found == 0) {
             response.push(value)
         }
-        // if (search == '') {
-        //     response = lijst
-        // }
-
     }
 
-    let mountains = response;
 
+    let mountains = response;
 
     function generateTableHead(table, data) {
         let thead = table.createTHead();

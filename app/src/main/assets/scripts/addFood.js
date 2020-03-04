@@ -17,9 +17,9 @@ var database = firebase.database();
 
 //!! end of firebase stuff
 
+var searchField = document.getElementById("searchField")
 
-
-
+/* //TODO: Dit wordt nog verwijderd
 
 addFoodDiv = document.getElementById("addFoodDiv")
 addFoodBar = document.getElementById("addFoodBar")
@@ -59,6 +59,8 @@ addFoodBar.addEventListener("keyup", function(event) {
     }
 });
 
+*/
+
 function cancel() {
     var editFoodDiv = document.getElementById("editFoodDiv")
     editFoodDiv.style.display = "none"
@@ -72,4 +74,10 @@ function saveChanges() {
         console.log(gerechten.Pizza.datum)
         firebase.database().ref('Gerechten').child(editGerecht).child('datum').set(editDatum)
     });
+}
+
+function addFood() {
+    let today = moment(new Date()).format('DD-MM-YYYY');
+    
+    firebase.database().ref('Gerechten').child(searchField.value).child('datum').set(today)
 }
