@@ -125,7 +125,6 @@ function showFood() {
         }
     }
     let table = document.querySelector("table");
-    console.log(response.length)
     if (response == 0) {
         gerechtenContent.innerHTML = "Er zijn geen resultaten gevonden"
     } else {

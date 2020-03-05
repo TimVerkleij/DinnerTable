@@ -163,6 +163,7 @@ function changeSlots() {
     chart.remove()
     editDiv.style.display = "none"
     wheelDiv.style.display = "block"
+    window.suggestiesImages.style.display = "block"
     main()
     }
     
@@ -173,12 +174,12 @@ editDiv.style.display = "none"
 function show() {
     editDiv.style.display = "block"
     wheelDiv.style.display = "none"
-    suggestiesImages.style.display = "none"
+    window.suggestiesImages.style.display = "none"
 }
 
 function annuleren() {
     editDiv.style.display = "none"
     wheelDiv.style.display = "block"
-    suggestiesImages.style.display = "block"
+    window.suggestiesImages.style.display = "block"
 }
  

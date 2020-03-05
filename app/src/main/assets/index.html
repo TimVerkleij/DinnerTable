@@ -8,10 +8,9 @@
     <link rel="stylesheet" href="stylesheets/header.css">
     <title>Title</title>
 </head>
-<!-- TODO: Afstanden tussen STW en plaatsjes
-     TODO: gerechten plus button moet omlaag (zelfde hoogte als searchBar)              
-
-
+<!--    TODO: suggestiesImages naar horizontale scroll
+        TODO: 3 random gerechten uit de database automatisch in het rad zetten
+        TODO:  
 -->
 <body>
     <div>
@@ -54,13 +53,15 @@
             </div>
         </div>
         <div class="suggesties" id="suggesties">
-            <div>  <!--rad van fortuin-->
+            <div class="fortuneDiv">  <!--rad van fortuin-->
+                
                 <div class="wheelDiv" id="wheelDiv">
+                    <label id="etenVraag">Wat eten we vanavond?</label>
                     <img src="images/editIcon.png" id="show" onclick="show()">
                     <div id="chart"></div>
                     
                     <div id="labelDiv">
-                        <label id="label">Wat eten we vanavond?</label> <br>
+                        <label id="label">Spin the wheel!</label> <br>
                     </div>
                 </div>
             
@@ -74,7 +75,7 @@
                     <button id="changeSlots" onclick="changeSlots()">Change slots</button>
                 </div>
             </div>
-            <div class="suggestiesImages">   <!--plaatjes enzo-->
+            <div class="suggestiesImages" id="suggestiesImages">   <!--plaatjes enzo-->
                 <table>
                     <tr>
                         <td class="gerechten">
@@ -178,7 +179,7 @@
 <script src="scripts/main.js" defer></script>
 <script src="scripts/addFood.js" defer></script>
 <script src="https://d3js.org/d3.v3.min.js" charset="utf-8"></script>
-<script src="scripts/stw.js"></script>
+<script src="scripts/stw.js" defer></script>
 <link rel="stylesheet" href="stylesheets/stw.css">
 
 </html>
