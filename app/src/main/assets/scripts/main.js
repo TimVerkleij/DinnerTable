@@ -31,13 +31,12 @@ function getFood() {
     // window.waarden = "Pizza, Salade, Bami"
     //console.log(waarden)
     waarden = waarden.substring(1) //remove first letter
-    waarden = waarden.slice(0, -1) //remove last letter
-
+    waarden = waarden.slice(0, -2) //remove last letter
 
     // var waarden = "Pizza={datum=04-03-2020}, Bami={datum=03-03-2020}, Salade={datum=02-03-2020}"
-    list = waarden.split(", ");
+    list = waarden.split("}, ");
     // console.log(list)                           //["Pizza={datum=04-03-2020}", "Bami={datum=03-03-2020}", "Salade={datum=02-03-2020}"]
-    //console.log(waarden)                        //  Pizza={datum=04-03-2020}, Bami={datum=03-03-2020}, Salade={datum=02-03-2020}
+    console.log(waarden)                        //  Pizza={datum=04-03-2020}, Bami={datum=03-03-2020}, Salade={datum=02-03-2020}
     list.forEach(createList);
 
 
@@ -49,11 +48,20 @@ function getFood() {
         // window.lijst.push({ "gerecht": value })
         // lijst.push(value)
         var gerecht = (value.split(/=(.+)/)[0])
-        var datum = (value.split(/=(.+)/)[1])
-        datum = datum.substring(1) //remove first letter
-        datum = datum.slice(0, -1) //remove last letter
-        datum = datum.split("=")[1]
-        window.lijst.push({ "gerecht": gerecht, "Datum": datum })
+        var gegevens = (value.split(/=(.+)/)[1])
+        console.log(gegevens)
+        gegevens = gegevens.substring(1) //remove first letter
+        // gegevens = gegevens.slice(0, -1) //remove last letter //!no longer needed
+        // gegevens = gegevens.split("=")[1]
+        gegevens = gegevens.split(", ")
+        gegevens.forEach(cleanupData)
+
+        function cleanupData(value) {
+            value = value.split("=")[1]
+        }
+        
+        console.log(gegevens)
+        window.lijst.push({ "gerecht": gerecht, "Datum": gegevens })
     }
     showFood();
 }
