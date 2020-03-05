@@ -27,7 +27,7 @@ function getFood() {
     var searchField = document.getElementById("searchField");
     searchField.addEventListener('input', showFood);
     window.lijst = [];
-    
+
     // window.waarden = "Pizza, Salade, Bami"
     //console.log(waarden)
     waarden = waarden.substring(1) //remove first letter
@@ -60,8 +60,8 @@ function getFood() {
 
 function showFood() {
     window.searchField = document.getElementById("searchField");
-    var doc = document.getElementById("gerechtenContent")
-    doc.innerHTML = ""
+    var gerechtenContent = document.getElementById("gerechtenContent")
+    gerechtenContent.innerHTML = ""
 
     var search = window.searchField.value.toLowerCase();
     response = [];
@@ -100,7 +100,7 @@ function showFood() {
 
                 div.innerHTML = `
                 <label class="gerechtenText">` + hetGerecht + `</label><br>
-                <label class="datumText">` +"Laatst gegeten: " + deDatum + `</label>
+                <label class="datumText">` + "Laatst gegeten: " + deDatum + `</label>
                 `
 
                 //var waarden = "{Pizza={datum=04-03-2020}, Bami={datum=03-03-2020}, Salade={datum=02-03-2020}}"
@@ -125,26 +125,32 @@ function showFood() {
         }
     }
     let table = document.querySelector("table");
-    let data = Object.keys(mountains[0]);
-    // generateTableHead(table, data);
-    generateTable(table, mountains);
+    console.log(response.length)
+    if (response == 0) {
+        gerechtenContent.innerHTML = "Er zijn geen resultaten gevonden"
+    } else {
 
-    //document.getElementsByTagName("th")[0].innerHTML = "Gerechten"
+        let data = Object.keys(mountains[0]);
+        // generateTableHead(table, data);
+        generateTable(table, mountains);
+
+        //document.getElementsByTagName("th")[0].innerHTML = "Gerechten"
         //when you click on a table row the following code runs
-    document.querySelectorAll('.row').forEach(item => {
-        item.addEventListener('click', event => {
-            //you can use the var 'item' to refer to the clicked object
-            var editFoodDiv = document.getElementById("editFoodDiv");
-            var editGerecht = document.getElementById("gerecht")
-            var editDatum = document.getElementById("datum")
-            var huidigeDatum = item.children[2].innerHTML
-            huidigeDatum =  huidigeDatum.split(": ")
-            huidigeDatum = huidigeDatum[huidigeDatum.length - 1]
-            editGerecht.value = item.children[0].innerHTML
-            editDatum.value = huidigeDatum
-            editFoodDiv.style.display = "block";
+        document.querySelectorAll('.row').forEach(item => {
+            item.addEventListener('click', event => {
+                //you can use the var 'item' to refer to the clicked object
+                var editFoodDiv = document.getElementById("editFoodDiv");
+                var editGerecht = document.getElementById("gerecht")
+                var editDatum = document.getElementById("datum")
+                var huidigeDatum = item.children[2].innerHTML
+                huidigeDatum = huidigeDatum.split(": ")
+                huidigeDatum = huidigeDatum[huidigeDatum.length - 1]
+                editGerecht.value = item.children[0].innerHTML
+                editDatum.value = huidigeDatum
+                editFoodDiv.style.display = "block";
+            })
         })
-    })
+    }
 }
 
 
