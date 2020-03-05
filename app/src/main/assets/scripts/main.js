@@ -27,15 +27,16 @@ function getFood() {
     var searchField = document.getElementById("searchField");
     searchField.addEventListener('input', showFood);
     window.lijst = [];
+    
     // window.waarden = "Pizza, Salade, Bami"
     //console.log(waarden)
     waarden = waarden.substring(1) //remove first letter
     waarden = waarden.slice(0, -1) //remove last letter
 
 
-    //var waarden = "Pizza={datum=04-03-2020}, Bami={datum=03-03-2020}, Salade={datum=02-03-2020}"
+    // var waarden = "Pizza={datum=04-03-2020}, Bami={datum=03-03-2020}, Salade={datum=02-03-2020}"
     list = waarden.split(", ");
-    //console.log(list)                           //["Pizza={datum=04-03-2020}", "Bami={datum=03-03-2020}", "Salade={datum=02-03-2020}"]
+    // console.log(list)                           //["Pizza={datum=04-03-2020}", "Bami={datum=03-03-2020}", "Salade={datum=02-03-2020}"]
     //console.log(waarden)                        //  Pizza={datum=04-03-2020}, Bami={datum=03-03-2020}, Salade={datum=02-03-2020}
     list.forEach(createList);
 
@@ -59,8 +60,8 @@ function getFood() {
 
 function showFood() {
     window.searchField = document.getElementById("searchField");
-    var tbl = document.getElementsByTagName('thead')[0];
-    if (tbl) tbl.parentNode.removeChild(tbl);
+    var doc = document.getElementById("gerechtenContent")
+    doc.innerHTML = ""
 
     var search = window.searchField.value.toLowerCase();
     response = [];
@@ -136,8 +137,11 @@ function showFood() {
             var editFoodDiv = document.getElementById("editFoodDiv");
             var editGerecht = document.getElementById("gerecht")
             var editDatum = document.getElementById("datum")
+            var huidigeDatum = item.children[2].innerHTML
+            huidigeDatum =  huidigeDatum.split(": ")
+            huidigeDatum = huidigeDatum[huidigeDatum.length - 1]
             editGerecht.value = item.children[0].innerHTML
-            editDatum.value = item.children[1].innerHTML
+            editDatum.value = huidigeDatum
             editFoodDiv.style.display = "block";
         })
     })
