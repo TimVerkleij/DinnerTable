@@ -36,7 +36,7 @@ function getFood() {
     // var waarden = "Pizza={datum=04-03-2020}, Bami={datum=03-03-2020}, Salade={datum=02-03-2020}"
     list = waarden.split("}, ");
     // console.log(list)                           //["Pizza={datum=04-03-2020}", "Bami={datum=03-03-2020}", "Salade={datum=02-03-2020}"]
-    console.log(waarden)                        //  Pizza={datum=04-03-2020}, Bami={datum=03-03-2020}, Salade={datum=02-03-2020}
+    // console.log(waarden)                        //  Pizza={datum=04-03-2020}, Bami={datum=03-03-2020}, Salade={datum=02-03-2020}
     list.forEach(createList);
 
 
@@ -49,7 +49,7 @@ function getFood() {
         // lijst.push(value)
         var gerecht = (value.split(/=(.+)/)[0])
         var gegevens = (value.split(/=(.+)/)[1])
-        console.log(gegevens)
+        // console.log(gegevens)
         gegevens = gegevens.substring(1) //remove first letter
         // gegevens = gegevens.slice(0, -1) //remove last letter //!no longer needed
         // gegevens = gegevens.split("=")[1]
@@ -57,11 +57,21 @@ function getFood() {
         gegevens.forEach(cleanupData)
 
         function cleanupData(value) {
-            value = value.split("=")[1]
+            if (value.split("=")[0] == "datum") {
+                window.datum = value.split("=")[1]
+            }
+            if(value.split("=")[0] == "Notitie") {
+                window.notitie = value.split("=")[1]
+            } else {
+                window.notitie = undefined
+            }
+            
+
+
         }
         
-        console.log(gegevens)
-        window.lijst.push({ "gerecht": gerecht, "Datum": gegevens })
+        console.log("gerecht: "+ gerecht, "Datum: " + window.datum, "Notitie: "+ window.notitie )
+        window.lijst.push({ "gerecht": gerecht, "Datum": window.datum, "Notitie": window.notitie })
     }
     showFood();
 }
@@ -105,10 +115,12 @@ function showFood() {
             for (key in element) {
                 var hetGerecht = element["gerecht"]
                 var deDatum = element["Datum"]
+                var deNotitie = element["Notitie"]
 
                 div.innerHTML = `
                 <label class="gerechtenText">` + hetGerecht + `</label><br>
                 <label class="datumText">` + "Laatst gegeten: " + deDatum + `</label>
+                <label style="display: none;">`+ deNotitie +`</label>
                 `
 
                 //var waarden = "{Pizza={datum=04-03-2020}, Bami={datum=03-03-2020}, Salade={datum=02-03-2020}}"
@@ -149,11 +161,18 @@ function showFood() {
                 var editFoodDiv = document.getElementById("editFoodDiv");
                 var editGerecht = document.getElementById("gerecht")
                 var editDatum = document.getElementById("datum")
+                var editNotitie = document.getElementById("notitie")
                 var huidigeDatum = item.children[2].innerHTML
                 huidigeDatum = huidigeDatum.split(": ")
                 huidigeDatum = huidigeDatum[huidigeDatum.length - 1]
                 editGerecht.value = item.children[0].innerHTML
                 editDatum.value = huidigeDatum
+                if (item.children[3].innerHTML == "undefined"){
+                    editNotitie.value = ""
+                } else {
+                    editNotitie.value = item.children[3].innerHTML
+                }
+                
                 editFoodDiv.style.display = "block";
             })
         })
