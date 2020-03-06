@@ -4,23 +4,9 @@ var searchField = document.getElementById("searchField");
 
 //TODO: Ik moet deze javascript file nog opschonen omdat firebase echt super kut doet.
 
-
-// var lijst = [{
-//     "gerecht": "Pizza"
-// }, {
-//     "gerecht": "Lasagne"
-// }, {
-//     "gerecht": "Schnitsel"
-// }]
-
 var lijst = [];
 
-// showFood();
 
-
-// var searchField = document.getElementById("searchField");
-// console.log(gerechten[0].gerecht)
-// gerechten.forEach(showFood)
 getFood();
 
 function getFood() {
@@ -28,49 +14,31 @@ function getFood() {
     searchField.addEventListener('input', showFood);
     window.lijst = [];
 
-    // window.waarden = "Pizza, Salade, Bami"
-    //console.log(waarden)
     waarden = waarden.substring(1) //remove first letter
     waarden = waarden.slice(0, -2) //remove last letter
 
-    // var waarden = "Pizza={datum=04-03-2020}, Bami={datum=03-03-2020}, Salade={datum=02-03-2020}"
-    list = waarden.split("}, ");
-    // console.log(list)                           //["Pizza={datum=04-03-2020}", "Bami={datum=03-03-2020}", "Salade={datum=02-03-2020}"]
-    // console.log(waarden)                        //  Pizza={datum=04-03-2020}, Bami={datum=03-03-2020}, Salade={datum=02-03-2020}
-    list.forEach(createList);
-
-
-
-    // waarden.forEach(createList)
-
+    list = waarden.split("}, "); //split string into array of dishes
+    list.forEach(createList); //for each dish
 
     function createList(value) {
-        // window.lijst.push({ "gerecht": value })
-        // lijst.push(value)
-        var gerecht = (value.split(/=(.+)/)[0])
-        var gegevens = (value.split(/=(.+)/)[1])
-        // console.log(gegevens)
-        gegevens = gegevens.substring(1) //remove first letter
-        // gegevens = gegevens.slice(0, -1) //remove last letter //!no longer needed
-        // gegevens = gegevens.split("=")[1]
-        gegevens = gegevens.split(", ")
-        gegevens.forEach(cleanupData)
+        var gerecht = (value.split(/=(.+)/)[0]) //set name of the dish
+        var gegevens = (value.split(/=(.+)/)[1]) //set attributes of dish
+
+        gegevens = gegevens.substring(1) //remove first letter '{'
+        gegevens = gegevens.split(", ") //split string into array of attributes
+        gegevens.forEach(cleanupData) //for each attribute
 
         function cleanupData(value) {
-            if (value.split("=")[0] == "datum") {
+            if (value.split("=")[0] == "datum") { // if attribute = 'datum' => set datum value 
                 window.datum = value.split("=")[1]
             }
-            if(value.split("=")[0] == "Notitie") {
+            if (value.split("=")[0] == "Notitie") { // if attribute = 'Notitie' => set notitie value
                 window.notitie = value.split("=")[1]
             } else {
-                window.notitie = undefined
+                window.notitie = undefined // if attribute 'notitie' is not specified
             }
-            
-
-
         }
-        
-        console.log("gerecht: "+ gerecht, "Datum: " + window.datum, "Notitie: "+ window.notitie )
+
         window.lijst.push({ "gerecht": gerecht, "Datum": window.datum, "Notitie": window.notitie })
     }
     showFood();
@@ -95,20 +63,11 @@ function showFood() {
 
     let mountains = response;
 
-    // function generateTableHead(table, data) {
-    //     let thead = table.createTHead();
-    //     let row = thead.insertRow();
-    //     let th = document.createElement("th");
-    //     let text = document.createTextNode("Gerechten");
-    //     th.appendChild(text);
-    //     row.appendChild(th);
-    // }
-
     function generateTable(table, data) {
         for (let element of data) {
             let row = table.insertRow();
             const div = document.createElement('div')
-            div.className = "row" //class
+            div.className = "row" // set className for div in table
 
             document.getElementById('gerechtenContent').appendChild(div);
 
@@ -120,40 +79,20 @@ function showFood() {
                 div.innerHTML = `
                 <label class="gerechtenText">` + hetGerecht + `</label><br>
                 <label class="datumText">` + "Laatst gegeten: " + deDatum + `</label>
-                <label style="display: none;">`+ deNotitie +`</label>
+                <label style="display: none;">` + deNotitie + `</label>
                 `
-
-                //var waarden = "{Pizza={datum=04-03-2020}, Bami={datum=03-03-2020}, Salade={datum=02-03-2020}}"
-
-                // Gerechten
-                //     Pizza
-                //         datum: 02-03-2020
-                //         //tasty: 8
-                //         //healthy: 6
-                //     Salade
-                //         datum: 02-0
-                //         //tasty: 8
-                //         //healthy: 9
-
-
-
-                // let cell = row.insertCell();
-                // let text = document.createTextNode(element[key]);
-                // cell.appendChild(text);
-                // row.className = "row"
             }
         }
     }
+
     let table = document.querySelector("table");
-    if (response == 0) {
+    if (response == 0) { // if response is empty show this text
         gerechtenContent.innerHTML = "Er zijn geen resultaten gevonden"
     } else {
 
         let data = Object.keys(mountains[0]);
-        // generateTableHead(table, data);
         generateTable(table, mountains);
 
-        //document.getElementsByTagName("th")[0].innerHTML = "Gerechten"
         //when you click on a table row the following code runs
         document.querySelectorAll('.row').forEach(item => {
             item.addEventListener('click', event => {
@@ -167,12 +106,12 @@ function showFood() {
                 huidigeDatum = huidigeDatum[huidigeDatum.length - 1]
                 editGerecht.value = item.children[0].innerHTML
                 editDatum.value = huidigeDatum
-                if (item.children[3].innerHTML == "undefined"){
+                if (item.children[3].innerHTML == "undefined") {
                     editNotitie.value = ""
                 } else {
                     editNotitie.value = item.children[3].innerHTML
                 }
-                
+
                 editFoodDiv.style.display = "block";
             })
         })

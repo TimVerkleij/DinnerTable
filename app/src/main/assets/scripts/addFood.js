@@ -19,48 +19,6 @@ var database = firebase.database();
 
 var searchField = document.getElementById("searchField")
 
-/* //TODO: Dit wordt nog verwijderd
-
-addFoodDiv = document.getElementById("addFoodDiv")
-addFoodBar = document.getElementById("addFoodBar")
-addFoodButton = document.getElementById("confirmAdd")
-
-function addFood() {
-    window.addFoodDiv.style.display = "block"
-}
-
-function closeAddFood() {
-    window.addFoodDiv.style.display = "none"
-    addFoodBar.value = ''
-}
-
-function addFoodConfirm() {
-    if (addFoodBar.value !== '') {
-        // firebase.database().ref('message').set('hello');
-
-        const lower = addFoodBar.value;
-        const newFoodItem = lower.charAt(0).toUpperCase() + lower.substring(1);
-
-        addFoodBar.value = ''
-
-        return firebase.database().ref('gerechten').once('value').then(function(snapshot) {
-            var gerechten = snapshot.val()
-            var lijst = newFoodItem + ", " + gerechten
-            firebase.database().ref('gerechten').set(lijst)
-        });
-
-    }
-}
-
-addFoodBar.addEventListener("keyup", function(event) {
-    if (event.keyCode === 13) {
-        event.preventDefault();
-        document.getElementById("confirmAdd").click();
-    }
-});
-
-*/
-
 function cancel() {
     var editFoodDiv = document.getElementById("editFoodDiv")
     editFoodDiv.style.display = "none"
@@ -80,7 +38,7 @@ function saveChanges() {
 
 function addFood() {
     let today = moment(new Date()).format('DD-MM-YYYY');
-    
+
     firebase.database().ref('Gerechten').child(searchField.value).child('datum').set(today)
     searchField.value = ''
 }
