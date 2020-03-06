@@ -12,13 +12,16 @@
         TODO: 3 random gerechten uit de database automatisch in het rad zetten
         TODO:  
 -->
+
 <body>
     <div>
-        <div class="buttonDiv"> <!-- Header -->
+        <div class="buttonDiv">
+            <!-- Header -->
             <button class="switchButtonActive" onclick="switchSuggesties()" id="suggestieBtn">Suggesties</button>
             <button class="switchButton" onclick="switchGerechten()" id="gerechtenBtn">Alle gerechten</button>
         </div>
-        <div class="gerechten" id="gerechten" style="display: none;"> <!-- gerechten pagina-->
+        <div class="gerechten" id="gerechten" style="display: none;">
+            <!-- gerechten pagina-->
             <div class="line">
                 <div class="search">
                     <input type="text" id="searchField" class="searchBar" placeholder="Zoek een gerecht">
@@ -55,18 +58,19 @@
             </div>
         </div>
         <div class="suggesties" id="suggesties">
-            <div class="fortuneDiv">  <!--rad van fortuin-->
-                
+            <div class="fortuneDiv">
+                <!--rad van fortuin-->
+
                 <div class="wheelDiv" id="wheelDiv">
                     <label id="etenVraag">Wat eten we vanavond?</label>
                     <img src="images/editIcon.png" id="show" onclick="show()">
                     <div id="chart"></div>
-                    
+
                     <div id="labelDiv">
                         <label id="label">Spin the wheel!</label> <br>
                     </div>
                 </div>
-            
+
                 <div class="editDiv" id="editDiv">
                     <label>(Max 10, Min 3) Number of slots:</label>
                     <label id="amount"></label><br><br>
@@ -77,8 +81,9 @@
                     <button id="changeSlots" onclick="changeSlots()">Change slots</button>
                 </div>
             </div>
-            <div class="suggestiesImages" id="suggestiesImages">   <!--plaatjes enzo-->
-                <table>
+            <div class="suggestiesImages" id="suggestiesImages">
+                <!--plaatjes enzo-->
+                <table style="display: none;">
                     <tr>
                         <td class="gerechten">
                             <div class="fifthOne">
@@ -138,8 +143,64 @@
                             </div>
                         </td>
                     </tr>
-
                 </table>
+
+                <table class="suggestiesTable">
+                    <tr>
+                        <td class="gerechten">
+                            <div class="fifthOne">
+                                <img src="images/bami.png" class="imgHolder">
+                                <p class="boven">this is label</p>
+                                <p class="onder">this is text</p>
+                            </div>
+                        </td>
+                        <td class="leeg">
+                            <h1>hello</h1>
+                        </td>
+                        <td class="gerechten">
+                            <div class="fifthTwo">
+                                <img src="images/shoarma.jpeg" class="imgHolder">
+                                <p class="boven">this is label</p>
+                                <p class="onder">this is text</p>
+                            </div>
+                        </td>
+                        <td class="leeg">
+                            <h1>hello</h1>
+                        </td>
+                        <td class="gerechten">
+                            <div class="fifthThree">
+                                <img src="images/ceasarSalad.jpg" class="imgHolder">
+                                <p class="boven">this is label</p>
+                                <p class="onder">this is text</p>
+                            </div>
+                        </td>
+                        <td class="leeg">
+                            <h1>hello</h1>
+                        </td>
+                        <td class="gerechten">
+                            <div class="fifthFour">
+                                <img src="images/lasagne.jpg" class="imgHolder">
+                                <p class="boven">this is label</p>
+                                <p class="onder">this is text</p>
+                            </div>
+                        </td>
+                        <td class="leeg">
+                            <h1>hello</h1>
+                        </td>
+                        <td class="gerechten">
+                            <div class="fifthFive">
+                                <img src="images/risotto.jpg" class="imgHolder">
+                                <p class="boven">this is label</p>
+                                <p class="onder">this is text</p>
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+
+
+
+
+
             </div>
         </div>
     </div>

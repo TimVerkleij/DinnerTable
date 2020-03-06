@@ -1,43 +1,77 @@
-.fifthOne, .fifthTwo, .fifthThree, .fifthFour, .fifthFive{
+.fifthOne,
+.fifthTwo,
+.fifthThree,
+.fifthFour,
+.fifthFive {
     width: 100%;
     height: max-content;
     overflow: hidden;
-
     font-family: Arial;
     font-size: 6px;
     font-weight: normal;
-
     margin-top: 20px;
     text-align: center;
+    background-color: white;
+    border-radius: 5px;
+}
 
-}
-.fifthOne, .fifthThree{
+.fifthOne,
+.fifthThree {
     margin-left: auto;
     margin-right: auto;
 }
-.fifthTwo, .fifthFour{
+
+.fifthTwo,
+.fifthFour {
     margin-right: auto;
     margin-left: auto;
 }
-.fifthFive{
+
+.fifthFive {
     margin-left: auto;
-    margin-right: auto;   
+    margin-right: auto;
 }
-.imgContainer{
+
+.imgContainer {
     width: 80%;
     height: auto;
     margin-left: auto;
     margin-right: auto;
 }
-.image{
+
+.imgHolder {
     border: 2px solid #8CCA73;
     border-radius: 3px;
-    width: 90%;
+    height: 100px;
+    width: 150px;
     display: flex;
-    
+    object-fit: cover;
 }
-.voorstelText{
+
+.voorstelText {
     font-family: Arial;
     font-size: 14px;
     text-decoration-color: #3C3C3D;
+}
+
+.suggestiesTable {
+    display: block;
+    overflow-x: scroll;
+    white-space: nowrap;
+}
+
+.boven, .onder {
+    text-align: center;
+    margin-top: 3px;
+    margin-bottom: 5px;
+    font-size: 14px;
+}
+
+.boven{
+    font-weight: bold;
+}
+
+.leeg{
+    visibility: hidden;
+    font-size: 8px;
 }
