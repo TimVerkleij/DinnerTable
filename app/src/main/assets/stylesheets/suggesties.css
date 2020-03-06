@@ -60,18 +60,41 @@
     white-space: nowrap;
 }
 
-.boven, .onder {
+.boven,
+.onder {
     text-align: center;
     margin-top: 3px;
     margin-bottom: 5px;
     font-size: 14px;
 }
 
-.boven{
+.boven {
     font-weight: bold;
 }
 
-.leeg{
+.leeg {
     visibility: hidden;
     font-size: 8px;
+}
+
+.leftGradient {
+    background-image: linear-gradient(90deg, #f7f7f7 5%, transparent);
+    width: 120px;
+    height: 180px;
+    position: fixed;
+    left: 5px;
+    z-index: 100;
+    margin-top: 10px;
+    pointer-events: none;
+}
+
+.rightGradient {
+    background-image: linear-gradient(270deg, #f7f7f7 5%, transparent);
+    width: 120px;
+    height: 180px;
+    position: fixed;
+    right: 5px;
+    z-index: 100;
+    margin-top: 10px;
+    pointer-events: none;
 }
