@@ -8,8 +8,7 @@
     <link rel="stylesheet" href="stylesheets/header.css">
     <title>Title</title>
 </head>
-<!--    TODO: suggestiesImages naar horizontale scroll
-        TODO: 3 random gerechten uit de database automatisch in het rad zetten
+<!--    TODO: 3 random gerechten uit de database automatisch in het rad zetten
         TODO:  
 -->
 
@@ -26,9 +25,6 @@
                 <div class="search">
                     <input type="text" id="searchField" class="searchBar" placeholder="Zoek een gerecht">
                     <img src="images/plusBtn.png" alt="plus knop" class="addFoodBtn" id="addFoodBtn" onclick="addFood()">
-                    <!-- <button class="searchBtn" id="searchBtn">Zoek</button> -->
-                    <!--!! <button class="searchIcon"></button> -->
-                    <!--!! <img class="searchIcon" src="images/search_icon.png" alt=""> -->
                 </div>
             </div>
             <div class="tableDiv">
@@ -59,8 +55,6 @@
         </div>
         <div class="suggesties" id="suggesties">
             <div class="fortuneDiv">
-                <!--rad van fortuin-->
-
                 <div class="wheelDiv" id="wheelDiv">
                     <label id="etenVraag">Wat eten we vanavond?</label>
                     <img src="images/editIcon.png" id="show" onclick="show()">
@@ -82,69 +76,6 @@
                 </div>
             </div>
             <div class="suggestiesImages" id="suggestiesImages">
-                <!--plaatjes enzo-->
-                <table style="display: none;">
-                    <tr>
-                        <td class="gerechten">
-                            <div class="fifthOne">
-                                <div>
-                                    <p class="voorstelText" id="favoGerecht"></p>
-                                </div>
-                                <div class="imgContainer">
-                                    <img src="images/bami.png" alt="Je gerecht gebaseerd op je week patroon!" class="image">
-                                </div>
-                            </div>
-                        </td>
-                        <td class="gerechten">
-                            <div class="fifthTwo">
-                                <div>
-                                    <p class="voorstelText" id="dagGerecht"></p>
-                                </div>
-                                <div class="imgContainer">
-                                    <img src="images/shoarma.jpeg" alt="Je gerecht gebaseerd op je week patroon!" class="image">
-                                </div>
-                            </div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="gerechten">
-                            <div class="fifthThree">
-                                <div>
-                                    <p class="voorstelText" id="healthGerecht"></p>
-                                </div>
-                                <div class="imgContainer">
-                                    <img src="images/ceasarSalad.jpg" alt="Je gerecht gebaseerd op je gezondheids patroon!" class="image">
-                                </div>
-                            </div>
-                        </td>
-                        <td class="gerechten">
-                            <div class="fifthFour">
-                                <div>
-                                    <p class="voorstelText" id="langstGerecht"></p>
-                                </div>
-
-                                <div class="imgContainer">
-                                    <img src="images/lasagne.jpg" alt="Dit heb je al het langst niet meer gegeten!" class="image">
-                                </div>
-
-                            </div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="gerechten" colspan="2">
-                            <div class="fifthFive">
-                                <div>
-                                    <p class="voorstelText" id="keukenGerecht"></p>
-                                </div>
-                                <div class="imgContainer">
-                                    <img src="images/risotto.jpg" alt="Je gerecht gebaseerd op je gekozen keuken!" class="image">
-                                </div>
-
-                            </div>
-                        </td>
-                    </tr>
-                </table>
-
                 <table class="suggestiesTable">
                     <div class="leftGradient"></div>
                     <div class="rightGradient"></div>
@@ -198,11 +129,6 @@
                         </td>
                     </tr>
                 </table>
-
-
-
-
-
             </div>
         </div>
     </div>
