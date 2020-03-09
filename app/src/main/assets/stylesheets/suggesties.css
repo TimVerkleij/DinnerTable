@@ -1,8 +1,4 @@
-.fifthOne,
-.fifthTwo,
-.fifthThree,
-.fifthFour,
-.fifthFive {
+.fifth {
     width: 100%;
     height: max-content;
     overflow: hidden;
@@ -14,24 +10,6 @@
     background-color: white;
     border-radius: 5px;
 }
-
-.fifthOne,
-.fifthThree {
-    margin-left: auto;
-    margin-right: auto;
-}
-
-.fifthTwo,
-.fifthFour {
-    margin-right: auto;
-    margin-left: auto;
-}
-
-.fifthFive {
-    margin-left: auto;
-    margin-right: auto;
-}
-
 .imgContainer {
     width: 80%;
     height: auto;
