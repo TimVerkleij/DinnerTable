@@ -16,6 +16,7 @@
         TODO: IOS
         TODO: Back-end anders inrichten (kotlin)
 -->
+
 <body>
     <div>
         <div class="buttonDiv">
@@ -137,21 +138,10 @@
             </div>
         </div>
     </div>
-
     <!--!! firebase stuff  -->
-    <!-- <script src="https://www.gstatic.com/firebasejs/7.9.1/firebase-app.js"></script> -->
-
-    <!-- Add SDKs for Firebase products that you want to use
-     https://firebase.google.com/docs/web/setup#available-libraries -->
-
-    <!-- <script src="https://www.gstatic.com/firebasejs/7.9.1/firebase-analytics.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/7.9.1/firebase-auth.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/7.9.1/firebase-firestore.js"></script> -->
     <script src="https://www.gstatic.com/firebasejs/7.9.1/firebase.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
-
-    <!-- <script>
-        // Your web app's Firebase configuration
+    <script>
         var firebaseConfig = {
             apiKey: "AIzaSyBJaWwzG5HTWIXOxywshVpRRHo1i4Gey8s",
             authDomain: "dinnertable-56c1c.firebaseapp.com",
@@ -165,10 +155,10 @@
         // Initialize Firebase
         firebase.initializeApp(firebaseConfig);
         firebase.analytics();
-    </script> -->
+        
+        var db = firebase.firestore()
+    </script>
     <!--!! end of firebase stuff  -->
-
-
 </body>
 
 <script src="scripts/script.js" defer></script>
