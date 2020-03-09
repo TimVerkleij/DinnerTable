@@ -6,6 +6,11 @@ var searchField = document.getElementById("searchField");
 
 var lijst = [];
 
+var waarden
+
+if (waarden == undefined){
+    var waarden = "{Pizza={datum=03-03-2020, Notitie=Helaas Pindakaas}, Bami={datum=04-03-2020}, Salade={datum=02-03-2020}}"
+}
 
 getFood();
 

@@ -23,11 +23,11 @@ class MainActivity : AppCompatActivity() {
         val settings = findViewById<ImageButton>(R.id.settings)
 
         //firebase variables
-        var waarden = ""
-        var gerechtenArray = mutableListOf("")
-        gerechtenArray = gerechtenArray.drop(1).toMutableList()
-        val database = FirebaseDatabase.getInstance()
-        val myRef = database.reference
+//        var waarden = ""
+//        var gerechtenArray = mutableListOf("")
+//        gerechtenArray = gerechtenArray.drop(1).toMutableList()
+//        val database = FirebaseDatabase.getInstance()
+//        val myRef = database.reference
 
 
         val webView = findViewById<WebView>(R.id.webview)
@@ -46,80 +46,17 @@ class MainActivity : AppCompatActivity() {
 
 
         //start connection to firebase
+/*
 
         myRef.addValueEventListener(object : ValueEventListener {
             override fun onDataChange(dataSnapshot: DataSnapshot) {
-
-                // This method is called once with the initial value and again
-                // whenever data at this location is updated.
-
                 // get the type
 //               val value = dataSnapshot.getValue(String::class.java)
-
                 waarden = dataSnapshot.child("Gerechten").value.toString()
 
-/*                      TODO: Deze code kan weg
-                //blokhaken weghalen uit de string
-                for (value in waarden) {
-                    if (value.toString() == "]") {
-
-                        val lengte = waarden.length
-                        waarden = waarden.removeRange(startIndex = lengte - 1, endIndex = lengte)
-                    }
-                }
-                for (value in waarden) {
-                    if (value.toString() == "[") {
-                        waarden = waarden.removeRange(startIndex = 0, endIndex = 1)
-                    }
-                }
-    */
                 println(waarden)
                 webView.loadUrl("javascript:var waarden = \"${waarden}\"")
                 webView.loadUrl("javascript:getFood()")
-                /*
-
-                myRef.removeEventListener(this)
-
-                if (editText.text.toString() != "") {
-
-
-                    val databaseInput = waarden + ", " + editText.text
-                    val lijst = databaseInput.split(", ")
-                    text.text = databaseInput
-
-                    myRef.child("gerechten").setValue(databaseInput)
-
-                    layout.removeAllViews()
-
-
-                    for (value in lijst) {
-                        val tvDynamic = TextView(this@MainActivity)
-
-                        tvDynamic.textSize = 20f
-                        tvDynamic.setPadding(80, 25, 0, 0)
-                        tvDynamic.text = value
-
-                        // add TextView to LinearLayout
-                        layout.addView(tvDynamic)
-                    }
-
-                }else {
-                    text.text = waarden
-                    val lijst = waarden.split(", ")
-                    for (value in lijst) {
-                        val tvDynamic = TextView(this@MainActivity)
-
-                        tvDynamic.textSize = 20f
-                        tvDynamic.setPadding(80, 25, 0, 0)
-                        tvDynamic.text = value
-
-                        // add TextView to LinearLayout
-                        layout.addView(tvDynamic)
-                    }
-                }
-
-
-*/
             }
 
             override fun onCancelled(error: DatabaseError) {
@@ -127,6 +64,7 @@ class MainActivity : AppCompatActivity() {
                 Toast.makeText(applicationContext, "Geen verbinding", Toast.LENGTH_SHORT).show()
             }
         })
+*/
 
 
 
