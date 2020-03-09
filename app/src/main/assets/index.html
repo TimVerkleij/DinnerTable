@@ -10,6 +10,9 @@
 </head>
 <!--    TODO: 3 random gerechten uit de database automatisch in het rad zetten
         TODO: Slots anders verwoorden
+        TODO: Suggesties image left&right een extra margin ofzo toevoegen. 
+        (dan kan je zorgen dat de buitenste ook in t midden staan)
+        
 -->
 
 <body>
@@ -67,10 +70,10 @@
                 </div>
 
                 <div class="editDiv" id="editDiv">
-                    <label>(Max 10, Min 3) Number of slots:</label>
+                    <label id="label">(Min 3, Max 10) Aantal vakjes:</label>
                     <label id="amount"></label><br><br>
-                    <button id="minButton" onclick="editMinus()">Remove slot</button>
-                    <button id="plusButton" onclick="editPlus()">Add slot</button><br><br>
+                    <button id="minButton" onclick="editMinus()">Vakje <br> verwijderen</button>
+                    <button id="plusButton" onclick="editPlus()">Vakje <br> toevoegen</button><br><br>
                     <div id="container"></div><br>
                     <button id="annulerenBtn" onclick="annuleren()">Annuleren</button>
                     <button id="changeSlots" onclick="changeSlots()">Change slots</button>

@@ -4,9 +4,9 @@ var slots = 3
 var inputs = []
 var data
 window.data = [
-    {"label": "Vul iets in!"},
-    {"label": "Vul iets in!"},
-    {"label": "Vul iets in!"}
+    {"label": "Vul de vakjes!"},
+    {"label": "Vul de vakjes!"},
+    {"label": "Vul de vakjes!"}
 ];
 
 var editDiv = document.getElementById("editDiv")
@@ -124,7 +124,7 @@ function edit() {
     }
     inputs = []
     for (i = 1; i <= slots; i++) {
-        container.appendChild(document.createTextNode("Slot " + (i)))
+        container.appendChild(document.createTextNode("Vakje " + (i)))
         window.input = document.createElement("input")
         input.type = "text"
         input.maxLength = "12"
@@ -152,7 +152,7 @@ function changeSlots() {
     if(gevuld == true){
         inputs.forEach(flikkers)
     }else{
-        alert("Vul alle slots!")
+        alert("Vul alle vakjes!")
     }
     function flikkers(value) {
         console.log(value.value)
