@@ -4,9 +4,9 @@ var slots = 3
 var inputs = []
 var data
 window.data = [
-    {"label": "Vul de vakjes!"},
-    {"label": "Vul de vakjes!"},
-    {"label": "Vul de vakjes!"}
+    { "label": "Vul de vakjes!" },
+    { "label": "Vul de vakjes!" },
+    { "label": "Vul de vakjes!" }
 ];
 
 var editDiv = document.getElementById("editDiv")
@@ -43,7 +43,7 @@ function main() {
         .attr("class", "slice")
         .attr("stroke", "#3C3C3D")                        //border color
 
-//console.log(arcs)
+    //console.log(arcs)
     arcs.append("path")
         .attr("fill", function (d, i) { return '#8CCA73' })                 //the background color
         .attr("d", function (d) { return arc(d); })
@@ -145,13 +145,13 @@ function changeSlots() {
     inputs.forEach(addInputs)
 
     function addInputs(value) {
-            if (value.value == ""){
-                gevuld = false
-            }
+        if (value.value == "") {
+            gevuld = false
+        }
     }
-    if(gevuld == true){
+    if (gevuld == true) {
         inputs.forEach(flikkers)
-    }else{
+    } else {
         alert("Vul alle vakjes!")
     }
     function flikkers(value) {
@@ -160,17 +160,15 @@ function changeSlots() {
         data.push({ "label": value.value })
 
         var chart = document.getElementsByTagName("svg")[0]
-    chart.remove()
-    editDiv.style.display = "none"
-    wheelDiv.style.display = "block"
-    window.suggestiesImages.style.display = "block"
-    main()
+        chart.remove()
+        editDiv.style.display = "none"
+        wheelDiv.style.display = "block"
+        window.suggestiesImages.style.display = "block"
+        main()
     }
-    
+
 }
-
 editDiv.style.display = "none"
-
 function show() {
     editDiv.style.display = "block"
     wheelDiv.style.display = "none"
@@ -182,4 +180,3 @@ function annuleren() {
     wheelDiv.style.display = "block"
     window.suggestiesImages.style.display = "block"
 }
- 

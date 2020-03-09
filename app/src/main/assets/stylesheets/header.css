@@ -27,6 +27,7 @@ button {
     position: fixed;
     top: 0;
     z-index: 3;
+    background: #8CCA73;
 }
 
 ::-webkit-scrollbar{
