@@ -1,8 +1,3 @@
-// Get a reference to the database service
-var database = firebase.database();
-
-//!! end of firebase stuff
-
 var searchField = document.getElementById("searchField")
 
 function cancel() {

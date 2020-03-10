@@ -155,7 +155,10 @@
         // Initialize Firebase
         firebase.initializeApp(firebaseConfig);
         firebase.analytics();
-        
+
+        // Get a reference to the database service
+        var database = firebase.database();
+        //Get a reference to the firestore service
         var db = firebase.firestore()
     </script>
     <!--!! end of firebase stuff  -->
