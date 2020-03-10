@@ -30,7 +30,7 @@ function addFood() {
 }
 
 function showFirestore() {
-    db.collection("gerechten").doc("SF")
+    db.collection("gerechten").doc("iXXUqe1pkyGgoPQKAAmB")
         .onSnapshot(function(doc) {
             console.log("Current data: ", doc.data());
         });

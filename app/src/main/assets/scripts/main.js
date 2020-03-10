@@ -15,38 +15,41 @@ if (waarden == undefined){
 getFood();
 
 function getFood() {
-    var searchField = document.getElementById("searchField");
-    searchField.addEventListener('input', showFood);
-    window.lijst = [];
+    return firebase.database().ref('Gerechten').once('value').then(function(snapshot) {
+        // waarden = snapshot.val()
+        var searchField = document.getElementById("searchField");
+        searchField.addEventListener('input', showFood);
+        window.lijst = [];
 
-    waarden = waarden.substring(1) //remove first letter
-    waarden = waarden.slice(0, -2) //remove last letter
+        waarden = waarden.substring(1) //remove first letter
+        waarden = waarden.slice(0, -2) //remove last letter
 
-    list = waarden.split("}, "); //split string into array of dishes
-    list.forEach(createList); //for each dish
+        list = waarden.split("}, "); //split string into array of dishes
+        list.forEach(createList); //for each dish
 
-    function createList(value) {
-        var gerecht = (value.split(/=(.+)/)[0]) //set name of the dish
-        var gegevens = (value.split(/=(.+)/)[1]) //set attributes of dish
+        function createList(value) {
+            var gerecht = (value.split(/=(.+)/)[0]) //set name of the dish
+            var gegevens = (value.split(/=(.+)/)[1]) //set attributes of dish
 
-        gegevens = gegevens.substring(1) //remove first letter '{'
-        gegevens = gegevens.split(", ") //split string into array of attributes
-        gegevens.forEach(cleanupData) //for each attribute
+            gegevens = gegevens.substring(1) //remove first letter '{'
+            gegevens = gegevens.split(", ") //split string into array of attributes
+            gegevens.forEach(cleanupData) //for each attribute
 
-        function cleanupData(value) {
-            if (value.split("=")[0] == "datum") { // if attribute = 'datum' => set datum value 
-                window.datum = value.split("=")[1]
+            function cleanupData(value) {
+                if (value.split("=")[0] == "datum") { // if attribute = 'datum' => set datum value 
+                    window.datum = value.split("=")[1]
+                }
+                if (value.split("=")[0] == "Notitie") { // if attribute = 'Notitie' => set notitie value
+                    window.notitie = value.split("=")[1]
+                } else {
+                    window.notitie = undefined // if attribute 'notitie' is not specified
+                }
             }
-            if (value.split("=")[0] == "Notitie") { // if attribute = 'Notitie' => set notitie value
-                window.notitie = value.split("=")[1]
-            } else {
-                window.notitie = undefined // if attribute 'notitie' is not specified
-            }
+
+            window.lijst.push({ "gerecht": gerecht, "Datum": window.datum, "Notitie": window.notitie })
         }
-
-        window.lijst.push({ "gerecht": gerecht, "Datum": window.datum, "Notitie": window.notitie })
-    }
-    showFood();
+        showFood();
+    });
 }
 
 function showFood() {
