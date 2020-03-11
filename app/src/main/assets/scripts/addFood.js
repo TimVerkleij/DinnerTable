@@ -18,12 +18,24 @@ function saveChanges() {
 }
 
 function addFood() {
-    let today = moment(new Date()).format('DD-MM-YYYY');
+    var today = firebase.firestore.Timestamp.fromDate(new Date());
 
-    firebase.database().ref('Gerechten').child(searchField.value).child('datum').set(today)
+    // let today = moment(new Date()).format('');
+    let gerecht = searchField.value
+    db.collection("gebruikers").doc("newUser").set({
+        gerechten: {
+            Salade: {
+                datum: [today],
+                naam: searchField.value
+            }
+        }
+
+    })
+
     searchField.value = ''
 }
 
+//!! voorbeeld voor het ophalen van data uit cloud firestore
 function showFirestore() {
     db.collection("gerechten").doc("iXXUqe1pkyGgoPQKAAmB")
         .onSnapshot(function(doc) {

@@ -117,7 +117,11 @@ db.collection("gebruikers").doc("Ai1ogLVEz1sQuFxpkWYd")
 searchField.addEventListener("keyup", function(event) {
     if (event.keyCode === 13) {
         event.preventDefault();
-        document.getElementById("searchBtn").click();
+        document.getElementById("addFoodBtn").click();
+        var html = document.getElementsByTagName('html')[0];
+        var script = document.createElement('script');
+        script.src = 'scripts/main.js';
+        html.appendChild(script);
     }
 });
 
