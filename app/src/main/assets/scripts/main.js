@@ -4,87 +4,37 @@ var searchField = document.getElementById("searchField");
 
 //TODO: Ik moet deze javascript file nog opschonen omdat firebase echt super kut doet.
 
-var lijst = [];
-
 var waarden
 
-// if (waarden == undefined) {
-//     var waarden = "{Pizza={datum=03-03-2020, Notitie=Helaas Pindakaas}, Bami={datum=04-03-2020}, Salade={datum=02-03-2020}}"
-// }
 db.collection("gebruikers").doc("Ai1ogLVEz1sQuFxpkWYd")
     .onSnapshot(function(doc) {
-
-        // getFood();
-
-        // function getFood() {
+        var lijst = [];
 
         waarden = doc.data().gerechten
         var searchField = document.getElementById("searchField");
         searchField.addEventListener('input', showFood);
 
-        // waarden = waarden.substring(1) //remove first letter
-        // waarden = waarden.slice(0, -2) //remove last letter
-
-        // list = waarden.split("}, "); //split string into array of dishes
-        // list.forEach(createList); //for each dish
-
-        // function createList(value) {
-        //     var gerecht = (value.split(/=(.+)/)[0]) //set name of the dish
-        //     var gegevens = (value.split(/=(.+)/)[1]) //set attributes of dish
-
-        //     gegevens = gegevens.substring(1) //remove first letter '{'
-        //     gegevens = gegevens.split(", ") //split string into array of attributes
-        //     gegevens.forEach(cleanupData) //for each attribute
-
-        //     function cleanupData(value) {
-        //         if (value.split("=")[0] == "datum") { // if attribute = 'datum' => set datum value 
-        //             window.datum = value.split("=")[1]
-        //         }
-        //         if (value.split("=")[0] == "Notitie") { // if attribute = 'Notitie' => set notitie value
-        //             window.notitie = value.split("=")[1]
-        //         } else {
-        //             window.notitie = undefined // if attribute 'notitie' is not specified
-        //         }
-        //     }
-
-        //     window.lijst.push({ "gerecht": gerecht, "Datum": window.datum, "Notitie": window.notitie })
-        // }
-        console.log(waarden)
-        for(const gerechtnaam in waarden) {
+        for (const gerechtnaam in waarden) {
             const gerecht = waarden[gerechtnaam];
-
-            console.log(gerecht.datum)
-            // gerecht[datum].forEach(thisone)
-            lijst.push({"Gerecht": gerecht.naam, "datum": gerecht.datum})
+            var datumArray = []
+            gerecht.datum.forEach(sortDates)
+            datumArray.sort().reverse()
+            var formattedDatumArray = []
+            datumArray.forEach(convertDates)
+            lijst.push({ "Gerecht": gerecht.naam, "datum": formattedDatumArray[0], "Notitie": gerecht.notitie, "Keuken": gerecht.keuken })
         }
 
-        function thisone(value) {
-            console.log(value)
+        function sortDates(value) {
+            datumArray.push(value.seconds * 1000)
+                // datumArray.push(moment(value.seconds * 1000).format("DD-MM-YYYY"))
         }
 
-        //
-        //	Visit non-inherited enumerable keys
-        //
-
-
-        //convert object keys to array
-        // var k = Object.keys(object);
-        //convert object values to array
-        // var v = Object.values(object);
-        // console.log(waarden.Bami)
-        // console.log(object)
-        // console.log(k)
-        // console.log(v)
-        // k.forEach(createList)
-
-        // function createList(value, index) {
-        //     console.log(value)
-        // }
-        // console.log(lijst)
+        function convertDates(value) {
+            formattedDatumArray.push(moment(value).format("D MMM YYYY"))
+        }
 
         showFood();
 
-        // }
 
         function showFood() {
             window.searchField = document.getElementById("searchField");
@@ -93,7 +43,6 @@ db.collection("gebruikers").doc("Ai1ogLVEz1sQuFxpkWYd")
 
             var search = window.searchField.value.toLowerCase();
             response = [];
-            console.log(lijst)
             lijst.forEach(filteren);
 
             function filteren(value) {
@@ -118,11 +67,13 @@ db.collection("gebruikers").doc("Ai1ogLVEz1sQuFxpkWYd")
                         var hetGerecht = element["Gerecht"]
                         var deDatum = element["datum"]
                         var deNotitie = element["Notitie"]
+                        var deKeuken = element["Keuken"]
 
                         div.innerHTML = `
                 <label class="gerechtenText">` + hetGerecht + `</label><br>
                 <label class="datumText">` + "Laatst gegeten: " + deDatum + `</label>
                 <label style="display: none;">` + deNotitie + `</label>
+                <label style="display: none;">` + deKeuken + `</label>
                 `
                     }
                 }
