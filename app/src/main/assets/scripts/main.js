@@ -19,18 +19,42 @@ db.collection("gebruikers").doc("Ai1ogLVEz1sQuFxpkWYd")
             var datumArray = []
             gerecht.datum.forEach(sortDates)
             datumArray.sort().reverse()
-            var formattedDatumArray = []
-            datumArray.forEach(convertDates)
-            lijst.push({ "Gerecht": gerecht.naam, "datum": formattedDatumArray[0], "Notitie": gerecht.notitie, "Keuken": gerecht.keuken })
+            // var formattedDatumArray = []
+            // datumArray.forEach(convertDates)
+            lijst.push({ "Gerecht": gerecht.naam, "datum": datumArray[0], "Notitie": gerecht.notitie, "Keuken": gerecht.keuken })
         }
 
         function sortDates(value) {
             datumArray.push(value.seconds * 1000)
-                // datumArray.push(moment(value.seconds * 1000).format("DD-MM-YYYY"))
         }
 
-        function convertDates(value) {
-            formattedDatumArray.push(moment(value).format("D MMM YYYY"))
+        // function convertDates(value) {
+        //     formattedDatumArray.push(moment(value).format("D MMM YYYY"))
+        // }
+
+        // lijst.forEach(sortArrayByDate)
+
+        // function sortArrayByDate(value) {
+        //     value.datum = Date.parse(value.datum)
+        // }
+
+        function sortByProperty(property) {
+            return function(a, b) {
+                if (a[property] > b[property])
+                    return 1;
+                else if (a[property] < b[property])
+                    return -1;
+
+                return 0;
+            }
+        }
+
+        lijst.sort(sortByProperty("datum")).reverse()
+
+        lijst.forEach(formatDates)
+
+        function formatDates(value) {
+            value.datum = moment(value.datum).format("D MMM YYYY")
         }
 
         showFood();
