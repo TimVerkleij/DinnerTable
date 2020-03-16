@@ -19,25 +19,47 @@ function saveChanges() {
 
 function addFood() {
     var today = firebase.firestore.Timestamp.fromDate(new Date());
+    var datumArray = []
+    var dezeArray = [1, 2, 3, 4]
+    datumArray.push(today)
+    console.log(datumArray)
 
     // let today = moment(new Date()).format('');
-    let gerecht = searchField.value
+    var gerecht = searchField.value
+    gerecht = gerecht.charAt(0).toUpperCase() + gerecht.substring(1).toLowerCase();
+
+    db.collection("gebruikers").doc("newUser").get()
+        .then(function(doc) {
+
+            console.log(doc.data().gerechten[gerecht].datum[0])
+            var datums = doc.data().gerechten[gerecht].datum
+
+            datums.forEach(function(value) {
+                // datumArray.push(value)
+            })
+
+        });
 
     let newObj = {
-        datum: [today],
-        naam: searchField.value
+        datum: datumArray,
+        naam: gerecht
     }
 
-    let gerechten = {[gerecht]: newObj}
+    console.log(datumArray)
+
+    let gerechten = {
+        [gerecht]: newObj
+    }
 
 
 
     db.collection("gebruikers").doc("newUser").set({
         // {[gerecht]: newObj}
         gerechten
-    },  { merge: true})
+    }, { merge: true })
 
     searchField.value = ''
+    console.log(datumArray)
 }
 
 //!! voorbeeld voor het ophalen van data uit cloud firestore
