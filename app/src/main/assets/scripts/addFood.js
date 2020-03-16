@@ -22,15 +22,20 @@ function addFood() {
 
     // let today = moment(new Date()).format('');
     let gerecht = searchField.value
-    db.collection("gebruikers").doc("newUser").set({
-        gerechten: {
-            Salade: {
-                datum: [today],
-                naam: searchField.value
-            }
-        }
 
-    })
+    let newObj = {
+        datum: [today],
+        naam: searchField.value
+    }
+
+    let gerechten = {[gerecht]: newObj}
+
+
+
+    db.collection("gebruikers").doc("newUser").set({
+        // {[gerecht]: newObj}
+        gerechten
+    },  { merge: true})
 
     searchField.value = ''
 }
