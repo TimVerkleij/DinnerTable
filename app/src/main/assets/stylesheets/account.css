@@ -1,0 +1,36 @@
+*{
+    margin: 0;
+}
+
+
+.profileImage{
+    width: 190px;
+    height: 190px;
+    background-color: #F7F7F7;
+    border-radius: 200px;
+    margin-top: 10px;
+    margin-left: 10px;
+    /* border: solid #8CCA73 10px; */
+}
+
+.profileImageDiv{
+    width: 210px;
+    height: 210px;
+    background-color: #8CCA73;
+    border-radius: 200px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 5px;
+}
+
+.profileImageContainer{
+    background-color: rgba(140, 202, 115, 0.5);
+    height: 260px;
+    border-top: solid #8CCA73;
+    box-shadow: 0 0 25px rgba(0, 0, 0, 0.25);
+}
+
+.userName{
+    color: #344B2A;
+    text-align: center;
+}

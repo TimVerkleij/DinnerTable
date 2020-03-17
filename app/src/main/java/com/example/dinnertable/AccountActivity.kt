@@ -2,6 +2,8 @@ package com.example.dinnertable
 
 import android.content.Intent
 import android.os.Bundle
+import android.webkit.WebView
+import android.webkit.WebViewClient
 import android.widget.ImageButton
 import androidx.appcompat.app.AppCompatActivity
 
@@ -15,6 +17,18 @@ class AccountActivity : AppCompatActivity() {
 //        val account = findViewById<ImageButton>(R.id.account)
         val stats = findViewById<ImageButton>(R.id.stats)
         val settings = findViewById<ImageButton>(R.id.settings)
+
+        val webView = findViewById<WebView>(R.id.webview)
+        webView.webViewClient = object : WebViewClient() {
+            override fun shouldOverrideUrlLoading(view: WebView?, url: String?): Boolean {
+                view?.loadUrl(url)
+                return true
+            }
+        }
+
+        webView.settings.javaScriptEnabled = true
+        webView.loadUrl("file:///android_asset/account.html")
+
 
         home.setOnClickListener {
             val intent = Intent(this, MainActivity::class.java)
