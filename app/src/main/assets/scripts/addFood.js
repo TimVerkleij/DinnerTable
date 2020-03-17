@@ -20,46 +20,47 @@ function saveChanges() {
 function addFood() {
     var today = firebase.firestore.Timestamp.fromDate(new Date());
     var datumArray = []
-    var dezeArray = [1, 2, 3, 4]
     datumArray.push(today)
-    console.log(datumArray)
-
-    // let today = moment(new Date()).format('');
     var gerecht = searchField.value
     gerecht = gerecht.charAt(0).toUpperCase() + gerecht.substring(1).toLowerCase();
 
-    db.collection("gebruikers").doc("newUser").get()
-        .then(function(doc) {
+    function loadData() {
+        db.collection("gebruikers").doc("Ai1ogLVEz1sQuFxpkWYd").get()
+            .then(function(doc) {
 
-            console.log(doc.data().gerechten[gerecht].datum[0])
-            var datums = doc.data().gerechten[gerecht].datum
+                if (doc.data().gerechten[gerecht] != undefined) {
+                    var datums = doc.data().gerechten[gerecht].datum
+                    datums.forEach(function(value) {
+                        datumArray.push(value)
+                    })
+                } else {
+                    console.log(gerecht + " bestond nog niet!")
+                }
 
-            datums.forEach(function(value) {
-                // datumArray.push(value)
-            })
-
-        });
+                uploadData();
+            });
+    }
 
     let newObj = {
         datum: datumArray,
         naam: gerecht
     }
 
-    console.log(datumArray)
 
     let gerechten = {
         [gerecht]: newObj
     }
 
+    loadData();
 
+    function uploadData() {
+        db.collection("gebruikers").doc("Ai1ogLVEz1sQuFxpkWYd").set({
+            gerechten
+        }, { merge: true })
+    }
 
-    db.collection("gebruikers").doc("newUser").set({
-        // {[gerecht]: newObj}
-        gerechten
-    }, { merge: true })
 
     searchField.value = ''
-    console.log(datumArray)
 }
 
 //!! voorbeeld voor het ophalen van data uit cloud firestore
