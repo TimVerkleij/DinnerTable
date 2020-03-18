@@ -7,9 +7,31 @@
     padding-bottom: 5px;
 }
 .row{
-    height: 50px;
+    /* height: 50px; */
     padding: 10px;
     background-color: white;
     border-radius: 10px;
     margin-bottom: 3%;
+}
+
+.tastyHealthyDiv{
+    width: 40px;
+    padding: 0;
+    text-align: center;
+}
+
+.tastyHealthyText, .tastyHealthyNumber{
+    font-size: 11px;
+    color: #3C3C3D;
+    
+}
+
+.tastyHealthyNumber{
+    color: #969696;
+}
+
+.tableButtonDiv{
+    background-color: #8CCA73;
+    border-radius: 10px;
+    font-size: 9px;
 }

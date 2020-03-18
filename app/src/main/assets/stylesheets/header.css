@@ -5,6 +5,7 @@ body {
 
 button {
     outline: none;
+    border: none;
 }
 
 .switchButton, .switchButtonActive {

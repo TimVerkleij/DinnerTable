@@ -19,9 +19,9 @@ db.collection("gebruikers").doc("Ai1ogLVEz1sQuFxpkWYd")
             var datumArray = []
             gerecht.datum.forEach(sortDates)
             datumArray.sort().reverse()
-            // var formattedDatumArray = []
-            // datumArray.forEach(convertDates)
-            lijst.push({ "Gerecht": gerecht.naam, "datum": datumArray[0], "Notitie": gerecht.notitie, "Keuken": gerecht.keuken })
+                // var formattedDatumArray = []
+                // datumArray.forEach(convertDates)
+            lijst.push({ "Gerecht": gerecht.naam, "datum": datumArray[0], "Notitie": gerecht.notitie, "Keuken": gerecht.keuken, "Healthy": gerecht.healthy, "Tasty": gerecht.tasty })
         }
 
         function sortDates(value) {
@@ -92,12 +92,39 @@ db.collection("gebruikers").doc("Ai1ogLVEz1sQuFxpkWYd")
                         var deDatum = element["datum"]
                         var deNotitie = element["Notitie"]
                         var deKeuken = element["Keuken"]
+                        var deHealthy = element["Healthy"]
+                        var deTasty = element["Tasty"]
 
                         div.innerHTML = `
-                <label class="gerechtenText">` + hetGerecht + `</label><br>
-                <label class="datumText">` + "Laatst gegeten: " + deDatum + `</label>
+                <table> 
+                    <tr>
+                        <td rowspan="3" class="gerechtDatumDiv">
+                            <label class="gerechtenText">` + hetGerecht + `</label><br>
+                            <label class="datumText">` + "Laatst gegeten: " + deDatum + `</label>
+                        </td>
+                        <td class="tastyHealthyDiv">
+                            <label class="tastyHealthyText">Tasty</label>
+                        </td>
+                        <td class="tastyHealthyDiv">
+                            <label class="tastyHealthyText">Healthy</label>
+                        </td>
+                    </tr>
+ 		            <tr>
+	 		            <td class="tastyHealthyDiv">
+                            <label class="tastyHealthyNumber">` + deHealthy + `</label>
+                        </td>
+                        <td class="tastyHealthyDiv">
+                            <label class="tastyHealthyNumber">` + deTasty + `</label>
+                        </td>
+                     </tr>
+                     <tr>
+	 		            <td colspan="2"><button class="tableButtonDiv">Dit eet ik vandaag!</button></td>
+ 		            </tr>
+ 	            </table>
+                
                 <label style="display: none;">` + deNotitie + `</label>
                 <label style="display: none;">` + deKeuken + `</label>
+                
                 `
                     }
                 }
