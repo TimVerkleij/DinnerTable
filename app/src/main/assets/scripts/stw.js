@@ -41,14 +41,14 @@ function main() {
         .enter()
         .append("g")
         .attr("class", "slice")
-        .attr("stroke", "#3C3C3D")                        //border color
+        .attr("stroke", "#8CCA73")                        //border color
 
     //console.log(arcs)
     arcs.append("path")
-        .attr("fill", function (d, i) { return '#8CCA73' })                 //the background color
+        .attr("fill", function (d, i) { return '#F7F7F7' })                 //the background color
         .attr("d", function (d) { return arc(d); })
 
-    arcs.append("text").attr("transform", function (d) {
+    arcs.append("text").attr("stroke", "#3C3C3D").attr("transform", function (d) {
         d.innerRadius = 0;
         d.outerRadius = r;
         d.angle = (d.startAngle + d.endAngle) / 2;
