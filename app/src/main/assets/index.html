@@ -20,16 +20,17 @@
 <body>
     <div>
         <div class="buttonDiv">
-<!-- Header / switch -->
+            <!-- Header / switch -->
             <button class="switchButtonActive" onclick="switchSuggesties()" id="suggestieBtn">Suggesties</button>
             <button class="switchButton" onclick="switchGerechten()" id="gerechtenBtn">Alle gerechten</button>
         </div>
         <div class="gerechten" id="gerechten" style="display: none;">
-<!-- gerechten pagina-->
+            <!-- gerechten pagina-->
             <div class="line">
                 <div class="search">
                     <input type="text" id="searchField" class="searchBar" placeholder="Zoek een gerecht">
-                    <img src="images/plusBtn.png" alt="plus knop" class="addFoodBtn" id="addFoodBtn" onclick="addFood()">
+                    <img src="images/plusBtn.png" alt="plus knop" class="addFoodBtn" id="addFoodBtn"
+                        onclick="addFood()">
                 </div>
             </div>
             <div class="tableDiv">
@@ -40,7 +41,8 @@
             <div class="addFoodDiv" id="addFoodDiv">
                 <button class="closeAddFood" id="closeAddFood" onclick="closeAddFood()">x</button>
                 <h4 class="addFoodText">Voeg een gerecht toe aan uw lijst</h4>
-                <input type="text" name="addFoodBar" id="addFoodBar" class="addFoodBar" placeholder="Voeg een gerecht toe">
+                <input type="text" name="addFoodBar" id="addFoodBar" class="addFoodBar"
+                    placeholder="Voeg een gerecht toe">
                 <button class="confirmAdd" id="confirmAdd" onclick="addFoodConfirm()">Toevoegen</button>
             </div>
             <div class="editFoodDiv" id="editFoodDiv" style="display: none;">
@@ -58,17 +60,17 @@
                 </div>
             </div>
         </div>
-<!-- De suggesties pagina -->
+        <!-- De suggesties pagina -->
         <div class="suggesties" id="suggesties">
             <div class="fortuneDiv">
                 <div class="wheelDiv" id="wheelDiv">
-                    <label id="etenVraag">Wat eten we vanavond?</label>
                     <img src="images/editIcon.png" id="show" onclick="show()">
-                    <div id="chart"></div>
-
-                    <div id="labelDiv">
-                        <label id="label">Spin the wheel!</label> <br>
+                    <!-- ! WORKING ON IT OKAY -->
+                    <div id="chart">
+                        <label id="etenVraag">Wat eten we vanavond?</label><br><br>
+                        <label id="label"></label><br>
                     </div>
+                    <label id="clickWheel">Klik hier om te draaien</label>
                 </div>
 
                 <div class="editDiv" id="editDiv">
@@ -81,7 +83,7 @@
                     <button id="changeSlots" onclick="changeSlots()">Change slots</button>
                 </div>
             </div>
-<!-- Suggesties images slider -->
+            <!-- Suggesties images slider -->
             <div class="suggestiesImages" id="suggestiesImages">
                 <table class="suggestiesTable">
                     <div class="leftGradient"></div>

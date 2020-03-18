@@ -12,16 +12,10 @@ text{
     margin-right: auto;
     text-align: center;
 }
-#labelDiv{
-    text-align: center;
-    margin-top: 10px;
-}
 #label{
     color: #3C3C3D;
     font-size: 20px;
     font-family: Arial;
-    margin-left: auto;
-    margin-right: auto;
 }
 #plusButton, #minButton, #changeSlots, #annulerenBtn{
     width: auto;
@@ -73,10 +67,23 @@ input{
 }
 #etenVraag{
     margin-top: 80px;
-    margin-left: 20%;
     color: #3C3C3D;
-    font-size: 20px;
+    font-size: 18px;
 }
 .fortuneDiv{
     margin-top: 80px;
+}
+#clickWheel{
+    z-index: -5;
+    color: #3C3C3D;
+    font-size: 15px;
+    font-family: Arial;
+
+    margin-left: auto;
+    margin-right: auto;
+
+    border: 1px solid #DDECD7;
+    background-color: #DDECD7;
+    border-radius: 15px;
+    padding: 5px;
 }
