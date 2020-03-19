@@ -246,3 +246,4 @@ console.log(clickWheelButton.offsetWidth/2)
 console.log(rect.top, clickWheelButton.offsetTop, spinningWheel.offsetHeight);
 clickWheelButton.style.top = rect.top + wheelWidth / 2 - clickWheelButton.offsetHeight / 2 + "px"
 clickWheelButton.style.left = -clickWheelButton.offsetWidth/2 + "px"
+clickWheelButton.style.marginBottom = wheelWidth / 2 - clickWheelButton.offsetHeight / 2 + 4 + "px"
