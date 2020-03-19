@@ -18,8 +18,6 @@ text{
     font-family: Arial;
 }
 #plusButton, #minButton, #changeSlots, #annulerenBtn{
-    width: auto;
-    height: auto;
     color: #3C3C3D;
     text-decoration: underline;
     text-decoration-color: #8CCA73;
