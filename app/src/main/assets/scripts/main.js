@@ -111,14 +111,14 @@ db.collection("gebruikers").doc("Ai1ogLVEz1sQuFxpkWYd")
                     </tr>
  		            <tr>
 	 		            <td class="tastyHealthyDiv">
-                            <label class="tastyHealthyNumber">` + deHealthy + `</label>
+                            <label class="tastyHealthyNumber">` + deHealthy + `/10` + `</label>
                         </td>
                         <td class="tastyHealthyDiv">
-                            <label class="tastyHealthyNumber">` + deTasty + `</label>
+                            <label class="tastyHealthyNumber">` + deTasty +`/10`+ `</label>
                         </td>
                      </tr>
                      <tr>
-	 		            <td colspan="2"><button class="tableButtonDiv">Dit eet ik vandaag!</button></td>
+	 		            <td colspan="2" class="tryThis"><button class="tableButton">Dit eet ik vandaag!</button></td>
  		            </tr>
  	            </table>
                 
