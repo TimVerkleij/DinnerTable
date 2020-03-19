@@ -77,3 +77,18 @@
 .gradientDiv{
     position: relative;
 }
+
+.moreSuggestions{
+    font-size: 18px;
+    text-align: center;
+}
+
+.arrowDown{
+    width: 30px;
+    height: width;
+}
+
+.moreSuggestionsDiv{
+    text-align: center;
+    margin-top: 50px;
+}

@@ -11,6 +11,7 @@ text{
     margin-left: auto;
     margin-right: auto;
     text-align: center;
+    position: relative;
 }
 #label{
     color: #3C3C3D;
@@ -69,7 +70,7 @@ input{
     font-size: 18px;
 }
 .fortuneDiv{
-    margin-top: 80px;
+    margin-top: 70px;
 }
 #clickWheel{
     z-index: 5;
@@ -101,7 +102,9 @@ input{
 .triangle {
 	background-color: #3C3C3D;
     text-align: left;
-    margin-left: 300px;
+    right: -10px;
+    position: absolute;
+    margin-top: 130px;
 }
 .triangle:before,
 .triangle:after {

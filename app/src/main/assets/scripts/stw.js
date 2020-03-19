@@ -22,7 +22,6 @@ var size = 280
 main()
 
 var wheelChart = document.getElementById("spinningWheel")
-console.log(wheelChart)
 
 function main() {
     var padding = { top: 5, right: 25, bottom: 5, left: 25 },
@@ -96,7 +95,7 @@ function main() {
                 container.on("click", spin);
 
                 if (outcomeLabel != '') {
-                    window.suggestiesImages.style.display = "block"
+                    window.suggestiesImages.style.display = "inline"
 
                     clickToTurn.innerHTML = "Draai opnieuw"
                     clickToTurn.style.fontSize = "15px"
@@ -109,7 +108,6 @@ function main() {
     //     .append("path")
     //     .attr("d", "M-" + (r * .20) + ",0L0," + (r * .12) + "L0,-" + (r * .12) + "Z")
     //     .style({ "fill": "#3C3C3D", "border": "inherit", "border-radius": "100" });
-    var triangle = document.getElementById("triangle")
 
     function rotTween(to) {
         var i = d3.interpolate(oldrotation % 360, rotation);
@@ -233,17 +231,14 @@ function displayText() {
     maxTekensText.style.display = "block"
 }
 
+function scrollDown(){
+    scrollBy(0, 300)
+}
 
 var rect = wheelChart.getBoundingClientRect();
-var spinningWheel = document.getElementsByClassName("spinningWheel")
 var clickWheelButton = document.getElementById("clickWheel")
-console.log(wheelChart.getAttribute("width"))
 var wheelWidth = parseInt(wheelChart.getAttribute("width"))
-    // clickWheelButton.style.marginLeft = -(clickWheelButton.offsetWidth / 2) + "px"
-    // clickWheelButton.style.marginRight = "100px"
 
-console.log(clickWheelButton.offsetWidth/2)
-console.log(rect.top, clickWheelButton.offsetTop, spinningWheel.offsetHeight);
 clickWheelButton.style.top = rect.top + wheelWidth / 2 - clickWheelButton.offsetHeight / 2 + "px"
 clickWheelButton.style.left = -clickWheelButton.offsetWidth/2 + "px"
 clickWheelButton.style.marginBottom = wheelWidth / 2 - clickWheelButton.offsetHeight / 2 + 4 + "px"
