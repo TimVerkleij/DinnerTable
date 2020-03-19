@@ -1,7 +1,6 @@
 body {
     background-color: #F7F7F7;
     font-family: Arial, Helvetica, sans-serif;
-    height: 1000px;
 }
 
 button {
@@ -33,7 +32,7 @@ button {
     left: 0;
     position: fixed;
     top: 0;
-    z-index: 10;
+    z-index: 101;
     background: #8CCA73;
 }
 
