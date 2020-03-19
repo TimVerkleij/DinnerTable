@@ -43,32 +43,33 @@ function main() {
     var vis = container
         .append("g")
 
-    var pie = d3.layout.pie().sort(null).value(function (d) { return 1; });
+    var pie = d3.layout.pie().sort(null).value(function(d) { return 1; });
     var arc = d3.svg.arc().outerRadius(r + 20);
     var arcs = vis.selectAll("g.slice")
         .data(pie)
         .enter()
         .append("g")
         .attr("class", "slice")
-        .attr("stroke", "#8CCA73")                        //border color
+        .attr("stroke", "#8CCA73") //border color
 
     //console.log(arcs)
     arcs.append("path")
-        .attr("fill", function (d, i) { return "#F7F7F7" })                 //the background color
-        .attr("d", function (d) { return arc(d); })
+        .attr("fill", function(d, i) { return "#F7F7F7" }) //the background color
+        .attr("d", function(d) { return arc(d); })
 
-    arcs.append("text").attr("stroke", "#3C3C3D").attr("transform", function (d) {
-        d.innerRadius = 0;
-        d.outerRadius = r;
-        d.angle = (d.startAngle + d.endAngle) / 2;
-        return "rotate(" + (d.angle * 180 / Math.PI - 90) + ")translate(" + (d.outerRadius) + ")";
-    })
+    arcs.append("text").attr("stroke", "#3C3C3D").attr("transform", function(d) {
+            d.innerRadius = 0;
+            d.outerRadius = r;
+            d.angle = (d.startAngle + d.endAngle) / 2;
+            return "rotate(" + (d.angle * 180 / Math.PI - 90) + ")translate(" + (d.outerRadius) + ")";
+        })
         .attr("text-anchor", "end")
-        .text(function (d, i) {
+        .text(function(d, i) {
             return data[i].label;
         });
 
     container.on("click", spin);
+
     function spin(d) {
         var ps = 360 / data.length,
             pieslice = Math.round(1440 / data.length),
@@ -78,12 +79,12 @@ function main() {
         picked = Math.round(data.length - (rotation % 360) / ps);
         picked = picked >= data.length ? (picked % data.length) : picked;
 
-        var random = Math.round(Math.random() * 35)                             //door deze ziet het er beter uit, anders komt hij altijd perfect in het midden
-        rotation += (75 + random) - Math.round(ps / 2);                         //75 + random is normaal 90, dan staat ie dus iets te perfect in t midden
+        var random = Math.round(Math.random() * 35) //door deze ziet het er beter uit, anders komt hij altijd perfect in het midden
+        rotation += (75 + random) - Math.round(ps / 2); //75 + random is normaal 90, dan staat ie dus iets te perfect in t midden
         vis.transition()
-            .duration(3000)                                                     //rotation time
+            .duration(3000) //rotation time
             .attrTween("transform", rotTween)
-            .each("end", function () {
+            .each("end", function() {
                 oldrotation = rotation;
 
                 console.log("Chosen = " + data[picked].label)
@@ -106,11 +107,11 @@ function main() {
         .attr("transform", "translate(" + (w + padding.left + padding.right) + "," + ((h / 2) + padding.top) + ")")
         .append("path")
         .attr("d", "M-" + (r * .20) + ",0L0," + (r * .12) + "L0,-" + (r * .12) + "Z")
-        .style({ "fill": "#3C3C3D" });
+        .style({ "fill": "#3C3C3D", "border": "inherit", "border-radius": "100" });
 
     function rotTween(to) {
         var i = d3.interpolate(oldrotation % 360, rotation);
-        return function (t) {
+        return function(t) {
             return "rotate(" + i(t) + ")";
         };
     }
@@ -118,6 +119,7 @@ function main() {
 
 numberInput.innerHTML = slots
 edit()
+
 function editPlus() {
     if (slots >= 10 || slots < 3) {
         alert("Max 10, Min 3")
@@ -126,6 +128,7 @@ function editPlus() {
         edit()
     }
 }
+
 function editMinus() {
     if (slots > 10 || slots <= 3) {
         alert("Max 10, Min 3")
@@ -134,6 +137,7 @@ function editMinus() {
         edit()
     }
 }
+
 function edit() {
     var container = document.getElementById("container")
     while (container.hasChildNodes()) {
@@ -144,6 +148,11 @@ function edit() {
         container.appendChild(document.createTextNode("Vakje " + (i)))
         window.input = document.createElement("input")
         input.type = "text"
+            // <input type="text" maxlength="3" id="hahaha" onkeypress="if(this.value.length >= this.getAttribute('maxlength') return false;" />
+            // input.onkeypress = function(){
+            //     if(this.value.length >= this.getAttribute('maxlength')) document.activeElement.blur()
+            // }
+        input.addEventListener("keydown", keyPressFunction);
         input.maxLength = "12"
         input.name = "slot" + i
         input.id = "slot" + i
@@ -154,6 +163,7 @@ function edit() {
     }
     numberInput.innerHTML = slots //slotcount text
 }
+
 function changeSlots() {
 
     data = []
@@ -171,6 +181,7 @@ function changeSlots() {
     } else {
         alert("Vul alle vakjes!")
     }
+
     function flikkers(value) {
         console.log(value.value)
         console.log(inputs)
@@ -191,6 +202,7 @@ function changeSlots() {
 
 }
 editDiv.style.display = "none"
+
 function show() {
     editDiv.style.display = "block"
     wheelDiv.style.display = "none"
@@ -201,4 +213,20 @@ function annuleren() {
     editDiv.style.display = "none"
     wheelDiv.style.display = "block"
     window.suggestiesImages.style.display = "block"
+}
+
+
+var maxTekensText = document.getElementById("maxTekensText")
+
+function keyPressFunction() {
+    if (document.activeElement.value.length >= 12 && event.keyCode != 8) {
+        document.activeElement.blur()
+        displayText();
+    } else{
+        maxTekensText.style.display = "none"
+    }
+}
+
+function displayText() {
+    maxTekensText.style.display = "block"
 }

@@ -9,7 +9,7 @@ button {
 }
 
 .switchButton, .switchButtonActive {
-    width: 48%;
+    width: 45%;
     height: 30px;
     background-color: #8CCA73;
     border: none;

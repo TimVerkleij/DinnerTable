@@ -74,16 +74,28 @@ input{
     margin-top: 80px;
 }
 #clickWheel{
-    z-index: -5;
+    z-index: 5;
     color: #3C3C3D;
     font-size: 15px;
     font-family: Arial;
-
-    margin-left: auto;
-    margin-right: auto;
+    position: fixed;
+    text-align: center;
+    left: 30%;
+    top: 43%;
+    opacity: 75%;
 
     border: 1px solid #DDECD7;
     background-color: #DDECD7;
     border-radius: 15px;
     padding: 5px;
+}
+#spinningWheel{
+    margin-left: auto;
+    margin-right: auto;
+}
+.maxTekensText{
+    color: red;
+    font-size: 12px;
+    margin-bottom: 5px;
+    display: none;
 }
