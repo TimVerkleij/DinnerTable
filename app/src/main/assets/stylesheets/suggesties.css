@@ -1,7 +1,7 @@
 .fifth {
     width: 100%;
     height: max-content;
-    overflow: hidden;
+    /* overflow: hidden; */
     font-family: Arial;
     font-size: 6px;
     font-weight: normal;
@@ -33,6 +33,7 @@
     display: block;
     overflow-x: scroll;
     white-space: nowrap;
+    width: 100%;
 }
 .boven,
 .onder {
@@ -51,22 +52,28 @@
 
 .leftGradient {
     background-image: linear-gradient(90deg, #f7f7f7 5%, transparent);
+    /* background-color: #f7f7f7; */
     width: 120px;
     height: 180px;
-    position: fixed;
-    left: 5px;
+    position: absolute;
+    left: 0;
     z-index: 100;
-    margin-top: 10px;
+    /* margin-top: 10px; */
     pointer-events: none;
 }
 
 .rightGradient {
     background-image: linear-gradient(270deg, #f7f7f7 5%, transparent);
+    /* background-color: blue; */
     width: 120px;
     height: 180px;
-    position: fixed;
-    right: 5px;
+    right: 0;
+    position: absolute;
     z-index: 100;
-    margin-top: 10px;
+    /* margin-top: 10px; */
     pointer-events: none;
+}
+
+.gradientDiv{
+    position: relative;
 }

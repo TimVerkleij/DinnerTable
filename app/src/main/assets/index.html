@@ -29,8 +29,7 @@
             <div class="line">
                 <div class="search">
                     <input type="text" id="searchField" class="searchBar" placeholder="Zoek een gerecht">
-                    <img src="images/plusBtn.png" alt="plus knop" class="addFoodBtn" id="addFoodBtn"
-                        onclick="addFood()">
+                    <img src="images/plusBtn.png" alt="plus knop" class="addFoodBtn" id="addFoodBtn" onclick="addFood()">
                 </div>
             </div>
             <div class="tableDiv">
@@ -41,8 +40,7 @@
             <div class="addFoodDiv" id="addFoodDiv">
                 <button class="closeAddFood" id="closeAddFood" onclick="closeAddFood()">x</button>
                 <h4 class="addFoodText">Voeg een gerecht toe aan uw lijst</h4>
-                <input type="text" name="addFoodBar" id="addFoodBar" class="addFoodBar"
-                    placeholder="Voeg een gerecht toe">
+                <input type="text" name="addFoodBar" id="addFoodBar" class="addFoodBar" placeholder="Voeg een gerecht toe">
                 <button class="confirmAdd" id="confirmAdd" onclick="addFoodConfirm()">Toevoegen</button>
             </div>
             <div class="editFoodDiv" id="editFoodDiv" style="display: none;">
@@ -71,7 +69,7 @@
                         <label id="clickWheel">Klik om te draaien</label>
                         <div class="triangle"></div>
                     </div>
-                    
+
                 </div>
 
                 <div class="editDiv" id="editDiv">
@@ -87,9 +85,12 @@
             </div>
             <!-- Suggesties images slider -->
             <div class="suggestiesImages" id="suggestiesImages">
-                <table class="suggestiesTable">
+                <div>
                     <div class="leftGradient"></div>
                     <div class="rightGradient"></div>
+                
+
+                <table class="suggestiesTable">
                     <tr>
                         <td class="gerechten">
                             <div class="fifth">
@@ -140,6 +141,7 @@
                         </td>
                     </tr>
                 </table>
+            </div>
             </div>
         </div>
     </div>
