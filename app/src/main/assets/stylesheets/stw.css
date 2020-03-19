@@ -76,11 +76,11 @@ input{
     color: #3C3C3D;
     font-size: 15px;
     font-family: Arial;
-    position: fixed;
+    position: sticky;
     text-align: center;
-    left: 30%;
-    top: 43%;
     opacity: 75%;
+    left: 50%;
+    top: 50%;
 
     border: 1px solid #DDECD7;
     background-color: #DDECD7;
@@ -96,4 +96,32 @@ input{
     font-size: 12px;
     margin-bottom: 5px;
     display: none;
+}
+
+.triangle {
+	background-color: #3C3C3D;
+    text-align: left;
+    margin-left: 300px;
+}
+.triangle:before,
+.triangle:after {
+	content: '';
+	position: absolute;
+	background-color: inherit;
+}
+.triangle,
+.triangle:before,
+.triangle:after {
+	width:  15px;
+	height: 15px;
+    border-top-right-radius: 40%;
+}
+.triangle {
+	transform: rotate(-30deg) skewX(-30deg) scale(1,.866);
+}
+.triangle:before {
+	transform: rotate(-135deg) skewX(-45deg) scale(1.414,.707) translate(0,-50%);
+}
+.triangle:after {
+	transform: rotate(135deg) skewY(-45deg) scale(.707,1.414) translate(50%);
 }

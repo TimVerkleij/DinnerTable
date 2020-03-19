@@ -17,6 +17,8 @@ var outcomeLabel = document.getElementById("label")
 suggestiesImages.style.display = "none"
 var clickToTurn = document.getElementById("clickWheel")
 
+var size = 280
+
 main()
 
 var wheelChart = document.getElementById("spinningWheel")
@@ -24,8 +26,8 @@ console.log(wheelChart)
 
 function main() {
     var padding = { top: 20, right: 30, bottom: 5, left: 30 },
-        w = 280 - padding.left - padding.right,
-        h = 280 - padding.top - padding.bottom,
+        w = size - padding.left - padding.right,
+        h = size - padding.top - padding.bottom,
         r = Math.min(w, h) / 2,
         rotation = 0,
         oldrotation = 0,
@@ -95,19 +97,22 @@ function main() {
 
                 if (outcomeLabel != '') {
                     window.suggestiesImages.style.display = "block"
+
+                    clickToTurn.innerHTML = "Draai opnieuw"
+                    clickToTurn.style.fontSize = "12px"
+
+                    var clickWheelButton = document.getElementById("clickWheel")
+                    clickWheelButton.style.marginLeft = -(clickWheelButton.offsetWidth / 2) + "px"
                 }
             });
-
-        clickToTurn.innerHTML = "Draai opnieuw"
-        clickToTurn.style.fontSize = "12px"
-
     }
     //make arrow
-    svg.append("g")
-        .attr("transform", "translate(" + (w + padding.left + padding.right) + "," + ((h / 2) + padding.top) + ")")
-        .append("path")
-        .attr("d", "M-" + (r * .20) + ",0L0," + (r * .12) + "L0,-" + (r * .12) + "Z")
-        .style({ "fill": "#3C3C3D", "border": "inherit", "border-radius": "100" });
+    // svg.append("g")
+    //.attr("transform", "translate(" + (w + padding.left + padding.right) + "," + ((h / 2) + padding.top) + ")")
+    //     .append("path")
+    //     .attr("d", "M-" + (r * .20) + ",0L0," + (r * .12) + "L0,-" + (r * .12) + "Z")
+    //     .style({ "fill": "#3C3C3D", "border": "inherit", "border-radius": "100" });
+    var triangle = document.getElementById("triangle")
 
     function rotTween(to) {
         var i = d3.interpolate(oldrotation % 360, rotation);
@@ -222,7 +227,7 @@ function keyPressFunction() {
     if (document.activeElement.value.length >= 12 && event.keyCode != 8) {
         document.activeElement.blur()
         displayText();
-    } else{
+    } else {
         maxTekensText.style.display = "none"
     }
 }
@@ -230,3 +235,11 @@ function keyPressFunction() {
 function displayText() {
     maxTekensText.style.display = "block"
 }
+
+var clickWheelButton = document.getElementById("clickWheel")
+clickWheelButton.style.marginLeft = -(clickWheelButton.offsetWidth / 2) + "px"
+
+var rect = wheelChart.getBoundingClientRect();
+console.log(rect.top, clickWheelButton.offsetTop);
+clickWheelButton.offsetTop = rect.top + "px"
+clickWheelButton.style.top = rect.top + "px"
