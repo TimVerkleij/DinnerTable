@@ -25,7 +25,7 @@ var wheelChart = document.getElementById("spinningWheel")
 console.log(wheelChart)
 
 function main() {
-    var padding = { top: 20, right: 30, bottom: 5, left: 30 },
+    var padding = { top: 5, right: 25, bottom: 5, left: 25 },
         w = size - padding.left - padding.right,
         h = size - padding.top - padding.bottom,
         r = Math.min(w, h) / 2,
@@ -99,10 +99,7 @@ function main() {
                     window.suggestiesImages.style.display = "block"
 
                     clickToTurn.innerHTML = "Draai opnieuw"
-                    clickToTurn.style.fontSize = "12px"
-
-                    var clickWheelButton = document.getElementById("clickWheel")
-                    clickWheelButton.style.marginLeft = -(clickWheelButton.offsetWidth / 2) + "px"
+                    clickToTurn.style.fontSize = "15px"
                 }
             });
     }
@@ -236,10 +233,16 @@ function displayText() {
     maxTekensText.style.display = "block"
 }
 
-var clickWheelButton = document.getElementById("clickWheel")
-clickWheelButton.style.marginLeft = -(clickWheelButton.offsetWidth / 2) + "px"
 
 var rect = wheelChart.getBoundingClientRect();
-console.log(rect.top, clickWheelButton.offsetTop);
-clickWheelButton.offsetTop = rect.top + "px"
-clickWheelButton.style.top = rect.top + "px"
+var spinningWheel = document.getElementsByClassName("spinningWheel")
+var clickWheelButton = document.getElementById("clickWheel")
+console.log(wheelChart.getAttribute("width"))
+var wheelWidth = parseInt(wheelChart.getAttribute("width"))
+    // clickWheelButton.style.marginLeft = -(clickWheelButton.offsetWidth / 2) + "px"
+    // clickWheelButton.style.marginRight = "100px"
+
+console.log(clickWheelButton.offsetWidth/2)
+console.log(rect.top, clickWheelButton.offsetTop, spinningWheel.offsetHeight);
+clickWheelButton.style.top = rect.top + wheelWidth / 2 - clickWheelButton.offsetHeight / 2 + "px"
+clickWheelButton.style.left = -clickWheelButton.offsetWidth/2 + "px"
