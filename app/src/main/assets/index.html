@@ -49,38 +49,43 @@
 
                     <div class="row inputDiv">
                         <label class="label">Naam van het gerecht*</label><br>
-                        <input type="text" class="editInput">
+                        <input type="text" class="gerechtInput editInput">
                     </div>
                     <table class="tastyHealthyTable">
                         <tr>
                             <td style="width: 50%;">
                                 <div class="inputHealthy">
-                                    <label class="label">Healthy*</label>
-                                    <input type="number" min="0" max="10" class="numberScale">
-                                    <label>/10</label>
+                                    <label class="label">Healthy*</label><br>
+                                    <input type="number" min="0" max="10" class="numberScale" onblur="checkNumber(this)">
+                                    <label class="maxNumberLabel">/10</label>
                                 </div>
                             </td>
                             <td style="width: 50%;">
                                 <div class="inputTasty">
-                                    <label class="label">Tasty*</label>
-                                    <input type="number" class="numberScale">
-                                    <label>/10</label>
+                                    <label class="label">Tasty*</label><br>
+                                    <input type="number" class="numberScale" onblur="checkNumber(this)">
+                                    <label class="maxNumberLabel">/10</label>
                                 </div>
                             </td>
                         </tr>
                     </table>
-
-                    <!-- <label for="gerecht" class="label">Gerecht:</label>
-                    <input type="text" name="gerecht" id="gerecht" class="editInput" readonly><br>
-                    <label for="datum" class="label">Datum:</label>
-                    <input type="text" name="datum" id="datum" class="editInput"><br>
-                    <label for="notitie" class="label">Notitie:</label>
-                    <input type="text" name="notitie" id="notitie" placeholder="Geen notitie"><br> -->
+                    <div class="row inputDiv">
+                        <label class="label">Opmerkingen</label>
+                        <textarea class="editInput" cols="30" rows="10"></textarea>
+                    </div>
+                    <div class="row inputDiv">
+                        <label class="label">Link naar recept</label>
+                        <input type="url" class="editInput">
+                    </div>
+                    <div class="noteLabel">
+                        <label>Velden met een * zijn verplicht</label>
+                    </div>
+                    <div class="cancelSaveDiv">
+                        <button class="cancelEdit" onclick="cancel()">Annuleren</button>
+                        <button class="saveEdit" onclick="saveChanges()">Opslaan</button>
+                    </div>
                 </div>
-                <!-- <div>
-                    <button class="saveEdit" onclick="cancel()">Annuleren</button>
-                    <button class="saveEdit" onclick="saveChanges()">Opslaan</button>
-                </div> -->
+                
             </div>
         </div>
         <!-- De suggesties pagina -->
@@ -193,6 +198,7 @@
 <script src="scripts/addFood.js" defer></script>
 <script src="https://d3js.org/d3.v3.min.js" charset="utf-8"></script>
 <script src="scripts/stw.js" defer></script>
+<script src="scripts/editFood.js" defer></script>
 <link rel="stylesheet" href="stylesheets/stw.css">
 
 </html>

@@ -1,4 +1,4 @@
-.row > table {
+.row>table {
     width: 100%;
     border-collapse: collapse;
 }
@@ -97,7 +97,7 @@
     margin: 0;
     left: 0;
     position: fixed;
-    background-color: lime;
+    background-color: #F7F7F7;
 }
 
 .inputDiv {
@@ -109,13 +109,22 @@
 
 .editTitle {
     font-size: 24px;
-    font-weight: 100;
+    font-weight: normal;
     text-align: center;
+    color: #3D3E3C;
 }
 
 .label {
     font-size: 16px;
     color: #969696;
+}
+
+.noteLabel{
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 11px;
+    color: #707070;
 }
 
 .inputHealthy,
@@ -125,33 +134,70 @@
     background-color: white;
     border-radius: 10px;
     margin-bottom: 3%;
-    width: 90%;
+    width: 100%;
     height: 63px;
+}
+
+.inputDiv, .inputHealthy, .inputTasty{
+    box-shadow: 0 0 25px rgba(0, 0, 0, 0.10);
+}
+
+.gerechtInput{
+    font-size: 24px;
 }
 
 .editInput {
     border: none;
     margin: 0;
     padding: 0;
-    height: 75%;
-    font-size: 24px;
+    height: 70%;
+    width: 90%;
+    resize: none;
+    font-family: Arial, Helvetica, sans-serif;
 }
 
-.saveEdit {
-    margin-top: 10px;
+.cancelSaveDiv{
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 70px;
+}
+
+.saveEdit{
     float: right;
-    background-color: #8CCA73;
-    border: solid 2px black;
-    border-radius: 5px;
 }
 
-.tastyHealthyTable{
-    width: 100%;
+.saveEdit, .cancelEdit {
+    width: 100px;
+    height: 24px;
+    background-color: #8CCA73;
+    border-radius: 5px;
+    font-size: 13px;
+    color: white;
+}
+
+.tastyHealthyTable {
+    width: 80%;
     left: 0;
     margin-left: auto;
     margin-right: auto;
 }
 
-.numberScale{
-    width: 80%;
+.numberScale,
+.numberScale:focus {
+    width: 50%;
+    font-size: 27px;
+    text-align: right;
+    border: none;
+    -moz-appearance: textfield;
+}
+
+.numberScale::-webkit-outer-spin-button,
+.numberScale::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.maxNumberLabel{
+    font-size: 27px;
 }
