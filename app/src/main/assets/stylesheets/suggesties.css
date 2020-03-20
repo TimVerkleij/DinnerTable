@@ -10,12 +10,14 @@
     background-color: white;
     border-radius: 5px;
 }
+
 .imgContainer {
     width: 80%;
     height: auto;
     margin-left: auto;
     margin-right: auto;
 }
+
 .imgHolder {
     border: 2px solid #8CCA73;
     border-radius: 3px;
@@ -24,17 +26,21 @@
     display: flex;
     object-fit: cover;
 }
+
 .voorstelText {
     font-family: Arial;
     font-size: 14px;
     text-decoration-color: #3C3C3D;
 }
+
 .suggestiesTable {
     display: block;
     overflow-x: scroll;
+    scroll-snap-type: x mandatory;  
     white-space: nowrap;
     width: 100%;
 }
+
 .boven,
 .onder {
     text-align: center;
@@ -42,53 +48,54 @@
     margin-bottom: 5px;
     font-size: 14px;
 }
+
 .boven {
     font-weight: bold;
 }
+
 .leeg {
     visibility: hidden;
     font-size: 8px;
 }
-/*
+
+
+
 .leftGradient {
     background-image: linear-gradient(90deg, #f7f7f7 5%, transparent);
-    background-color: #f7f7f7;//
+    /* background-color: #f7f7f7; */
     width: 120px;
     height: 180px;
     position: absolute;
     left: 0;
     z-index: 90;
-    margin-top: 10px;//
+    /* margin-top: 10px; */
     pointer-events: none;
 }
 
 .rightGradient {
     background-image: linear-gradient(270deg, #f7f7f7 5%, transparent);
-    background-color: blue;//
+    /* background-color: blue; */
     width: 120px;
     height: 180px;
     right: 0;
     position: absolute;
     z-index: 90;
-    margin-top: 10px;//
+    /* margin-top: 10px; */
     pointer-events: none;
 }
-*/
-.gradientDiv{
+
+.gradientDiv {
     position: relative;
 }
-
-.moreSuggestions{
+.moreSuggestions {
     font-size: 18px;
     text-align: center;
 }
-
-.arrowDown{
+.arrowDown {
     width: 30px;
     height: width;
 }
-
-.moreSuggestionsDiv{
+.moreSuggestionsDiv {
     text-align: center;
     margin-top: 50px;
 }

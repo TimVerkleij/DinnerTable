@@ -157,6 +157,7 @@ function edit() {
         input.maxLength = "12"
         input.name = "slot" + i
         input.id = "slot" + i
+        input.className = "stwInput"
         container.appendChild(input)
         container.appendChild(document.createElement("br"))
 

@@ -33,7 +33,7 @@
                 </div>
             </div>
             <div class="tableDiv">
-                <table class="gerechtenLijst"></table>
+                <!-- <table class="gerechtenLijst"></table> -->
                 <div id="gerechtenContent">
                 </div>
             </div>
@@ -43,19 +43,44 @@
                 <input type="text" name="addFoodBar" id="addFoodBar" class="addFoodBar" placeholder="Voeg een gerecht toe">
                 <button class="confirmAdd" id="confirmAdd" onclick="addFoodConfirm()">Toevoegen</button>
             </div>
-            <div class="editFoodDiv" id="editFoodDiv" style="display: none;">
+            <div class="editFoodDiv" id="editFoodDiv">
                 <div>
-                    <label for="gerecht" class="label">Gerecht:</label>
+                    <h2 class="editTitle">Gerecht Bewerken</h2>
+
+                    <div class="row inputDiv">
+                        <label class="label">Naam van het gerecht*</label><br>
+                        <input type="text" class="editInput">
+                    </div>
+                    <table class="tastyHealthyTable">
+                        <tr>
+                            <td style="width: 50%;">
+                                <div class="inputHealthy">
+                                    <label class="label">Healthy*</label>
+                                    <input type="number" min="0" max="10" class="numberScale">
+                                    <label>/10</label>
+                                </div>
+                            </td>
+                            <td style="width: 50%;">
+                                <div class="inputTasty">
+                                    <label class="label">Tasty*</label>
+                                    <input type="number" class="numberScale">
+                                    <label>/10</label>
+                                </div>
+                            </td>
+                        </tr>
+                    </table>
+
+                    <!-- <label for="gerecht" class="label">Gerecht:</label>
                     <input type="text" name="gerecht" id="gerecht" class="editInput" readonly><br>
                     <label for="datum" class="label">Datum:</label>
                     <input type="text" name="datum" id="datum" class="editInput"><br>
                     <label for="notitie" class="label">Notitie:</label>
-                    <input type="text" name="notitie" id="notitie" placeholder="Geen notitie"><br>
+                    <input type="text" name="notitie" id="notitie" placeholder="Geen notitie"><br> -->
                 </div>
-                <div>
+                <!-- <div>
                     <button class="saveEdit" onclick="cancel()">Annuleren</button>
                     <button class="saveEdit" onclick="saveChanges()">Opslaan</button>
-                </div>
+                </div> -->
             </div>
         </div>
         <!-- De suggesties pagina -->
@@ -92,62 +117,62 @@
                 <div class="gradientDiv">
                     <div class="leftGradient"></div>
                     <div class="rightGradient"></div>
-
-
-                    <table class="suggestiesTable">
-                        <tr>
-                            <td class="gerechten">
-                                <div class="fifth">
-                                    <img src="images/bami.png" class="imgHolder">
-                                    <p class="boven">Title</p>
-                                    <p class="onder">Dish</p>
-                                </div>
-                            </td>
-                            <td class="leeg">
-                                <h1>hello</h1>
-                            </td>
-                            <td class="gerechten">
-                                <div class="fifth">
-                                    <img src="images/shoarma.jpeg" class="imgHolder">
-                                    <p class="boven">Title</p>
-                                    <p class="onder">Dish</p>
-                                </div>
-                            </td>
-                            <td class="leeg">
-                                <h1>hello</h1>
-                            </td>
-                            <td class="gerechten">
-                                <div class="fifth">
-                                    <img src="images/ceasarSalad.jpg" class="imgHolder">
-                                    <p class="boven">Title</p>
-                                    <p class="onder">Dish</p>
-                                </div>
-                            </td>
-                            <td class="leeg">
-                                <h1>hello</h1>
-                            </td>
-                            <td class="gerechten">
-                                <div class="fifth">
-                                    <img src="images/lasagne.jpg" class="imgHolder">
-                                    <p class="boven">Title</p>
-                                    <p class="onder">Dish</p>
-                                </div>
-                            </td>
-                            <td class="leeg">
-                                <h1>hello</h1>
-                            </td>
-                            <td class="gerechten">
-                                <div class="fifth">
-                                    <img src="images/risotto.jpg" class="imgHolder">
-                                    <p class="boven">Title</p>
-                                    <p class="onder">Dish</p>
-                                </div>
-                            </td>
-                            <td class="leeg">
-                                <h1>hello</h1>
-                            </td>
-                        </tr>
-                    </table>
+                    <!-- <div class="slider"> -->
+                        <table class="suggestiesTable">
+                            <tr>
+                                <td class="gerechten">
+                                    <div class="fifth">
+                                        <img src="images/bami.png" class="imgHolder">
+                                        <p class="boven">Title</p>
+                                        <p class="onder">Dish</p>
+                                    </div>
+                                </td>
+                                <td class="leeg">
+                                    <h1>hello</h1>
+                                </td>
+                                <td class="gerechten">
+                                    <div class="fifth">
+                                        <img src="images/shoarma.jpeg" class="imgHolder">
+                                        <p class="boven">Title</p>
+                                        <p class="onder">Dish</p>
+                                    </div>
+                                </td>
+                                <td class="leeg">
+                                    <h1>hello</h1>
+                                </td>
+                                <td class="gerechten">
+                                    <div class="fifth">
+                                        <img src="images/ceasarSalad.jpg" class="imgHolder">
+                                        <p class="boven">Title</p>
+                                        <p class="onder">Dish</p>
+                                    </div>
+                                </td>
+                                <td class="leeg">
+                                    <h1>hello</h1>
+                                </td>
+                                <td class="gerechten">
+                                    <div class="fifth">
+                                        <img src="images/lasagne.jpg" class="imgHolder">
+                                        <p class="boven">Title</p>
+                                        <p class="onder">Dish</p>
+                                    </div>
+                                </td>
+                                <td class="leeg">
+                                    <h1>hello</h1>
+                                </td>
+                                <td class="gerechten">
+                                    <div class="fifth">
+                                        <img src="images/risotto.jpg" class="imgHolder">
+                                        <p class="boven">Title</p>
+                                        <p class="onder">Dish</p>
+                                    </div>
+                                </td>
+                                <td class="leeg">
+                                    <h1>hello</h1>
+                                </td>
+                            </tr>
+                        </table>
+                    <!-- </div> -->
                 </div>
             </div>
         </div>
