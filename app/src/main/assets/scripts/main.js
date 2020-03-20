@@ -142,20 +142,20 @@ db.collection("gebruikers").doc("Ai1ogLVEz1sQuFxpkWYd")
                 document.querySelectorAll('.row').forEach(item => {
                     item.addEventListener('click', event => {
                         //you can use the var 'item' to refer to the clicked object
-                        var editFoodDiv = document.getElementById("editFoodDiv");
-                        var editGerecht = document.getElementById("gerecht")
-                        var editDatum = document.getElementById("datum")
-                        var editNotitie = document.getElementById("notitie")
-                        var huidigeDatum = item.children[2].innerHTML
-                        huidigeDatum = huidigeDatum.split(": ")
-                        huidigeDatum = huidigeDatum[huidigeDatum.length - 1]
-                        editGerecht.value = item.children[0].innerHTML
-                        editDatum.value = huidigeDatum
-                        if (item.children[3].innerHTML == "undefined") {
-                            editNotitie.value = ""
-                        } else {
-                            editNotitie.value = item.children[3].innerHTML
-                        }
+                        // var editFoodDiv = document.getElementById("editFoodDiv");
+                        // var editGerecht = document.getElementById("gerecht")
+                        // var editDatum = document.getElementById("datum")
+                        // var editNotitie = document.getElementById("notitie")
+                        // var huidigeDatum = item.children[2].innerHTML
+                        // huidigeDatum = huidigeDatum.split(": ")
+                        // huidigeDatum = huidigeDatum[huidigeDatum.length - 1]
+                        // editGerecht.value = item.children[0].innerHTML
+                        // editDatum.value = huidigeDatum
+                        // if (item.children[3].innerHTML == "undefined") {
+                        //     editNotitie.value = ""
+                        // } else {
+                        //     editNotitie.value = item.children[3].innerHTML
+                        // }
 
                         editFoodDiv.style.display = "block";
                     })

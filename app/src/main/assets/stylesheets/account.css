@@ -90,6 +90,8 @@
     position: fixed;
     top: 0px;
     transition: 1s;
+    overflow-y: scroll;
+    max-height: 100%;
 }
 
 .editInfoInputDiv {

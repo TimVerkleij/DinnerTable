@@ -98,6 +98,8 @@
     left: 0;
     position: fixed;
     background-color: #F7F7F7;
+    overflow-y: scroll;
+    max-height: 100%;
 }
 
 .inputDiv {
@@ -119,7 +121,7 @@
     color: #969696;
 }
 
-.noteLabel{
+.noteLabel {
     width: 80%;
     margin-left: auto;
     margin-right: auto;
@@ -138,11 +140,13 @@
     height: 63px;
 }
 
-.inputDiv, .inputHealthy, .inputTasty{
+.inputDiv,
+.inputHealthy,
+.inputTasty {
     box-shadow: 0 0 25px rgba(0, 0, 0, 0.10);
 }
 
-.gerechtInput{
+.gerechtInput {
     font-size: 24px;
 }
 
@@ -156,18 +160,19 @@
     font-family: Arial, Helvetica, sans-serif;
 }
 
-.cancelSaveDiv{
+.cancelSaveDiv {
     width: 80%;
     margin-left: auto;
     margin-right: auto;
     margin-top: 70px;
 }
 
-.saveEdit{
+.saveEdit {
     float: right;
 }
 
-.saveEdit, .cancelEdit {
+.saveEdit,
+.cancelEdit {
     width: 100px;
     height: 24px;
     background-color: #8CCA73;
@@ -194,10 +199,10 @@
 
 .numberScale::-webkit-outer-spin-button,
 .numberScale::-webkit-inner-spin-button {
-  -webkit-appearance: none;
-  margin: 0;
+    -webkit-appearance: none;
+    margin: 0;
 }
 
-.maxNumberLabel{
+.maxNumberLabel {
     font-size: 27px;
 }

@@ -2,10 +2,15 @@ package com.example.dinnertable
 
 import android.content.Intent
 import android.os.Bundle
+import android.view.View
 import android.webkit.WebView
 import android.webkit.WebViewClient
 import android.widget.ImageButton
 import androidx.appcompat.app.AppCompatActivity
+import androidx.constraintlayout.widget.ConstraintSet
+import androidx.recyclerview.widget.DividerItemDecoration
+import com.google.android.material.bottomnavigation.BottomNavigationView
+import kotlinx.android.synthetic.main.activity_account.*
 
 class AccountActivity : AppCompatActivity() {
 
@@ -18,6 +23,9 @@ class AccountActivity : AppCompatActivity() {
         val stats = findViewById<ImageButton>(R.id.stats)
         val settings = findViewById<ImageButton>(R.id.settings)
 
+
+
+
         val webView = findViewById<WebView>(R.id.webview)
         webView.webViewClient = object : WebViewClient() {
             override fun shouldOverrideUrlLoading(view: WebView?, url: String?): Boolean {
@@ -26,8 +34,14 @@ class AccountActivity : AppCompatActivity() {
             }
         }
 
+
         webView.settings.javaScriptEnabled = true
         webView.loadUrl("file:///android_asset/account.html")
+
+//        val bottomNavigationView = findViewById<BottomNavigationView>(R.id.bottomNavigationView)
+//        val divider = findViewById<View>(R.id.divider2)
+//        bottomNavigationView.visibility = View.INVISIBLE
+//        divider.visibility = View.INVISIBLE
 
 
         home.setOnClickListener {
