@@ -99,6 +99,7 @@ function main() {
 
                     clickToTurn.innerHTML = "Draai opnieuw"
                     clickToTurn.style.fontSize = "15px"
+                    clickToTurn.style.marginLeft = -clickToTurn.offsetWidth / 2 + "px"
                 }
             });
     }
@@ -231,14 +232,9 @@ function displayText() {
     maxTekensText.style.display = "block"
 }
 
-function scrollDown(){
+function scrollDown() {
     scrollBy(0, 300)
 }
 
-var rect = wheelChart.getBoundingClientRect();
-var clickWheelButton = document.getElementById("clickWheel")
-var wheelWidth = parseInt(wheelChart.getAttribute("width"))
-
-clickWheelButton.style.top = rect.top + wheelWidth / 2 - clickWheelButton.offsetHeight / 2 + "px"
-clickWheelButton.style.left = -clickWheelButton.offsetWidth/2 + "px"
-clickWheelButton.style.marginBottom = wheelWidth / 2 - clickWheelButton.offsetHeight / 2 + 4 + "px"
+clickToTurn.style.marginLeft = -clickToTurn.offsetWidth / 2 + "px"
+clickToTurn.style.marginTop = 140 - clickToTurn.offsetHeight / 2 + "px"

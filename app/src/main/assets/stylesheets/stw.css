@@ -77,11 +77,12 @@ input{
     color: #3C3C3D;
     font-size: 15px;
     font-family: Arial;
-    position: sticky;
+    position: absolute;
     text-align: center;
     opacity: 75%;
     left: 50%;
     pointer-events: none;
+    margin-top: 140px;
 
     border: 1px solid #DDECD7;
     background-color: #DDECD7;
