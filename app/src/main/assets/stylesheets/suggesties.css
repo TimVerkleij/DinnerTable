@@ -1,30 +1,5 @@
-.fifth {
-    width: 100%;
-    height: max-content;
-    /* overflow: hidden; */
-    font-family: Arial;
-    font-size: 6px;
-    font-weight: normal;
-    margin-top: 20px;
-    text-align: center;
-    background-color: white;
-    border-radius: 5px;
-}
-
-.imgContainer {
-    width: 80%;
-    height: auto;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-.imgHolder {
-    border: 2px solid #8CCA73;
-    border-radius: 3px;
-    height: 100px;
-    width: 150px;
-    display: flex;
-    object-fit: cover;
+* {
+    box-sizing: border-box;
 }
 
 .voorstelText {
@@ -32,33 +7,6 @@
     font-size: 14px;
     text-decoration-color: #3C3C3D;
 }
-
-.suggestiesTable {
-    display: block;
-    overflow-x: scroll;
-    scroll-snap-type: x mandatory;  
-    white-space: nowrap;
-    width: 100%;
-}
-
-.boven,
-.onder {
-    text-align: center;
-    margin-top: 3px;
-    margin-bottom: 5px;
-    font-size: 14px;
-}
-
-.boven {
-    font-weight: bold;
-}
-
-.leeg {
-    visibility: hidden;
-    font-size: 8px;
-}
-
-
 
 .leftGradient {
     background-image: linear-gradient(90deg, #f7f7f7 5%, transparent);
@@ -87,15 +35,113 @@
 .gradientDiv {
     position: relative;
 }
+
 .moreSuggestions {
     font-size: 18px;
     text-align: center;
 }
+
 .arrowDown {
     width: 30px;
     height: width;
 }
+
 .moreSuggestionsDiv {
     text-align: center;
     margin-top: 50px;
+}
+
+.fifth {
+    background: white;
+    font-family: Arial;
+    font-size: 6px;
+    font-weight: normal;
+    text-align: center;
+    border-radius: 5px;
+}
+
+.imgHolder {
+    border: 2px solid #8CCA73;
+    border-radius: 6px;
+    height: 100px;
+    width: 150px;
+    /* display: flex; */
+    object-fit: cover;
+    position: absolute;
+}
+
+.boven,
+.onder {
+    text-align: center;
+    display: block;
+    height: 20px;
+    color: black;
+    background-color: white;
+    font-size: 14px;
+    z-index: 5;
+}
+
+.boven {
+    font-weight: bold;
+    margin-top: 100px;
+    margin-bottom: 5px;
+}
+
+.onder {
+    margin-top: 0;
+}
+
+.textContainer{
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.slider {
+    width: 100%;
+    text-align: center;
+    overflow: hidden;
+}
+
+.slides {
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+}
+
+.slides::-webkit-scrollbar {
+    height: 0px;
+}
+
+.slides::-webkit-scrollbar-thumb {
+    background: black;
+    border-radius: 10px;
+}
+
+.fifth {
+    scroll-snap-align: center;
+    scroll-snap-stop: normal;
+    flex-shrink: 0;
+    width: 150px;
+    height: 150px;
+    margin-left: 25px;
+    margin-right: 25px;
+    border-radius: 10px;
+    background: white;
+    position: relative;
+    display: flex;
+}
+
+.first {
+    /* width: 280px; */
+    visibility: hidden;
+    /* height: 150px; */
+    margin-left: 35px;
+    margin-right: 35px;
+}
+
+.last{
+    margin-left: 80px;
+    visibility: hidden;
 }
