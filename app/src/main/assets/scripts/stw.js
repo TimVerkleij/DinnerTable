@@ -237,9 +237,12 @@ function scrollDown() {
     scrollBy(0, 300)
 }
 
+var slider = document.getElementsByClassName("slider")
+var slides = document.getElementsByClassName("slides")
+
 function scrolling() {
     var slides = document.getElementsByClassName("slider")
-    slides.scrollBy(100, 0)
+    // slides.scrollTo(100, 0)
 }
 
 clickToTurn.style.marginLeft = -clickToTurn.offsetWidth / 2 + "px"
