@@ -143,7 +143,7 @@ db.collection("gebruikers").doc("Ai1ogLVEz1sQuFxpkWYd")
                     item.addEventListener('click', event => {
                         //you can use the var 'item' to refer to the clicked object
                         // var editFoodDiv = document.getElementById("editFoodDiv");
-                        // var editGerecht = document.getElementById("gerecht")
+                        var editGerecht = document.getElementById("gerecht")
                         // var editDatum = document.getElementById("datum")
                         // var editNotitie = document.getElementById("notitie")
                         // var huidigeDatum = item.children[2].innerHTML
@@ -156,6 +156,10 @@ db.collection("gebruikers").doc("Ai1ogLVEz1sQuFxpkWYd")
                         // } else {
                         //     editNotitie.value = item.children[3].innerHTML
                         // }
+
+
+
+
 
                         editFoodDiv.style.display = "block";
                     })

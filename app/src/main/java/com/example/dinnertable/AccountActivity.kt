@@ -38,10 +38,12 @@ class AccountActivity : AppCompatActivity() {
         webView.settings.javaScriptEnabled = true
         webView.loadUrl("file:///android_asset/account.html")
 
-//        val bottomNavigationView = findViewById<BottomNavigationView>(R.id.bottomNavigationView)
-//        val divider = findViewById<View>(R.id.divider2)
-//        bottomNavigationView.visibility = View.INVISIBLE
-//        divider.visibility = View.INVISIBLE
+        val bottomNavigationView = findViewById<BottomNavigationView>(R.id.bottomNavigationView)
+        val divider = findViewById<View>(R.id.divider2)
+        bottomNavigationView.visibility = View.INVISIBLE
+        divider.visibility = View.INVISIBLE
+        println(bottomNavigationView.layoutParams.height)
+        println("HELLOOOO")
 
 
         home.setOnClickListener {

@@ -203,6 +203,12 @@
     margin: 0;
 }
 
+.editInput::-webkit-inner-spin-button,
+.editInput::-webkit-calendar-picker-indicator {
+    display: none;
+    -webkit-appearance: none;
+}
+
 .maxNumberLabel {
     font-size: 27px;
 }

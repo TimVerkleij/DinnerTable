@@ -49,33 +49,37 @@
 
                     <div class="row inputDiv">
                         <label class="label">Naam van het gerecht*</label><br>
-                        <input type="text" class="gerechtInput editInput">
+                        <input type="text" class="gerechtInput editInput" id="gerecht">
                     </div>
                     <table class="tastyHealthyTable">
                         <tr>
                             <td style="width: 50%;">
                                 <div class="inputHealthy">
                                     <label class="label">Healthy*</label><br>
-                                    <input type="number" min="0" max="10" class="numberScale" onblur="checkNumber(this)">
+                                    <input type="number" class="numberScale" onblur="checkNumber(this)" id="health">
                                     <label class="maxNumberLabel">/10</label>
                                 </div>
                             </td>
                             <td style="width: 50%;">
                                 <div class="inputTasty">
                                     <label class="label">Tasty*</label><br>
-                                    <input type="number" class="numberScale" onblur="checkNumber(this)">
+                                    <input type="number" class="numberScale" onblur="checkNumber(this)" id="taste">
                                     <label class="maxNumberLabel">/10</label>
                                 </div>
                             </td>
                         </tr>
                     </table>
                     <div class="row inputDiv">
+                        <label class="label">Laatst gegeten*</label>
+                        <input type="date" class="editInput" id="date">
+                    </div>
+                    <div class="row inputDiv">
                         <label class="label">Opmerkingen</label>
-                        <textarea class="editInput" cols="30" rows="10"></textarea>
+                        <textarea class="editInput" cols="30" rows="10" id="notes"></textarea>
                     </div>
                     <div class="row inputDiv">
                         <label class="label">Link naar recept</label>
-                        <input type="url" class="editInput">
+                        <input type="url" class="editInput" id="link">
                     </div>
                     <div class="noteLabel">
                         <label>Velden met een * zijn verplicht</label>
