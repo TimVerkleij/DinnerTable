@@ -21,6 +21,18 @@ db.collection("gebruikers").doc("Ai1ogLVEz1sQuFxpkWYd")
             datumArray.sort().reverse()
                 // var formattedDatumArray = []
                 // datumArray.forEach(convertDates)
+            if(!gerecht.tasty){
+                gerecht.tasty = ""
+            }
+            if(!gerecht.healthy){
+                gerecht.healthy = ""
+            }
+            if(!gerecht.notitie){
+                gerecht.notitie = ""
+            }
+            if(!gerecht.keuken){
+                gerecht.keuken = ""
+            }
             lijst.push({ "Gerecht": gerecht.naam, "datum": datumArray[0], "Notitie": gerecht.notitie, "Keuken": gerecht.keuken, "Healthy": gerecht.healthy, "Tasty": gerecht.tasty })
         }
 
@@ -83,23 +95,33 @@ db.collection("gebruikers").doc("Ai1ogLVEz1sQuFxpkWYd")
                 for (let element of data) {
                     let row = table.insertRow();
                     const div = document.createElement('div')
-                    div.className = "row" // set className for div in table
+                    div.className = "row clickable" // set className for div in table
 
                     document.getElementById('gerechtenContent').appendChild(div);
 
                     for (key in element) {
                         var hetGerecht = element["Gerecht"]
                         var deDatum = element["datum"]
+                        var formatDatum = moment(element["datum"]).format("YYYY-MM-DD")
                         var deNotitie = element["Notitie"]
                         var deKeuken = element["Keuken"]
                         var deHealthy = element["Healthy"]
                         var deTasty = element["Tasty"]
 
                         div.innerHTML = `
+                        <div style="display: none;">
+                            <label>` + hetGerecht + `</label>
+                            <label>` + formatDatum + `</label>
+                            <label>` + deHealthy + `</label>
+                            <label>` + deTasty + `</label>
+                            <label>` + deNotitie + `</label>
+                            <label>` + deKeuken + `</label>
+                            <!-- <label> deLink </label> -->
+                        </div>
                 <table> 
                     <tr>
                         <td rowspan="3" class="gerechtDatumDiv">
-                            <label class="gerechtenText">` + hetGerecht + `</label><br>
+                            <label class="gerechtenText" id="gerechtenText">` + hetGerecht + `</label><br>
                             <label class="datumText">` + "Laatst gegeten: " + deDatum + `</label>
                         </td>
                         <td class="tastyHealthyDiv">
@@ -111,19 +133,16 @@ db.collection("gebruikers").doc("Ai1ogLVEz1sQuFxpkWYd")
                     </tr>
  		            <tr>
 	 		            <td class="tastyHealthyDiv">
-                            <label class="tastyHealthyNumber">` + deHealthy + `/10` + `</label>
+                            <label class="tastyHealthyNumber">` + deTasty + `/10` + `</label>
                         </td>
                         <td class="tastyHealthyDiv">
-                            <label class="tastyHealthyNumber">` + deTasty +`/10`+ `</label>
+                            <label class="tastyHealthyNumber">` + deHealthy + `/10` + `</label>
                         </td>
                      </tr>
                      <tr>
 	 		            <td colspan="2" class="tryThis"><button class="tableButton">Dit eet ik vandaag!</button></td>
  		            </tr>
  	            </table>
-                
-                <label style="display: none;">` + deNotitie + `</label>
-                <label style="display: none;">` + deKeuken + `</label>
                 
                 `
                     }
@@ -139,11 +158,35 @@ db.collection("gebruikers").doc("Ai1ogLVEz1sQuFxpkWYd")
                 generateTable(table, mountains);
 
                 //when you click on a table row the following code runs
-                document.querySelectorAll('.row').forEach(item => {
+                document.querySelectorAll('.clickable').forEach(item => {
                     item.addEventListener('click', event => {
+                        //     <label>` + hetGerecht + `</label>
+                        //     <label>` + deDatum + `</label>
+                        //     <label>` + deHealthy + `</label>
+                        //     <label>` + deTasty + `</label>
+                        //     <label>` + deNotitie + `</label>
+                        //     <label>` + deKeuken + `</label>
+
                         //you can use the var 'item' to refer to the clicked object
                         // var editFoodDiv = document.getElementById("editFoodDiv");
                         var editGerecht = document.getElementById("gerecht")
+                        var editDatum = document.getElementById("date")
+                        var editHealthy = document.getElementById("health")
+                        var editTasty = document.getElementById("taste")
+                        var editNotitie = document.getElementById("notes")
+                        var editLink = document.getElementById("link")
+
+
+                        var gerecht = item.children[0].children[0].innerHTML
+                        var datum = item.children[0].children[1].innerHTML
+                        var healthy = item.children[0].children[2].innerHTML
+                        var tasty = item.children[0].children[3].innerHTML
+                        var notitie = item.children[0].children[4].innerHTML
+                        var keuken = item.children[0].children[5].innerHTML
+
+
+
+
                         // var editDatum = document.getElementById("datum")
                         // var editNotitie = document.getElementById("notitie")
                         // var huidigeDatum = item.children[2].innerHTML
@@ -157,6 +200,13 @@ db.collection("gebruikers").doc("Ai1ogLVEz1sQuFxpkWYd")
                         //     editNotitie.value = item.children[3].innerHTML
                         // }
 
+
+                        editGerecht.value = gerecht
+                        editDatum.value = datum
+                        editHealthy.value = healthy
+                        editTasty.value = tasty
+                        editNotitie.value = notitie
+                        editLink.value = keuken
 
 
 

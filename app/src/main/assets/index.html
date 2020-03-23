@@ -44,12 +44,11 @@
                 <button class="confirmAdd" id="confirmAdd" onclick="addFoodConfirm()">Toevoegen</button>
             </div>
             <div class="editFoodDiv" id="editFoodDiv" style="display: none;">
-                <div>
                     <h2 class="editTitle">Gerecht Bewerken</h2>
 
                     <div class="row inputDiv">
                         <label class="label">Naam van het gerecht*</label><br>
-                        <input type="text" class="gerechtInput editInput" id="gerecht">
+                        <input type="text" class="gerechtInput editInput" id="gerecht" readonly>
                     </div>
                     <table class="tastyHealthyTable">
                         <tr>
@@ -71,7 +70,7 @@
                     </table>
                     <div class="row inputDiv">
                         <label class="label">Laatst gegeten*</label>
-                        <input type="date" class="editInput" id="date">
+                        <input type="date" class="editDateInput editInput" id="date">
                     </div>
                     <div class="row inputDiv">
                         <label class="label">Opmerkingen</label>
@@ -88,7 +87,6 @@
                         <button class="cancelEdit" onclick="cancel()">Annuleren</button>
                         <button class="saveEdit" onclick="saveChanges()">Opslaan</button>
                     </div>
-                </div>
                 
             </div>
         </div>
