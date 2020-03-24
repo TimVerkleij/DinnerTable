@@ -194,6 +194,7 @@
     font-size: 27px;
     text-align: right;
     border: none;
+    max-height: 33px;
     -moz-appearance: textfield;
 }
 

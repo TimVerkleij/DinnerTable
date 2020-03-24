@@ -77,8 +77,8 @@
                         <textarea class="editInput" cols="30" rows="10" id="notes"></textarea>
                     </div>
                     <div class="row inputDiv">
-                        <label class="label">Link naar recept</label>
-                        <input type="url" class="editInput" id="link">
+                        <label class="label">Keuken</label>
+                        <input type="text" class="editInput" id="keuken">
                     </div>
                     <div class="noteLabel">
                         <label>Velden met een * zijn verplicht</label>
@@ -105,14 +105,15 @@
                 </div>
 
                 <div class="editDiv" id="editDiv">
-                    <label id="label">(Min 3, Max 10) Aantal vakjes:</label>
-                    <label id="amount"></label><br><br>
-                    <button id="minButton" onclick="editMinus()">Vakje <br> verwijderen</button>
-                    <button id="plusButton" onclick="editPlus()">Vakje <br> toevoegen</button><br><br>
+                    
+                    <label id="label">Huidig aantal gerechten</label>
+                    <button id="minButton" onclick="editMinus()">-</button>
+                    <label id="amount"></label>
+                    <button id="plusButton" onclick="editPlus()">+</button><br><br>
                     <label class="maxTekensText" id="maxTekensText">Maximale aantal tekens bereikt</label>
                     <div id="container"></div><br>
                     <button id="annulerenBtn" onclick="annuleren()">Annuleren</button>
-                    <button id="changeSlots" onclick="changeSlots()">Change slots</button>
+                    <button id="changeSlots" onclick="changeSlots()">Opslaan</button>
                 </div>
             </div>
             <!-- Suggesties images slider -->

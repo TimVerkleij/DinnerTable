@@ -174,7 +174,7 @@ db.collection("gebruikers").doc("Ai1ogLVEz1sQuFxpkWYd")
                         var editHealthy = document.getElementById("health")
                         var editTasty = document.getElementById("taste")
                         var editNotitie = document.getElementById("notes")
-                        var editLink = document.getElementById("link")
+                        var editKeuken = document.getElementById("keuken")
 
 
                         var gerecht = item.children[0].children[0].innerHTML
@@ -206,7 +206,7 @@ db.collection("gebruikers").doc("Ai1ogLVEz1sQuFxpkWYd")
                         editHealthy.value = healthy
                         editTasty.value = tasty
                         editNotitie.value = notitie
-                        editLink.value = keuken
+                        editKeuken.value = keuken
 
 
 

@@ -15,32 +15,59 @@ text{
 }
 #label{
     color: #3C3C3D;
-    font-size: 20px;
+    font-size: 18px;
     font-family: Arial;
+    display: inline;
+}
+#plusButton, #minButton{
+    width: 25px;
+    height: 25px;
 }
 #plusButton, #minButton, #changeSlots, #annulerenBtn{
-    color: #3C3C3D;
-    text-decoration: underline;
-    text-decoration-color: #8CCA73;
+    color: white;
     border: none;
-    background: none;
+    background: #8CCA73;
+    border-radius: 4px;
     display: inline;
 
-    font-size: 20px;
+    font-size: 18px;
     font-family: Arial;
     margin-left: auto;
     margin-right: auto;
+
+    box-shadow: 0 0 25px rgba(0, 0, 0, 0.10);
+}
+#changeSlots, #annulerenBtn{
+    height: 24px;
+    width: 100px;
+}
+.gerecht123{
+    background: #DDECD7;
+    border-radius: 4px;
+
+    height: 25px;
+
+    padding: 5px;
+    font-size: 18px;
+    font-family: Arial;
 }
 .stwInput{
-    border-top: none;
-    border-left: none;
-    border-right: none;
-    border-color: #8CCA73;
-    margin-left: 1%;
-    border-radius: 5px;
+    border: none;
+    background: white;
+    border-radius: 4px;
+    margin-left: 2px;
+    margin-bottom: 8px;
 
-    font-size: 20px;
+    padding: 5px;
+    height: 25px;
+
+    font-size: 18px;
     font-family: Arial;
+}
+#container{
+    margin-left: 3%;
+    margin-right: 3%;
+    width: auto;
 }
 #show{
     height: 30px;
@@ -51,7 +78,7 @@ text{
     top: 60px;
 }
 .editDiv{
-    width: 80%;
+    width: 90%;
     height: 100%;
     text-align: center;
     font-family: Arial;

@@ -146,7 +146,10 @@ function edit() {
     }
     inputs = []
     for (i = 1; i <= slots; i++) {
-        container.appendChild(document.createTextNode("Vakje " + (i)))
+        var gerecht123 = document.createElement("label")
+        gerecht123.innerHTML = "Gerecht " + i + " "
+        gerecht123.className = "gerecht123"
+        container.appendChild(gerecht123)
         window.input = document.createElement("input")
         input.type = "text"
             // <input type="text" maxlength="3" id="hahaha" onkeypress="if(this.value.length >= this.getAttribute('maxlength') return false;" />
@@ -179,12 +182,12 @@ function changeSlots() {
         }
     }
     if (gevuld == true) {
-        inputs.forEach(flikkers)
+        inputs.forEach(change)
     } else {
         alert("Vul alle vakjes!")
     }
 
-    function flikkers(value) {
+    function change(value) {
         console.log(value.value)
         console.log(inputs)
         data.push({ "label": value.value })
