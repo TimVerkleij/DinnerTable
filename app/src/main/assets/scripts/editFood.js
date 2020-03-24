@@ -21,17 +21,64 @@ document.querySelectorAll('.numberScale').forEach(item => {
 var editFoodDiv = document.getElementById("editFoodDiv")
 
 function cancel() {
-    editFoodDiv.style.display = "none"
+    editFoodDiv.className = "editFoodDivDown"
 }
 
 function saveChanges() {
-    // return firebase.database().ref('Gerechten').once('value').then(function(snapshot) {
-    //     var editGerecht = document.getElementById("gerecht").value
-    //     var editDatum = document.getElementById("datum").value
-    //     var editNotitie = document.getElementById("notitie").value
-    //     var gerechten = snapshot.val()
-    //     console.log(gerechten.Pizza.datum)
-    //     firebase.database().ref('Gerechten').child(editGerecht).child('datum').set(editDatum)
-    //     firebase.database().ref('Gerechten').child(editGerecht).child('Notitie').set(editNotitie)
-    // });
+    var datumArray = [];
+
+    var editGerecht = document.getElementById("gerecht").value
+    var editHealthy = document.getElementById("health").value
+    var editTasty = document.getElementById("taste").value
+    var editDatum = document.getElementById("date").value
+    var editNotitie = document.getElementById("notes").value
+    var editKeuken = document.getElementById("keuken").value
+
+    function loadDatumArray() {
+        db.collection("gebruikers").doc("Ai1ogLVEz1sQuFxpkWYd").get()
+            .then(function(doc) {
+                doc.data().gerechten[editGerecht].datum.forEach(sortDates)
+
+                datumArray.sort().reverse()
+                datumArray.forEach(formatDates)
+                editDatum = new Date(editDatum)
+                datumArray[0] = editDatum
+
+                function sortDates(value) {
+                    datumArray.push(value.seconds * 1000)
+                }
+
+                function formatDates(value, index) {
+                    datumArray[index] = new Date(value)
+                }
+
+                uploadData();
+            });
+    }
+
+
+
+    let newObj = {
+        datum: datumArray,
+        naam: editGerecht,
+        healthy: editHealthy,
+        tasty: editTasty,
+        notitie: editNotitie,
+        keuken: editKeuken
+    }
+
+
+    let gerechten = {
+        [editGerecht]: newObj
+    }
+
+
+    loadDatumArray();
+
+    function uploadData() {
+        db.collection("gebruikers").doc("Ai1ogLVEz1sQuFxpkWYd").set({
+            gerechten
+        }, { merge: true })
+    }
+    editFoodDiv.className = "editFoodDivDown"
 }

@@ -93,7 +93,6 @@ db.collection("gebruikers").doc("Ai1ogLVEz1sQuFxpkWYd")
 
             function generateTable(table, data) {
                 for (let element of data) {
-                    let row = table.insertRow();
                     const div = document.createElement('div')
                     div.className = "row clickable" // set className for div in table
 
@@ -116,7 +115,6 @@ db.collection("gebruikers").doc("Ai1ogLVEz1sQuFxpkWYd")
                             <label>` + deTasty + `</label>
                             <label>` + deNotitie + `</label>
                             <label>` + deKeuken + `</label>
-                            <!-- <label> deLink </label> -->
                         </div>
                 <table> 
                     <tr>
@@ -125,18 +123,18 @@ db.collection("gebruikers").doc("Ai1ogLVEz1sQuFxpkWYd")
                             <label class="datumText">` + "Laatst gegeten: " + deDatum + `</label>
                         </td>
                         <td class="tastyHealthyDiv">
-                            <label class="tastyHealthyText">Tasty</label>
+                            <label class="tastyHealthyText">Healthy</label>
                         </td>
                         <td class="tastyHealthyDiv">
-                            <label class="tastyHealthyText">Healthy</label>
+                            <label class="tastyHealthyText">Tasty</label>
                         </td>
                     </tr>
  		            <tr>
 	 		            <td class="tastyHealthyDiv">
-                            <label class="tastyHealthyNumber">` + deTasty + `/10` + `</label>
+                            <label class="tastyHealthyNumber">` + deHealthy + `/10` + `</label>
                         </td>
                         <td class="tastyHealthyDiv">
-                            <label class="tastyHealthyNumber">` + deHealthy + `/10` + `</label>
+                            <label class="tastyHealthyNumber">` + deTasty + `/10` + `</label>
                         </td>
                      </tr>
                      <tr>
@@ -211,7 +209,7 @@ db.collection("gebruikers").doc("Ai1ogLVEz1sQuFxpkWYd")
 
 
 
-                        editFoodDiv.style.display = "block";
+                        editFoodDiv.className = "editFoodDivUp"
                     })
                 })
             }
