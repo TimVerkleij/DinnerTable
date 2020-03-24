@@ -17,7 +17,6 @@
     border-radius: 200px;
     margin-top: 10px;
     margin-left: 10px;
-    /* border: solid #8CCA73 10px; */
 }
 
 .profileImageDiv {
@@ -34,7 +33,7 @@
 .profileImageContainer {
     background-color: rgba(140, 202, 115, 0.5);
     height: 260px;
-    border-top: solid rgba(140, 202, 115, 0.5);
+    border-top: solid #8CCA73;
     box-shadow: 0 0 25px rgba(0, 0, 0, 0.25);
 }
 
@@ -47,7 +46,7 @@
     width: 85%;
     margin-left: auto;
     margin-right: auto;
-    margin-top: 50px;
+    margin-top: 30px;
 }
 
 .row {
