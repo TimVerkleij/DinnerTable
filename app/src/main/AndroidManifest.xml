@@ -7,7 +7,7 @@
                  android:roundIcon="@mipmap/ic_launcher_round"
                  android:statusBarColor="@color/greenColor"
                  android:supportsRtl="true"
-                 android:theme="@style/Theme.AppCompat.Light.NoActionBar" tools:ignore="GoogleAppIndexingWarning"
+                 android:theme="@style/AppTheme" tools:ignore="GoogleAppIndexingWarning"
                  android:fullBackupContent="true">
         <activity android:name=".MainActivity"
                   android:windowSoftInputMode="adjustPan"
