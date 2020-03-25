@@ -92,7 +92,7 @@
     margin-top: 0;
 }
 
-.textContainer{
+.textContainer {
     margin-left: auto;
     margin-right: auto;
 }
@@ -142,7 +142,7 @@
     margin-right: 35px;
 }
 
-.last{
+.last {
     margin-left: 80px;
     visibility: hidden;
 }
