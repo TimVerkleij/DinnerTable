@@ -1,5 +1,5 @@
 var inlogPagina = document.getElementById("inlogPagina")
-// var registreerPagina = document.getElementById("registreerPagina")
+var registreerPagina = document.getElementById("registreerPagina")
 
 inlogPagina.style.display = 'block'
 registreerPagina.style.display = 'none'
