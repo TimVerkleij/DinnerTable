@@ -7,24 +7,28 @@
 </head>
 
 <body>
-    <div>
-        <form id="inloggen">
-            <input type="email" placeholder="Email">
-            <input type="password" placeholder="Wachtwoord">
-            <button type="submit" class="inloggen">Inloggen</button>                 <!-- Hier een form van houden? Hoeft niet persee maar is wel logish -->
-        </form>
-        <label class="changeLbl">Nog geen account? <button class="registreerButton">Registreer</button></label>
+    <div class="header">
+        <br><br><br>
+        <Label id="dinner">Dinner</Label><label id="table">Table</label>
     </div>
-    <div>
-        <form id="registreren">
-            <input type="text" placeholder="Voor- en Achternaam">
-            <input type="email" placeholder="Email">
-            <input type="date" placeholder="Geboortedatum">
-            <input type="password" placeholder="Wachtwoord">
-            <input type="password" placeholder="Herhaal wachtwoord">
-            <button type="submit" class="registeren">Registreren</button>
-        </form>
-        <label class="changeLbl">Al een account? <button class="inlogButton">Inloggen</button></label>
+    <div class="inlogPagina">
+
+        <input type="email" placeholder="Email"><br>
+        <input type="password" placeholder="Wachtwoord"><br>
+
+        <button type="submit" class="inloggen">Inloggen</button><br>
+        <label class="changeLbl">Nog geen account? <button id="registreerButton" onclick="changePage()">Registreer</button></label>
+    </div>
+    <div class="registreerPagina">
+
+        <input type="text" placeholder="Voor- en Achternaam"><br>
+        <input type="email" placeholder="Email"><br>
+        <input type="date" placeholder="Geboortedatum"><br>
+        <input type="password" placeholder="Wachtwoord"><br>
+        <input type="password" placeholder="Herhaal wachtwoord"><br>
+
+        <button type="submit" class="registeren">Registreren</button><br>
+        <label class="changeLbl">Al een account? <button id="inlogButton" onclick="changePage()">Inloggen</button></label>
     </div>
 
 
