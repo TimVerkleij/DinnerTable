@@ -32,6 +32,16 @@ body {
     height: 225px;
     background-color: #8CCA73;
     position: absolute;
+    transition: 1s;
+}
+
+.transitionSquare{
+    width: 102%;
+    height: 1000px;
+    left: -2px;
+    background-color: #8CCA73;
+    position: absolute;
+    transition: 1s;
 }
 
 .circle {

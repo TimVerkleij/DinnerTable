@@ -21,6 +21,16 @@ function stopAnimation() {
     dinnerTableDiv.className = "dinnerTableDiv"
 }
 
+var square = document.getElementById("square")
+
+function fillScreenGreen() {
+    square.className = "transitionSquare"
+}
+
+function removeScreenGreen() {
+    square.className = "square"
+}
+
 var inlogPagina = document.getElementById("inlogPaginaDiv")
 var registreerPagina = document.getElementById("registreerPaginaDiv")
 
@@ -29,12 +39,24 @@ registreerPagina.style.display = 'none'
 
 function changePage() {
     if (inlogPagina.style.display == 'none') {
-        inlogPagina.style.display = 'block'
-        registreerPagina.style.display = 'none'
+        fillScreenGreen()
+        setTimeout(switchLogin, 500)
+        setTimeout(removeScreenGreen, 500)
     } else if (inlogPagina.style.display == 'block') {
-        inlogPagina.style.display = 'none'
-        registreerPagina.style.display = 'block'
+        fillScreenGreen()
+        setTimeout(switchRegister, 500)
+        setTimeout(removeScreenGreen, 500)
     }
+}
+
+function switchLogin() {
+    inlogPagina.style.display = 'block'
+    registreerPagina.style.display = 'none'
+}
+
+function switchRegister() {
+    inlogPagina.style.display = 'none'
+    registreerPagina.style.display = 'block'
 }
 
 function datumChange() {
