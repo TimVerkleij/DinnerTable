@@ -1,6 +1,7 @@
 var greenTop = document.getElementById("greenTop")
 var circle = document.getElementById("circle")
 var dinnerTableDiv = document.getElementById("dinnerTableDiv")
+var contentDiv = document.getElementById("contentDiv")
 
 function loadBody() {
     setTimeout(startAnimation, 500)
@@ -19,6 +20,7 @@ function continueAnimation() {
 
 function stopAnimation() {
     dinnerTableDiv.className = "dinnerTableDiv"
+    contentDiv.className = "contentDiv"
 }
 
 var square = document.getElementById("square")
