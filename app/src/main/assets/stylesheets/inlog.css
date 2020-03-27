@@ -1,53 +1,159 @@
 * {
     padding: 0;
     margin: 0;
-    background: #F7F7F7;;
 }
-input, button{
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 16px;
-    font-weight: normal;
 
-    border: none;
-    padding: 5px;
-}
-input{
-    border-radius: 10px;
-    background: white;
-}
-button{
-    border-radius: 4px;
-    background: #8CCA73;
-    color: white;
-}
-.header{
-    background: #8CCA73;
-    width: 100%;
-    height: 250px;
-    border-bottom-left-radius: 50%;
-    border-bottom-right-radius: 50%;
-    
-    text-align: center;
+html {
     font-family: Arial, Helvetica, sans-serif;
-    font-size: 35px;
+}
+
+body {
+    overflow-x: hidden;
+    background-color: #F7F7F7;
+}
+
+.greenTop {
+    position: relative;
+    transition: 1s;
+    top: 0;
+    border: solid 1px #8CCA73;
+    margin-bottom: 300px;
+}
+
+.greenTopGone {
+    position: relative;
+    top: -500px;
+    transition: 1s;
+}
+
+.square {
+    width: 102%;
+    left: -2px;
+    height: 225px;
+    background-color: #8CCA73;
+    position: absolute;
+}
+
+.circle {
+    width: 125%;
+    height: 200px;
+    background-color: #8CCA73;
+    border-radius: 50%;
+    left: -12.5%;
+    top: 70px;
+    position: absolute;
+    transition: 1s;
+}
+
+.circleGone {
+    width: 125%;
+    height: 200px;
+    background-color: #8CCA73;
+    left: -12.5%;
+    top: 100px;
+    position: absolute;
+    transition: 1s;
+}
+
+.dinnerTableDiv {
+    width: 228px;
+    position: absolute;
+    left: 50%;
+    margin-left: -114px;
+    top: 20px;
+    text-align: center;
     font-weight: bold;
+    transition: 1s;
 }
-#dinner{
+
+.dinnerTableDivGone {
+    width: 228px;
+    position: absolute;
+    left: 50%;
+    margin-left: -114px;
+    top: 20px;
+    text-align: center;
+    font-weight: bold;
+    transition: 1s;
+    opacity: 0%;
+}
+
+.dinnerText {
+    font-size: 32px;
     color: white;
-    background-color: #8CCA73;
 }
-#table{
+
+.tableText {
+    font-size: 32px;
     color: #3D3E3C;
-    background-color: #8CCA73;
 }
-.inlogPagina, .registreerPagina{
+
+.inlogPaginaDiv,
+.registreerPaginaDiv {
     font-family: Arial, Helvetica, sans-serif;
     font-size: 16px;
-    font-weight: normal;
+    text-align: center;
 }
-#registreerButton, #inlogButton{
+
+.inloggen,
+.registeren {
+    background-color: #8CCA73;
+    color: white;
+    border-radius: 4px;
+    border: none;
+    box-shadow: 0 0 25px rgba(0, 0, 0, 0.10);
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 13px;
+    height: 25px;
+    width: 100px;
+    margin-top: 20px;
+}
+
+#registreerButton,
+#inlogButton,
+#changeLbl {
     background-color: transparent;
     color: #8CCA73;
     text-decoration: underline;
-    text-decoration-color:#8CCA73;
+    font-size: 12px;
+    outline: none;
+    border: none;
+}
+
+.contentDiv {
+    margin-top: 200px;
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.inputDiv {
+    height: 20px;
+    background-color: white;
+    border-radius: 10px;
+    padding: 5px;
+    margin-bottom: 10px;
+    box-shadow: 0 0 25px rgba(0, 0, 0, 0.10);
+}
+
+.inputDiv>input {
+    font-size: 16px;
+}
+
+.inputIcon {
+    height: 20px;
+    width: 20px;
+    float: left;
+}
+
+.inputField {
+    border: none;
+    outline: none;
+    height: 20px;
+    float: left;
+    margin-left: 10px;
+}
+.accountSwitch{
+    margin-top: 40px;
+    margin-bottom: 15px;
 }
