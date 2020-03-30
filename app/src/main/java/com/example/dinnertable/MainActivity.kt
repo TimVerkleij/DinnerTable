@@ -7,12 +7,17 @@ import android.webkit.WebViewClient
 import android.widget.ImageButton
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
+import kotlinx.android.synthetic.main.activity_account.*
 
 class MainActivity : AppCompatActivity() {
+
+    private lateinit var auth: FirebaseAuth
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -21,6 +26,9 @@ class MainActivity : AppCompatActivity() {
         val account = findViewById<ImageButton>(R.id.account)
         val stats = findViewById<ImageButton>(R.id.stats)
         val settings = findViewById<ImageButton>(R.id.settings)
+
+
+
 
         //firebase variables
 //        var waarden = ""
@@ -41,9 +49,23 @@ class MainActivity : AppCompatActivity() {
         webView.settings.javaScriptEnabled = true
 //        webView.settings.domStorageEnabled = true
 //        webView.loadUrl("file:///android_asset/WheelOfFortune/stw.html")
-          webView.loadUrl("file:///android_asset/index.html")
+        webView.loadUrl("file:///android_asset/index.html")
+        webView.loadUrl("javascript:var whatever = 'hello' ")
+        webView.loadUrl("javascript:pushMe()")
 //        webView.loadUrl("https://www.google.com")
 
+        auth = FirebaseAuth.getInstance()
+        val user: FirebaseUser? = auth.currentUser
+        if (user != null) {
+            val userID = user.uid
+            val stringStuff = userID
+            val mything = "hello"
+            println(stringStuff)
+            Toast.makeText(getApplicationContext(), stringStuff, Toast. LENGTH_LONG).show();
+//            webView.loadUrl("javascript:var userID = \"${mything}\"")
+
+//            webView.loadUrl("javascript:pushMe()")
+        }
 
         //start connection to firebase
 /*
@@ -65,6 +87,7 @@ class MainActivity : AppCompatActivity() {
             }
         })
 */
+
 
 
 
