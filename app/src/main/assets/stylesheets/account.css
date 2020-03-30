@@ -19,7 +19,7 @@
     margin-left: 10px;
 }
 
-.editProfileImage{
+.editProfileImage {
     width: 96px;
     height: 96px;
     background-color: #F7F7F7;
@@ -29,12 +29,15 @@
     border: 1px solid #707070;
 }
 
-.editProfileImageText{
+.editProfileImageText {
     font-size: 15px;
-    color: #3D3E3C;
+    color: #344B2A;
+    text-decoration: underline;
+    text-align: center;
+    margin-top: 10px;
 }
 
-.editProfileImageDiv{
+.editProfileImageDiv {
     text-align-last: center;
 }
 
@@ -84,6 +87,8 @@
 .descriptionInfo {
     font-size: 18px;
     color: #3C3C3D;
+    border: none;
+    resize: none;
 }
 
 .editInfoDivInvisible {
@@ -119,28 +124,35 @@
     width: 90%;
 }
 
-.saveInfo {
-    background-color: transparent;
-    color: #8CCA73;
-    font-size: 18px;
-    text-decoration: underline;
-    border: none;
-    float: right;
-}
-
-.cancelInfo{
-    background-color: transparent;
-    color: #8CCA73;
-    font-size: 18px;
-    text-decoration: underline;
-    border: none;
-}
-
-.cancelSaveInfoDiv{
+.cancelSaveInfoDiv {
     width: 80%;
     margin-top: 40px;
     margin-left: auto;
     margin-right: auto;
+    margin-bottom: 15px;
+}
+
+.saveInfo {
+    width: 100px;
+    height: 25px;
+    background-color: #8CCA73;
+    border-radius: 5px;
+    color: white;
+    font-size: 13px;
+    border: none;
+    float: right;
+    box-shadow: 0 0 25px rgba(0, 0, 0, 0.10);
+}
+
+.cancelInfo {
+    width: 100px;
+    height: 25px;
+    border-radius: 5px;
+    background-color: #8CCA73;
+    color: white;
+    font-size: 13px;
+    border: none;
+    box-shadow: 0 0 25px rgba(0, 0, 0, 0.10);
 }
 
 .editTitles {
