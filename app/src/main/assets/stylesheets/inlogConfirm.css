@@ -1,0 +1,39 @@
+.bedanktText{
+    font-size: 16px;
+    color: #3D3E3C;
+    width: 240px;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.arrowLeftIcon{
+    margin-left: 20px;
+}
+
+.emailImageDiv{
+    text-align-last: center;
+    margin-top: 15px;
+    margin-bottom: 5px;
+}
+
+.emailImage{
+    height: 50px;
+    width: 75px;
+}
+
+.bevestigText{
+    font-size: 16px;
+    color: #3D3E3C;
+    text-align: center;
+}
+
+.vraagText{
+    margin-top: 30px;
+    font-size: 12px;
+    text-align: center;
+}
+
+.resendMail{
+    color: #8CCA73;
+}
