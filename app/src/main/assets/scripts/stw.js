@@ -189,8 +189,10 @@ function changeSlots() {
 
     function change(value) {
         console.log(value.value)
+        const lower = value.value
+        const upper = lower.charAt(0).toUpperCase() + lower.substring(1); //capitalize first letter
         console.log(inputs)
-        data.push({ "label": value.value })
+        data.push({ "label": upper })
 
         var chart = document.getElementsByTagName("svg")[0]
         chart.remove()
@@ -245,7 +247,7 @@ var slides = document.getElementsByClassName("slides")
 
 function scrolling() {
     var slides = document.getElementsByClassName("slider")
-    // slides.scrollTo(100, 0)
+        // slides.scrollTo(100, 0)
 }
 
 clickToTurn.style.marginLeft = -clickToTurn.offsetWidth / 2 + "px"

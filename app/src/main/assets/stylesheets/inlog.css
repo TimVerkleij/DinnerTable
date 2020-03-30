@@ -120,7 +120,7 @@ body {
 }
 
 #registreerButton,
-#inlogButton{
+#inlogButton {
     background-color: transparent;
     color: #8CCA73;
     text-decoration: underline;
@@ -129,7 +129,7 @@ body {
     border: none;
 }
 
-.changeLbl{
+.changeLbl {
     font-size: 12px;
     color: #707070;
 }
@@ -142,7 +142,7 @@ body {
     transition: 1s;
 }
 
-.contentDivGone{
+.contentDivGone {
     margin-top: 200px;
     width: 90%;
     margin-left: auto;
