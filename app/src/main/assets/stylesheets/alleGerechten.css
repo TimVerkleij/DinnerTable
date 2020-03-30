@@ -7,17 +7,14 @@
     font-size: 12px;
 }
 
-.search {
-    width: 100%;
-}
-
 .searchBar {
     width: 85%;
     height: 30px;
     margin-left: auto;
     margin-right: auto;
-    border-radius: 5px;
-    border: 1px solid rgb(103, 156, 83);
+    border: none;
+    margin-bottom: 5px;
+    font-size: 12px;
 }
 
 .line {
@@ -37,14 +34,13 @@
 }
 
 .addFoodBtn {
-    width: 30px;
-    height: 30px;
+    width: 25px;
+    height: 25px;
     transform: translateY(8.5px);
 }
 
 .addFoodDiv {
-    height: 100px;
-    width: 85%;
+    width: 65%;
     position: fixed;
     margin: 5% auto;
     left: 0;
