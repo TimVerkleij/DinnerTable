@@ -176,12 +176,6 @@
             </div>
         </div>
     </div>
-
-
-    <!-- <h2 id="userID">nothing</h2>
-    <button onclick="pushMe()">click me</button> -->
-
-
     <!--!! firebase stuff  -->
     <script src="https://www.gstatic.com/firebasejs/7.9.1/firebase.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
@@ -204,6 +198,13 @@
         var database = firebase.database();
         //Get a reference to the firestore service
         var db = firebase.firestore()
+
+        if(typeof Android != 'undefined'){
+            var userID = Android.getUserID()
+        } else{
+            var userID = "Ai1ogLVEz1sQuFxpkWYd"
+        }
+        
     </script>
     <!--!! end of firebase stuff  -->
 </body>

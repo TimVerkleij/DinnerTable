@@ -6,7 +6,7 @@ var searchField = document.getElementById("searchField");
 
 var waarden
 
-db.collection("gebruikers").doc("Ai1ogLVEz1sQuFxpkWYd")
+db.collection("gebruikers").doc(userID)
     .onSnapshot(function(doc) {
         var lijst = [];
 
@@ -241,3 +241,22 @@ function switchSuggesties() {
     document.getElementById("suggestieBtn").className = "switchButtonActive";
     document.getElementById("gerechtenBtn").className = "switchButton";
 }
+
+// setTimeout(tellMeTheAnswer, 8000)
+
+// function tellMeTheAnswer() {
+// //     console.log("this works!!!!")
+// //     showAndroidToast("hellooo it workss")
+// //     // console.log(theUserID)
+//     // console.log(window.userID)
+//     console.log(Android.getUserID())
+
+// }
+// var userID = Android.getUserID()
+// console.log(userID)
+// // // console.log(theUserID)
+
+// function showAndroidToast(toast) {
+//     Android.showToast(toast);
+//     Android.getUserID()
+// }

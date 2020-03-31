@@ -1,7 +1,10 @@
 package com.example.dinnertable
 
+import android.content.Context
 import android.content.Intent
 import android.os.Bundle
+import android.view.View
+import android.webkit.JavascriptInterface
 import android.webkit.WebView
 import android.webkit.WebViewClient
 import android.widget.ImageButton
@@ -15,9 +18,25 @@ import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
 import kotlinx.android.synthetic.main.activity_account.*
 
-class MainActivity : AppCompatActivity() {
 
-    private lateinit var auth: FirebaseAuth
+class WebAppInterface(private val mContext: Context) {
+    @JavascriptInterface
+    fun getUserID(): String? {
+
+        val auth: FirebaseAuth = FirebaseAuth.getInstance()
+        val user: FirebaseUser? = auth.currentUser
+        val userID: String?
+        if (user != null) {
+            userID = user.uid.toString()
+        } else{
+            userID = null
+        }
+        return userID
+    }
+}
+
+class MainActivity : AppCompatActivity() {
+lateinit var webView:WebView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -45,27 +64,49 @@ class MainActivity : AppCompatActivity() {
                 return true
             }
         }
-
-        webView.settings.javaScriptEnabled = true
 //        webView.settings.domStorageEnabled = true
 //        webView.loadUrl("file:///android_asset/WheelOfFortune/stw.html")
+                webView.addJavascriptInterface(WebAppInterface(this), "Android")
+        //        webView.loadUrl("https://www.google.com")
+
+
+
+
+        webView.settings.javaScriptEnabled = true
         webView.loadUrl("file:///android_asset/index.html")
-        webView.loadUrl("javascript:var whatever = 'hello' ")
-        webView.loadUrl("javascript:pushMe()")
-//        webView.loadUrl("https://www.google.com")
+//        auth = FirebaseAuth.getInstance()
+//        val user: FirebaseUser? = auth.currentUser
+//        if (user != null) {
+//            val userID = user.uid
+//            webview.loadUrl(userID)
+//          webView.loadUrl("javascript:console.log(\" $userID \" )") //print het google ID van de user (dit werkt)
+//           webView.loadUrl("javascript:var userID = \" $userID \" ") //maakt een javascript variabel van het ID
+//        }                                                       //userID is undefined wanneer het wordt aangeroepen
+//                                                                //in javascript
+//        webView.loadUrl("javascript:console.log(userID)")
 
-        auth = FirebaseAuth.getInstance()
-        val user: FirebaseUser? = auth.currentUser
-        if (user != null) {
-            val userID = user.uid
-            val stringStuff = userID
-            val mything = "hello"
-            println(stringStuff)
-            Toast.makeText(getApplicationContext(), stringStuff, Toast. LENGTH_LONG).show();
+
+
+
+
+
+
+
+
+
+
+//            val stringStuff = userID
+//            val mything = "hello"
+//            println(stringStuff)
+//            Toast.makeText(getApplicationContext(), stringStuff, Toast. LENGTH_LONG).show();
 //            webView.loadUrl("javascript:var userID = \"${mything}\"")
+//            val myNumber = userID
 
+//            webView.loadUrl("javascript:var theUserID =  \" $myNumber \" ")
+//            webView.loadUrl("javascript:console.log(theUserID + 'heheheh')")
+//            webView.addJavascriptInterface(userID, "idkman")
 //            webView.loadUrl("javascript:pushMe()")
-        }
+
 
         //start connection to firebase
 /*
@@ -109,3 +150,4 @@ class MainActivity : AppCompatActivity() {
         }
     }
 }
+

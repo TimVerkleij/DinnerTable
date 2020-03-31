@@ -32,6 +32,8 @@ class StatsActivity : AppCompatActivity() {
 //        webView.settings.domStorageEnabled = true
 //        webView.loadUrl("file:///android_asset/WheelOfFortune/stw.html")
         webView.loadUrl("file:///android_asset/inlog.html")
+        val myNumber = "testing"
+        webView.loadUrl("javascript:console.log( \" $myNumber \" )")
 
         home.setOnClickListener{
             val intent = Intent(this, MainActivity::class.java)

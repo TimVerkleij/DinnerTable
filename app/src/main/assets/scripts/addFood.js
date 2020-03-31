@@ -8,9 +8,9 @@ function addFood() {
     gerecht = gerecht.charAt(0).toUpperCase() + gerecht.substring(1).toLowerCase();
 
     function loadData() {
-        db.collection("gebruikers").doc("Ai1ogLVEz1sQuFxpkWYd").get()
+        db.collection("gebruikers").doc(userID).get()
             .then(function(doc) {
-
+                if(doc.data()){
                 if (doc.data().gerechten[gerecht] != undefined) {
                     var datums = doc.data().gerechten[gerecht].datum
                     datums.forEach(function(value) {
@@ -19,7 +19,7 @@ function addFood() {
                 } else {
                     console.log(gerecht + " bestond nog niet!")
                 }
-
+            }
                 uploadData();
             });
     }
@@ -37,7 +37,7 @@ function addFood() {
     loadData();
 
     function uploadData() {
-        db.collection("gebruikers").doc("Ai1ogLVEz1sQuFxpkWYd").set({
+        db.collection("gebruikers").doc(userID).set({
             gerechten
         }, { merge: true })
     }

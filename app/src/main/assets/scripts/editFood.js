@@ -35,7 +35,7 @@ function saveChanges() {
     var editKeuken = document.getElementById("keuken").value
 
     function loadDatumArray() {
-        db.collection("gebruikers").doc("Ai1ogLVEz1sQuFxpkWYd").get()
+        db.collection("gebruikers").doc(userID).get()
             .then(function(doc) {
                 doc.data().gerechten[editGerecht].datum.forEach(sortDates)
 
@@ -76,25 +76,9 @@ function saveChanges() {
     loadDatumArray();
 
     function uploadData() {
-        db.collection("gebruikers").doc("Ai1ogLVEz1sQuFxpkWYd").set({
+        db.collection("gebruikers").doc(userID).set({
             gerechten
         }, { merge: true })
     }
     editFoodDiv.className = "editFoodDivDown"
 }
-
-
-// function pushMe() {
-//     var h2element = document.getElementById("userID")
-//     h2element.innerHTML = whatever
-//     // var userID
-//     // console.error(h2element.innerHTML)
-//     // h2element.innerHTML = userID
-//     // console.log(userID.length)
-//     // console.log(mything)
-//     // var i;
-//     // for (i = 0; i < userID.children.length; i++) {
-//     //   console.log(userID.children[i])
-//     // }
-//     // console.warn(h2element.innerHTML)
-//     }
