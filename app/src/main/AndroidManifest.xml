@@ -10,7 +10,7 @@
                  android:theme="@style/AppTheme" tools:ignore="GoogleAppIndexingWarning"
                  android:fullBackupContent="true">
         <activity android:name=".LoginActivity"
-                  android:windowSoftInputMode="adjustPan"
+                  android:windowSoftInputMode="adjustResize"
                   android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
@@ -18,16 +18,16 @@
             </intent-filter>
         </activity>
         <activity android:name=".AccountActivity"
-                  android:windowSoftInputMode="adjustPan"
+                  android:windowSoftInputMode="adjustResize"
                   android:screenOrientation="portrait"/>
         <activity android:name=".StatsActivity"
-                  android:windowSoftInputMode="adjustPan"
+                  android:windowSoftInputMode="adjustResize"
                   android:screenOrientation="portrait"/>
         <activity android:name=".SettingsActivity"
-                  android:windowSoftInputMode="adjustPan"
+                  android:windowSoftInputMode="adjustResize"
                   android:screenOrientation="portrait"/>
         <activity android:name=".MainActivity"
-                  android:windowSoftInputMode="adjustPan"
+                  android:windowSoftInputMode="adjustResize"
                   android:screenOrientation="portrait"/>
     </application>
 </manifest>

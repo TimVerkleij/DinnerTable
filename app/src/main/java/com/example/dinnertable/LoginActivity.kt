@@ -4,6 +4,8 @@ import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.View
+import android.webkit.WebView
+import android.webkit.WebViewClient
 import android.widget.Button
 import android.widget.TextView
 import android.widget.Toast
@@ -36,21 +38,37 @@ class LoginActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
+
+
+        val webView = findViewById<WebView>(R.id.webview)
+        webView.webViewClient = object : WebViewClient() {
+            override fun shouldOverrideUrlLoading(view: WebView?, url: String?): Boolean {
+                view?.loadUrl(url)
+                return true
+            }
+        }
+        webView.settings.javaScriptEnabled = true
+        webView.loadUrl("file:///android_asset/inlog.html")
+
+
+
+
         val signInButton = findViewById<SignInButton>(R.id.sign_in_button)
-        val signOutButton = findViewById<Button>(R.id.sign_out_button)
-        val disconnectButton = findViewById<Button>(R.id.button2)
-        val detail = findViewById<TextView>(R.id.textView)
-        val status = findViewById<TextView>(R.id.textView2)
-        val signOutAndDisconnect = findViewById<Button>(R.id.button3)
-//        val googleSignInButton = findViewById<SignInButton>(R.id.sign_in_button)
+//        val signOutButton = findViewById<Button>(R.id.sign_out_button)
+//        val disconnectButton = findViewById<Button>(R.id.button2)
+//        val signOutAndDisconnect = findViewById<Button>(R.id.button3)
 
 //        setProgressBar(R.id.progressBar)
         signInButton.setOnClickListener {
             signIn()
         }
-        signOutButton.setOnClickListener {
-            signOut()
-        }
+
+        //todo: important don't remove
+//        signOutButton.setOnClickListener {
+//            signOut()
+//        }
+
+
         // Button listeners
 //        signInButton.setOnClickListener(this)
 //        signOutButton.setOnClickListener(this)
@@ -147,38 +165,32 @@ class LoginActivity : AppCompatActivity() {
 
     private fun updateUI(user: FirebaseUser?) {
         val signInButton = findViewById<SignInButton>(R.id.sign_in_button)
-        val signOutButton = findViewById<Button>(R.id.sign_out_button)
-        val disconnectButton = findViewById<Button>(R.id.button2)
-        val detail = findViewById<TextView>(R.id.textView)
-        val status = findViewById<TextView>(R.id.textView2)
-        val signOutAndDisconnect = findViewById<Button>(R.id.button3)
-//        hideProgressBar()
+//        val signOutButton = findViewById<Button>(R.id.sign_out_button)
+//        val disconnectButton = findViewById<Button>(R.id.button2)
+//        val signOutAndDisconnect = findViewById<Button>(R.id.button3)
         if (user != null) {
-//            status.text = getString(R.string.google_status_fmt, user.email)
-//            detail.text = getString(R.string.firebase_status_fmt, user.uid)
 
-            println(user.uid)
-            println(user.email)
+//            println(user.uid)
+//            println(user.email)
             signInButton.visibility = View.GONE
-            signOutAndDisconnect.visibility = View.VISIBLE
+//            signOutAndDisconnect.visibility = View.VISIBLE
 
             val intent = Intent(this, StatsActivity::class.java)
             startActivity(intent)
             overridePendingTransition(0, 0)
+            finish()
         } else {
-//            status.setText(R.string.signed_out)
-            detail.text = null
 
             signInButton.visibility = View.VISIBLE
-            signOutAndDisconnect.visibility = View.GONE
+//            signOutAndDisconnect.visibility = View.GONE
         }
     }
 
     fun onClick(v: View) {
         when (v.id) {
             R.id.sign_in_button -> signIn()
-            R.id.sign_out_button -> signOut()
-            R.id.button3 -> revokeAccess()
+//            R.id.sign_out_button -> signOut()
+//            R.id.button3 -> revokeAccess()
         }
     }
 
