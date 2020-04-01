@@ -65,3 +65,11 @@ function datumChange() {
     var dateInput = document.getElementById("date")
     dateInput.style.color = "black"
 }
+
+function fout(){
+    document.getElementById("foutje1").style.display = "block"
+}
+
+function fout2(){
+    document.getElementById("foutje2").style.display = "block"
+}

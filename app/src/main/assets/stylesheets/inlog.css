@@ -182,3 +182,9 @@ body {
     margin-top: 40px;
     margin-bottom: 15px;
 }
+
+
+.foutje{
+    color: red;
+    /* display: none; */
+}

@@ -41,18 +41,21 @@ class AccountActivity : AppCompatActivity() {
         home.setOnClickListener {
             val intent = Intent(this, MainActivity::class.java)
             startActivity(intent)
+            finish()
             overridePendingTransition(0, 0)
         }
 
         stats.setOnClickListener {
             val intent = Intent(this, StatsActivity::class.java)
             startActivity(intent)
+            finish()
             overridePendingTransition(0, 0)
         }
 
         settings.setOnClickListener {
             val intent = Intent(this, SettingsActivity::class.java)
             startActivity(intent)
+            finish()
             overridePendingTransition(0, 0)
         }
     }

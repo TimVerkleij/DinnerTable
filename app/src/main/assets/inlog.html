@@ -31,8 +31,8 @@
                 <img src="images/icons/keyIcon.png" class="inputIcon" alt="">
                 <input type="password" class="inputField" placeholder="Wachtwoord">
             </div>
-
-            <button type="submit" class="inloggen">Inloggen</button><br>
+            <p class="foutje" id="foutje1" style="display: none;">Log in met google a.u.b.</p>
+            <button class="inloggen" onclick="fout()">Inloggen</button><br>
             <div class="accountSwitch">
                 <label class="changeLbl">Nog geen account?</label> <button id="registreerButton" onclick="changePage()">Registreer</button>
             </div>
@@ -60,8 +60,8 @@
                 <img src="images/icons/keyIcon.png" class="inputIcon" alt="">
                 <input type="password" class="inputField" placeholder="Herhaal wachtwoord">
             </div>
-
-            <button type="submit" class="registeren">Registreren</button><br>
+            <p class="foutje" id="foutje2" style="display: none;">Log in met google a.u.b.</p>
+            <button class="registeren" onclick="fout2()">Registreren</button><br>
             <div class="accountSwitch">
             <label class="changeLbl">Al een account? </label><button id="inlogButton" onclick="changePage()">Inloggen</button>
         </div>

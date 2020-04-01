@@ -175,10 +175,10 @@ class LoginActivity : AppCompatActivity() {
             signInButton.visibility = View.GONE
 //            signOutAndDisconnect.visibility = View.VISIBLE
 
-            val intent = Intent(this, StatsActivity::class.java)
+            val intent = Intent(this, MainActivity::class.java)
             startActivity(intent)
-            overridePendingTransition(0, 0)
             finish()
+            overridePendingTransition(0, 0)
         } else {
 
             signInButton.visibility = View.VISIBLE
