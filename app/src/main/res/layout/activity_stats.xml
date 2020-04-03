@@ -38,12 +38,12 @@
             android:id="@+id/divider4"
             android:layout_width="0dp"
             android:layout_height="2dp"
-            android:background="#3c3c3d"
+            android:background="#707070"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent" app:layout_constraintBottom_toTopOf="@+id/bottomNavigationView"/>
     <com.google.android.material.bottomnavigation.BottomNavigationView
             android:layout_width="0dp"
-            android:layout_height="55dp"
+            android:layout_height="40dp"
             app:layout_constraintStart_toStartOf="parent" app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintBottom_toBottomOf="parent" app:itemTextColor="#3d3e3c" android:background="#F7F7F7"
             android:id="@+id/bottomNavigationView" android:padding="2dp">
@@ -52,33 +52,40 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
             <ImageButton
-                    android:layout_width="53dp"
-                    android:layout_height="53dp" app:srcCompat="@drawable/home_icon"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" app:srcCompat="@drawable/home_icon"
                     android:id="@+id/home" android:layout_weight="1" android:scaleType="fitCenter"
                     style="@style/AppTheme" android:background="#00FFFFFF"
-                    android:padding="2dp"/>
+                    android:padding="4dp"/>
             <ImageButton
-                    android:layout_width="53dp"
-                    android:layout_height="53dp" app:srcCompat="@drawable/account_icon"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" app:srcCompat="@drawable/account_icon"
                     android:id="@+id/account" android:layout_weight="1" android:scaleType="fitCenter"
-                    android:background="#00FFFFFF" android:padding="2dp"/>
+                    android:background="#00FFFFFF" android:padding="4dp"/>
             <ImageButton
-                    android:layout_width="53dp"
-                    android:layout_height="53dp" app:srcCompat="@drawable/selected_stats_icon"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" app:srcCompat="@drawable/selected_stats_icon"
                     android:id="@+id/stats" android:layout_weight="1" android:background="#00FFFFFF"
-                    android:scaleType="fitCenter" android:padding="2dp"/>
+                    android:scaleType="fitCenter" android:padding="4dp"/>
             <ImageButton
-                    android:layout_width="53dp"
-                    android:layout_height="53dp" app:srcCompat="@drawable/settings_icon"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" app:srcCompat="@drawable/settings_icon"
                     android:id="@+id/settings" android:layout_weight="1" android:background="#00FFFFFF"
-                    android:scaleType="fitCenter" android:padding="2dp"/>
+                    android:scaleType="fitCenter" android:padding="4dp"/>
         </LinearLayout>
     </com.google.android.material.bottomnavigation.BottomNavigationView>
     <WebView
             android:layout_width="0dp"
-            android:layout_height="0dp"
+            android:layout_height="500dp"
             android:id="@+id/webview"
-            app:layout_constraintBottom_toTopOf="@+id/bottomNavigationView"
             app:layout_constraintStart_toStartOf="parent" app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/rectangle_at_the_top3"/>
+    <TextView
+            android:text="Binnenkort verwacht"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/textView" android:textSize="24sp" app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toTopOf="@+id/bottomNavigationView"
+            app:layout_constraintTop_toBottomOf="@+id/webview"/>
 </androidx.constraintlayout.widget.ConstraintLayout>
