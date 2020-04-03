@@ -19,15 +19,15 @@
         </activity>
         <activity android:name=".AccountActivity"
                   android:windowSoftInputMode="adjustResize"
-                  android:screenOrientation="portrait"/>
+                  android:configChanges="orientation|screenSize"/>
         <activity android:name=".StatsActivity"
                   android:windowSoftInputMode="adjustResize"
-                  android:screenOrientation="portrait"/>
+                  android:configChanges="orientation|screenSize"/>
         <activity android:name=".SettingsActivity"
                   android:windowSoftInputMode="adjustResize"
-                  android:screenOrientation="portrait"/>
+                  android:configChanges="orientation|screenSize"/>
         <activity android:name=".MainActivity"
                   android:windowSoftInputMode="adjustResize"
-                  android:screenOrientation="portrait"/>
+                  android:configChanges="orientation|screenSize"/>
     </application>
 </manifest>
