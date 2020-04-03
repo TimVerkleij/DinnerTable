@@ -11,6 +11,11 @@ import androidx.appcompat.app.AppCompatActivity
 
 class StatsActivity : AppCompatActivity() {
 
+    override fun onBackPressed() {
+        super.onBackPressed()
+        overridePendingTransition(0, 0)
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_stats)
@@ -35,21 +40,21 @@ class StatsActivity : AppCompatActivity() {
         home.setOnClickListener{
             val intent = Intent(this, MainActivity::class.java)
             startActivity(intent)
-            finish()
+//            finish()
             overridePendingTransition(0, 0)
         }
 
         account.setOnClickListener {
             val intent = Intent(this, AccountActivity::class.java)
             startActivity(intent)
-            finish()
+//            finish()
             overridePendingTransition(0, 0)
         }
 
         settings.setOnClickListener {
             val intent = Intent(this, SettingsActivity::class.java)
             startActivity(intent)
-            finish()
+//            finish()
             overridePendingTransition(0, 0)
         }
     }

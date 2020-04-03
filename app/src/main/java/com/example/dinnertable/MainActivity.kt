@@ -38,6 +38,11 @@ class WebAppInterface(private val mContext: Context) {
 class MainActivity : AppCompatActivity() {
 lateinit var webView:WebView
 
+    override fun onBackPressed() {
+        super.onBackPressed()
+        overridePendingTransition(0, 0)
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -135,20 +140,20 @@ lateinit var webView:WebView
         account.setOnClickListener {
             val intent = Intent(this, AccountActivity::class.java)
             startActivity(intent)
-            finish()
+//            finish()
             overridePendingTransition(0, 0)
         }
 
         stats.setOnClickListener {
             val intent = Intent(this, StatsActivity::class.java)
             startActivity(intent)
-            finish()
+//            finish()
             overridePendingTransition(0, 0)
         }
         settings.setOnClickListener {
             val intent = Intent(this, SettingsActivity::class.java)
             startActivity(intent)
-            finish()
+//            finish()
             overridePendingTransition(0, 0)
         }
     }

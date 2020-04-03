@@ -18,6 +18,11 @@ class SettingsActivity : AppCompatActivity() {
 
     private lateinit var googleSignInClient: GoogleSignInClient
 
+    override fun onBackPressed() {
+        super.onBackPressed()
+        overridePendingTransition(0, 0)
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_settings)
@@ -44,21 +49,21 @@ class SettingsActivity : AppCompatActivity() {
         home.setOnClickListener {
             val intent = Intent(this, MainActivity::class.java)
             startActivity(intent)
-            finish()
+//            finish()
             overridePendingTransition(0, 0)
         }
 
         account.setOnClickListener {
             val intent = Intent(this, AccountActivity::class.java)
             startActivity(intent)
-            finish()
+//            finish()
             overridePendingTransition(0, 0)
         }
 
         stats.setOnClickListener {
             val intent = Intent(this, StatsActivity::class.java)
             startActivity(intent)
-            finish()
+//            finish()
             overridePendingTransition(0, 0)
         }
 
