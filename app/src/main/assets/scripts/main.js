@@ -57,20 +57,50 @@ function getDatabase() {
             //     value.datum = Date.parse(value.datum)
             // }
 
-            function sortByProperty(property) {
-                return function(a, b) {
-                    if (a[property] > b[property])
-                        return 1;
-                    else if (a[property] < b[property])
-                        return -1;
 
-                    return 0;
+            //! old sort function
+            // function sortByProperty2(property) {
+            //     console.log(property)
+            //     return function(a, b) {
+            //         if (a[property] > b[property])
+
+            //             return 1;
+            //         else if (a[property] < b[property])
+            //             return -1;
+
+            //         return 0;
+
+            //     }
+            // }
+            //! old sort function
+
+            function sortByProperty(property) {
+                console.log(property)
+                return function(a, b) {
+                   return a[property] - b[property]
                 }
             }
 
-            console.log(sortingInput.value)
+            // "Gerecht": gerecht.naam, "datum": datumArray[0], "Notitie": gerecht.notitie, "Keuken": gerecht.keuken, "Healthy": gerecht.healthy, "Tasty": gerecht.tasty })
 
-            lijst.sort(sortByProperty("datum")).reverse()
+            if (sortingInput.value == "alfabetisch") {
+                lijst.sort(sortByProperty("Gerecht"))
+            } else if (sortingInput.value == "laatst gegeten") {
+                lijst.sort(sortByProperty("datum")).reverse()
+            } else if (sortingInput.value == "langst niet gegeten") {
+                lijst.sort(sortByProperty("datum"))
+            } else if (sortingInput.value == "meest gezond") {
+                lijst.sort(sortByProperty("Healthy")).reverse()
+            } else if (sortingInput.value == "minst gezond") {
+                lijst.sort(sortByProperty("Healthy"))
+            } else if (sortingInput.value == "meest lekker") {
+                lijst.sort(sortByProperty("Tasty")).reverse()
+            } else {
+                lijst.sort(sortByProperty("Tasty"))
+            }
+
+            // if (3-3) console.log("hi")
+
 
             lijst.forEach(formatDates)
 
