@@ -83,6 +83,39 @@
 
 
 </body>
+<!--!! firebase stuff  -->
+<script src="https://www.gstatic.com/firebasejs/7.9.1/firebase.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+<script>
+    var firebaseConfig = {
+        apiKey: "AIzaSyBJaWwzG5HTWIXOxywshVpRRHo1i4Gey8s",
+        authDomain: "dinnertable-56c1c.firebaseapp.com",
+        databaseURL: "https://dinnertable-56c1c.firebaseio.com",
+        projectId: "dinnertable-56c1c",
+        storageBucket: "dinnertable-56c1c.appspot.com",
+        messagingSenderId: "297554476203",
+        appId: "1:297554476203:web:928e5939d0765ad2658bee",
+        measurementId: "G-MSFBS5XHBR"
+    };
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+    firebase.analytics();
+
+    // Get a reference to the database service
+    var database = firebase.database();
+    //Get a reference to the firestore service
+    var db = firebase.firestore()
+
+    if (typeof Android != 'undefined') {
+        var userID = Android.getUserID()
+        console.log(userID)
+    } else {
+        var userID = "Ai1ogLVEz1sQuFxpkWYd"
+        console.log(userID)
+    }
+</script>
+<!--!! end of firebase stuff  -->
+
 <script src="scripts/account.js" defer></script>
 
 </html>
