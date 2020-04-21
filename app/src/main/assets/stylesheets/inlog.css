@@ -184,7 +184,6 @@ body {
 }
 
 
-.foutje{
+.errorMessage{
     color: red;
-    /* display: none; */
 }

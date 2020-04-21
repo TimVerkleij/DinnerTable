@@ -1,9 +1,6 @@
 var response = [];
 var searchField = document.getElementById("searchField");
 
-
-//TODO: Ik moet deze javascript file nog opschonen omdat firebase echt super kut doet.
-
 var waarden
 
 getDatabase()
@@ -47,33 +44,6 @@ function getDatabase() {
                 datumArray.push(value.seconds * 1000)
             }
 
-            // function convertDates(value) {
-            //     formattedDatumArray.push(moment(value).format("D MMM YYYY"))
-            // }
-
-            // lijst.forEach(sortArrayByDate)
-
-            // function sortArrayByDate(value) {
-            //     value.datum = Date.parse(value.datum)
-            // }
-
-
-            //! old sort function
-            // function sortByProperty2(property) {
-            //     console.log(property)
-            //     return function(a, b) {
-            //         if (a[property] > b[property])
-
-            //             return 1;
-            //         else if (a[property] < b[property])
-            //             return -1;
-
-            //         return 0;
-
-            //     }
-            // }
-            //! old sort function
-
             function sortByProperty(property) {
                 console.log(property)
                 return function(a, b) {
@@ -81,7 +51,6 @@ function getDatabase() {
                 }
             }
 
-            // "Gerecht": gerecht.naam, "datum": datumArray[0], "Notitie": gerecht.notitie, "Keuken": gerecht.keuken, "Healthy": gerecht.healthy, "Tasty": gerecht.tasty })
 
             if (sortingInput.value == "alfabetisch") {
                 lijst.sort(sortByProperty("Gerecht"))
@@ -98,9 +67,6 @@ function getDatabase() {
             } else {
                 lijst.sort(sortByProperty("Tasty"))
             }
-
-            // if (3-3) console.log("hi")
-
 
             lijst.forEach(formatDates)
 
@@ -197,15 +163,6 @@ function getDatabase() {
                     //when you click on a table row the following code runs
                     document.querySelectorAll('.clickable').forEach(item => {
                         item.addEventListener('click', event => {
-                            //     <label>` + hetGerecht + `</label>
-                            //     <label>` + deDatum + `</label>
-                            //     <label>` + deHealthy + `</label>
-                            //     <label>` + deTasty + `</label>
-                            //     <label>` + deNotitie + `</label>
-                            //     <label>` + deKeuken + `</label>
-
-                            //you can use the var 'item' to refer to the clicked object
-                            // var editFoodDiv = document.getElementById("editFoodDiv");
                             var editGerecht = document.getElementById("gerecht")
                             var editDatum = document.getElementById("date")
                             var editHealthy = document.getElementById("health")
@@ -221,32 +178,12 @@ function getDatabase() {
                             var notitie = item.children[0].children[4].innerHTML
                             var keuken = item.children[0].children[5].innerHTML
 
-
-
-
-                            // var editDatum = document.getElementById("datum")
-                            // var editNotitie = document.getElementById("notitie")
-                            // var huidigeDatum = item.children[2].innerHTML
-                            // huidigeDatum = huidigeDatum.split(": ")
-                            // huidigeDatum = huidigeDatum[huidigeDatum.length - 1]
-                            // editGerecht.value = item.children[0].innerHTML
-                            // editDatum.value = huidigeDatum
-                            // if (item.children[3].innerHTML == "undefined") {
-                            //     editNotitie.value = ""
-                            // } else {
-                            //     editNotitie.value = item.children[3].innerHTML
-                            // }
-
-
                             editGerecht.value = gerecht
                             editDatum.value = datum
                             editHealthy.value = healthy
                             editTasty.value = tasty
                             editNotitie.value = notitie
                             editKeuken.value = keuken
-
-
-
 
                             editFoodDiv.className = "editFoodDivUp"
                         })
@@ -281,22 +218,3 @@ function switchSuggesties() {
     document.getElementById("suggestieBtn").className = "switchButtonActive";
     document.getElementById("gerechtenBtn").className = "switchButton";
 }
-
-// setTimeout(tellMeTheAnswer, 8000)
-
-// function tellMeTheAnswer() {
-// //     console.log("this works!!!!")
-// //     showAndroidToast("hellooo it workss")
-// //     // console.log(theUserID)
-//     // console.log(window.userID)
-//     console.log(Android.getUserID())
-
-// }
-// var userID = Android.getUserID()
-// console.log(userID)
-// // // console.log(theUserID)
-
-// function showAndroidToast(toast) {
-//     Android.showToast(toast);
-//     Android.getUserID()
-// }

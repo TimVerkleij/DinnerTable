@@ -66,10 +66,10 @@ function datumChange() {
     dateInput.style.color = "black"
 }
 
-function fout(){
-    document.getElementById("foutje1").style.display = "block"
+function logInError(){
+    document.getElementById("logInError").style.display = "block"
 }
 
-function fout2(){
-    document.getElementById("foutje2").style.display = "block"
+function registerError(){
+    document.getElementById("registerError").style.display = "block"
 }
