@@ -24,18 +24,60 @@ class WebAppInterfaceAccount(private val mContext: Context) {
         val auth: FirebaseAuth = FirebaseAuth.getInstance()
         val user: FirebaseUser? = auth.currentUser
         val userID: String?
-        val userNumber: String?
-        val userEmail: String?
-        if (user != null) {
-            userID = user.uid
-            userNumber = user.phoneNumber
-            userEmail = user.email
-        } else{
-            userID = null
-            userNumber = null
-            userEmail = null
+//        val userPhoto: String?
+//        val userEmail: String?
+//        val userName: String?
+        userID = if (user != null) {
+            user.uid
+            //            userPhoto = user.photoUrl.toString()
+            //            userName = user.displayName
+            //            userEmail = user.email
+        } else {
+            null
+            //            userPhoto = null
+            //            userEmail = null
+            //            userName = null
         }
-        return "$userEmail $userID $userNumber"
+        return userID
+    }
+
+    @JavascriptInterface
+    fun getUserName(): String? {
+        val auth: FirebaseAuth = FirebaseAuth.getInstance()
+        val user: FirebaseUser? = auth.currentUser
+        val userName: String?
+        userName = if (user != null) {
+            user.displayName
+        } else {
+            null
+        }
+        return userName
+    }
+
+    @JavascriptInterface
+    fun getUserEmail(): String? {
+        val auth: FirebaseAuth = FirebaseAuth.getInstance()
+        val user: FirebaseUser? = auth.currentUser
+        val userEmail: String?
+        userEmail = if (user != null) {
+            user.email
+        } else {
+            null
+        }
+        return userEmail
+    }
+
+    @JavascriptInterface
+    fun getUserPhoto(): String? {
+        val auth: FirebaseAuth = FirebaseAuth.getInstance()
+        val user: FirebaseUser? = auth.currentUser
+        val userPhoto: String?
+        userPhoto = if (user != null) {
+            user.photoUrl.toString()
+        } else {
+            null
+        }
+        return userPhoto
     }
 }
 

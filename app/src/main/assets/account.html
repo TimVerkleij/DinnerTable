@@ -108,7 +108,10 @@
 
     if (typeof Android != 'undefined') {
         var userID = Android.getUserID()
-        console.log(userID)
+        var userName = Android.getUserName()
+        var userEmail = Android.getUserEmail()
+        var userPhoto = Android.getUserPhoto()
+        // console.log(userID, userName, userEmail, userPhoto)
     } else {
         var userID = "Ai1ogLVEz1sQuFxpkWYd"
         console.log(userID)
