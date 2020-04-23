@@ -13,27 +13,40 @@ var userProfileImage = document.getElementById("userPhoto")
 var userNameField = document.getElementById("userName")
 var userEmailField = document.getElementById("userEmail")
 
+var editUserPhoto = document.getElementById("editUserPhoto")
 var editName = document.getElementById("editName")
 var editEmail = document.getElementById("editEmail")
 var editBirthDay = document.getElementById("editBirthDay")
 var editAllergies = document.getElementById("editAllergies")
 var editPreferences = document.getElementById("editPreferences")
 
-editName.value = "test"
-editEmail.value = "test"
-editAllergies.value = "test"
-editPreferences.value = "test"
+// editName.value = "test"
+// editEmail.value = "test"
+// editAllergies.value = "test"
+// editPreferences.value = "test"
 
 var docRef = db.collection("userProfiles").doc(userID);
 
 docRef.get().then(function(doc) {
     if (doc.exists) {
-        console.log("Document data:", doc.data());
         db.collection("userProfiles").doc(userID)
             .onSnapshot(function(doc) {
 
                 //get profile info from database
 
+                userInfo = doc.data().userInfo
+
+                var userPhoto = userInfo.Photo
+                var userName = userInfo.Name
+                var userEmail = userInfo.Email
+
+                userProfileImage.src = userPhoto
+                userNameField.innerHTML = userName
+                userEmailField.innerHTML = userEmail
+
+                editUserPhoto.src = userPhoto
+                editName.value = userName
+                editEmail.value = userEmail
 
             })
     } else {
@@ -41,7 +54,7 @@ docRef.get().then(function(doc) {
 
 
         if (typeof Android != 'undefined') {
-            //? console.log(userID, userEmail, userPhoto, userName)
+            // console.log(userID, userEmail, userPhoto, userName)
 
             //create document for new user
 
@@ -49,10 +62,11 @@ docRef.get().then(function(doc) {
             userNameField.innerHTML = userName
             userEmailField.innerHTML = userEmail
 
+            editUserPhoto.src = userPhoto
             editName.value = userName
             editEmail.value = userEmail
-            // editAllergies.value = "test"
-            // editPreferences.value = "test"
+                // editAllergies.value = "test"
+                // editPreferences.value = "test"
 
 
             let userInfo = {
@@ -62,13 +76,13 @@ docRef.get().then(function(doc) {
                 ID: userID
             }
 
-            let user = {
-                [userID]: userInfo
-            }
+            // let user = {
+            //     [userID]: userInfo
+            // }
 
             function uploadData() {
                 db.collection("userProfiles").doc(userID).set({
-                    user
+                    userInfo
                 }, { merge: true })
             }
 
