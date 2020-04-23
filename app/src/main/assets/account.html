@@ -13,34 +13,34 @@
     <div class="profileImageContainer">
         <img src="images/editIcon.png" alt="bewerken" class="editIcon" onclick="editInfo()">
         <div class="profileImageDiv">
-            <img src="https://simpleicon.com/wp-content/uploads/account.png" alt="A picture of you" class="profileImage" name="profileImage">
+            <img src="https://simpleicon.com/wp-content/uploads/account.png" alt="A picture of you" class="profileImage" id="userPhoto">
         </div>
-        <h2 class="userName">Tom Groot</h2>
+        <h2 class="userName" id="userName">-</h2>
     </div>
     <div class="userInfo" id="userInfo">
         <div class="row">
             <h2 class="titleInfo">Geboortedatum</h2>
-            <p class="descriptionInfo">5 april 2002</p>
+            <p class="descriptionInfo">-</p>
 
         </div>
         <div class="row">
             <h2 class="titleInfo">Email</h2>
-            <p class="descriptionInfo">tom.groot@student.hu.nl</p>
+            <p class="descriptionInfo" id="userEmail">-</p>
         </div>
         <div class="row">
             <h2 class="titleInfo">Allergieën</h2>
-            <p class="descriptionInfo">Gluten</p>
-            <p class="descriptionInfo">Lactose</p>
-            <p class="descriptionInfo">Eieren</p>
+            <p class="descriptionInfo">-</p>
+            <!-- <p class="descriptionInfo">Lactose</p> -->
+            <!-- <p class="descriptionInfo">Eieren</p> -->
         </div>
         <div class="row">
             <h2 class="titleInfo">Eetvoorkeuren</h2>
-            <p class="descriptionInfo">Vegetarisch</p>
+            <p class="descriptionInfo">-</p>
         </div>
     </div>
     <div class="editInfoDivInvisible" id="editInfoDiv">
         <div class="profileImageContainer">
-            <img src="images/editIcon.png" alt="bewerken" class="editIcon" onclick="editInfo()">
+            <!-- <img src="images/editIcon.png" alt="bewerken" class="editIcon" onclick="editInfo()"> -->
             <div class="profileImageDiv">
                 <img src="https://simpleicon.com/wp-content/uploads/account.png" alt="A picture of you" class="profileImage" name="profileImage">
             </div>
@@ -49,29 +49,29 @@
         <div class="userInfo" id="userInfo">
             <div class="row">
                 <h2 class="titleInfo">Voornaam</h2>
-                <input type="text" class="descriptionInfo">
+                <input type="text" class="descriptionInfo" id="editName">
             </div>
 
-            <div class="row">
+            <!-- <div class="row">
                 <h2 class="titleInfo">Achternaam</h2>
                 <input type="text" class="descriptionInfo">
-            </div>
+            </div> -->
 
             <div class="row">
                 <h2 class="titleInfo">Geboortedatum</h2>
-                <input type="date" class="descriptionInfo">
+                <input type="date" class="descriptionInfo" id="editBirthDay">
             </div>
             <div class="row">
                 <h2 class="titleInfo">Email</h2>
-                <input type="email" class="descriptionInfo">
+                <input type="email" class="descriptionInfo" id="editEmail">
             </div>
             <div class="row">
                 <h2 class="titleInfo">Allergieën</h2>
-                <textarea id="AllergieInfo" class="descriptionInfo"></textarea>
+                <textarea class="descriptionInfo" id="editAllergies"></textarea>
             </div>
             <div class="row">
                 <h2 class="titleInfo">Eetvoorkeuren</h2>
-                <input type="text" class="descriptionInfo">
+                <input type="text" class="descriptionInfo" id="editPreferences">
             </div>
         </div>
 
