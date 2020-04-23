@@ -20,7 +20,7 @@
     <div class="userInfo" id="userInfo">
         <div class="row">
             <h2 class="titleInfo">Geboortedatum</h2>
-            <p class="descriptionInfo">-</p>
+            <p class="descriptionInfo" id="birthday">-</p>
 
         </div>
         <div class="row">
@@ -29,13 +29,13 @@
         </div>
         <div class="row">
             <h2 class="titleInfo">Allergieën</h2>
-            <p class="descriptionInfo">-</p>
+            <p class="descriptionInfo" id="allergies">-</p>
             <!-- <p class="descriptionInfo">Lactose</p> -->
             <!-- <p class="descriptionInfo">Eieren</p> -->
         </div>
         <div class="row">
             <h2 class="titleInfo">Eetvoorkeuren</h2>
-            <p class="descriptionInfo">-</p>
+            <p class="descriptionInfo" id="preferences">-</p>
         </div>
     </div>
     <div class="editInfoDivInvisible" id="editInfoDiv">
@@ -73,11 +73,12 @@
                 <h2 class="titleInfo">Eetvoorkeuren</h2>
                 <input type="text" class="descriptionInfo" id="editPreferences">
             </div>
+            <h4 class="errorMessage" id="errorMessage">Vul iets in bij de Geboortedatum!</h4>
         </div>
 
         <div class="cancelSaveInfoDiv">
             <input type="button" value="Annuleren" onclick="closeEditInfo()" class="cancelInfo">
-            <input type="button" value="Opslaan" onclick="closeEditInfo()" class="saveInfo">
+            <input type="button" value="Opslaan" onclick="saveAccount()" class="saveInfo">
         </div>
     </div>
 
@@ -120,5 +121,6 @@
 <!--!! end of firebase stuff  -->
 
 <script src="scripts/account.js" defer></script>
+<script src="scripts/editAccount.js" defer></script>
 
 </html>

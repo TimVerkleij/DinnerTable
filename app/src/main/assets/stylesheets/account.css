@@ -169,3 +169,9 @@
     border-bottom: 1px solid #A3A3A3;
     background-color: #F7F7F7;
 }
+
+.errorMessage{
+    display: none;
+    color: red;
+    font-size: 12px;
+}

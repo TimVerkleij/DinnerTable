@@ -11,7 +11,10 @@ function closeEditInfo() {
 
 var userProfileImage = document.getElementById("userPhoto")
 var userNameField = document.getElementById("userName")
+var userBirthdayField = document.getElementById("birthday")
 var userEmailField = document.getElementById("userEmail")
+var userAllergiesField = document.getElementById("allergies")
+var userPreferencesField = document.getElementById("preferences")
 
 var editUserPhoto = document.getElementById("editUserPhoto")
 var editName = document.getElementById("editName")
@@ -20,25 +23,59 @@ var editBirthDay = document.getElementById("editBirthDay")
 var editAllergies = document.getElementById("editAllergies")
 var editPreferences = document.getElementById("editPreferences")
 
-// editName.value = "test"
-// editEmail.value = "test"
-// editAllergies.value = "test"
-// editPreferences.value = "test"
+    var docRef = db.collection("userProfiles").doc(userID);
 
-var docRef = db.collection("userProfiles").doc(userID);
+    docRef.get().then(function(doc) {
+        if (doc.exists) {
+            db.collection("userProfiles").doc(userID)
+                .onSnapshot(function(doc) {
 
-docRef.get().then(function(doc) {
-    if (doc.exists) {
-        db.collection("userProfiles").doc(userID)
-            .onSnapshot(function(doc) {
+                    //get profile info from database
+                    userInfo = doc.data().userInfo
 
-                //get profile info from database
 
-                userInfo = doc.data().userInfo
 
-                var userPhoto = userInfo.Photo
-                var userName = userInfo.Name
-                var userEmail = userInfo.Email
+
+                    // console.log(userInfo.Birthday[seconds])
+                    // moment(userInfo.Birthday.toDate()).format("YYYY-MM-DD")
+
+                    var userPhoto = userInfo.Photo
+                    var userName = userInfo.Name
+                    var userBirthday = moment(userInfo.Birthday.toDate()).format("D MMMM YYYY")
+                    var userEmail = userInfo.Email
+                    var userAllergies = userInfo.Allergies
+                    var userPreferences = userInfo.Preferences
+
+                    if (userAllergies == "") {
+                        userAllergies = "Geen"
+                    }
+                    if (userPreferences == "") {
+                        userPreferences = "Geen"
+                    }
+
+                    userProfileImage.src = userPhoto
+                    userNameField.innerHTML = userName
+                    userBirthdayField.innerHTML = userBirthday
+                    userEmailField.innerHTML = userEmail
+                    userAllergiesField.innerHTML = userAllergies
+                    userPreferencesField.innerHTML = userPreferences
+
+                    editUserPhoto.src = userPhoto
+                    editName.value = userName
+                    editBirthDay.value = moment(userInfo.Birthday.toDate()).format("YYYY-MM-DD")
+                    editEmail.value = userEmail
+                    editAllergies.value = userAllergies
+                    editPreferences.value = userPreferences
+
+                })
+        } else {
+            console.log("No such document!");
+
+
+            if (typeof Android != 'undefined') {
+                // console.log(userID, userEmail, userPhoto, userName)
+
+                //create document for new user
 
                 userProfileImage.src = userPhoto
                 userNameField.innerHTML = userName
@@ -47,52 +84,34 @@ docRef.get().then(function(doc) {
                 editUserPhoto.src = userPhoto
                 editName.value = userName
                 editEmail.value = userEmail
-
-            })
-    } else {
-        console.log("No such document!");
+                    // editAllergies.value = "test"
+                    // editPreferences.value = "test"
 
 
-        if (typeof Android != 'undefined') {
-            // console.log(userID, userEmail, userPhoto, userName)
+                let userInfo = {
+                    Name: userName,
+                    Email: userEmail,
+                    Photo: userPhoto,
+                    ID: userID
+                }
 
-            //create document for new user
+                // let user = {
+                //     [userID]: userInfo
+                // }
 
-            userProfileImage.src = userPhoto
-            userNameField.innerHTML = userName
-            userEmailField.innerHTML = userEmail
+                function uploadData() {
+                    db.collection("userProfiles").doc(userID).set({
+                        userInfo
+                    }, { merge: true })
+                }
 
-            editUserPhoto.src = userPhoto
-            editName.value = userName
-            editEmail.value = userEmail
-                // editAllergies.value = "test"
-                // editPreferences.value = "test"
-
-
-            let userInfo = {
-                Name: userName,
-                Email: userEmail,
-                Photo: userPhoto,
-                ID: userID
+                uploadData()
             }
 
-            // let user = {
-            //     [userID]: userInfo
-            // }
 
-            function uploadData() {
-                db.collection("userProfiles").doc(userID).set({
-                    userInfo
-                }, { merge: true })
-            }
 
-            uploadData()
+
         }
-
-
-
-
-    }
-}).catch(function(error) {
-    console.log("Error getting document:", error);
-});
+    }).catch(function(error) {
+        console.log("Error getting document:", error);
+    });
