@@ -39,30 +39,30 @@
         </div>
 
         <div class="registreerPaginaDiv" id="registreerPaginaDiv">
-            <!-- <form> -->
-                <div class="inputDiv">
-                    <img src="images/icons/nameIcon.png" class="inputIcon" alt="">
-                    <input type="text" class="inputField" placeholder="Voor- en Achternaam">
-                </div>
-                <div class="inputDiv">
-                    <img src="images/icons/emailIcon.png" class="inputIcon" alt="">
-                    <input type="email" class="inputField" placeholder="Email" id="email">
-                </div>
-                <div class="inputDiv">
-                    <img src="images/icons/bdayIcon.png" class="inputIcon" alt="">
-                    <input type="date" class="inputField" id="date" style="color: grey;" oninput="datumChange()">
-                </div>
-                <div class="inputDiv">
-                    <img src="images/icons/keyIcon.png" class="inputIcon" alt="">
-                    <input type="password" class="inputField" placeholder="Wachtwoord" id="password">
-                </div>
-                <div class="inputDiv">
-                    <img src="images/icons/keyIcon.png" class="inputIcon" alt="">
-                    <input type="password" class="inputField" placeholder="Herhaal wachtwoord" id="confirmPassword">
-                </div>
-                <p class="errorMessage" id="registerError" style="display: none;">Log in met google a.u.b.</p>
-                <button class="registeren" onclick="registerError()">Registreren</button>
-            <!-- </form> -->
+            <div class="inputDiv">
+                <img src="images/icons/nameIcon.png" class="inputIcon" alt="">
+                <input type="text" class="inputField" placeholder="Voor- en Achternaam" id="fullName">
+            </div>
+            <div class="inputDiv">
+                <img src="images/icons/emailIcon.png" class="inputIcon" alt="">
+                <input type="email" class="inputField" placeholder="Email" id="email">
+            </div>
+            <div class="inputDiv">
+                <img src="images/icons/bdayIcon.png" class="inputIcon" alt="">
+                <input type="date" class="inputField" style="color: grey;" oninput="datumChange()" id="date">
+            </div>
+            <div class="inputDiv">
+                <img src="images/icons/keyIcon.png" class="inputIcon" alt="">
+                <input type="password" class="inputField" placeholder="Wachtwoord" id="password">
+            </div>
+            <div class="inputDiv">
+                <img src="images/icons/keyIcon.png" class="inputIcon" alt="">
+                <input type="password" class="inputField" placeholder="Herhaal wachtwoord" id="confirmPassword">
+            </div>
+            <!--TODO <p class="errorMessage" id="registerError" style="display: none;">Log in met google a.u.b.</p> -->
+            <p class="errorMessage" id="missingCredentials" style="display: none;">Niet alle velden zijn ingevuld.</p>
+            <p class="errorMessage" id="passwordMismatch" style="display: none;">Wachtwoorden komen niet overeen</p>
+            <button type="submit" class="registeren" onclick="registerError()">Registreren</button>
             <br>
             <div class="accountSwitch">
                 <label class="changeLbl">Al een account? </label><button id="inlogButton" onclick="changePage()">Inloggen</button>

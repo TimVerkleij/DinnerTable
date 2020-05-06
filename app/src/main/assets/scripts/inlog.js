@@ -71,11 +71,26 @@ function logInError() {
 }
 
 function registerError() {
-    document.getElementById("registerError").style.display = "block"
+    // document.getElementById("registerError").style.display = "block"
+    var fullName = document.getElementById("fullName").value
     var email = document.getElementById("email").value
+    var birthDay = document.getElementById("date").value
     var password = document.getElementById("password").value
     var confirmPassword = document.getElementById("confirmPassword").value
-    console.log(email, password, confirmPassword)
-    var createUser = Android.createUser(email, password, confirmPassword)
-    console.log(createUser)
+
+
+
+    if (fullName != "" && email != "" && birthDay != "" && password != "" && confirmPassword != "") {
+        if(password == confirmPassword){
+            console.log("good job!")
+            // var createUser = Android.createUser(email, password, confirmPassword)
+
+        } else{
+        document.getElementById("passwordMismatch").style.display = "block"
+        }
+
+
+    } else {
+        document.getElementById("missingCredentials").style.display = "block"
+    }
 }

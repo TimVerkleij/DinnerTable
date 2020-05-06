@@ -35,8 +35,6 @@ class WebAppInterfaceLogin(private val mContext: Context) {
     fun createUser(email: String?, password: String?, confirmPassword: String?): String? {
         val auth: FirebaseAuth = FirebaseAuth.getInstance()
 
-
-
         if (email != null && password != null && confirmPassword != null) {
             if (email.isNotEmpty() && password.isNotEmpty() && confirmPassword.isNotEmpty()) {
                 if (password == confirmPassword) {
@@ -45,11 +43,22 @@ class WebAppInterfaceLogin(private val mContext: Context) {
                     println(password)
                     println(confirmPassword)
                     println("done")
+                    auth.createUserWithEmailAndPassword(email, password)
+                        .addOnCompleteListener {
+                            println("finished")
+                            val user: FirebaseUser? = auth.currentUser
+                            val userID: String?
+                            if (user != null){
+                                userID = user.uid
 
-//                    auth.createUserWithEmailAndPassword(email, password).addOnCompleteListener {
-//                        val user: FirebaseUser? = auth.currentUser
-//                        val uid = user!!.uid
-//                    }
+                            } else{
+                                userID = null
+                            }
+
+                    }
+                        .addOnFailureListener{
+                            println("unable to create new account")
+                        }
 
 
                 } else{
@@ -200,6 +209,7 @@ class LoginActivity : AppCompatActivity() {
         }
     }
 
+
     private fun updateUI(user: FirebaseUser?) {
         val signInButton = findViewById<SignInButton>(R.id.sign_in_button)
 //        val signOutButton = findViewById<Button>(R.id.sign_out_button)
@@ -239,3 +249,4 @@ class LoginActivity : AppCompatActivity() {
 
 
     }
+
