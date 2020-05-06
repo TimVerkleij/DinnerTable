@@ -1,9 +1,11 @@
 package com.example.dinnertable
 
+import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.View
+import android.webkit.JavascriptInterface
 import android.webkit.WebView
 import android.webkit.WebViewClient
 import android.widget.Button
@@ -21,18 +23,53 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.auth.GoogleAuthProvider
 import kotlinx.android.synthetic.main.activity_login.*
+
 //import kotlinx.android.synthetic.main.activity_login.disconnectButton
 //import kotlinx.android.synthetic.main.activity_login.main_layout
 //import kotlinx.android.synthetic.main.activity_login.signInButton
 //import kotlinx.android.synthetic.main.activity_login.signOutButton
 
 
-class LoginActivity : AppCompatActivity() {
+class WebAppInterfaceLogin(private val mContext: Context) {
+    @JavascriptInterface
+    fun createUser(email: String?, password: String?, confirmPassword: String?): String? {
+        val auth: FirebaseAuth = FirebaseAuth.getInstance()
 
+
+
+        if (email != null && password != null && confirmPassword != null) {
+            if (email.isNotEmpty() && password.isNotEmpty() && confirmPassword.isNotEmpty()) {
+                if (password == confirmPassword) {
+                    println("start logging in...")
+                    println(email)
+                    println(password)
+                    println(confirmPassword)
+                    println("done")
+
+//                    auth.createUserWithEmailAndPassword(email, password).addOnCompleteListener {
+//                        val user: FirebaseUser? = auth.currentUser
+//                        val uid = user!!.uid
+//                    }
+
+
+                } else{
+                    println("wachtwoorden komen niet overeen")
+                }
+
+
+            } else{
+                println("Niet alle velden zijn ingevuld")
+            }
+        }
+        return email
+    }
+}
+
+
+class LoginActivity : AppCompatActivity() {
     private lateinit var auth: FirebaseAuth
 
     private lateinit var googleSignInClient: GoogleSignInClient
-
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -47,10 +84,9 @@ class LoginActivity : AppCompatActivity() {
                 return true
             }
         }
+        webView.addJavascriptInterface(WebAppInterfaceLogin(this), "Android")
         webView.settings.javaScriptEnabled = true
         webView.loadUrl("file:///android_asset/inlog.html")
-
-
 
 
         val signInButton = findViewById<SignInButton>(R.id.sign_in_button)

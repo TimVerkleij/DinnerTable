@@ -66,10 +66,16 @@ function datumChange() {
     dateInput.style.color = "black"
 }
 
-function logInError(){
+function logInError() {
     document.getElementById("logInError").style.display = "block"
 }
 
-function registerError(){
+function registerError() {
     document.getElementById("registerError").style.display = "block"
+    var email = document.getElementById("email").value
+    var password = document.getElementById("password").value
+    var confirmPassword = document.getElementById("confirmPassword").value
+    console.log(email, password, confirmPassword)
+    var createUser = Android.createUser(email, password, confirmPassword)
+    console.log(createUser)
 }
