@@ -78,6 +78,13 @@ function registerError() {
     var password = document.getElementById("password").value
     var confirmPassword = document.getElementById("confirmPassword").value
 
+    document.getElementById("noNumbers").style.display = "none"
+    document.getElementById("noCombination").style.display = "none"
+    document.getElementById("tooShort").style.display = "none"
+    document.getElementById("passwordMismatch").style.display = "none"
+    document.getElementById("missingCredentials").style.display = "none"
+    document.getElementById("errorTitle").style.display = "none"
+
 
 
     if (fullName != "" && email != "" && birthDay != "" && password != "" && confirmPassword != "") {
@@ -89,14 +96,18 @@ function registerError() {
                 console.log("Valid!")
                 // var createUser = Android.createUser(email, password, confirmPassword)
             } else {
+                document.getElementById("errorTitle").style.display = "block"
                 if (!password.match(numbers)) {
                     console.log("Gebruik minimaal 1 getal")
+                    document.getElementById("noNumbers").style.display = "block"
                 }
                 if (!password.match(capitals) || !password.match(lowerCase)) {
                     console.log("gebruik een combinatie van hoofdletters en kleine letters")
+                    document.getElementById("noCombination").style.display = "block"
                 }
                 if (password.length < 8) {
                     console.log("gebruik minimaal 8 tekens")
+                    document.getElementById("tooShort").style.display = "block"
                 }
             }
         } else {

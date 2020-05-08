@@ -61,7 +61,12 @@
             </div>
             <!--TODO <p class="errorMessage" id="registerError" style="display: none;">Log in met google a.u.b.</p> -->
             <p class="errorMessage" id="missingCredentials" style="display: none;">Niet alle velden zijn ingevuld.</p>
-            <p class="errorMessage" id="passwordMismatch" style="display: none;">Wachtwoorden komen niet overeen</p>
+            <p class="errorMessage" id="passwordMismatch" style="display: none;">Wachtwoorden komen niet overeen.</p> 
+            <p class="errorMessage" id="errorTitle" style="display: none;"><strong>Wachtwoord niet sterk genoeg:</strong></p><br>
+            <p class="errorMessage" id="noNumbers" style="display: none;">Gebruik minimaal 1 getal.</p>
+            <p class="errorMessage" id="noCombination" style="display: none;">Gebruik een combinatie van hoofdletters en kleine letters.</p>
+            <p class="errorMessage" id="tooShort" style="display: none;">Gebruikt minimaal 8 tekens</p>
+
             <button type="submit" class="registeren" onclick="registerError()">Registreren</button>
             <br>
             <div class="accountSwitch">
