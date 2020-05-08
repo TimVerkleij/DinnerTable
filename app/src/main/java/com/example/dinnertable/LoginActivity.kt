@@ -47,7 +47,9 @@ class WebAppInterfaceLogin(private val mContext: Context) {
                             val user: FirebaseUser? = auth.currentUser
                             val userID: String?
                             if (user != null){
-                                userID = user.uid
+                                if (!user.isEmailVerified) {
+                                    user.sendEmailVerification()
+                                }
                             } else{
                                 userID = null
                             }
@@ -128,12 +130,19 @@ open class LoginActivity : AppCompatActivity() {
 
         auth = FirebaseAuth.getInstance()
         auth.addAuthStateListener {
-
-            if (auth.currentUser != null) {
-                val intent = Intent(this, MainActivity::class.java)
-                startActivity(intent)
-                finish()
-                overridePendingTransition(0, 0)
+        val currentUser = auth.currentUser
+            if (currentUser != null) {
+                println(currentUser.isEmailVerified)
+                println(currentUser.isEmailVerified)
+                println(currentUser.isEmailVerified)
+//                if (currentUser.isEmailVerified) {
+                    val intent = Intent(this, MainActivity::class.java)
+                    startActivity(intent)
+                    finish()
+                    overridePendingTransition(0, 0)
+//                } else {
+//                    webView.loadUrl("file:///android_asset/inlogConfirm.html")
+//                }
             }
         }
 
@@ -222,16 +231,27 @@ open class LoginActivity : AppCompatActivity() {
 //        val disconnectButton = findViewById<Button>(R.id.button2)
 //        val signOutAndDisconnect = findViewById<Button>(R.id.button3)
         if (user != null) {
+            val webView = findViewById<WebView>(R.id.webview)
 
-//            println(user.uid)
-//            println(user.email)
             signInButton.visibility = View.GONE
-//            signOutAndDisconnect.visibility = View.VISIBLE
 
+            if(user.isEmailVerified) {
+                val intent = Intent(this, MainActivity::class.java)
+                startActivity(intent)
+                finish()
+                overridePendingTransition(0, 0)
+            } else {
+//                val task = user.reload()
+//                task.addOnCompleteListener {
+//                    println(user.isEmailVerified)
+//                }
+                webView.loadUrl("file:///android_asset/inlogConfirm.html")
+            }
             val intent = Intent(this, MainActivity::class.java)
             startActivity(intent)
             finish()
             overridePendingTransition(0, 0)
+
         } else {
 
             signInButton.visibility = View.VISIBLE
