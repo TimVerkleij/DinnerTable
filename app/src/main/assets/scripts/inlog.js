@@ -71,7 +71,6 @@ function logInError() {
 }
 
 function registerError() {
-    // document.getElementById("registerError").style.display = "block"
     var fullName = document.getElementById("fullName").value
     var email = document.getElementById("email").value
     var birthDay = document.getElementById("date").value
@@ -94,7 +93,7 @@ function registerError() {
             var numbers = /[0-9]/
             if (password.match(numbers) && password.match(capitals) && password.match(lowerCase) && password.length >= 8) {
                 console.log("Valid!")
-                // var createUser = Android.createUser(email, password, confirmPassword)
+                var createUser = Android.createUser(email, password, confirmPassword)
             } else {
                 document.getElementById("errorTitle").style.display = "block"
                 if (!password.match(numbers)) {

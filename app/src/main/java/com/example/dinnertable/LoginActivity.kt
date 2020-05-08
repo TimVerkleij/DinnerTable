@@ -34,7 +34,6 @@ class WebAppInterfaceLogin(private val mContext: Context) {
     @JavascriptInterface
     fun createUser(email: String?, password: String?, confirmPassword: String?): String? {
         val auth: FirebaseAuth = FirebaseAuth.getInstance()
-
         if (email != null && password != null && confirmPassword != null) {
             if (email.isNotEmpty() && password.isNotEmpty() && confirmPassword.isNotEmpty()) {
                 if (password == confirmPassword) {
@@ -45,15 +44,14 @@ class WebAppInterfaceLogin(private val mContext: Context) {
                     println("done")
                     auth.createUserWithEmailAndPassword(email, password)
                         .addOnCompleteListener {
-                            println("finished")
                             val user: FirebaseUser? = auth.currentUser
                             val userID: String?
                             if (user != null){
                                 userID = user.uid
-
                             } else{
                                 userID = null
                             }
+                            println("finished")
 
                     }
                         .addOnFailureListener{
@@ -74,8 +72,9 @@ class WebAppInterfaceLogin(private val mContext: Context) {
     }
 }
 
+open class LoginActivity : AppCompatActivity() {
 
-class LoginActivity : AppCompatActivity() {
+
     private lateinit var auth: FirebaseAuth
 
     private lateinit var googleSignInClient: GoogleSignInClient
@@ -128,9 +127,17 @@ class LoginActivity : AppCompatActivity() {
         googleSignInClient = GoogleSignIn.getClient(this, gso)
 
         auth = FirebaseAuth.getInstance()
+        auth.addAuthStateListener {
+
+            if (auth.currentUser != null) {
+                val intent = Intent(this, MainActivity::class.java)
+                startActivity(intent)
+                finish()
+                overridePendingTransition(0, 0)
+            }
+        }
 
     }
-
 
     public override fun onStart() {
         super.onStart()
@@ -209,7 +216,6 @@ class LoginActivity : AppCompatActivity() {
         }
     }
 
-
     private fun updateUI(user: FirebaseUser?) {
         val signInButton = findViewById<SignInButton>(R.id.sign_in_button)
 //        val signOutButton = findViewById<Button>(R.id.sign_out_button)
@@ -238,6 +244,7 @@ class LoginActivity : AppCompatActivity() {
             R.id.sign_in_button -> signIn()
 //            R.id.sign_out_button -> signOut()
 //            R.id.button3 -> revokeAccess()
+
         }
     }
 
@@ -245,6 +252,8 @@ class LoginActivity : AppCompatActivity() {
         private const val TAG = "LoginActivity"
         private const val RC_SIGN_IN = 9001
     }
+
+
 
 
 
