@@ -88,7 +88,10 @@ class SettingsActivity : AppCompatActivity() {
     private fun signOut() {
         // Firebase sign out
         auth.signOut()
-
+        val intent = Intent(this, LoginActivity::class.java)
+        startActivity(intent)
+        finish()
+        overridePendingTransition(0, 0)
         // Google sign out
         googleSignInClient.signOut().addOnCompleteListener(this) {
 //            updateUI(null)
