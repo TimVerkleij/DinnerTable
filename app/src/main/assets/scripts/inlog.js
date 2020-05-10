@@ -67,7 +67,27 @@ function datumChange() {
 }
 
 function logInError() {
-    document.getElementById("logInError").style.display = "block"
+    // document.getElementById("logInError").style.display = "block"
+    var loginEmail = document.getElementById("loginEmail").value
+    var loginPassword = document.getElementById("loginPassword").value
+    var AuthFailed = document.getElementById("AuthFailed")
+    var missingCredentialsLogin = document.getElementById("missingCredentialsLogin")
+        // var UnknownError = document.getElementById("UnknownError")
+    var loadingImg = document.getElementById("loadingImg")
+
+    AuthFailed.style.display = "none"
+    missingCredentialsLogin.style.display = "none"
+
+
+
+    if (loginEmail != "" && loginPassword != "") {
+        loadingImg.style.display = "inline"
+        Android.loginUser(loginEmail, loginPassword)
+        setTimeout(function() { AuthFailed.style.display = "block"; loadingImg.style.display = "none" }, 2000);
+    } else {
+        missingCredentialsLogin.style.display = "block"
+    }
+
 }
 
 function registerError() {
@@ -93,7 +113,7 @@ function registerError() {
             var numbers = /[0-9]/
             if (password.match(numbers) && password.match(capitals) && password.match(lowerCase) && password.length >= 8) {
                 console.log("Valid!")
-                var createUser = Android.createUser(email, password, confirmPassword)
+                Android.createUser(email, password, confirmPassword)
             } else {
                 document.getElementById("errorTitle").style.display = "block"
                 if (!password.match(numbers)) {

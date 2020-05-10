@@ -23,6 +23,8 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.auth.GoogleAuthProvider
 import kotlinx.android.synthetic.main.activity_login.*
+import org.xml.sax.ErrorHandler
+import java.lang.Error
 
 //import kotlinx.android.synthetic.main.activity_login.disconnectButton
 //import kotlinx.android.synthetic.main.activity_login.main_layout
@@ -72,7 +74,31 @@ class WebAppInterfaceLogin(private val mContext: Context) {
         }
         return email
     }
-}
+
+    @JavascriptInterface
+    fun loginUser(email: String?, password: String?) {
+        val auth: FirebaseAuth = FirebaseAuth.getInstance()
+        var whatever: String? = "Complete"
+        if (email != null && password != null) {
+            if (email.isNotEmpty() && password.isNotEmpty()) {
+                auth.signInWithEmailAndPassword(email, password)
+                    .addOnCompleteListener() {
+                        println("Done!")
+                    }
+                    .addOnFailureListener {
+                        println("Authentication failed")
+                        whatever = "AuthenticationFailed"
+                    }
+            } else {
+                println("niet alles is ingevuld")
+                whatever = "MissingCredentials"
+            }
+            } else {
+                println("something went wrong...")
+                whatever = "Unknown"
+        }
+        }
+    }
 
 open class LoginActivity : AppCompatActivity() {
 
@@ -247,10 +273,10 @@ open class LoginActivity : AppCompatActivity() {
 //                }
                 webView.loadUrl("file:///android_asset/inlogConfirm.html")
             }
-            val intent = Intent(this, MainActivity::class.java)
-            startActivity(intent)
-            finish()
-            overridePendingTransition(0, 0)
+//            val intent = Intent(this, MainActivity::class.java)
+//            startActivity(intent)
+//            finish()
+//            overridePendingTransition(0, 0)
 
         } else {
 

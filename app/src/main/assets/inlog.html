@@ -25,17 +25,22 @@
 
             <div class="inputDiv">
                 <img src="images/icons/emailIcon.png" class="inputIcon" alt="">
-                <input type="email" class="inputField" placeholder="Email">
+                <input type="email" class="inputField" placeholder="Email" id="loginEmail">
             </div>
             <div class="inputDiv">
                 <img src="images/icons/keyIcon.png" class="inputIcon" alt="">
-                <input type="password" class="inputField" placeholder="Wachtwoord">
+                <input type="password" class="inputField" placeholder="Wachtwoord" id="loginPassword">
             </div>
-            <p class="errorMessage" id="logInError" style="display: none;">Log in met google a.u.b.</p>
+            <!-- <p class="errorMessage" id="logInError" style="display: none;">Log in met google a.u.b.</p> -->
+            <p class="errorMessage" id="AuthFailed" style="display: none;">Wachtwoord of e-mailadres onjuist</p>
+            <p class="errorMessage" id="missingCredentialsLogin" style="display: none;">Niet alle velden zijn ingevuld</p>
+            <!-- <p class="errorMessage" id="UnknownError" style="display: none;">Er is een onbekende fout opgetreden</p> -->
+
             <button class="inloggen" onclick="logInError()">Inloggen</button><br>
             <div class="accountSwitch">
                 <label class="changeLbl">Nog geen account?</label> <button id="registreerButton" onclick="changePage()">Registreer</button>
             </div>
+            <img src="images/loading.gif" class="loadingImg" id="loadingImg">
         </div>
 
         <div class="registreerPaginaDiv" id="registreerPaginaDiv">
