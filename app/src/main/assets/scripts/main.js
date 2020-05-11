@@ -218,3 +218,10 @@ function switchSuggesties() {
     document.getElementById("suggestieBtn").className = "switchButtonActive";
     document.getElementById("gerechtenBtn").className = "switchButton";
 }
+
+
+document.getElementById("bigBookDiv").style.display = "none";
+function openBook(){
+    document.getElementById("homePage").style.display = "none";
+    document.getElementById("bigBookDiv").style.display = "block";
+}
