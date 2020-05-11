@@ -23,10 +23,14 @@
         </div>
         <div class="gerechten" id="gerechten" style="display: none;">
             <!-- gerechten pagina-->
-            <div class="line">
-                <div class="row">
+            <div class="line" style="display: flex;">
+                <div class="receptenBoek">
+                    <label id="receptenBoek">Recepten<br>Boek</label>
+                </div>
+                <div class="row findDish">
+                    <!-- <button id="receptenBoek">Recepten<br>Boek</button> -->
                     <input type="text" id="searchField" class="searchBar" placeholder="Zoek een gerecht">
-                    <img src="images/plusBtn.png" alt="plus knop" class="addFoodBtn" id="addFoodBtn" onclick="addFood()">
+                    <!-- <img src="images/plusBtn.png" alt="plus knop" class="addFoodBtn" id="addFoodBtn" onclick="addFood()"> -->
                 </div>
             </div>
             <div id="sortingDiv" class="row sortingDiv">
@@ -57,7 +61,8 @@
             <div class="addFoodDiv" id="addFoodDiv">
                 <button class="closeAddFood" id="closeAddFood" onclick="closeAddFood()">x</button>
                 <h4 class="addFoodText">Voeg een gerecht toe aan uw lijst</h4>
-                <input type="text" name="addFoodBar" id="addFoodBar" class="addFoodBar" placeholder="Voeg een gerecht toe">
+                <input type="text" name="addFoodBar" id="addFoodBar" class="addFoodBar"
+                    placeholder="Voeg een gerecht toe">
                 <button class="confirmAdd" id="confirmAdd" onclick="addFoodConfirm()">Toevoegen</button>
             </div>
             <div class="editFoodDivDown" id="editFoodDiv">
