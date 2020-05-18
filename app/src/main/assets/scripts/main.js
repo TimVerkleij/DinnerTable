@@ -220,8 +220,9 @@ function switchSuggesties() {
 }
 
 
-document.getElementById("bigBookDiv").style.display = "none";
+// document.getElementById("bigBookDiv").style.display = "none";
 function openBook(){
-    document.getElementById("homePage").style.display = "none";
-    document.getElementById("bigBookDiv").style.display = "block";
+    // document.getElementById("homePage").style.display = "none";
+    // document.getElementById("bigBookDiv").style.display = "block";
+    window.location.href = "receptenBoek.html";
 }

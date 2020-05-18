@@ -1,0 +1,41 @@
+/* .receptenBoek{
+    padding-left: 5px;
+    padding-right: 5px;
+    padding-top: 9px;
+    background-color: white;
+    border: 1px solid #8CCA73;
+    border-radius: 5px;
+    height: 40px;
+    width: 70px;
+}
+#receptenBoek{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 10px;
+    color: #3D3E3C;
+    font-weight: bold;
+    display: block;
+    text-align: center;
+} */
+.searchBar {
+    width: 100%;
+    height: 30px;
+    margin-left: auto;
+    margin-right: auto;
+    border: none;
+    margin-bottom: 4px;
+    font-size: 12px;
+}
+.findDish{
+    margin-top: 3px;
+    margin-left: 10px;
+    flex: 1;
+}
+.row{
+    /* height: 50px; */
+    padding-left: 10px;
+    padding-right: 10px;
+    background-color: white;
+    border-radius: 10px;
+    margin-bottom: 3%;
+
+}
