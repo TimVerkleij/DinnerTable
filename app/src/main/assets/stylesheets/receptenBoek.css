@@ -1,4 +1,4 @@
-/* .receptenBoek{
+.receptenBoek{
     padding-left: 5px;
     padding-right: 5px;
     padding-top: 9px;
@@ -15,7 +15,46 @@
     font-weight: bold;
     display: block;
     text-align: center;
-} */
+}
+
+.receptenBoekHeader {
+    width: 100%;
+    height: 40px;
+    background-color: #D6E5D0;
+}
+
+.backText{
+    text-decoration: underline;
+    color: #3D3C3E;
+    font-weight: bold;
+    float: left;
+    margin: 10px;
+}
+
+.receptenBoekTitle {
+    text-align: center;
+    font-weight: 100;
+    padding: 8px;
+    font-size: 22px;
+}
+
+.bookSearchbar {
+    margin-top: 10px;
+    margin-left: 10px;
+    flex: 1;
+    width: 90%;
+    border: 1px solid #8CCA73;
+    padding-left: 10px;
+    padding-right: 10px;
+    background-color: white;
+    border-radius: 10px;
+    margin-bottom: 3%;
+}
+
+.toggled {
+    border: 1px solid #8CCA73;
+}
+
 .searchBar {
     width: 100%;
     height: 30px;
@@ -25,17 +64,67 @@
     margin-bottom: 4px;
     font-size: 12px;
 }
-.findDish{
-    margin-top: 3px;
-    margin-left: 10px;
-    flex: 1;
-}
-.row{
-    /* height: 50px; */
-    padding-left: 10px;
+
+.row {
+    height: 30px;
+    padding-left: 15px;
     padding-right: 10px;
+    padding-top: 8px;
     background-color: white;
     border-radius: 10px;
     margin-bottom: 3%;
+    font-size: 22px;
+    color: #3D3C3E;
+    margin-left: auto;
+    margin-right: auto;
+    width: 85%;
+}
 
+.addDish {
+    float: right;
+    margin-top: -26px;
+    border-radius: 5px;
+    border: none;
+    background-color: #8CCA73;
+    height: 24px;
+    width: 90px;
+    font-size: 14px;
+    color: white;
+}
+
+.sortingDiv {
+    margin-left: auto;
+    margin-right: auto;
+    height: 20px;
+    width: 85%;
+    background: white;
+    height: 30px;
+    width: 85%;
+    border-radius: 8px;
+    padding-left: 15px;
+    padding-right: 10px;
+    margin-bottom: 15px;
+    margin-top: 100px;
+}
+
+.sortTitle {
+    color: #8CCA73;
+    margin-left: 0px;
+    font-size: 14px;
+    margin-top: 5px;
+}
+
+.sorting {
+    float: right;
+    border: none;
+    background-color: white;
+    font-size: 13px;
+    margin-top: 5px;
+}
+
+.floatingTop{
+    position: fixed;
+    width: 100%;
+    top: 0;
+    background-color: #F7F7F7;
 }
