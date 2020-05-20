@@ -23,14 +23,30 @@ function loadBody() {
                 div.innerHTML = `
         
         <p>` + element + `</p>
-        <button class="addDish" name=" ` + element + ` " onclick="addDish(this)">Toevoegen</button>
+        <button class="addDish" name=" ` + element + ` " >Toevoegen</button>
+        <button class="removeDish" name=" ` + element + ` " >Verwijderen</button>
         `
             });
 
             document.querySelectorAll('.clickable').forEach(item => {
                 item.addEventListener('click', event => {
+
+
                     item.classList.toggle("toggled")
-                    addDish(item)
+
+
+
+                    if (item.classList.contains("toggled")) {
+                        addDish(item.children[1])
+                        item.children[1].style.display = "none"
+                        item.children[2].style.display = "block"
+                    } else {
+                        removeDish(item.children[2])
+                        item.children[2].style.display = "none"
+                        item.children[1].style.display = "block"
+                    }
+
+
                 })
             })
 
@@ -38,8 +54,11 @@ function loadBody() {
 }
 
 function addDish(element) {
-    console.log("adding dish " + element.name)
-        //voeg het gerecht uit de database toe
+    console.log(`Adding dish:${element.name}`)
+}
+
+function removeDish(element) {
+    console.log(`Removing dish:${element.name}`)
 }
 
 function goBack() {
