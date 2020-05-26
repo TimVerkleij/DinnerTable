@@ -43,7 +43,6 @@ class WebAppInterfaceLogin(private val mContext: Context) {
                     println(email)
                     println(password)
                     println(confirmPassword)
-                    println("done")
                     auth.createUserWithEmailAndPassword(email, password)
                         .addOnCompleteListener {
                             val user: FirebaseUser? = auth.currentUser
@@ -87,15 +86,12 @@ class WebAppInterfaceLogin(private val mContext: Context) {
                     }
                     .addOnFailureListener {
                         println("Authentication failed")
-                        whatever = "AuthenticationFailed"
                     }
             } else {
                 println("niet alles is ingevuld")
-                whatever = "MissingCredentials"
             }
             } else {
                 println("something went wrong...")
-                whatever = "Unknown"
         }
         }
     }

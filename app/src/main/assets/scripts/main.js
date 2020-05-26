@@ -23,8 +23,6 @@ function getDatabase() {
                 var datumArray = []
                 gerecht.datum.forEach(sortDates)
                 datumArray.sort().reverse()
-                    // var formattedDatumArray = []
-                    // datumArray.forEach(convertDates)
                 if (!gerecht.tasty) {
                     gerecht.tasty = ""
                 }
@@ -220,9 +218,6 @@ function switchSuggesties() {
 }
 
 
-// document.getElementById("bigBookDiv").style.display = "none";
 function openBook(){
-    // document.getElementById("homePage").style.display = "none";
-    // document.getElementById("bigBookDiv").style.display = "block";
     window.location.href = "receptenBoek.html";
 }
