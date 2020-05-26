@@ -6,38 +6,49 @@
 .gerechtenLijst {
     font-size: 12px;
 }
-.receptenBoek{
+
+.receptenBoek {
     padding-left: 5px;
     padding-right: 5px;
     padding-top: 9px;
-    background-color: white;
-    border: 1px solid #8CCA73;
+    background-color: #8CCA73;
     border-radius: 5px;
-    height: 40px;
-    width: 70px;
+    height: 30px;
+    width: 80px;
 }
-#receptenBoek{
-    font-family: Arial, Helvetica, sans-serif;
+
+#receptenBoek {
     font-size: 10px;
-    color: #3D3E3C;
+    color: white;
     font-weight: bold;
     display: block;
     text-align: center;
 }
+::-webkit-input-placeholder{
+    color: #CBCBCB;
+    font-weight: 600;
+}
+
+
 .searchBar {
     width: 100%;
     height: 30px;
     margin-left: auto;
     margin-right: auto;
     border: none;
-    margin-bottom: 4px;
     font-size: 12px;
 }
-.findDish{
-    margin-top: 3px;
+
+.findDish {
+    padding-left: 10px;
+    padding-right: 10px;
+    background-color: white;
+    margin-bottom: 3%;
+    border-radius: 5px;
     margin-left: 10px;
     flex: 1;
 }
+
 .line {
     margin-top: 40px;
     margin-left: 4%;
@@ -191,7 +202,6 @@
     height: 70%;
     width: 90%;
     resize: none;
-    font-family: Arial, Helvetica, sans-serif;
 }
 
 .cancelSaveDiv {
@@ -254,25 +264,29 @@
     -webkit-appearance: none;
 }
 
-.sortingDiv{
-    margin: 5px;
+.sortingDiv {
+    margin-top: -5px;
     margin-left: auto;
     margin-right: auto;
     height: 25px;
     width: 85%;
 }
 
-.sortTitle{
+.sortTitle {
     color: #8CCA73;
     margin: 5px;
     padding: 0;
     font-size: 12px;
 }
 
-.sorting{
+.sorting {
     float: right;
     border: none;
     margin: 5px;
     background-color: white;
     font-size: 10px;
+}
+
+#gerechtenContent {
+    margin-top: -10px;
 }
