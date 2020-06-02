@@ -1,14 +1,40 @@
-// https://codepen.io/deab/pen/gObXawr
+//INSPIRATIE BRON:  https://codepen.io/deab/pen/gObXawr
 var button = document.getElementById("button")
 var numberInput = document.getElementById("amount")
 var slots = 3
 var inputs = []
+var randomGerechten = []
 var data
+
+
+var datasetArray = ["Bami", "Pasta", "Pizza", "Risotto", "Nasi", "Hamburger", "Lasagne", "Snitschel", "Ceasar salad", "Pannekoeken", "Boerenkool", "Stampot", "Patat", "Vissticks", "Bietjes", "Pulled pork"]
+console.log(datasetArray)
+var randomgerecht1
+for (i = 0; i < 3; i++) {
+    console.log("i: " + i)
+    var randomNumber = Math.floor(Math.random() * 16 - i)
+    if (randomNumber < 0) {
+        randomNumber = randomNumber + i;
+    }
+    if (randomNumber > (datasetArray.length - 1)) {
+        randomNumber--
+    }
+    randomGerechten.push(datasetArray[randomNumber])
+    console.log("Removing: " + datasetArray[randomNumber])
+    datasetArray.splice(randomNumber, 1)
+    console.log(datasetArray)
+
+
+}
+console.log(randomGerechten)
+
 window.data = [
-    { "label": "Vul de vakjes!" },
-    { "label": "Vul de vakjes!" },
-    { "label": "Vul de vakjes!" }
+    { "label": randomGerechten[0] },
+    { "label": randomGerechten[1] },
+    { "label": randomGerechten[2] }
 ];
+
+
 
 var editDiv = document.getElementById("editDiv")
 var wheelDiv = document.getElementById("wheelDiv")
@@ -117,6 +143,8 @@ function main() {
         };
     }
 }
+
+
 
 numberInput.innerHTML = slots
 edit()
