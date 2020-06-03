@@ -8,10 +8,8 @@ var data
 
 
 var datasetArray = ["Bami", "Pasta", "Pizza", "Risotto", "Nasi", "Hamburger", "Lasagne", "Snitschel", "Ceasar salad", "Pannekoeken", "Boerenkool", "Stampot", "Patat", "Vissticks", "Bietjes", "Pulled pork"]
-console.log(datasetArray)
 var randomgerecht1
 for (i = 0; i < 3; i++) {
-    console.log("i: " + i)
     var randomNumber = Math.floor(Math.random() * 16 - i)
     if (randomNumber < 0) {
         randomNumber = randomNumber + i;
@@ -20,13 +18,10 @@ for (i = 0; i < 3; i++) {
         randomNumber--
     }
     randomGerechten.push(datasetArray[randomNumber])
-    console.log("Removing: " + datasetArray[randomNumber])
     datasetArray.splice(randomNumber, 1)
-    console.log(datasetArray)
 
 
 }
-console.log(randomGerechten)
 
 window.data = [
     { "label": randomGerechten[0] },
@@ -40,7 +35,6 @@ var editDiv = document.getElementById("editDiv")
 var wheelDiv = document.getElementById("wheelDiv")
 var suggestiesImages = document.getElementById("suggestiesImages")
 var outcomeLabel = document.getElementById("label")
-suggestiesImages.style.display = "none"
 var clickToTurn = document.getElementById("clickWheel")
 
 var size = 280
@@ -79,7 +73,6 @@ function main() {
         .attr("class", "slice")
         .attr("stroke", "#8CCA73") //border color
 
-    //console.log(arcs)
     arcs.append("path")
         .attr("fill", function(d, i) { return "#F7F7F7" }) //the background color
         .attr("d", function(d) { return arc(d); })
@@ -114,7 +107,6 @@ function main() {
             .each("end", function() {
                 oldrotation = rotation;
 
-                console.log("Chosen = " + data[picked].label)
                 var label = document.getElementById("label")
                 label.innerHTML = data[picked].label
 
@@ -129,12 +121,6 @@ function main() {
                 }
             });
     }
-    //make arrow
-    // svg.append("g")
-    //.attr("transform", "translate(" + (w + padding.left + padding.right) + "," + ((h / 2) + padding.top) + ")")
-    //     .append("path")
-    //     .attr("d", "M-" + (r * .20) + ",0L0," + (r * .12) + "L0,-" + (r * .12) + "Z")
-    //     .style({ "fill": "#3C3C3D", "border": "inherit", "border-radius": "100" });
 
     function rotTween(to) {
         var i = d3.interpolate(oldrotation % 360, rotation);
@@ -200,7 +186,6 @@ function edit() {
 function changeSlots() {
 
     data = []
-    console.log(slots)
     var gevuld = true
     inputs.forEach(addInputs)
 
@@ -216,10 +201,8 @@ function changeSlots() {
     }
 
     function change(value) {
-        console.log(value.value)
         const lower = value.value
         const upper = lower.charAt(0).toUpperCase() + lower.substring(1); //capitalize first letter
-        console.log(inputs)
         data.push({ "label": upper })
 
         var chart = document.getElementsByTagName("svg")[0]
@@ -236,7 +219,6 @@ function changeSlots() {
     }
 
 }
-editDiv.style.display = "none"
 
 function show() {
     editDiv.style.display = "block"
