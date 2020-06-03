@@ -5,7 +5,6 @@ function loadBody() {
             var Dataset = doc.data().gerechten
 
             var sorting = document.getElementById("sorting")
-            console.log(sorting.value)
 
             if (sorting.value == "a-z") {
                 Dataset.sort()

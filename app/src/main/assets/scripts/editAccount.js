@@ -10,14 +10,7 @@ var editPreferences = document.getElementById("editPreferences")
 
 function saveAccount() {
     if (editBirthDay.value != "") {
-        console.log(editUserPhoto.src)
-        console.log(editName.value)
-        console.log(editEmail.value)
-        console.log(editBirthDay.value)
-        console.log(editAllergies.value)
-        console.log(editPreferences.value)
 
-        // var Birthday = firebase.firestore.Timestamp.fromDate(new Date(editBirthDay.value))
         var Birthday = new Date(editBirthDay.value)
 
 
@@ -37,7 +30,6 @@ function saveAccount() {
         }
 
         uploadData()
-        // loadUserInfo()
 
         var editInfoDiv = document.getElementById("editInfoDiv")
         editInfoDiv.className = "editInfoDivInvisible"

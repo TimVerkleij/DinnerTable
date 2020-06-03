@@ -36,8 +36,6 @@ var editPreferences = document.getElementById("editPreferences")
 
 
 
-                    // console.log(userInfo.Birthday[seconds])
-                    // moment(userInfo.Birthday.toDate()).format("YYYY-MM-DD")
 
                     var userPhoto = userInfo.Photo
                     var userName = userInfo.Name
@@ -69,11 +67,9 @@ var editPreferences = document.getElementById("editPreferences")
 
                 })
         } else {
-            console.log("No such document!");
 
 
             if (typeof Android != 'undefined') {
-                // console.log(userID, userEmail, userPhoto, userName)
 
                 //create document for new user
 
@@ -113,5 +109,5 @@ var editPreferences = document.getElementById("editPreferences")
 
         }
     }).catch(function(error) {
-        console.log("Error getting document:", error);
+        console.error("Error getting document:", error);
     });

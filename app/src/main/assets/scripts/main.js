@@ -43,7 +43,6 @@ function getDatabase() {
             }
 
             function sortByProperty(property) {
-                console.log(property)
                 return function(a, b) {
                    return a[property] - b[property]
                 }
@@ -221,3 +220,5 @@ function switchSuggesties() {
 function openBook(){
     window.location.href = "receptenBoek.html";
 }
+
+document.getElementById("suggesties").style.display = "block";
