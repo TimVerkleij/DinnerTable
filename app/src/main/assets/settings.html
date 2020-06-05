@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <link rel="stylesheet" href="stylesheets/main.css">
+    <link rel="stylesheet" href="stylesheets/settings.css">
+</head>
+
+<body>
+    <div class="top-bit">
+        <h2 class="title">Instellingen</h2>
+    </div>
+
+    <div class="settings">
+        <div class="settingDiv">
+            <p class="settingTitle">Healthy Meter</p>
+            <table class="settingTable">
+                <tr>
+                    <td>
+                        <p class="settingText">Healthy Meter</p>
+                    </td>
+                    <td>
+                        <div class="switch switchBackground">
+                            <div class="toggleSwitch"></div>
+                        </div>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+
+    <div class="settings">
+        <div class="settingDiv" id="reminderDiv">
+            <p class="settingTitle">Meldingen</p>
+            <table class="settingTable">
+                <tr>
+                    <td>
+                        <p class="settingText">Herinneringen</p>
+                    </td>
+                    <td>
+                        <div class="switch switchBackground" onclick="reminderSwitch()">
+                            <div class="toggleSwitch"></div>
+                        </div>
+                    </td>
+                </tr>
+            </table>
+
+            <div class="reminderDates" id="reminderDates">
+                <p class="reminderInfo">Herinner mij om in te vullen wat ik heb gegeten.</p>
+
+                <table class="reminderTable">
+                    <tr>
+                        <td>
+                            <div class="checkbox"></div>
+                        </td>
+                        <td>Maandag</td>
+                        <td><input type="time" class="timeInput" value="18:00"></td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="checkbox"></div>
+                        </td>
+                        <td>Dinsdag</td>
+                        <td><input type="time" class="timeInput" value="18:00"></td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="checkbox"></div>
+                        </td>
+                        <td>Woensdag</td>
+                        <td><input type="time" class="timeInput" value="18:00"></td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="checkbox"></div>
+                        </td>
+                        <td>Donderdag</td>
+                        <td><input type="time" class="timeInput" value="18:00"></td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="checkbox"></div>
+                        </td>
+                        <td>Vrijdag</td>
+                        <td><input type="time" class="timeInput" value="18:00"></td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="checkbox"></div>
+                        </td>
+                        <td>Zaterdag</td>
+                        <td><input type="time" class="timeInput" value="18:00"></td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="checkbox"></div>
+                        </td>
+                        <td>Zondag</td>
+                        <td><input type="time" class="timeInput" value="18:00"></td>
+                    </tr>
+
+                </table>
+            </div>
+        </div>
+    </div>
+</body>
+<script src="scripts/settings.js"></script>
+
+</html>
