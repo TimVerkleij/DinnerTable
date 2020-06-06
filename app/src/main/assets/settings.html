@@ -28,9 +28,7 @@
                 </tr>
             </table>
         </div>
-    </div>
 
-    <div class="settings">
         <div class="settingDiv" id="reminderDiv">
             <p class="settingTitle">Meldingen</p>
             <table class="settingTable">
@@ -47,62 +45,66 @@
             </table>
 
             <div class="reminderDates" id="reminderDates">
-                <p class="reminderInfo">Herinner mij om in te vullen wat ik heb gegeten.</p>
+                <p class="reminderInfo">Herinner mij om in te vullen wat ik heb gegeten. </p>
+                <p class="reminderInfo"> Vink de dagen aan waarop je meldingen wilt ontvangen.</p>
 
                 <table class="reminderTable">
                     <tr>
                         <td>
-                            <div class="checkbox"></div>
+                            <div class="checkbox" name="maandag"></div>
                         </td>
                         <td>Maandag</td>
-                        <td><input type="time" class="timeInput" value="18:00"></td>
+                        <td><input type="time" class="timeInput" value="18:00" id="maandag"></td>
                     </tr>
                     <tr>
                         <td>
-                            <div class="checkbox"></div>
+                            <div class="checkbox" name="dinsdag"></div>
                         </td>
                         <td>Dinsdag</td>
-                        <td><input type="time" class="timeInput" value="18:00"></td>
+                        <td><input type="time" class="timeInput" value="18:00" id="dinsdag"></td>
                     </tr>
                     <tr>
                         <td>
-                            <div class="checkbox"></div>
+                            <div class="checkbox" name="woensdag"></div>
                         </td>
                         <td>Woensdag</td>
-                        <td><input type="time" class="timeInput" value="18:00"></td>
+                        <td><input type="time" class="timeInput" value="18:00" id="woensdag"></td>
                     </tr>
                     <tr>
                         <td>
-                            <div class="checkbox"></div>
+                            <div class="checkbox" name="donderdag"></div>
                         </td>
                         <td>Donderdag</td>
-                        <td><input type="time" class="timeInput" value="18:00"></td>
+                        <td><input type="time" class="timeInput" value="18:00" id="donderdag"></td>
                     </tr>
                     <tr>
                         <td>
-                            <div class="checkbox"></div>
+                            <div class="checkbox" name="vrijdag"></div>
                         </td>
                         <td>Vrijdag</td>
-                        <td><input type="time" class="timeInput" value="18:00"></td>
+                        <td><input type="time" class="timeInput" value="18:00" id="vrijdag"></td>
                     </tr>
                     <tr>
                         <td>
-                            <div class="checkbox"></div>
+                            <div class="checkbox" name="zaterdag"></div>
                         </td>
                         <td>Zaterdag</td>
-                        <td><input type="time" class="timeInput" value="18:00"></td>
+                        <td><input type="time" class="timeInput" value="18:00" id="zaterdag"></td>
                     </tr>
                     <tr>
                         <td>
-                            <div class="checkbox"></div>
+                            <div class="checkbox" name="zondag"></div>
                         </td>
                         <td>Zondag</td>
-                        <td><input type="time" class="timeInput" value="18:00"></td>
+                        <td><input type="time" class="timeInput" value="18:00" id="zondag"></td>
                     </tr>
 
                 </table>
             </div>
         </div>
+
+        <button class="saveButton">Opslaan</button>
+
     </div>
 </body>
 <script src="scripts/settings.js"></script>
