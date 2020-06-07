@@ -1,0 +1,54 @@
+.pieChartDiv{
+    width: 90%;
+    height: 320px;
+    background: white;
+    border-radius: 10px;
+    margin-bottom: 50px;
+    margin-left: auto;
+    margin-right: auto;
+}
+#pieChartContainer{
+    height: 300px;
+    width: 60%;
+    float: right;
+}
+.pieLegenda{
+    display: inline;
+    list-style: none;
+}
+.keukenList{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 20px;
+
+    margin-top: 10px;
+}
+.barChartDiv{
+    width: 90%;
+    height: 320px;
+    background: white;
+    border-radius: 10px;
+    margin-bottom: 50px;
+    margin-left: auto;
+    margin-right: auto;
+}
+#barChartContainer{
+    height: 300px;
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+}
+.lineChartDiv{
+    width: 90%;
+    height: 320px;
+    background: white;
+    border-radius: 10px;
+    margin-bottom: 50px;
+    margin-left: auto;
+    margin-right: auto;
+}
+#lineChartContainer{
+    height: 300px;
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+}
