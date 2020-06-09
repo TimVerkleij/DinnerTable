@@ -99,10 +99,12 @@
 .reminderDates {
     opacity: 0%;
     transition: 0.2s;
+    pointer-events: none;
 }
 
 .reminderDatesShown {
     opacity: 100%;
+    pointer-events: all;
 }
 
 .checkbox {
@@ -144,6 +146,7 @@
     margin-top: 20px;
     margin-left: auto;
     margin-right: auto;
+    margin-bottom: 30px;
 }
 
 .logOutButton{
@@ -155,4 +158,5 @@
     border-radius: 10px;
     padding: 5px;
     float: right;
+    z-index: 1000;
 }
