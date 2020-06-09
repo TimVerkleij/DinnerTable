@@ -8,96 +8,111 @@ const d = new Date()
 var maand = monthNames[d.getMonth()]
 var weekNumber = (new Date()).getWeek()
 
+
 var keukens = [{
-    title: "Aziatisch",
-    amount: 2,
-    color: ""
-},
-{
-    title: "Italiaans",
-    amount: 2,
-    color: ""
-},
-{
-    title: "Mexicaans",
-    amount: 2,
-    color: ""
-},
-{
-    title: "Chinees",
-    amount: 2,
-    color: ""
-},
-{
-    title: "Nederlands",
-    amount: 2,
-    color: ""
-}
+        title: "Aziatisch",
+        amount: 2,
+        color: "#8573CA"
+    },
+    {
+        title: "Italiaans",
+        amount: 2,
+        color: "#738CCA"
+    },
+    {
+        title: "Mexicaans",
+        amount: 2,
+        color: "#73B8CA"
+    },
+    {
+        title: "Chinees",
+        amount: 2,
+        color: "#73CAB1"
+    },
+    {
+        title: "Nederlands",
+        amount: 2,
+        color: "#8CCA73"
+    }
 ]
 var gerechten = [{
         title: "Pannenkoeken",
-        amount: 4
+        amount: 4,
+        color: "#8573CA"
     },
     {
         title: "Risotto",
-        amount: 4
+        amount: 4,
+        color: "#738CCA"
     },
     {
         title: "Tortillia",
-        amount: 3
+        amount: 3,
+        color: "#73B8CA"
     },
     {
         title: "Bami",
-        amount: 2
+        amount: 2,
+        color: "#73CAB1"
     }, {
         title: "Spaghetti",
-        amount: 1
+        amount: 1,
+        color: "#8CCA73"
     }
 ]
-window.onload = function () {
-    //!Pie chart
-    
-    document.getElementById("keuken1").innerHTML = keukens[0].title
-    document.getElementById("keuken2").innerHTML = keukens[1].title
-    document.getElementById("keuken3").innerHTML = keukens[2].title
-    document.getElementById("keuken4").innerHTML = keukens[3].title
-    document.getElementById("keuken5").innerHTML = keukens[4].title
 
+document.getElementById("keuken1").innerHTML = keukens[0].title
+document.getElementById("keuken2").innerHTML = keukens[1].title
+document.getElementById("keuken3").innerHTML = keukens[2].title
+document.getElementById("keuken4").innerHTML = keukens[3].title
+document.getElementById("keuken5").innerHTML = keukens[4].title
+
+document.getElementById("kleurKeuken1").style.backgroundColor = keukens[0].color
+document.getElementById("kleurKeuken2").style.backgroundColor = keukens[1].color
+document.getElementById("kleurKeuken3").style.backgroundColor = keukens[2].color
+document.getElementById("kleurKeuken4").style.backgroundColor = keukens[3].color
+document.getElementById("kleurKeuken5").style.backgroundColor = keukens[4].color
+
+window.onload = function () {
+
+
+
+    //!Pie chart
     var chart = new CanvasJS.Chart("pieChartContainer", {
         animationEnabled: true,
         backgroundColor: "transparent",
         data: [{
             type: "doughnut",
-            radius: "90%", //kan je de grootte van de circel mee aanpassen
-            innerRadius: "80%", //change the innerRadius here.
+            radius: "80%", //kan je de grootte van de circel mee aanpassen
+            innerRadius: "80%", //hier kan je de grootte van het midden aanpassen
             dataPoints: [{
                     y: keukens[0].amount,
-                    // label: keuken1
+                    color: keukens[0].color
                 },
                 {
                     y: keukens[1].amount,
-                    // label: keuken2
+                    color: keukens[1].color
                 },
                 {
                     y: keukens[2].amount,
-                    // label: keuken3
+                    color: keukens[2].color
                 },
                 {
                     y: keukens[3].amount,
-                    // label: keuken4
+                    color: keukens[3].color
                 },
                 {
                     y: keukens[4].amount,
-                    // label: keuken5
+                    color: keukens[4].color
                 }
             ]
         }]
     });
     chart.render();
 
+
+
     //!Bar chart
-
-
     var chart = new CanvasJS.Chart("barChartContainer", {
         animationEnabled: true,
         axisY: {
@@ -107,29 +122,35 @@ window.onload = function () {
             type: "bar",
             dataPoints: [{
                     y: gerechten[0].amount,
-                    label: gerechten[0].title
+                    label: gerechten[0].title,
+                    color: gerechten[0].color
                 },
                 {
                     y: gerechten[1].amount,
-                    label: gerechten[1].title
+                    label: gerechten[1].title,
+                    color: gerechten[1].color
                 },
                 {
                     y: gerechten[2].amount,
-                    label: gerechten[2].title
+                    label: gerechten[2].title,
+                    color: gerechten[2].color
                 },
                 {
                     y: gerechten[3].amount,
-                    label: gerechten[3].title
+                    label: gerechten[3].title,
+                    color: gerechten[3].color
                 },
                 {
                     y: gerechten[4].amount,
-                    label: gerechten[4].title
+                    label: gerechten[4].title,
+                    color: gerechten[4].color
                 }
             ]
         }]
     });
-
     chart.render();
+
+
 
     //!Line chart
     var chart = new CanvasJS.Chart("lineChartContainer", {

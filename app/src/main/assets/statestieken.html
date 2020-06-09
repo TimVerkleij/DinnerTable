@@ -11,13 +11,28 @@
 <body>
     <div class="pieChartDiv">
         <div id="pieChartContainer"></div>
-        <li class="pieLegenda">
-            <ul class="keukenList" id="keuken1">111</ul>
-            <ul class="keukenList" id="keuken2">222</ul>
-            <ul class="keukenList" id="keuken3">333</ul>
-            <ul class="keukenList" id="keuken4">444</ul>
-            <ul class="keukenList" id="keuken5">555</ul>
-        </li>
+        <table class="pieLegenda">
+            <tr class="pieLegendaRow">
+                <td><div id="kleurKeuken1" class="kleurenKeuken"></div></td>
+                <td class="keukenList" id="keuken1">hoi</td>
+            </tr>
+            <tr class="pieLegendaRow">
+                <td><div id="kleurKeuken2" class="kleurenKeuken"></div></td>
+                <td class="keukenList" id="keuken2">hoi</td>
+            </tr>
+            <tr class="pieLegendaRow">
+                <td><div id="kleurKeuken3" class="kleurenKeuken"></div></td>
+                <td class="keukenList" id="keuken3">hoi</td>
+            </tr>
+            <tr class="pieLegendaRow">
+                <td><div id="kleurKeuken4" class="kleurenKeuken"></div></td>
+                <td class="keukenList" id="keuken4">hoi</td>
+            </tr>
+            <tr class="pieLegendaRow">
+                <td><div id="kleurKeuken5" class="kleurenKeuken"></div></td>
+                <td class="keukenList" id="keuken5">hoi</td>
+            </tr>
+        </table>
     </div>
     <div class="barChartDiv">
         <div id="barChartContainer"></div>
@@ -30,6 +45,10 @@
 <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
 <script src="scripts/statestieken.js"></script>
 <script>
-    document.getElementsByClassName("canvasjs-chart-credit").style.display = "none"                 //wrm werkt niet? in F12 wel
+    //     setTimeout(() => {
+    //         document.getElementsByClassName("canvasjs-chart-credit").style.text = ""                 //wrm werkt niet? in F12 wel
+    //     }, 6000);
+    // 
 </script>
+
 </html>

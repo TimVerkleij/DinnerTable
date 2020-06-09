@@ -1,6 +1,6 @@
 .pieChartDiv{
     width: 90%;
-    height: 320px;
+    height: 240px;
     background: white;
     border-radius: 10px;
     margin-bottom: 50px;
@@ -8,23 +8,36 @@
     margin-right: auto;
 }
 #pieChartContainer{
-    height: 300px;
+    height: 220px;
     width: 60%;
     float: right;
 }
-.pieLegenda{
-    display: inline;
+.pieLegenda{                    /* table */
+    /* display: inline; */
     list-style: none;
+    
+    padding-top: 35px;
+    padding-left: 40px;
+}
+.pieLegendaRow{
+    height: 30px;
+}
+.kleurenKeuken{                 /*div in td*/
+    height: 25px;
+    width: 30px;
+    border-radius: 5px;
 }
 .keukenList{
     font-family: Arial, Helvetica, sans-serif;
-    font-size: 20px;
+    font-size: 16px;
 
-    margin-top: 10px;
+    padding-left: 10px;
 }
+
+
 .barChartDiv{
     width: 90%;
-    height: 320px;
+    height: 220px;
     background: white;
     border-radius: 10px;
     margin-bottom: 50px;
@@ -32,14 +45,16 @@
     margin-right: auto;
 }
 #barChartContainer{
-    height: 300px;
+    height: 200px;
     width: 80%;
     margin-left: auto;
     margin-right: auto;
 }
+
+
 .lineChartDiv{
     width: 90%;
-    height: 320px;
+    height: 240px;
     background: white;
     border-radius: 10px;
     margin-bottom: 50px;
@@ -47,7 +62,7 @@
     margin-right: auto;
 }
 #lineChartContainer{
-    height: 300px;
+    height: 220px;
     width: 80%;
     margin-left: auto;
     margin-right: auto;
