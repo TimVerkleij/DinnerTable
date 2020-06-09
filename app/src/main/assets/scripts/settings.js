@@ -36,3 +36,5 @@ function reminderSwitch() {
 function logOut() {
     Android.userLogOut()
 }
+
+document.getElementById("settings").style.display = "block"
