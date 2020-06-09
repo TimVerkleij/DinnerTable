@@ -1,7 +1,9 @@
 package com.example.dinnertable
 
+import android.content.Context
 import android.content.Intent
 import android.os.Bundle
+import android.webkit.JavascriptInterface
 import android.webkit.WebView
 import android.webkit.WebViewClient
 import android.widget.Button
@@ -11,6 +13,18 @@ import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInClient
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions
 import com.google.firebase.auth.FirebaseAuth
+
+
+class WebAppInterfaceSettings(private val mContext: Context) {
+    @JavascriptInterface
+    fun userLogOut(){
+        val auth: FirebaseAuth = FirebaseAuth.getInstance()
+        auth.signOut()
+    }
+
+    }
+
+
 
 class SettingsActivity : AppCompatActivity() {
 
@@ -40,9 +54,27 @@ class SettingsActivity : AppCompatActivity() {
             }
         }
 
+        webView.addJavascriptInterface(WebAppInterfaceSettings(this), "Android")
         webView.settings.javaScriptEnabled = true
-//        webView.settings.domStorageEnabled = true
         webView.loadUrl("file:///android_asset/settings.html")
+
+        auth = FirebaseAuth.getInstance()
+
+        auth.addAuthStateListener {
+            val currentUser = auth.currentUser
+            if (currentUser == null) {
+                val intent = Intent(this, LoginActivity::class.java)
+                startActivity(intent)
+                finish()
+                overridePendingTransition(0, 0)
+                }
+            }
+
+
+
+
+
+
 
 
         home.setOnClickListener {
@@ -67,34 +99,14 @@ class SettingsActivity : AppCompatActivity() {
         }
 
 
-        val signOutButton = findViewById<Button>(R.id.sign_out_button)
 
-        signOutButton.setOnClickListener {
-            signOut()
-        }
 
-        val gso = GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
-            .requestIdToken(getString(R.string.default_web_client_id))
-            .requestEmail()
-            .build()
 
-        googleSignInClient = GoogleSignIn.getClient(this, gso)
 
-        auth = FirebaseAuth.getInstance()
+
 
 
     }
-    private fun signOut() {
-        // Firebase sign out
-        auth.signOut()
-        val intent = Intent(this, LoginActivity::class.java)
-        startActivity(intent)
-        finish()
-        overridePendingTransition(0, 0)
-        // Google sign out
-        googleSignInClient.signOut().addOnCompleteListener(this) {
-//            updateUI(null)
-        }
-    }
+    
 }
 
