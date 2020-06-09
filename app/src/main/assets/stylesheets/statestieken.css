@@ -19,6 +19,7 @@
     margin-bottom: 50px;
     margin-left: auto;
     margin-right: auto;
+    box-shadow: 5px 5px 2px #aaaaaa;
 }
 #pieChartContainer{
     height: 220px;
@@ -56,6 +57,7 @@
     margin-bottom: 50px;
     margin-left: auto;
     margin-right: auto;
+    box-shadow: 5px 5px 2px #aaaaaa;
 }
 #barChartContainer{
     height: 200px;
@@ -73,6 +75,7 @@
     margin-bottom: 50px;
     margin-left: auto;
     margin-right: auto;
+    box-shadow: 5px 5px 2px #aaaaaa;
 }
 #lineChartContainer{
     height: 220px;
