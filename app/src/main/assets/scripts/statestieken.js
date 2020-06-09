@@ -5,7 +5,7 @@ Date.prototype.getWeek = function () { //krijgt weeknummer
 }
 const monthNames = ["januari", "februari", "maart", "april", "mei", "juni", "juli", "augustua", "september", "oktober", "november", "december"]
 const d = new Date()
-var maand = monthNames[d.getMonth()]
+var monthNumber = monthNames[d.getMonth()]
 var weekNumber = (new Date()).getWeek()
 
 
@@ -73,6 +73,10 @@ document.getElementById("kleurKeuken3").style.backgroundColor = keukens[2].color
 document.getElementById("kleurKeuken4").style.backgroundColor = keukens[3].color
 document.getElementById("kleurKeuken5").style.backgroundColor = keukens[4].color
 
+document.getElementById("donutTitle").innerHTML = "Meest gegeten keuken week " + weekNumber
+document.getElementById("barTitle").innerHTML = "Meest gegeten gerechten  " + monthNumber
+document.getElementById("lineTitle").innerHTML = "Healthy-meter week " + weekNumber
+
 window.onload = function () {
 
 
@@ -80,6 +84,7 @@ window.onload = function () {
     //!Pie chart
     var chart = new CanvasJS.Chart("pieChartContainer", {
         animationEnabled: true,
+        interactivityEnabled: false,
         backgroundColor: "transparent",
         data: [{
             type: "doughnut",
@@ -115,8 +120,17 @@ window.onload = function () {
     //!Bar chart
     var chart = new CanvasJS.Chart("barChartContainer", {
         animationEnabled: true,
+        interactivityEnabled: false,
         axisY: {
-            gridThickness: 0
+            gridThickness: 0,
+            tickLength: 0,
+            lineThickness: 0
+        },
+        axisX: {
+            gridThickness: 0,
+            tickLength: 0,
+            lineThickness: 0,
+            labelFontSize: 16
         },
         data: [{
             type: "bar",
@@ -155,6 +169,7 @@ window.onload = function () {
     //!Line chart
     var chart = new CanvasJS.Chart("lineChartContainer", {
         animationEnabled: true,
+        interactivityEnabled: false,
         axisY: {
             gridThickness: 0
         },

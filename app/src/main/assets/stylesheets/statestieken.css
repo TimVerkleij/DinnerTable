@@ -10,7 +10,10 @@
     font-weight: 300;
     padding: 7px;
 }
-
+.chartTitle{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 18px;
+}
 .pieChartDiv{
     width: 90%;
     height: 240px;
@@ -31,7 +34,7 @@
     list-style: none;
     
     padding-top: 35px;
-    padding-left: 40px;
+    padding-left: 20px;
 }
 .pieLegendaRow{
     height: 30px;
@@ -60,8 +63,9 @@
     box-shadow: 5px 5px 2px #aaaaaa;
 }
 #barChartContainer{
-    height: 200px;
-    width: 80%;
+    height: 170px;
+    width: 90%;
+    margin-top: 15px;
     margin-left: auto;
     margin-right: auto;
 }
