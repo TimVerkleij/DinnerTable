@@ -202,3 +202,5 @@ window.onload = function () {
     });
     chart.render();
 }
+
+console.log(document.getElementsByClassName("canvasjs-chart-credit").style.color ="red")
