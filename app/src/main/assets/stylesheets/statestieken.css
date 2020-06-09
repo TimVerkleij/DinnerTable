@@ -24,15 +24,14 @@
     margin-bottom: 50px;
     margin-left: auto;
     margin-right: auto;
-    box-shadow: 5px 5px 2px #aaaaaa;
+    box-shadow: 0 0 25px rgba(0, 0, 0, 0.10);
 }
 #pieChartContainer{
     height: 220px;
-    width: 55%;
+    width: 52%;
     float: right;
 }
 .pieLegenda{                    /* table */
-    /* display: inline; */
     list-style: none;
     width: 40%;
     padding-top: 35px;
@@ -62,7 +61,7 @@
     margin-bottom: 50px;
     margin-left: auto;
     margin-right: auto;
-    box-shadow: 5px 5px 2px #aaaaaa;
+    box-shadow: 0 0 25px rgba(0, 0, 0, 0.10);
 }
 #barChartContainer{
     height: 170px;
@@ -81,7 +80,7 @@
     margin-bottom: 50px;
     margin-left: auto;
     margin-right: auto;
-    box-shadow: 5px 5px 2px #aaaaaa;
+    box-shadow: 0 0 25px rgba(0, 0, 0, 0.10);
 }
 #lineChartContainer{
     height: 190px;
