@@ -36,7 +36,7 @@ var keukens = [{
     }
 ]
 var gerechten = [{
-        title: "Pannenkoeken",
+        title: "Kip saté",
         amount: 4,
         color: "#8573CA"
     },
