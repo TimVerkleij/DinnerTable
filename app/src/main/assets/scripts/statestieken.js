@@ -130,7 +130,7 @@ window.onload = function () {
             gridThickness: 0,
             tickLength: 0,
             lineThickness: 0,
-            labelFontSize: 16
+            labelFontSize: 14
         },
         data: [{
             type: "bar",
