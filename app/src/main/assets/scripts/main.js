@@ -124,7 +124,7 @@ function getDatabase() {
                             <label class="gerechtenText" id="gerechtenText">` + hetGerecht + `</label><br>
                             <label class="datumText">` + "Laatst gegeten: " + deDatum + `</label>
                         </td>
-                        <td class="tastyHealthyDiv">
+                        <td class="tastyHealthyDiv healthyNumber">
                             <label class="tastyHealthyText">Healthy</label>
                         </td>
                         <td class="tastyHealthyDiv">
@@ -133,7 +133,7 @@ function getDatabase() {
                     </tr>
  		            <tr>
 	 		            <td class="tastyHealthyDiv">
-                            <label class="tastyHealthyNumber">` + deHealthy + `/10` + `</label>
+                            <label class="tastyHealthyNumber healthyNumber">` + deHealthy + `/10` + `</label>
                         </td>
                         <td class="tastyHealthyDiv">
                             <label class="tastyHealthyNumber">` + deTasty + `/10` + `</label>
@@ -170,7 +170,7 @@ function getDatabase() {
                             db.collection("userSettings").doc(userID)
                                 .onSnapshot(function(doc) {
                                     var settings = doc.data().userSettings
-                                    if(!settings.Healthy){
+                                    if (!settings.Healthy) {
                                         document.getElementById("healthyDiv").style.visibility = "hidden"
                                     }
                                 });
@@ -193,6 +193,15 @@ function getDatabase() {
                         })
                     })
                 }
+                document.querySelectorAll('.healthyNumber').forEach(item => {
+                    db.collection("userSettings").doc(userID)
+                        .onSnapshot(function(doc) {
+                            var settings = doc.data().userSettings
+                            if (!settings.Healthy) {
+                                item.style.visibility = "hidden"
+                            }
+                        });
+                })
             }
         });
 }
