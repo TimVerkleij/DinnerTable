@@ -35,7 +35,7 @@ class StatsActivity : AppCompatActivity() {
 
         webView.settings.javaScriptEnabled = true
 //        webView.settings.domStorageEnabled = true
-        webView.loadUrl("file:///android_asset/statestieken.html")
+        webView.loadUrl("file:///android_asset/statistieken.html")
 
         home.setOnClickListener{
             val intent = Intent(this, MainActivity::class.java)
