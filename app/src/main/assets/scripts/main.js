@@ -44,7 +44,7 @@ function getDatabase() {
 
             function sortByProperty(property) {
                 return function(a, b) {
-                   return a[property] - b[property]
+                    return a[property] - b[property]
                 }
             }
 
@@ -167,6 +167,13 @@ function getDatabase() {
                             var editNotitie = document.getElementById("notes")
                             var editKeuken = document.getElementById("keuken")
 
+                            db.collection("userSettings").doc(userID)
+                                .onSnapshot(function(doc) {
+                                    var settings = doc.data().userSettings
+                                    if(!settings.Healthy){
+                                        document.getElementById("healthyDiv").style.visibility = "hidden"
+                                    }
+                                });
 
                             var gerecht = item.children[0].children[0].innerHTML
                             var datum = item.children[0].children[1].innerHTML
@@ -217,7 +224,7 @@ function switchSuggesties() {
 }
 
 
-function openBook(){
+function openBook() {
     window.location.href = "receptenBoek.html";
 }
 

@@ -13,15 +13,28 @@ import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInClient
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.FirebaseUser
 
 
 class WebAppInterfaceSettings(private val mContext: Context) {
+    @JavascriptInterface
+    fun getUserID(): String? {
+
+        val auth: FirebaseAuth = FirebaseAuth.getInstance()
+        val user: FirebaseUser? = auth.currentUser
+        val userID: String?
+        if (user != null) {
+            userID = user.uid.toString()
+        } else{
+            userID = null
+        }
+        return userID
+    }
     @JavascriptInterface
     fun userLogOut(){
         val auth: FirebaseAuth = FirebaseAuth.getInstance()
         auth.signOut()
     }
-
     }
 
 

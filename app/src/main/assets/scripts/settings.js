@@ -25,8 +25,9 @@ function reminderSwitch() {
     var reminderDates = document.getElementById("reminderDates")
     reminderDiv.classList.toggle("expandDiv")
     if (reminderDiv.classList.contains("expandDiv")) {
-        setTimeout(function() { 
-            reminderDates.classList.toggle("reminderDatesShown") }, 500);
+        setTimeout(function() {
+            reminderDates.classList.toggle("reminderDatesShown")
+        }, 500);
     } else {
         reminderDates.classList.toggle("reminderDatesShown")
     }
@@ -38,3 +39,28 @@ function logOut() {
 }
 
 document.getElementById("settings").style.display = "block"
+
+function saveSettings() {
+
+
+    var healthySwitch = document.getElementById("healthySwitch").classList.contains("toggleSwitchOn")
+
+    let userSettings = {
+        Healthy: healthySwitch
+    }
+
+
+    db.collection("userSettings").doc(userID).set({
+        userSettings
+    }, { merge: true })
+}
+
+
+db.collection("userSettings").doc(userID)
+    .onSnapshot(function(doc) {
+        var settings = doc.data().userSettings
+        if (settings.Healthy) {
+            document.getElementById("healthySetting").classList = "switch"
+            document.getElementById("healthySwitch").classList = "toggleSwitch toggleSwitchOn"
+        }
+    });
