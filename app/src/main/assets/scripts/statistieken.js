@@ -1,5 +1,5 @@
 //stats
-Date.prototype.getWeek = function () { //krijgt weeknummer
+Date.prototype.getWeek = function() { //krijgt weeknummer
     var onejan = new Date(this.getFullYear(), 0, 1);
     return Math.ceil((((this - onejan) / 86400000) + onejan.getDay() + 1) / 7);
 }
@@ -77,7 +77,7 @@ document.getElementById("donutTitle").innerHTML = "Meest gegeten keuken week " +
 document.getElementById("barTitle").innerHTML = "Meest gegeten gerechten  " + monthNumber
 document.getElementById("lineTitle").innerHTML = "Healthy-meter week " + weekNumber
 
-window.onload = function () {
+window.onload = function() {
 
 
 
@@ -202,3 +202,11 @@ window.onload = function () {
     });
     chart.render();
 }
+
+db.collection("userSettings").doc(userID)
+    .onSnapshot(function(doc) {
+        var settings = doc.data().userSettings
+        if (!settings.Healthy) {
+            document.getElementById("healthyChart").style.display = "none"
+        }
+    });

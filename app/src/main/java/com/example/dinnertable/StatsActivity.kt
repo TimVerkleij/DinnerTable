@@ -1,13 +1,35 @@
 package com.example.dinnertable
 
+import android.content.Context
 import android.content.Intent
 import android.media.Image
 import android.os.Bundle
+import android.webkit.JavascriptInterface
 import android.webkit.WebView
 import android.webkit.WebViewClient
 import android.widget.Button
 import android.widget.ImageButton
 import androidx.appcompat.app.AppCompatActivity
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.FirebaseUser
+
+
+class WebAppInterfaceStats(private val mContext: Context) {
+    @JavascriptInterface
+    fun getUserID(): String? {
+        val auth: FirebaseAuth = FirebaseAuth.getInstance()
+        val user: FirebaseUser? = auth.currentUser
+        val userID: String?
+        if (user != null) {
+            userID = user.uid.toString()
+        } else {
+            userID = null
+        }
+        return userID
+    }
+}
+
+
 
 class StatsActivity : AppCompatActivity() {
 
@@ -34,7 +56,7 @@ class StatsActivity : AppCompatActivity() {
         }
 
         webView.settings.javaScriptEnabled = true
-//        webView.settings.domStorageEnabled = true
+        webView.addJavascriptInterface(WebAppInterfaceStats(this), "Android")
         webView.loadUrl("file:///android_asset/statistieken.html")
 
         home.setOnClickListener{
