@@ -1,10 +1,7 @@
 package com.example.dinnertable
 
-import android.app.Notification
+import android.app.*
 import android.app.Notification.Builder
-import android.app.NotificationChannel
-import android.app.NotificationManager
-import android.app.PendingIntent
 import android.content.Context
 import android.content.Intent
 import android.graphics.Color
@@ -17,6 +14,7 @@ import android.widget.ImageButton
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.NotificationCompat
 import androidx.core.app.NotificationManagerCompat
+import androidx.core.graphics.green
 import com.google.android.gms.auth.api.signin.GoogleSignInClient
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
@@ -158,7 +156,7 @@ class SettingsActivity : AppCompatActivity() {
 
             // creating the notification and its parameters.
             val builder = NotificationCompat.Builder(this, PRIMARY_CHANNEL_ID).apply {
-                setSmallIcon(R.drawable.dinner_table_icon)
+                setSmallIcon(R.drawable.dinnertable_logo_no_background)
                 setContentIntent(pendingIntent)
                 setContentTitle("DinnerTable")
                 setContentText("Wat eet je vandaag?")
@@ -175,6 +173,10 @@ class SettingsActivity : AppCompatActivity() {
 notificationManager.notify(NOTIFICATION_ID, notification.build())
 */
         }
+    }
+
+    private fun createAlarm(){
+//
     }
 
 
