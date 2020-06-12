@@ -74,6 +74,7 @@ function logInError() {
     var missingCredentialsLogin = document.getElementById("missingCredentialsLogin")
         // var UnknownError = document.getElementById("UnknownError")
     var loadingImg = document.getElementById("loadingImg")
+    var dinnerTableLogo = document.getElementById("dinnerTableLogo")
 
     AuthFailed.style.display = "none"
     missingCredentialsLogin.style.display = "none"
@@ -82,6 +83,8 @@ function logInError() {
 
     if (loginEmail != "" && loginPassword != "") {
         loadingImg.style.display = "inline"
+        dinnerTableLogo.style.transform = "rotate(1800deg)"
+        dinnerTableLogo.style.transition = "5s"
         Android.loginUser(loginEmail, loginPassword)
         setTimeout(function() { AuthFailed.style.display = "block"; loadingImg.style.display = "none" }, 2000);
     } else {

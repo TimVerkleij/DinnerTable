@@ -156,7 +156,7 @@ class SettingsActivity : AppCompatActivity() {
 
             // creating the notification and its parameters.
             val builder = NotificationCompat.Builder(this, PRIMARY_CHANNEL_ID).apply {
-                setSmallIcon(R.drawable.dinner_table_icon)
+                setSmallIcon(R.drawable.new_dinnertable_logo)
                 setContentIntent(pendingIntent)
                 setContentTitle("DinnerTable")
                 setContentText("Wat eet je vandaag?")
