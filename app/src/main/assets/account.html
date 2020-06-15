@@ -28,13 +28,14 @@
             <p class="descriptionInfo" id="userEmail">-</p>
         </div>
         <div class="row">
-            <h2 class="titleInfo">Allergieën</h2>
+            <h2 class="titleInfo">Allergieën <img src="images/icons/infoIcon.png" class="infoIcon" onclick="allergiesInfo()"></h2>
+
             <p class="descriptionInfo" id="allergies">-</p>
             <!-- <p class="descriptionInfo">Lactose</p> -->
             <!-- <p class="descriptionInfo">Eieren</p> -->
         </div>
         <div class="row">
-            <h2 class="titleInfo">Eetvoorkeuren</h2>
+            <h2 class="titleInfo">Eetvoorkeuren<img src="images/icons/infoIcon.png" class="infoIcon" onclick="preferenceInfo()"></h2>
             <p class="descriptionInfo" id="preferences">-</p>
         </div>
     </div>
@@ -81,6 +82,15 @@
             <input type="button" value="Opslaan" onclick="saveAccount()" class="saveInfo">
         </div>
     </div>
+    <div class="darkBackground" id="darkBackground" onclick="exitDarkBackground()">
+        <div class="infoDivPopup" id="infoDivAllergies">
+            <p>Hier kunt u een lijst opstellen met allergieën. Zo kunnen we daar rekening mee houden bij de suggesties voor gerechten.</p>
+        </div>
+        <div class="infoDivPopup" id="infoDivPreferences">
+            <p>Hier kunt u een lijst opstellen met eetvoorkeuren. Bijvoorbeeld, vegetarisch of koolhydraatarm. Zo kunnen we daar rekening mee houden bij de suggesties voor gerechten. </p>
+        </div>
+    </div>
+
 
 
 </body>
@@ -112,7 +122,7 @@
         var userName = Android.getUserName()
         var userEmail = Android.getUserEmail()
         var userPhoto = Android.getUserPhoto()
-        // console.log(userID, userName, userEmail, userPhoto)
+            // console.log(userID, userName, userEmail, userPhoto)
     } else {
         var userID = "Ai1ogLVEz1sQuFxpkWYd"
         console.log(userID)
