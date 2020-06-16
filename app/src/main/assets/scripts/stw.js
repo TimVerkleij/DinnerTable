@@ -166,10 +166,6 @@ function edit() {
         container.appendChild(gerecht123)
         window.input = document.createElement("input")
         input.type = "text"
-            // <input type="text" maxlength="3" id="hahaha" onkeypress="if(this.value.length >= this.getAttribute('maxlength') return false;" />
-            // input.onkeypress = function(){
-            //     if(this.value.length >= this.getAttribute('maxlength')) document.activeElement.blur()
-            // }
         input.addEventListener("keydown", keyPressFunction);
         input.maxLength = "12"
         input.name = "slot" + i
@@ -197,7 +193,8 @@ function changeSlots() {
     if (gevuld == true) {
         inputs.forEach(change)
     } else {
-        alert("Vul alle vakjes!")
+        document.getElementById("legeVeldenText").style.display = "block"
+        setTimeout(function(){ document.getElementById("legeVeldenText").style.display = "none" }, 5000);
     }
 
     function change(value) {
@@ -254,11 +251,6 @@ function scrollDown() {
 
 var slider = document.getElementsByClassName("slider")
 var slides = document.getElementsByClassName("slides")
-
-function scrolling() {
-    var slides = document.getElementsByClassName("slider")
-        // slides.scrollTo(100, 0)
-}
 
 clickToTurn.style.marginLeft = -clickToTurn.offsetWidth / 2 + "px"
 clickToTurn.style.marginTop = 140 - clickToTurn.offsetHeight / 2 + "px"

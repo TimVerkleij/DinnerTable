@@ -7,7 +7,6 @@ function editInfo() {
 function closeEditInfo() {
     editInfoDiv.className = "editInfoDivInvisible"
 }
-//? Open en sluit het scherm om userInfo te bewerken //
 
 var userProfileImage = document.getElementById("userPhoto")
 var userNameField = document.getElementById("userName")
@@ -32,10 +31,6 @@ docRef.get().then(function(doc) {
 
                 //get profile info from database
                 userInfo = doc.data().userInfo
-
-
-
-
 
                 var userPhoto = userInfo.Photo
                 var userName = userInfo.Name
@@ -72,7 +67,6 @@ docRef.get().then(function(doc) {
         if (typeof Android != 'undefined') {
 
             //create document for new user
-
             userProfileImage.src = userPhoto
             userNameField.innerHTML = userName
             userEmailField.innerHTML = userEmail
@@ -80,8 +74,6 @@ docRef.get().then(function(doc) {
             editUserPhoto.src = userPhoto
             editName.value = userName
             editEmail.value = userEmail
-                // editAllergies.value = "test"
-                // editPreferences.value = "test"
 
 
             let userInfo = {
@@ -90,10 +82,6 @@ docRef.get().then(function(doc) {
                 Photo: userPhoto,
                 ID: userID
             }
-
-            // let user = {
-            //     [userID]: userInfo
-            // }
 
             function uploadData() {
                 db.collection("userProfiles").doc(userID).set({

@@ -67,12 +67,10 @@ function datumChange() {
 }
 
 function logInError() {
-    // document.getElementById("logInError").style.display = "block"
     var loginEmail = document.getElementById("loginEmail").value
     var loginPassword = document.getElementById("loginPassword").value
     var AuthFailed = document.getElementById("AuthFailed")
     var missingCredentialsLogin = document.getElementById("missingCredentialsLogin")
-        // var UnknownError = document.getElementById("UnknownError")
     var loadingImg = document.getElementById("loadingImg")
     var dinnerTableLogo = document.getElementById("dinnerTableLogo")
 
@@ -115,20 +113,16 @@ function registerError() {
             var lowerCase = /[a-z]/
             var numbers = /[0-9]/
             if (password.match(numbers) && password.match(capitals) && password.match(lowerCase) && password.length >= 8) {
-                console.log("Valid!")
                 Android.createUser(email, password, confirmPassword)
             } else {
                 document.getElementById("errorTitle").style.display = "block"
                 if (!password.match(numbers)) {
-                    console.log("Gebruik minimaal 1 getal")
                     document.getElementById("noNumbers").style.display = "block"
                 }
                 if (!password.match(capitals) || !password.match(lowerCase)) {
-                    console.log("gebruik een combinatie van hoofdletters en kleine letters")
                     document.getElementById("noCombination").style.display = "block"
                 }
                 if (password.length < 8) {
-                    console.log("gebruik minimaal 8 tekens")
                     document.getElementById("tooShort").style.display = "block"
                 }
             }

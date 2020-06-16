@@ -45,14 +45,3 @@ function addFood() {
 
     searchField.value = ''
 }
-
-//!! voorbeeld voor het ophalen van data uit cloud firestore
-function showFirestore() {
-    db.collection("gerechten").doc("iXXUqe1pkyGgoPQKAAmB")
-        .onSnapshot(function(doc) {
-            console.log("Current data: ", doc.data());
-        });
-    return firebase.database().ref('Gerechten').once('value').then(function(snapshot) {
-        console.log(snapshot.val())
-    });
-}

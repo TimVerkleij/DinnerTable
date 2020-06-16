@@ -12,7 +12,6 @@ document.querySelectorAll('.checkbox').forEach(item => {
     item.addEventListener('click', event => {
 
         item.classList.toggle("checked")
-            // console.log(item.getAttribute("name"))
         var timeInputID = item.getAttribute("name")
         var timeInput = document.getElementById(timeInputID)
         timeInput.classList.toggle("timeInputShown")
