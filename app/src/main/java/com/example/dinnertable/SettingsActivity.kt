@@ -1,7 +1,8 @@
 package com.example.dinnertable
 
-import android.app.*
-import android.app.Notification.Builder
+import android.app.NotificationChannel
+import android.app.NotificationManager
+import android.app.PendingIntent
 import android.content.Context
 import android.content.Intent
 import android.graphics.Color
@@ -14,7 +15,6 @@ import android.widget.ImageButton
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.NotificationCompat
 import androidx.core.app.NotificationManagerCompat
-import androidx.core.graphics.green
 import com.google.android.gms.auth.api.signin.GoogleSignInClient
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
@@ -28,7 +28,7 @@ class WebAppInterfaceSettings(private val mContext: Context) {
         val user: FirebaseUser? = auth.currentUser
         val userID: String?
         if (user != null) {
-            userID = user.uid.toString()
+            userID = user.uid
         } else{
             userID = null
         }
@@ -86,42 +86,25 @@ class SettingsActivity : AppCompatActivity() {
                 overridePendingTransition(0, 0)
                 }
             }
-
-
-
         createNotificationChannel()
-
-
 
         home.setOnClickListener {
             val intent = Intent(this, MainActivity::class.java)
             startActivity(intent)
-//            finish()
             overridePendingTransition(0, 0)
         }
 
         account.setOnClickListener {
             val intent = Intent(this, AccountActivity::class.java)
             startActivity(intent)
-//            finish()
             overridePendingTransition(0, 0)
         }
 
         stats.setOnClickListener {
             val intent = Intent(this, StatsActivity::class.java)
             startActivity(intent)
-//            finish()
             overridePendingTransition(0, 0)
         }
-
-
-
-
-
-
-
-
-
     }
 
 
@@ -168,19 +151,8 @@ class SettingsActivity : AppCompatActivity() {
             with(NotificationManagerCompat.from(this)) {
                 notify(NOTIFICATION_ID, builder.build())
             }
-
-/* or you can use the notification manager object.
-notificationManager.notify(NOTIFICATION_ID, notification.build())
-*/
         }
     }
-
-    private fun createAlarm(){
-//
-    }
-
-
-
 }
 
 

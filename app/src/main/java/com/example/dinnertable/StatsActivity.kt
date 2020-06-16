@@ -2,12 +2,10 @@ package com.example.dinnertable
 
 import android.content.Context
 import android.content.Intent
-import android.media.Image
 import android.os.Bundle
 import android.webkit.JavascriptInterface
 import android.webkit.WebView
 import android.webkit.WebViewClient
-import android.widget.Button
 import android.widget.ImageButton
 import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.auth.FirebaseAuth
@@ -62,21 +60,18 @@ class StatsActivity : AppCompatActivity() {
         home.setOnClickListener{
             val intent = Intent(this, MainActivity::class.java)
             startActivity(intent)
-//            finish()
             overridePendingTransition(0, 0)
         }
 
         account.setOnClickListener {
             val intent = Intent(this, AccountActivity::class.java)
             startActivity(intent)
-//            finish()
             overridePendingTransition(0, 0)
         }
 
         settings.setOnClickListener {
             val intent = Intent(this, SettingsActivity::class.java)
             startActivity(intent)
-//            finish()
             overridePendingTransition(0, 0)
         }
     }
