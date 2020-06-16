@@ -67,6 +67,7 @@
 .addFoodBtn {
     width: 25px;
     height: 25px;
+    margin-top: -35px;
     transform: translateY(8.5px);
 }
 
