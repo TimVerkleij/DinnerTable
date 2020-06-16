@@ -100,12 +100,6 @@
     transition: 1s;
 }
 
-
-/* .editInfoDivInvisible:hover {
-    top: 100px;
-    transition: 1s;
-} */
-
 .editInfoDivVisible {
     background-color: #F7F7F7;
     width: 100%;

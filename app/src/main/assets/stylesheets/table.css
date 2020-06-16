@@ -7,7 +7,6 @@
     padding-bottom: 5px;
 }
 .row{
-    /* height: 50px; */
     padding-left: 10px;
     padding-right: 10px;
     background-color: white;
@@ -43,7 +42,6 @@
 }
 
 .tryThis{
-    /* overflow: hidden; */
     text-overflow: ellipsis;
     white-space: nowrap;
 }
