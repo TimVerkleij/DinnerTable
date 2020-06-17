@@ -194,3 +194,11 @@ body {
     height: 100px;
     display: none;
 }
+
+.logo{
+    position: relative;
+    width: 100px;
+    height: 100px;
+    margin-left: 70px;
+    margin-top: -30px;
+}

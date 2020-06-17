@@ -23,7 +23,7 @@
                 </div>
                 <div class="findDish">
                     <input type="text" id="searchField" class="searchBar" placeholder="Zoek een gerecht">
-                    <!-- <img src="images/plusBtn.png" alt="plus knop" class="addFoodBtn" id="addFoodBtn" onclick="addFood()"> -->
+                    <img src="images/plusBtn.png" alt="plus knop" class="addFoodBtn" id="addFoodBtn" onclick="addFood()" style="float: right;">
                 </div>
             </div>
             <div id="sortingDiv" class="row sortingDiv">
@@ -68,7 +68,7 @@
                 <table class="tastyHealthyTable">
                     <tr>
                         <td style="width: 50%;">
-                            <div class="inputHealthy">
+                            <div class="inputHealthy" id="healthyDiv">
                                 <label class="label">Healthy*</label><br>
                                 <input type="number" class="numberScale" onblur="checkNumber(this)" id="health">
                                 <label class="maxNumberLabel">/10</label>
@@ -132,6 +132,7 @@
                     <label id="amount"></label>
                     <button id="plusButton" onclick="editPlus()">+</button><br><br>
                     <label class="maxTekensText" id="maxTekensText">Maximale aantal tekens bereikt</label>
+                    <label class="maxTekensText" id="legeVeldenText">Vul alle velden!</label>
                     <div id="container"></div><br>
                     <button id="annulerenBtn" onclick="annuleren()">Annuleren</button>
                     <button id="changeSlots" onclick="changeSlots()">Opslaan</button>
@@ -192,12 +193,6 @@
             </div>
         </div>
     </div>
-    <!-- <div id="bigBookDiv">
-        <div class="row findDish">
-            <input type="text" id="searchField" class="searchBar" placeholder="Zoek een gerecht">
-            
-        </div>
-    </div> -->
     <!--!! firebase stuff  -->
     <script src="https://www.gstatic.com/firebasejs/7.9.1/firebase.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
@@ -223,10 +218,8 @@
 
         if (typeof Android != 'undefined') {
             var userID = Android.getUserID()
-            console.log(userID)
         } else {
             var userID = "Ai1ogLVEz1sQuFxpkWYd"
-            console.log(userID)
         }
     </script>
     <!--!! end of firebase stuff  -->

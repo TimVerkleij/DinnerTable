@@ -3,18 +3,13 @@ package com.example.dinnertable
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
-import android.view.View
 import android.webkit.JavascriptInterface
 import android.webkit.WebView
 import android.webkit.WebViewClient
 import android.widget.ImageButton
 import androidx.appcompat.app.AppCompatActivity
-import androidx.constraintlayout.widget.ConstraintSet
-import androidx.recyclerview.widget.DividerItemDecoration
-import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
-import kotlinx.android.synthetic.main.activity_account.*
 
 
 class WebAppInterfaceAccount(private val mContext: Context) {
@@ -24,19 +19,10 @@ class WebAppInterfaceAccount(private val mContext: Context) {
         val auth: FirebaseAuth = FirebaseAuth.getInstance()
         val user: FirebaseUser? = auth.currentUser
         val userID: String?
-//        val userPhoto: String?
-//        val userEmail: String?
-//        val userName: String?
         userID = if (user != null) {
             user.uid
-            //            userPhoto = user.photoUrl.toString()
-            //            userName = user.displayName
-            //            userEmail = user.email
         } else {
             null
-            //            userPhoto = null
-            //            userEmail = null
-            //            userName = null
         }
         return userID
     }
@@ -93,7 +79,6 @@ class AccountActivity : AppCompatActivity() {
         setContentView(R.layout.activity_account)
 
         val home = findViewById<ImageButton>(R.id.home)
-//        val account = findViewById<ImageButton>(R.id.account)
         val stats = findViewById<ImageButton>(R.id.stats)
         val settings = findViewById<ImageButton>(R.id.settings)
 
@@ -116,21 +101,18 @@ class AccountActivity : AppCompatActivity() {
         home.setOnClickListener {
             val intent = Intent(this, MainActivity::class.java)
             startActivity(intent)
-//            finish()
             overridePendingTransition(0, 0)
         }
 
         stats.setOnClickListener {
             val intent = Intent(this, StatsActivity::class.java)
             startActivity(intent)
-//            finish()
             overridePendingTransition(0, 0)
         }
 
         settings.setOnClickListener {
             val intent = Intent(this, SettingsActivity::class.java)
             startActivity(intent)
-//            finish()
             overridePendingTransition(0, 0)
         }
     }

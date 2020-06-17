@@ -100,12 +100,6 @@
     transition: 1s;
 }
 
-
-/* .editInfoDivInvisible:hover {
-    top: 100px;
-    transition: 1s;
-} */
-
 .editInfoDivVisible {
     background-color: #F7F7F7;
     width: 100%;
@@ -174,4 +168,31 @@
     display: none;
     color: red;
     font-size: 12px;
+}
+
+.infoIcon{
+    margin: -3px;
+    margin-left: 2px;
+}
+
+.infoDivPopup{
+    position: fixed;
+    width: 80%;
+    margin-left: 7%;
+    top: 30%;
+    margin-right: 7%;
+    padding: 10px;
+    box-shadow: inset 0 0 3px #000000;
+    display: none;
+    background-color: white;
+    border-radius: 10px;
+}
+
+.darkBackground{
+    position: fixed;
+    background-color: #000000AA;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    display: none;
 }

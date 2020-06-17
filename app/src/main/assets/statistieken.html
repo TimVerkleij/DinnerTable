@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <link rel="stylesheet" href="stylesheets/main.css">
+    <link rel="stylesheet" href="stylesheets/statistieken.css">
+</head>
+
+<body>
+    <div class="top-bit">
+        <h2 class="title">Statistieken</h2>
+    </div>
+    <div class="pieChartDiv">
+        <div style="width: 100%; height: 10px; text-align: center; padding-top: 15px;">
+            <p class="chartTitle" id="donutTitle"></p>
+        </div>
+        <div id="pieChartContainer"></div>
+        <table class="pieLegenda">
+            <tr class="pieLegendaRow">
+                <td><div id="kleurKeuken1" class="kleurenKeuken"></div></td>
+                <td class="keukenList" id="keuken1"></td>
+            </tr>
+            <tr class="pieLegendaRow">
+                <td><div id="kleurKeuken2" class="kleurenKeuken"></div></td>
+                <td class="keukenList" id="keuken2"></td>
+            </tr>
+            <tr class="pieLegendaRow">
+                <td><div id="kleurKeuken3" class="kleurenKeuken"></div></td>
+                <td class="keukenList" id="keuken3"></td>
+            </tr>
+            <tr class="pieLegendaRow">
+                <td><div id="kleurKeuken4" class="kleurenKeuken"></div></td>
+                <td class="keukenList" id="keuken4"></td>
+            </tr>
+            <tr class="pieLegendaRow">
+                <td><div id="kleurKeuken5" class="kleurenKeuken"></div></td>
+                <td class="keukenList" id="keuken5"></td>
+            </tr>
+        </table>
+    </div>
+    <div class="barChartDiv">
+        <div style="width: 100%; height: 10px; text-align: center; padding-top: 15px;">
+            <p class="chartTitle" id="barTitle"></p>
+        </div>
+        <div id="barChartContainer"></div>
+    </div>
+    <div class="lineChartDiv" id="healthyChart">
+        <div style="width: 100%; height: 10px; text-align: center; padding-top: 15px;">
+            <p class="chartTitle" id="lineTitle"></p>
+        </div>
+        <div id="lineChartContainer"></div>
+    </div>
+
+</body>
+<script src="scripts/canvasjs.js" defer></script>
+<script src="scripts/statistieken.js" defer></script>
+
+<!--!! firebase stuff  -->
+<script src="https://www.gstatic.com/firebasejs/7.9.1/firebase.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+<script>
+    var firebaseConfig = {
+        apiKey: "AIzaSyBJaWwzG5HTWIXOxywshVpRRHo1i4Gey8s",
+        authDomain: "dinnertable-56c1c.firebaseapp.com",
+        databaseURL: "https://dinnertable-56c1c.firebaseio.com",
+        projectId: "dinnertable-56c1c",
+        storageBucket: "dinnertable-56c1c.appspot.com",
+        messagingSenderId: "297554476203",
+        appId: "1:297554476203:web:928e5939d0765ad2658bee",
+        measurementId: "G-MSFBS5XHBR"
+    };
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+    firebase.analytics();
+
+    // Get a reference to the database service
+    var database = firebase.database();
+    //Get a reference to the firestore service
+    var db = firebase.firestore()
+
+    if (typeof Android != 'undefined') {
+        var userID = Android.getUserID()
+    } else {
+        var userID = "Ai1ogLVEz1sQuFxpkWYd"
+    }
+</script>
+<!--!! end of firebase stuff  -->
+
+</html>

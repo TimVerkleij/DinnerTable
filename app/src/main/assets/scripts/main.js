@@ -44,7 +44,7 @@ function getDatabase() {
 
             function sortByProperty(property) {
                 return function(a, b) {
-                   return a[property] - b[property]
+                    return a[property] - b[property]
                 }
             }
 
@@ -124,7 +124,7 @@ function getDatabase() {
                             <label class="gerechtenText" id="gerechtenText">` + hetGerecht + `</label><br>
                             <label class="datumText">` + "Laatst gegeten: " + deDatum + `</label>
                         </td>
-                        <td class="tastyHealthyDiv">
+                        <td class="tastyHealthyDiv healthyNumber">
                             <label class="tastyHealthyText">Healthy</label>
                         </td>
                         <td class="tastyHealthyDiv">
@@ -133,7 +133,7 @@ function getDatabase() {
                     </tr>
  		            <tr>
 	 		            <td class="tastyHealthyDiv">
-                            <label class="tastyHealthyNumber">` + deHealthy + `/10` + `</label>
+                            <label class="tastyHealthyNumber healthyNumber">` + deHealthy + `/10` + `</label>
                         </td>
                         <td class="tastyHealthyDiv">
                             <label class="tastyHealthyNumber">` + deTasty + `/10` + `</label>
@@ -167,6 +167,13 @@ function getDatabase() {
                             var editNotitie = document.getElementById("notes")
                             var editKeuken = document.getElementById("keuken")
 
+                            db.collection("userSettings").doc(userID)
+                                .onSnapshot(function(doc) {
+                                    var settings = doc.data().userSettings
+                                    if (!settings.Healthy) {
+                                        document.getElementById("healthyDiv").style.visibility = "hidden"
+                                    }
+                                });
 
                             var gerecht = item.children[0].children[0].innerHTML
                             var datum = item.children[0].children[1].innerHTML
@@ -186,6 +193,15 @@ function getDatabase() {
                         })
                     })
                 }
+                document.querySelectorAll('.healthyNumber').forEach(item => {
+                    db.collection("userSettings").doc(userID)
+                        .onSnapshot(function(doc) {
+                            var settings = doc.data().userSettings
+                            if (!settings.Healthy) {
+                                item.style.visibility = "hidden"
+                            }
+                        });
+                })
             }
         });
 }
@@ -217,7 +233,7 @@ function switchSuggesties() {
 }
 
 
-function openBook(){
+function openBook() {
     window.location.href = "receptenBoek.html";
 }
 
